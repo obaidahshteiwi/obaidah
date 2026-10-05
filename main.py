@@ -1,6 +1,5 @@
 import html
 import json
-import os
 import re
 from datetime import datetime, timezone
 from pathlib import Path
@@ -14,12 +13,11 @@ SEEN_FILE = Path("seen.json")
 LATEST_FILE = Path("latest_news.json")
 FEEDS_FILE = Path("feeds.txt")
 REQUEST_TIMEOUT = 25
-OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-6-luna")
-OPENAI_URL = "https://api.openai.com/v1/responses"
-GREEN_API_URL = os.getenv("GREEN_API_URL", "https://7107.api.greenapi.com").rstrip("/")
-GREEN_API_INSTANCE = os.getenv("GREEN_API_INSTANCE")
-GREEN_API_TOKEN = os.getenv("GREEN_API_TOKEN")
-WHATSAPP_GROUP_ID = os.getenv("WHATSAPP_GROUP_ID")
+
+GREEN_API_URL = "https://7107.api.greenapi.com"
+GREEN_API_INSTANCE = __import__("os").getenv("GREEN_API_INSTANCE")
+GREEN_API_TOKEN = __import__("os").getenv("GREEN_API_TOKEN")
+WHATSAPP_GROUP_ID = __import__("os").getenv("WHATSAPP_GROUP_ID")
 
 SYRIA_KEYWORDS = [
     "سوريا", "سورية", "السوري", "السورية", "سوري", "سوريّة",
@@ -88,103 +86,6 @@ def is_syria_news(title: str, summary: str) -> bool:
     return any(keyword.lower() in text for keyword in SYRIA_KEYWORDS)
 
 
-def extract_response_text(data: dict[str, Any]) -> str:
-    direct = data.get("output_text")
-    if isinstance(direct, str) and direct.strip():
-        return direct.strip()
-
-    chunks: list[str] = []
-    for item in data.get("output", []) or []:
-        if not isinstance(item, dict):
-            continue
-        for content in item.get("content", []) or []:
-            if not isinstance(content, dict):
-                continue
-            if content.get("type") in {"output_text", "text"}:
-                text = content.get("text")
-                if isinstance(text, str) and text.strip():
-                    chunks.append(text.strip())
-
-    return "\n".join(chunks).strip()
-
-
-def rewrite_with_ai(article: dict[str, Any]) -> dict[str, Any] | None:
-    api_key = os.getenv("OPENAI_API_KEY")
-    if not api_key:
-        print("[ERROR] OPENAI_API_KEY is not configured in GitHub Secrets.")
-        return None
-
-    prompt = f"""أنت محرر أخبار سوري محترف.
-أعد صياغة الخبر التالي باللغة العربية بصياغة صحفية واضحة ومحايدة.
-التزم حصراً بالمعلومات الموجودة في النص، ولا تضف أي معلومة أو استنتاج غير موجود.
-لا تذكر أنك ذكاء اصطناعي.
-
-العنوان الأصلي:
-{article["title"]}
-
-ملخص/نص المصدر:
-{article["summary"]}
-
-أعد النتيجة بهذا الشكل فقط:
-العنوان: عنوان مختصر وجذاب
-النص: فقرة خبرية من 2 إلى 4 جمل
-"""
-
-    payload = {
-        "model": OPENAI_MODEL,
-        "input": prompt,
-        "max_output_tokens": 350,
-    }
-    headers = {
-        "Authorization": f"Bearer {api_key}",
-        "Content-Type": "application/json",
-    }
-
-    try:
-        response = requests.post(
-            OPENAI_URL,
-            headers=headers,
-            json=payload,
-            timeout=REQUEST_TIMEOUT,
-        )
-        response.raise_for_status()
-        data = response.json()
-
-        output_text = extract_response_text(data)
-        if not output_text:
-            status = data.get("status", "unknown")
-            incomplete = data.get("incomplete_details")
-            print(
-                f"[WARN] OpenAI returned no text. "
-                f"status={status}, incomplete_details={incomplete}"
-            )
-            print(
-                "[WARN] Response output types: "
-                + str([
-                    item.get("type")
-                    for item in data.get("output", [])
-                    if isinstance(item, dict)
-                ])
-            )
-            return None
-
-        rewritten = dict(article)
-        rewritten["ai_text"] = output_text
-        rewritten["ai_model"] = OPENAI_MODEL
-        return rewritten
-
-    except requests.HTTPError as exc:
-        body = response.text[:1000] if response is not None else ""
-        print(
-            f"[ERROR] OpenAI HTTP error: {exc}. "
-            f"Response: {body}"
-        )
-        return None
-    except (requests.RequestException, ValueError) as exc:
-        print(f"[ERROR] OpenAI request failed: {exc}")
-        return None
-
-
 def whatsapp_send_url() -> str:
     return (
         f"{GREEN_API_URL}/waInstance{GREEN_API_INSTANCE}/"
@@ -194,35 +95,34 @@ def whatsapp_send_url() -> str:
 
 def publish_to_whatsapp(article: dict[str, Any]) -> bool:
     if not GREEN_API_INSTANCE or not GREEN_API_TOKEN or not WHATSAPP_GROUP_ID:
-        print(
-            "[ERROR] WhatsApp is not configured. "
-            "Add GREEN_API_INSTANCE, GREEN_API_TOKEN, and WHATSAPP_GROUP_ID "
-            "to GitHub Actions Secrets."
-        )
+        print("[ERROR] WhatsApp secrets are not configured.")
         return False
 
-    ai_text = article.get("ai_text", "").strip()
-    link = article.get("link", "").strip()
-    if not ai_text or not link:
-        print("[ERROR] WhatsApp message is missing AI text or source link.")
-        return False
+    title = article["title"].strip()
+    summary = article["summary"].strip()
+    link = article["link"].strip()
 
-    message = f"{ai_text}\n\nالمصدر: {link}"
-    payload = {"chatId": WHATSAPP_GROUP_ID, "message": message}
+    if summary:
+        message = f"*{title}*\n\n{summary}\n\nالمصدر: {link}"
+    else:
+        message = f"*{title}*\n\nالمصدر: {link}"
 
     try:
         response = requests.post(
             whatsapp_send_url(),
-            json=payload,
+            json={"chatId": WHATSAPP_GROUP_ID, "message": message},
             timeout=REQUEST_TIMEOUT,
         )
         response.raise_for_status()
         data = response.json()
+
         if data.get("idMessage") or data.get("status") == "success":
-            print(f"[OK] WhatsApp published: {data}")
+            print(f"[OK] WhatsApp published: {title}")
             return True
+
         print(f"[ERROR] WhatsApp returned an unexpected response: {data}")
         return False
+
     except requests.HTTPError as exc:
         body = response.text[:1000] if response is not None else ""
         print(f"[ERROR] WhatsApp HTTP error: {exc}. Response: {body}")
@@ -235,7 +135,7 @@ def publish_to_whatsapp(article: dict[str, Any]) -> bool:
 def collect_candidates(feeds: list[str]) -> list[dict[str, Any]]:
     candidates: list[dict[str, Any]] = []
     seen_ids: set[str] = set()
-    headers = {"User-Agent": "Syria-News-AI-Radar/1.0"}
+    headers = {"User-Agent": "Syria-News-Radar/1.0"}
 
     for feed_url in feeds:
         try:
@@ -294,7 +194,7 @@ def main() -> None:
         raise SystemExit(
             "WhatsApp publishing is not configured. "
             "Add GREEN_API_INSTANCE, GREEN_API_TOKEN, and WHATSAPP_GROUP_ID "
-            "to GitHub Actions Secrets before running the radar."
+            "to GitHub Actions Secrets."
         )
 
     seen = load_seen()
@@ -314,33 +214,22 @@ def main() -> None:
         print("[INFO] No new Syria news found.")
         return
 
-    processed_articles = []
+    published_count = 0
+
     for index, article in enumerate(new_articles, start=1):
         print(f"\n[{index}] {article['title']}")
         print(f"Published: {article['published']}")
         print(f"Link: {article['link']}")
 
-        rewritten = rewrite_with_ai(article)
-        if rewritten is None:
-            print("[WARN] Article was not marked as seen so it can be retried next cycle.")
+        if not publish_to_whatsapp(article):
+            print("[WARN] Article was not marked as seen and will be retried.")
             continue
 
-        if not publish_to_whatsapp(rewritten):
-            print(
-                "[WARN] WhatsApp publishing failed. "
-                "Article was not marked as seen so it can be retried next cycle."
-            )
-            continue
-
-        processed_articles.append(rewritten)
+        published_count += 1
         seen.add(article["link"] or article["title"])
 
-    save_json(LATEST_FILE, processed_articles)
     save_json(SEEN_FILE, list(seen)[-500:])
-    print(
-        f"\n[OK] Cycle complete. "
-        f"AI processed and published to WhatsApp: {len(processed_articles)} article(s)."
-    )
+    print(f"\n[OK] Cycle complete. Published to WhatsApp: {published_count} article(s).")
 
 
 if __name__ == "__main__":
