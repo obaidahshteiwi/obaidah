@@ -1,5 +1,5 @@
 name: Syria News AI Radar
-# AI integration test trigger
+# Manual test trigger
 
 on:
   workflow_dispatch:
