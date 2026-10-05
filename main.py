@@ -71,7 +71,17 @@ def entry_time(entry: Any) -> float:
 
 
 def is_syria_news(title: str, summary: str) -> bool:
-    text = f"{title} {summary}".lower()
+    # Google News often appends the publisher name to the title
+    # (for example: "عنوان الخبر - وكالة الأنباء السورية – سانا").
+    # Remove that publisher suffix so the source name does not make
+    # an unrelated article look like Syria news.
+    core_title = re.split(r"\s[–—-]\s", title, maxsplit=1)[0]
+    clean_summary = re.sub(
+        r"(?i)(وكالة الأنباء السورية|سانا|تلفزيون سوريا|سوريا تي في|عنب بلدي)",
+        " ",
+        summary,
+    )
+    text = f"{core_title} {clean_summary}".lower()
     return any(keyword.lower() in text for keyword in SYRIA_KEYWORDS)
 
 
