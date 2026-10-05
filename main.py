@@ -74,10 +74,6 @@ def entry_time(entry: Any) -> float:
 
 
 def is_syria_news(title: str, summary: str) -> bool:
-    # Google News often appends the publisher name to the title
-    # (for example: "عنوان الخبر - وكالة الأنباء السورية – سانا").
-    # Remove that publisher suffix so the source name does not make
-    # an unrelated article look like Syria news.
     core_title = re.split(r"\s[–—-]\s", title, maxsplit=1)[0]
     clean_summary = re.sub(
         r"(?i)(وكالة الأنباء السورية|سانا|تلفزيون سوريا|سوريا تي في|عنب بلدي)",
@@ -86,6 +82,29 @@ def is_syria_news(title: str, summary: str) -> bool:
     )
     text = f"{core_title} {clean_summary}".lower()
     return any(keyword.lower() in text for keyword in SYRIA_KEYWORDS)
+
+
+def extract_response_text(data: dict[str, Any]) -> str:
+    # The HTTP Responses API returns generated text inside output[].content[].
+    # output_text is also accepted when present, but raw HTTP responses may not
+    # expose it as a top-level field.
+    direct = data.get("output_text")
+    if isinstance(direct, str) and direct.strip():
+        return direct.strip()
+
+    chunks: list[str] = []
+    for item in data.get("output", []) or []:
+        if not isinstance(item, dict):
+            continue
+        for content in item.get("content", []) or []:
+            if not isinstance(content, dict):
+                continue
+            if content.get("type") in {"output_text", "text"}:
+                text = content.get("text")
+                if isinstance(text, str) and text.strip():
+                    chunks.append(text.strip())
+
+    return "\n".join(chunks).strip()
 
 
 def rewrite_with_ai(article: dict[str, Any]) -> dict[str, Any] | None:
@@ -129,16 +148,38 @@ def rewrite_with_ai(article: dict[str, Any]) -> dict[str, Any] | None:
         )
         response.raise_for_status()
         data = response.json()
-        output_text = str(data.get("output_text", "")).strip()
+
+        output_text = extract_response_text(data)
         if not output_text:
-            print("[WARN] OpenAI returned an empty response.")
+            status = data.get("status", "unknown")
+            incomplete = data.get("incomplete_details")
+            print(
+                f"[WARN] OpenAI returned no text. "
+                f"status={status}, incomplete_details={incomplete}"
+            )
+            print(
+                "[WARN] Response output types: "
+                + str([
+                    item.get("type")
+                    for item in data.get("output", [])
+                    if isinstance(item, dict)
+                ])
+            )
             return None
 
         rewritten = dict(article)
         rewritten["ai_text"] = output_text
         rewritten["ai_model"] = OPENAI_MODEL
         return rewritten
-    except requests.RequestException as exc:
+
+    except requests.HTTPError as exc:
+        body = response.text[:1000] if response is not None else ""
+        print(
+            f"[ERROR] OpenAI HTTP error: {exc}. "
+            f"Response: {body}"
+        )
+        return None
+    except (requests.RequestException, ValueError) as exc:
         print(f"[ERROR] OpenAI request failed: {exc}")
         return None
 
