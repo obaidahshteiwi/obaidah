@@ -1,6 +1,5 @@
 name: Syria News AI Radar
-# Manual test trigger
-# Retest OpenAI response parsing
+# Facebook publishing added
 
 on:
   workflow_dispatch:
@@ -35,7 +34,10 @@ jobs:
 
       - name: Run Syria news radar
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_API_KEY: \${{ secrets.OPENAI_API_KEY }}
+          FACEBOOK_PAGE_ID: \${{ secrets.FACEBOOK_PAGE_ID }}
+          FACEBOOK_PAGE_ACCESS_TOKEN: \${{ secrets.FACEBOOK_PAGE_ACCESS_TOKEN }}
+          FACEBOOK_GRAPH_VERSION: \${{ secrets.FACEBOOK_GRAPH_VERSION }}
         run: python main.py
 
       - name: Save radar state
