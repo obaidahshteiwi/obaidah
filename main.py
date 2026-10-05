@@ -16,9 +16,10 @@ FEEDS_FILE = Path("feeds.txt")
 REQUEST_TIMEOUT = 25
 OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-6-luna")
 OPENAI_URL = "https://api.openai.com/v1/responses"
-FACEBOOK_PAGE_ID = os.getenv("FACEBOOK_PAGE_ID")
-FACEBOOK_PAGE_ACCESS_TOKEN = os.getenv("FACEBOOK_PAGE_ACCESS_TOKEN")
-FACEBOOK_GRAPH_VERSION = os.getenv("FACEBOOK_GRAPH_VERSION", "")
+GREEN_API_URL = os.getenv("GREEN_API_URL", "https://7107.api.greenapi.com").rstrip("/")
+GREEN_API_INSTANCE = os.getenv("GREEN_API_INSTANCE")
+GREEN_API_TOKEN = os.getenv("GREEN_API_TOKEN")
+WHATSAPP_GROUP_ID = os.getenv("WHATSAPP_GROUP_ID")
 
 SYRIA_KEYWORDS = [
     "سوريا", "سورية", "السوري", "السورية", "سوري", "سوريّة",
@@ -184,20 +185,18 @@ def rewrite_with_ai(article: dict[str, Any]) -> dict[str, Any] | None:
         return None
 
 
-def facebook_feed_url() -> str:
-    if FACEBOOK_GRAPH_VERSION:
-        return (
-            f"https://graph.facebook.com/"
-            f"{FACEBOOK_GRAPH_VERSION}/{FACEBOOK_PAGE_ID}/feed"
-        )
-    return f"https://graph.facebook.com/{FACEBOOK_PAGE_ID}/feed"
+def whatsapp_send_url() -> str:
+    return (
+        f"{GREEN_API_URL}/waInstance{GREEN_API_INSTANCE}/"
+        f"{GREEN_API_TOKEN}/sendMessage"
+    )
 
 
-def publish_to_facebook(article: dict[str, Any]) -> bool:
-    if not FACEBOOK_PAGE_ID or not FACEBOOK_PAGE_ACCESS_TOKEN:
+def publish_to_whatsapp(article: dict[str, Any]) -> bool:
+    if not GREEN_API_INSTANCE or not GREEN_API_TOKEN or not WHATSAPP_GROUP_ID:
         print(
-            "[ERROR] Facebook is not configured. "
-            "Add FACEBOOK_PAGE_ID and FACEBOOK_PAGE_ACCESS_TOKEN "
+            "[ERROR] WhatsApp is not configured. "
+            "Add GREEN_API_INSTANCE, GREEN_API_TOKEN, and WHATSAPP_GROUP_ID "
             "to GitHub Actions Secrets."
         )
         return False
@@ -205,40 +204,31 @@ def publish_to_facebook(article: dict[str, Any]) -> bool:
     ai_text = article.get("ai_text", "").strip()
     link = article.get("link", "").strip()
     if not ai_text or not link:
-        print("[ERROR] Facebook post is missing AI text or source link.")
+        print("[ERROR] WhatsApp message is missing AI text or source link.")
         return False
 
     message = f"{ai_text}\n\nالمصدر: {link}"
-    payload = {
-        "message": message,
-        "access_token": FACEBOOK_PAGE_ACCESS_TOKEN,
-    }
+    payload = {"chatId": WHATSAPP_GROUP_ID, "message": message}
 
     try:
         response = requests.post(
-            facebook_feed_url(),
-            data=payload,
+            whatsapp_send_url(),
+            json=payload,
             timeout=REQUEST_TIMEOUT,
         )
         response.raise_for_status()
         data = response.json()
-
-        if data.get("id"):
-            print(f"[OK] Facebook published: {data['id']}")
+        if data.get("idMessage") or data.get("status") == "success":
+            print(f"[OK] WhatsApp published: {data}")
             return True
-
-        print(f"[ERROR] Facebook returned no post ID: {data}")
+        print(f"[ERROR] WhatsApp returned an unexpected response: {data}")
         return False
-
     except requests.HTTPError as exc:
         body = response.text[:1000] if response is not None else ""
-        print(
-            f"[ERROR] Facebook HTTP error: {exc}. "
-            f"Response: {body}"
-        )
+        print(f"[ERROR] WhatsApp HTTP error: {exc}. Response: {body}")
         return False
     except (requests.RequestException, ValueError) as exc:
-        print(f"[ERROR] Facebook request failed: {exc}")
+        print(f"[ERROR] WhatsApp request failed: {exc}")
         return False
 
 
@@ -300,10 +290,10 @@ def main() -> None:
     if not feeds:
         raise SystemExit("No RSS feeds found in feeds.txt")
 
-    if not FACEBOOK_PAGE_ID or not FACEBOOK_PAGE_ACCESS_TOKEN:
+    if not GREEN_API_INSTANCE or not GREEN_API_TOKEN or not WHATSAPP_GROUP_ID:
         raise SystemExit(
-            "Facebook publishing is not configured. "
-            "Add FACEBOOK_PAGE_ID and FACEBOOK_PAGE_ACCESS_TOKEN "
+            "WhatsApp publishing is not configured. "
+            "Add GREEN_API_INSTANCE, GREEN_API_TOKEN, and WHATSAPP_GROUP_ID "
             "to GitHub Actions Secrets before running the radar."
         )
 
@@ -335,9 +325,9 @@ def main() -> None:
             print("[WARN] Article was not marked as seen so it can be retried next cycle.")
             continue
 
-        if not publish_to_facebook(rewritten):
+        if not publish_to_whatsapp(rewritten):
             print(
-                "[WARN] Facebook publishing failed. "
+                "[WARN] WhatsApp publishing failed. "
                 "Article was not marked as seen so it can be retried next cycle."
             )
             continue
@@ -349,7 +339,7 @@ def main() -> None:
     save_json(SEEN_FILE, list(seen)[-500:])
     print(
         f"\n[OK] Cycle complete. "
-        f"AI processed and published: {len(processed_articles)} article(s)."
+        f"AI processed and published to WhatsApp: {len(processed_articles)} article(s)."
     )
 
 
