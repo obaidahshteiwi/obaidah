@@ -16,6 +16,9 @@ FEEDS_FILE = Path("feeds.txt")
 REQUEST_TIMEOUT = 25
 OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-6-luna")
 OPENAI_URL = "https://api.openai.com/v1/responses"
+FACEBOOK_PAGE_ID = os.getenv("FACEBOOK_PAGE_ID")
+FACEBOOK_PAGE_ACCESS_TOKEN = os.getenv("FACEBOOK_PAGE_ACCESS_TOKEN")
+FACEBOOK_GRAPH_VERSION = os.getenv("FACEBOOK_GRAPH_VERSION", "")
 
 SYRIA_KEYWORDS = [
     "سوريا", "سورية", "السوري", "السورية", "سوري", "سوريّة",
@@ -85,9 +88,6 @@ def is_syria_news(title: str, summary: str) -> bool:
 
 
 def extract_response_text(data: dict[str, Any]) -> str:
-    # The HTTP Responses API returns generated text inside output[].content[].
-    # output_text is also accepted when present, but raw HTTP responses may not
-    # expose it as a top-level field.
     direct = data.get("output_text")
     if isinstance(direct, str) and direct.strip():
         return direct.strip()
@@ -184,6 +184,64 @@ def rewrite_with_ai(article: dict[str, Any]) -> dict[str, Any] | None:
         return None
 
 
+def facebook_feed_url() -> str:
+    if FACEBOOK_GRAPH_VERSION:
+        return (
+            f"https://graph.facebook.com/"
+            f"{FACEBOOK_GRAPH_VERSION}/{FACEBOOK_PAGE_ID}/feed"
+        )
+    return f"https://graph.facebook.com/{FACEBOOK_PAGE_ID}/feed"
+
+
+def publish_to_facebook(article: dict[str, Any]) -> bool:
+    if not FACEBOOK_PAGE_ID or not FACEBOOK_PAGE_ACCESS_TOKEN:
+        print(
+            "[ERROR] Facebook is not configured. "
+            "Add FACEBOOK_PAGE_ID and FACEBOOK_PAGE_ACCESS_TOKEN "
+            "to GitHub Actions Secrets."
+        )
+        return False
+
+    ai_text = article.get("ai_text", "").strip()
+    link = article.get("link", "").strip()
+    if not ai_text or not link:
+        print("[ERROR] Facebook post is missing AI text or source link.")
+        return False
+
+    message = f"{ai_text}\n\nالمصدر: {link}"
+    payload = {
+        "message": message,
+        "access_token": FACEBOOK_PAGE_ACCESS_TOKEN,
+    }
+
+    try:
+        response = requests.post(
+            facebook_feed_url(),
+            data=payload,
+            timeout=REQUEST_TIMEOUT,
+        )
+        response.raise_for_status()
+        data = response.json()
+
+        if data.get("id"):
+            print(f"[OK] Facebook published: {data['id']}")
+            return True
+
+        print(f"[ERROR] Facebook returned no post ID: {data}")
+        return False
+
+    except requests.HTTPError as exc:
+        body = response.text[:1000] if response is not None else ""
+        print(
+            f"[ERROR] Facebook HTTP error: {exc}. "
+            f"Response: {body}"
+        )
+        return False
+    except (requests.RequestException, ValueError) as exc:
+        print(f"[ERROR] Facebook request failed: {exc}")
+        return False
+
+
 def collect_candidates(feeds: list[str]) -> list[dict[str, Any]]:
     candidates: list[dict[str, Any]] = []
     seen_ids: set[str] = set()
@@ -242,6 +300,13 @@ def main() -> None:
     if not feeds:
         raise SystemExit("No RSS feeds found in feeds.txt")
 
+    if not FACEBOOK_PAGE_ID or not FACEBOOK_PAGE_ACCESS_TOKEN:
+        raise SystemExit(
+            "Facebook publishing is not configured. "
+            "Add FACEBOOK_PAGE_ID and FACEBOOK_PAGE_ACCESS_TOKEN "
+            "to GitHub Actions Secrets before running the radar."
+        )
+
     seen = load_seen()
     candidates = collect_candidates(feeds)
 
@@ -270,12 +335,22 @@ def main() -> None:
             print("[WARN] Article was not marked as seen so it can be retried next cycle.")
             continue
 
+        if not publish_to_facebook(rewritten):
+            print(
+                "[WARN] Facebook publishing failed. "
+                "Article was not marked as seen so it can be retried next cycle."
+            )
+            continue
+
         processed_articles.append(rewritten)
         seen.add(article["link"] or article["title"])
 
     save_json(LATEST_FILE, processed_articles)
     save_json(SEEN_FILE, list(seen)[-500:])
-    print(f"\n[OK] Cycle complete. AI processed: {len(processed_articles)} article(s).")
+    print(
+        f"\n[OK] Cycle complete. "
+        f"AI processed and published: {len(processed_articles)} article(s)."
+    )
 
 
 if __name__ == "__main__":
