@@ -1,5 +1,6 @@
 import html
 import json
+import os
 import re
 from datetime import datetime, timezone
 from pathlib import Path
@@ -13,6 +14,8 @@ SEEN_FILE = Path("seen.json")
 LATEST_FILE = Path("latest_news.json")
 FEEDS_FILE = Path("feeds.txt")
 REQUEST_TIMEOUT = 25
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-6-luna")
+OPENAI_URL = "https://api.openai.com/v1/responses"
 
 SYRIA_KEYWORDS = [
     "سوريا", "سورية", "السوري", "السورية", "سوري", "سوريّة",
@@ -83,6 +86,61 @@ def is_syria_news(title: str, summary: str) -> bool:
     )
     text = f"{core_title} {clean_summary}".lower()
     return any(keyword.lower() in text for keyword in SYRIA_KEYWORDS)
+
+
+def rewrite_with_ai(article: dict[str, Any]) -> dict[str, Any] | None:
+    api_key = os.getenv("OPENAI_API_KEY")
+    if not api_key:
+        print("[ERROR] OPENAI_API_KEY is not configured in GitHub Secrets.")
+        return None
+
+    prompt = f"""أنت محرر أخبار سوري محترف.
+أعد صياغة الخبر التالي باللغة العربية بصياغة صحفية واضحة ومحايدة.
+التزم حصراً بالمعلومات الموجودة في النص، ولا تضف أي معلومة أو استنتاج غير موجود.
+لا تذكر أنك ذكاء اصطناعي.
+
+العنوان الأصلي:
+{article["title"]}
+
+ملخص/نص المصدر:
+{article["summary"]}
+
+أعد النتيجة بهذا الشكل فقط:
+العنوان: عنوان مختصر وجذاب
+النص: فقرة خبرية من 2 إلى 4 جمل
+"""
+
+    payload = {
+        "model": OPENAI_MODEL,
+        "input": prompt,
+        "max_output_tokens": 350,
+    }
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
+    }
+
+    try:
+        response = requests.post(
+            OPENAI_URL,
+            headers=headers,
+            json=payload,
+            timeout=REQUEST_TIMEOUT,
+        )
+        response.raise_for_status()
+        data = response.json()
+        output_text = str(data.get("output_text", "")).strip()
+        if not output_text:
+            print("[WARN] OpenAI returned an empty response.")
+            return None
+
+        rewritten = dict(article)
+        rewritten["ai_text"] = output_text
+        rewritten["ai_model"] = OPENAI_MODEL
+        return rewritten
+    except requests.RequestException as exc:
+        print(f"[ERROR] OpenAI request failed: {exc}")
+        return None
 
 
 def collect_candidates(feeds: list[str]) -> list[dict[str, Any]]:
@@ -160,16 +218,23 @@ def main() -> None:
         print("[INFO] No new Syria news found.")
         return
 
+    processed_articles = []
     for index, article in enumerate(new_articles, start=1):
         print(f"\n[{index}] {article['title']}")
         print(f"Published: {article['published']}")
         print(f"Link: {article['link']}")
 
-    for article in new_articles:
+        rewritten = rewrite_with_ai(article)
+        if rewritten is None:
+            print("[WARN] Article was not marked as seen so it can be retried next cycle.")
+            continue
+
+        processed_articles.append(rewritten)
         seen.add(article["link"] or article["title"])
 
+    save_json(LATEST_FILE, processed_articles)
     save_json(SEEN_FILE, list(seen)[-500:])
-    print(f"\n[OK] Cycle complete. Selected: {len(new_articles)} article(s).")
+    print(f"\n[OK] Cycle complete. AI processed: {len(processed_articles)} article(s).")
 
 
 if __name__ == "__main__":
