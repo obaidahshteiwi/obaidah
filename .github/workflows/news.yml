@@ -1,5 +1,6 @@
 name: Syria News AI Radar
 # Manual test trigger
+# Retest OpenAI response parsing
 
 on:
   workflow_dispatch:
