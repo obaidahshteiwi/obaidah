@@ -786,6 +786,17 @@ def green_request(method_name: str, payload: dict | None = None, http_method: st
             error_body = {}
         if isinstance(error_body, dict):
             kind = str(error_body.get("error", "") or error_body.get("message", "") or "")
+            if exc.code == 466 and not kind:
+                # Log limit status identifiers only; never expose the provider's allowed-contact list.
+                limit_statuses = []
+                for section_name in ("invokeStatus", "correspondentsStatus"):
+                    section = error_body.get(section_name)
+                    if isinstance(section, dict):
+                        status = str(section.get("status", "") or "")
+                        method = str(section.get("method", section_name) or section_name)
+                        if status:
+                            limit_statuses.append(f"{method}_{status}")
+                kind = " ".join(limit_statuses)
         elif isinstance(error_body, str):
             kind = error_body
         else:
@@ -865,6 +876,8 @@ def post_whatsapp(item: dict) -> tuple[str, str, str]:
         })
         if isinstance(result, dict) and isinstance(result.get("idMessage"), str) and result["idMessage"]:
             return result["idMessage"], "image", ""
+        if error.startswith("http_466"):
+            return "", "", error
         print(f"WhatsApp image send failed; falling back to text. Reason: {error or 'invalid_response'}", file=sys.stderr)
     result, error = green_request("sendMessage", {"chatId": chat_id, "message": message, "linkPreview": True})
     if isinstance(result, dict) and isinstance(result.get("idMessage"), str) and result["idMessage"]:
@@ -1094,7 +1107,12 @@ def main():
 
     base, instance, token, chat_id = green_api_config()
     configured = all((base, instance, token, chat_id))
-    instance_status = get_instance_state() if configured else "not_configured"
+    quota_blocked = bool(state.get("whatsapp_quota_blocked", False))
+    manual_retry = os.getenv("GITHUB_EVENT_NAME", "") == "workflow_dispatch"
+    if manual_retry:
+        # Permit a deliberate manual test after the account plan has been fixed.
+        quota_blocked = False
+    instance_status = get_instance_state() if configured and not quota_blocked else ("quota_blocked" if quota_blocked else "not_configured")
     delivered_count = 0
     accepted_count = 0
     failed_count = 0
@@ -1103,7 +1121,9 @@ def main():
     if not isinstance(whatsapp_attempt_counts, dict):
         whatsapp_attempt_counts = {}
     max_whatsapp_attempts = 3
-    if configured and instance_status == "authorized":
+    if quota_blocked:
+        print("WhatsApp sending paused after Green-API HTTP 466 plan limit. Upgrade/restore the plan, then use Run workflow in GitHub Actions to retry.")
+    elif configured and instance_status == "authorized":
         group_valid, group_error = validate_whatsapp_group(chat_id)
         fatal_group_error = any(reason in group_error.lower() for reason in ("forbidden", "item-not-found", "group_id_mismatch"))
         if not group_valid and group_error.startswith("http_500") and not fatal_group_error:
@@ -1111,6 +1131,9 @@ def main():
             print("WhatsApp group lookup returned an unexplained HTTP 500; allowing limited send attempts with delivery checks.")
             group_valid = True
         if not group_valid:
+            if group_error.startswith("http_466"):
+                quota_blocked = True
+                print("WhatsApp group validation hit Green-API HTTP 466 plan limit; pausing further sends until a manual retry after plan recovery.")
             if "forbidden" in group_error.lower():
                 print("WhatsApp group check failed: this Green-API instance is not a member of the target group.")
             elif "item-not-found" in group_error.lower():
@@ -1194,6 +1217,10 @@ def main():
                 else:
                     failed_count += 1
                     print(f"WhatsApp send failed: {error}")
+                    if error.startswith("http_466"):
+                        quota_blocked = True
+                        print("Green-API plan limit reached (HTTP 466); stopping this cycle and pausing scheduled WhatsApp retries.")
+                        break
                 if attempts_this_run >= MAX_NEW_PER_CYCLE:
                     break
     elif configured:
@@ -1206,6 +1233,7 @@ def main():
         "whatsapp_sent_urls": list(dict.fromkeys(wa_sent_urls_list))[-MAX_HISTORY:],
         "whatsapp_pending": pending,
         "whatsapp_tracking_version": WHATSAPP_TRACKING_VERSION,
+        "whatsapp_quota_blocked": quota_blocked,
         "whatsapp_attempt_counts": whatsapp_attempt_counts,
         "image_lookup_attempts": image_lookup_attempts,
         "image_lookup_version": IMAGE_LOOKUP_VERSION,
