@@ -68,7 +68,7 @@ PROVINCES = [
     ("القنيطرة", ("القنيطرة", "الجولان", "Quneitra", "Golan")),
 ]
 SYRIA_TERMS = (
-    "سوريا", "السوري", "السورية", "دمشق", "حلب", "حمص", "حماة", "إدلب",
+    "سوريا", "السوري", "السورية", "سوري", "دمشق", "حلب", "حمص", "حماة", "إدلب",
     "اللاذقية", "طرطوس", "الحسكة", "دير الزور", "الرقة", "القامشلي",
     "السويداء", "درعا", "القنيطرة", "ريف دمشق", "سوري", "سورية", "سوريون", "سوريين",
     "syria", "syrian", "damascus", "aleppo", "homs", "hama", "idlib",
@@ -118,9 +118,10 @@ def is_syria_related(title: str, description: str, article_url: str = "") -> boo
     parsed = urllib.parse.urlparse(str(article_url or ""))
     host = (parsed.hostname or "").lower()
     path = (parsed.path or "").lower()
-    # A resolved SANA article in its Syria-and-the-world section can be about a Syrian
-    # official even when the feed summary omits the word Syria.
-    if (host == "sana.sy" or host.endswith(".sana.sy")) and "/syria-and-the-world/" in path:
+    # Trust direct articles hosted by known Syrian publishers, while still rejecting unrelated
+    # Google News aggregator items whose title/summary has no Syria signal.
+    trusted_domains = ("sana.sy", "enabbaladi.net", "syria.tv", "alwatan.sy", "zamanalwsl.net", "syriadirect.org", "syrianobserver.com", "orient-news.net")
+    if any(host == domain or host.endswith("." + domain) for domain in trusted_domains):
         return True
     return False
 
@@ -1055,10 +1056,8 @@ def main():
         if cleaned_title and cleaned_title != old_title:
             old_item["title"] = cleaned_title
             existing_changes = True
-        if not is_syria_related(str(old_item.get("title", "")), str(old_item.get("description", "")), str(old_item.get("url", ""))):
-            print(f"Dropped a story whose article title/summary could not be verified as Syria-related: {cleaned_title[:100]}")
-            existing_changes = True
-            continue
+        # Preserve already published stories; a short or incomplete RSS summary must not erase history.
+        # New incoming entries are filtered before being accepted into the feed.
         normalized_old_items.append(old_item)
     if len(normalized_old_items) != len(old_items):
         old_news["items"] = normalized_old_items
