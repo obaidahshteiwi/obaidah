@@ -337,11 +337,11 @@ def post_whatsapp(item: dict) -> tuple[str, str, str]:
         path = urllib.parse.urlparse(image_url).path.lower()
         suffix = next((ext for ext in (".jpg", ".jpeg", ".png", ".webp") if path.endswith(ext)), ".jpg")
         caption = (
-            "🇸🇾 *سوريا مباشر*\\n\\n"
-            f"*{title[:250]}*\\n\\n"
-            f"{clean_text(item.get('description', ''))[:300]}\\n\\n"
-            f"🗺️ المحافظة: {item.get('province') or classify_province(title)}\\n"
-            f"📰 المصدر: {clean_text(item.get('source') or item.get('feed') or 'المصدر الأصلي')[:80]}\\n"
+            "🇸🇾 *سوريا مباشر*\n\n"
+            f"*{title[:250]}*\n\n"
+            f"{clean_text(item.get('description', ''))[:300]}\n\n"
+            f"🗺️ المحافظة: {item.get('province') or classify_province(title)}\n"
+            f"📰 المصدر: {clean_text(item.get('source') or item.get('feed') or 'المصدر الأصلي')[:80]}\n"
             f"🔗 {item.get('url', '')}"
         )[:1000]
         result, error = green_request("sendFileByUrl", {
