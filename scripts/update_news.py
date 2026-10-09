@@ -39,7 +39,6 @@ FEEDS = [
     ("أورينت", "site:orient-news.net سوريا"),
 ]
 DIRECT_FEEDS = [
-    ("سانا RSS", "https://sana.sy/?feed=rss2"),
     ("عنب بلدي RSS", "https://www.enabbaladi.net/feed/"),
 ]
 
@@ -217,10 +216,14 @@ def parse_feed(xml_bytes: bytes, feed_label: str) -> list[dict]:
         description = clean_text(description_markup)
         pubdate = item_text(node, "pubDate") or item_text(node, "published") or item_text(node, "updated")
         source = feed_label
+        source_home = ""
         for child in list(node):
-            if child.tag.rsplit("}", 1)[-1].lower() == "source" and (child.text or "").strip():
-                source = clean_text(child.text)
-                break
+            if child.tag.rsplit("}", 1)[-1].lower() == "source":
+                if (child.text or "").strip():
+                    source = clean_text(child.text)
+                source_home = child.attrib.get("url", "") or source_home
+                if source_home or (child.text or "").strip():
+                    break
         if not title or not link.startswith(("http://", "https://")):
             continue
         combined = (title + " " + description).casefold()
@@ -231,6 +234,7 @@ def parse_feed(xml_bytes: bytes, feed_label: str) -> list[dict]:
             "description": description[:700],
             "url": link,
             "source": source[:100],
+            "source_home": source_home,
             "feed": feed_label,
             "published_at": parse_date(pubdate),
             "province": classify_province(title, description),
@@ -242,23 +246,134 @@ def parse_feed(xml_bytes: bytes, feed_label: str) -> list[dict]:
     return output
 
 
-def extract_article_image(article_url: str) -> str:
-    if not article_url.startswith(("https://", "http://")):
-        return ""
-    original_host = urllib.parse.urlparse(article_url).hostname or "unknown"
+def source_home_for_item(item: dict) -> str:
+    known = [
+        (("سانا", "وكالة الأنباء السورية", "sana"), "https://sana.sy/"),
+        (("عنب بلدي", "enab baladi"), "https://www.enabbaladi.net/"),
+        (("تلفزيون سوريا", "syria.tv"), "https://www.syria.tv/"),
+        (("الوطن", "alwatan"), "https://alwatan.sy/"),
+        (("زمان الوصل", "zaman al wasl"), "https://www.zamanalwsl.net/"),
+        (("سوريا دايركت", "syria direct"), "https://syriadirect.org/"),
+        (("أورينت", "orient"), "https://orient-news.net/"),
+        (("syrian observer",), "https://syrianobserver.com/"),
+    ]
+    label = (str(item.get("source", "")) + " " + str(item.get("feed", ""))).casefold()
+    for names, home in known:
+        if any(name.casefold() in label for name in names):
+            return home
+    return str(item.get("source_home", "") or "")
+
+
+class LinkCollector(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.links = []
+        self._href = ""
+
+    def handle_starttag(self, tag, attrs):
+        attrs = {str(k).lower(): str(v) for k, v in attrs if k and v}
+        if tag.lower() == "link":
+            rel = (attrs.get("rel") or "").lower()
+            if "canonical" in rel and attrs.get("href"):
+                self.links.append((attrs["href"], "canonical"))
+        elif tag.lower() == "meta" and (attrs.get("http-equiv") or "").lower() == "refresh":
+            content = attrs.get("content", "")
+            match = re.search(r"url\s*=\s*['\"]?([^'\"]+)", content, re.I)
+            if match:
+                self.links.append((match.group(1), "refresh"))
+        elif tag.lower() == "a" and attrs.get("href"):
+            self._href = attrs["href"]
+
+    def handle_data(self, data):
+        if self._href and data.strip():
+            self.links.append((self._href, clean_text(data)))
+            self._href = ""
+
+    def handle_endtag(self, tag):
+        if tag.lower() == "a":
+            self._href = ""
+
+
+def resolve_publisher_url(article_url: str, source_home: str = "") -> str:
+    parsed = urllib.parse.urlparse(article_url or "")
+    host = (parsed.hostname or "").lower()
+    if not host or not host.endswith("news.google.com"):
+        return article_url
     req = urllib.request.Request(article_url, headers={
-        "User-Agent": "Mozilla/5.0 (compatible; SyriaMubasherNewsBot/1.1)",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
         "Accept": "text/html,application/xhtml+xml",
     })
     try:
-        with urllib.request.urlopen(req, timeout=8) as response:
+        with urllib.request.urlopen(req, timeout=10) as response:
+            final_url = response.geturl()
+            final_host = (urllib.parse.urlparse(final_url).hostname or "").lower()
+            content_type = response.headers.get("Content-Type", "")
+            if final_host and not final_host.endswith("google.com") and "html" in content_type.lower():
+                return final_url
+            raw = response.read(700_000).decode("utf-8", errors="replace") if "html" in content_type.lower() else ""
+        if not raw:
+            return article_url
+        collector = LinkCollector()
+        collector.feed(raw)
+        source_host = (urllib.parse.urlparse(source_home).hostname or "").lower()
+        candidates = []
+        for href, label in collector.links:
+            candidate = urllib.parse.urljoin(final_url, html.unescape(href.strip()))
+            p = urllib.parse.urlparse(candidate)
+            candidate_host = (p.hostname or "").lower()
+            if p.scheme not in ("http", "https") or not candidate_host:
+                continue
+            if candidate_host.endswith(("google.com", "googleusercontent.com", "gstatic.com", "youtube.com")):
+                continue
+            if candidate_host in ("facebook.com", "instagram.com", "x.com", "twitter.com", "linkedin.com", "t.me"):
+                continue
+            score = 0
+            if source_host and (candidate_host == source_host or candidate_host.endswith("." + source_host)):
+                score += 100
+            if p.path.strip("/"):
+                score += min(len(p.path.strip("/").split("/")), 4) * 4
+            if len(p.path.strip("/")) > 18:
+                score += 8
+            if any(word in p.path.lower() for word in ("article", "news", "story", "post")):
+                score += 4
+            if label == "canonical":
+                score += 12
+            if label == "refresh":
+                score += 20
+            if candidate.rstrip("/") == source_home.rstrip("/"):
+                score -= 30
+            candidates.append((score, candidate))
+        if candidates:
+            candidates.sort(reverse=True)
+            best_score, best_url = candidates[0]
+            if best_score >= 12:
+                print(f"Publisher link resolved: {source_host or 'Google News'} -> {urllib.parse.urlparse(best_url).hostname}.")
+                return best_url
+        print("Publisher link could not be resolved from Google News page.")
+        return article_url
+    except (urllib.error.URLError, TimeoutError, OSError, ValueError):
+        print("Publisher link resolution failed; keeping original source link.")
+        return article_url
+
+
+def extract_article_image(article_url: str, source_home: str = "") -> str:
+    if not article_url.startswith(("https://", "http://")):
+        return ""
+    resolved_url = resolve_publisher_url(article_url, source_home)
+    original_host = urllib.parse.urlparse(resolved_url).hostname or "unknown"
+    req = urllib.request.Request(resolved_url, headers={
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml",
+    })
+    try:
+        with urllib.request.urlopen(req, timeout=10) as response:
             final_url = response.geturl()
             final_host = urllib.parse.urlparse(final_url).hostname or original_host
             content_type = response.headers.get("Content-Type", "")
             if "html" not in content_type.lower():
                 print(f"Image lookup skipped: page from {final_host} was not HTML.")
                 return ""
-            raw = response.read(500_000).decode("utf-8", errors="replace")
+            raw = response.read(700_000).decode("utf-8", errors="replace")
         parser = ImageMetaParser()
         parser.feed(raw)
         picture = normalize_image_url(parser.image or parser.fallback, final_url)
@@ -270,7 +385,6 @@ def extract_article_image(article_url: str) -> str:
     except (urllib.error.URLError, TimeoutError, OSError, ValueError):
         print(f"Article image lookup could not connect to {original_host}.")
         return ""
-
 
 def load_json(path: Path, default):
     try:
@@ -559,14 +673,22 @@ def main():
             item["province"] = classify_province(item.get("title", ""), item.get("description", ""))
             changed_news = True
         item_url = item.get("url", "")
+        source_home = source_home_for_item(item)
+        if item_url:
+            resolved_url = resolve_publisher_url(item_url, source_home)
+            if resolved_url and resolved_url != item_url:
+                item["url"] = resolved_url
+                item_url = resolved_url
+                changed_news = True
         last_image_attempt = parse_iso_datetime(image_lookup_attempts.get(item_url, ""))
+        was_google_wrapper = (urllib.parse.urlparse(item_url).hostname or "").lower().endswith("news.google.com")
         should_try_image = not item.get("image_url") and (
-            last_image_attempt is None or datetime.now(timezone.utc) - last_image_attempt >= timedelta(hours=24)
+            was_google_wrapper or last_image_attempt is None or datetime.now(timezone.utc) - last_image_attempt >= timedelta(hours=24)
         )
         if should_try_image and image_lookups < MAX_IMAGE_LOOKUPS_PER_CYCLE:
             image_lookups += 1
             image_lookup_attempts[item_url] = now_iso
-            picture = extract_article_image(item_url)
+            picture = extract_article_image(item_url, source_home)
             if picture:
                 item["image_url"] = picture
                 images_added += 1
