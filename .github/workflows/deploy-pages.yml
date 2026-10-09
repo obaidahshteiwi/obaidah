@@ -3,6 +3,9 @@ name: Syria Mubasher - RSS and Website
 on:
   push:
     branches: ["main"]
+    paths-ignore:
+      - "data/news.json"
+      - "data/state.json"
   schedule:
     - cron: "*/5 * * * *"
   workflow_dispatch:
