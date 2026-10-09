@@ -915,10 +915,15 @@ def whatsapp_settings():
 
 
 def green_api_config():
-    base = os.getenv("GREEN_API_URL", "").strip().rstrip("/")
-    instance = os.getenv("GREEN_API_INSTANCE", "").strip()
-    token = os.getenv("GREEN_API_TOKEN", "").strip()
-    chat_id = os.getenv("WHATSAPP_GROUP_ID", "").strip()
+    # Temporary local config-file support for testing. Never commit a real API token
+    # to a public repository; environment variables (GitHub Secrets) take precedence.
+    file_settings = load_json(WHATSAPP_SETTINGS_FILE, {})
+    if not isinstance(file_settings, dict):
+        file_settings = {}
+    base = (os.getenv("GREEN_API_URL", "") or file_settings.get("api_url", "")).strip().rstrip("/")
+    instance = (os.getenv("GREEN_API_INSTANCE", "") or file_settings.get("instance_id", "")).strip()
+    token = (os.getenv("GREEN_API_TOKEN", "") or file_settings.get("api_token", "")).strip()
+    chat_id = (os.getenv("WHATSAPP_GROUP_ID", "") or file_settings.get("group_id", "")).strip()
     if base and not base.startswith(("https://", "http://")):
         base = "https://" + base
     if instance and not instance.startswith("waInstance"):
