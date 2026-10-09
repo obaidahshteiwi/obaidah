@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-09T18:00:24+00:00",
+  "updated_at": "2026-10-09T18:02:44+00:00",
   "items": [
     {
       "title": "سوريا ترحب بتأكيد مجلس الأمن على ضرورة الاحترام الكامل لاتفاقية فصل القوات لعام 1974‏",
@@ -314,7 +314,8 @@
       "feed": "تلفزيون سوريا",
       "published_at": "2026-10-09T06:55:29+00:00",
       "province": "دمشق",
-      "image_url": "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/Yan%20Yana%20Duygusal%20Portreler.png?itok=sSxiadSY"
+      "image_url": "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/Yan%20Yana%20Duygusal%20Portreler.png?itok=sSxiadSY",
+      "local_image_url": "images/news/920f5e83404e43fa0e54b39c.webp"
     },
     {
       "title": "انطلاق معرض \"ذهب إكسبو\" للأحذية والألبسة والجلديات في دمشق",
@@ -325,7 +326,8 @@
       "feed": "سانا",
       "published_at": "2026-10-09T06:25:55+00:00",
       "province": "دمشق",
-      "image_url": "https://cdn.sananews.sy/2026/10/2N4A9588-1-1024x683.jpg"
+      "image_url": "https://cdn.sananews.sy/2026/10/2N4A9588-1-1024x683.jpg",
+      "local_image_url": "images/news/9d51c597a658f545dc1a2c1d.webp"
     },
     {
       "title": "درجات الحرارة أعلى من معدلاتها في عموم سوريا وزخات مطرية محتملة في بعض ‏المناطق",
@@ -346,7 +348,8 @@
       "feed": "تلفزيون سوريا",
       "published_at": "2026-10-09T04:15:08+00:00",
       "province": "أخبار عامة",
-      "image_url": "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/images%20%283%29.jpg?itok=vBVXUtPe"
+      "image_url": "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/images%20%283%29.jpg?itok=vBVXUtPe",
+      "local_image_url": "images/news/fce1388dbd90b17015caf528.webp"
     },
     {
       "title": "عن أي فخر سوري نتحدث؟",
@@ -377,7 +380,61 @@
       "feed": "الوطن",
       "published_at": "2026-10-09T01:29:53+00:00",
       "province": "القنيطرة",
-      "image_url": "https://alwatan.sy/wp-content/uploads/2026/10/%D9%82%D9%88%D8%A7%D8%AA-%D8%A7%D9%84%D8%A7%D8%AD%D8%AA%D9%84%D8%A7%D9%84-%D8%AA%D8%BA%D9%84%D9%82.jpg"
+      "image_url": "https://alwatan.sy/wp-content/uploads/2026/10/%D9%82%D9%88%D8%A7%D8%AA-%D8%A7%D9%84%D8%A7%D8%AD%D8%AA%D9%84%D8%A7%D9%84-%D8%AA%D8%BA%D9%84%D9%82.jpg",
+      "local_image_url": "images/news/ce6584f257c7cc302c5f3c2d.webp"
+    },
+    {
+      "title": "السوريون يتصدرون قائمة مستفيدي إعانات طالبي اللجوء في ولاية ألمانية",
+      "description": "أظهرت بيانات رسمية صادرة عن مكتب الإحصاء في ولاية تورينغن الألمانية أن السوريين تصدروا قائمة المستفيدين من الإعانات الممنوحة بموجب قانون إعانات طالبي اللجوء بنه",
+      "url": "https://www.syria.tv/%D8%A7%D9%84%D8%B3%D9%88%D8%B1%D9%8A%D9%88%D9%86-%D9%8A%D8%AA%D8%B5%D8%AF%D8%B1%D9%88%D9%86-%D9%82%D8%A7%D8%A6%D9%85%D8%A9-%D9%85%D8%B3%D8%AA%D9%81%D9%8A%D8%AF%D9%8A-%D8%A5%D8%B9%D8%A7%D9%86%D8%A7%D8%AA-%D8%B7%D8%A7%D9%84%D8%A8%D9%8A-%D8%A7%D9%84%D9%84%D8%AC%D9%88%D8%A1-%D9%81%D9%8A-%D9%88%D9%84%D8%A7%D9%8A%D8%A9-%D8%A3%D9%84%D9%85%D8%A7%D9%86%D9%8A%D8%A9",
+      "source": "تلفزيون سوريا",
+      "source_home": "https://www.syria.tv",
+      "feed": "تلفزيون سوريا",
+      "published_at": "2026-10-08T23:24:54+00:00",
+      "province": "أخبار عامة",
+      "image_url": "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/19cacded-1c40-4a83-b649-67eaba8194c5.jpg?itok=RfbaDduT"
+    },
+    {
+      "title": "بعد 13 عاما من إغلاقه بسبب قصف النظام المخلوع.. افتتاح المسجد الأموي الكبير بحلب",
+      "description": "بعد 13 عاما من إغلاقه بسبب قصف النظام المخلوع.. افتتاح المسجد الأموي الكبير بحلب | تلفزيون سوريا تلفزيون سوريا. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "url": "https://news.google.com/rss/articles/CBMixARBVV95cUxPXzdUV29nZFdJX3pwemI3X0lhWUo1SmRfOS1NcHQ0OHF6R0o1WTBiV0hycDYxRGt0dGxxeUE5STNVRFZoQ0NRdlg4QjlWUklMcE0zWnFIc0NDU2RDTmVmelpsVnQ2c0RuODR5U09mV0sxWVBMVnprVnI2VU1CZ0ttM3hveXJERVFfUmZlT2FtUGNraXd6dFk2SWUyMldMZEk2bXpQaUVCdTNLMkRjSTFDQ0ZDdkFuemtJbWtid1RCZjlzMkRKY09kdHhzZFJILWZxN1I2c1JKOGh2VUVVekZSeUx3Z280S0w4dGdjemoyMVBkOUVmamVIR3BBSnBpQkM0a1BSN1g5cnpJd0l1aDRJZ3UtSXVnbTMxcmltSHpsYWNaUE9VX0Q5SHRfVjFJOUlfMDlqTXRuY2JZWFZ5WnJrS3U3eEF0OVJxWUFRalpZalY0dnNpYWFNQkFKSEdxRlI0cDlwc2VjZHV4WUU1dVJZbzFBeTlmTy1VRjRCcHZQZkI3UEQ5eE5QdkIxOG1NQ0Q2dHM1SFR5TnVaVUo1Tl9FbE40WDRJdlZhV2R2Mms0SFc3azR1WENhakV4RTB0dnhFcTZ3UXhJNFptVnhUME1MZXRWdUIxMTlBSkhWZDF5VjdKcnM2QUIzY3NSdmFUQTQwbWpIREo0NUpadmhaRWIxMlp1bUo0VDBNa2FKMXU2MmRMN1pPNjBPVi1rODdPaHR5clpSeHFTdnE1UjJuNkdOdlRaRTNlSGRSRDAxRkNRSjAzZENO0gHKBEFVX3lxTFBzREhDZzYyVHJrRXgzT1AydkpQQnVTek9odEpRYW16azJDNkY1UEpoOGxWVWo3d0xCeklXdjJDOEpocGJ6UG9JdkRtbGxEdDQwUHlpVldMd09pTlIxN3llZ0t5WXFiWElTRExnMDdJVTdtd2VaRnJpSi1MTlNSeHBYOW5hbjB4LU1WcWsyaUtBaFc1WDJKZmJna1BseUxUUmFqYUhDaXBCN3AybmRXeEJUdEJqTGM0NTV3Q0lrYUxyUTFmU3ZtQnYxbVlYVVNVSlNKdC04Uld3a1h1UWV2RDhTXy0zTHlvNXhxNWFKcWxiT1FwOFRUTjdMUkhFdGlkOF9lMFVWakhMMHdUNWNCeHVUWlpVYVJLeVZlcndfREZzYTVlc29Za1NRV09YWWJ4NnRuZm1Ud0plT215NnFXblBmRzVQeDA1eHk4WUZSWmlUcTctdHhNUW5GeVp4dHA5a0hFSWw5SEtKaXBRTVY0ZHNwTkl6T3JNamFkTTdHZ3p5ZTBUM3JaeHRMVnYyYW83RjA5QlFKQzBkSW1DVHlnRTNPTC1TdW5YMHZnb3VjZ2gtRFc4SGFjeWlySHRndi1MVndYY2pUelU3M0tIdUNYaGpGWWJDd1RScnlLdDlhRmFlYTBGYWpxSFhFX2FCMy1LLVBPWTV1QzE0WFltWmkxcmdXSUZtUzlhMHJrX0J3NExnRmRXblZjVU5tZXdNOU5qR3hpbDBZTmZmU1JZQ0d4Mjl2LTJtWlZOSWI1QWJWWXdCNXk5MGhway1tMUE?oc=5",
+      "source": "تلفزيون سوريا",
+      "source_home": "https://www.syria.tv",
+      "feed": "تلفزيون سوريا",
+      "published_at": "2026-10-08T22:59:25+00:00",
+      "province": "حلب"
+    },
+    {
+      "title": "مجلس الأعمال السوري-الباكستاني.. آفاق لشراكات اقتصادية واستثمارية ‏",
+      "description": "يفتح تأسيس مجلس الأعمال السوري-الباكستاني عن الجانب السوري آفاقاً جديدة ‏لتطوير العلاقات الاقتصادية بين البلدين، وسط فرص واعدة للتعاون في مجالات ‏التجارة والاستثمار والصناعة والزراعة والطاقة والتكنولوجيا، في وقت يتمثل فيه ‏التحدي الأبرز بتحويل هذه الفرص إلى مشاريع إنتاجية وشراكات مستدامة تحقق ‏قيمة مضافة للاقتصادين.‏",
+      "url": "https://sana.sy/economy/syrian-economy/2601322/",
+      "source": "وكالة الأنباء السورية – سانا",
+      "source_home": "https://sana.sy",
+      "feed": "سانا",
+      "published_at": "2026-10-08T22:52:16+00:00",
+      "province": "أخبار عامة",
+      "image_url": "https://cdn.sananews.sy/2026/10/photo_2026-10-09_01-49-44.jpg"
+    },
+    {
+      "title": "قصر المهاجرين.. حين تستعيد الدولة ذاكرتها الوطنية",
+      "description": "قصر المهاجرين.. حين تستعيد الدولة ذاكرتها الوطنية صحيفة الوطن السورية. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "url": "https://alwatan.sy/%d9%82%d8%b5%d8%b1-%d8%a7%d9%84%d9%85%d9%87%d8%a7%d8%ac%d8%b1%d9%8a%d9%86-%d8%ad%d9%8a%d9%86-%d8%aa%d8%b3%d8%aa%d8%b9%d9%8a%d8%af-%d8%a7%d9%84%d8%af%d9%88%d9%84%d8%a9-%d8%b0%d8%a7%d9%83%d8%b1%d8%aa/",
+      "source": "صحيفة الوطن السورية",
+      "source_home": "https://alwatan.sy",
+      "feed": "الوطن",
+      "published_at": "2026-10-08T21:23:18+00:00",
+      "province": "أخبار عامة",
+      "image_url": "https://alwatan.sy/wp-content/uploads/2026/10/%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3-%D8%A7%D9%84%D8%B4%D8%B1%D8%B9-%D9%88%D8%A7%D9%84%D9%82%D9%88%D8%AA%D9%84%D9%8A.jpg"
+    },
+    {
+      "title": "عندما تتحول الفكرة إلى منتج.. قصص ملهمة من Syria Build Week",
+      "description": "عندما تتحول الفكرة إلى منتج.. قصص ملهمة من Syria Build Week وكالة الأنباء السورية – سانا. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "url": "https://news.google.com/rss/articles/CBMiREFVX3lxTFByLXJ2bThnVFI5ZDZnZ3hkUUREYlFUVW5qbHFxQ202b1lCTUxSbnJ1MUJteVA5ejRJQkVoeDJxbktzUk9y?oc=5",
+      "source": "وكالة الأنباء السورية – سانا",
+      "source_home": "https://sana.sy",
+      "feed": "سانا",
+      "published_at": "2026-10-08T20:48:28+00:00",
+      "province": "أخبار عامة"
     },
     {
       "title": "بعد 14 عامًا.. الجامع الكبير في حلب يفتح أبوابه",
