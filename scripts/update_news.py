@@ -39,7 +39,7 @@ FEEDS = [
     ("أورينت", "site:orient-news.net سوريا"),
 ]
 DIRECT_FEEDS = [
-    ("سانا RSS", "https://sana.sy/feed/"),
+    ("سانا RSS", "https://sana.sy/?feed=rss2"),
     ("عنب بلدي RSS", "https://www.enabbaladi.net/feed/"),
 ]
 
@@ -337,12 +337,20 @@ def green_request(method_name: str, payload: dict | None = None, http_method: st
             except (ValueError, TypeError):
                 error_body = {}
         except Exception:
+            raw_error = ""
             error_body = {}
         if isinstance(error_body, dict):
             kind = str(error_body.get("error", "") or error_body.get("message", "") or "")
+        elif isinstance(error_body, str):
+            kind = error_body
         else:
-            kind = ""
-        kind = re.sub(r"[^A-Za-z0-9 _.-]", "", kind)[:80]
+            kind = raw_error
+        kind = html.unescape(kind)
+        kind = re.sub(r"<[^>]*>", " ", kind)
+        kind = re.sub(r"https?://\S+", "[url]", kind)
+        kind = re.sub(r"waInstance[^/ ]+/[^/ ]+", "[redacted]", kind)
+        kind = re.sub(r"[^A-Za-z0-9 _.-]", " ", kind)
+        kind = re.sub(r"\s+", " ", kind).strip()[:80]
         return None, f"http_{exc.code}" + (f":{kind}" if kind else "")
     except (urllib.error.URLError, TimeoutError, OSError, ValueError):
         return None, "connection_error"
@@ -436,7 +444,7 @@ def main():
     old_items = old_news.get("items", []) if isinstance(old_news, dict) else []
     errors = []
     candidates = []
-    user_agent = "Mozilla/5.0 (compatible; SyriaMubasherNewsBot/1.1)"
+    user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
 
     for feed_label, query in FEEDS:
         feed_url = "https://news.google.com/rss/search?q=" + urllib.parse.quote_plus(query) + "&hl=ar&gl=SY&ceid=SY%3Aar"
@@ -487,6 +495,26 @@ def main():
         unique.append(item)
 
     unique.sort(key=lambda item: item.get("published_at", ""), reverse=True)
+    # Enrich already-published Google News wrappers with the matching publisher URL and its RSS thumbnail.
+    unique_by_title = {canonical_title(item.get("title", "")): item for item in unique if canonical_title(item.get("title", ""))}
+    existing_changes = False
+    for old_item in old_items:
+        key = canonical_title(old_item.get("title", ""))
+        match = unique_by_title.get(key)
+        if not match:
+            continue
+        if not old_item.get("image_url") and match.get("image_url"):
+            old_item["image_url"] = match["image_url"]
+            existing_changes = True
+        old_host = urllib.parse.urlparse(old_item.get("url", "")).hostname or ""
+        new_host = urllib.parse.urlparse(match.get("url", "")).hostname or ""
+        if old_host.endswith("news.google.com") and new_host and not new_host.endswith("news.google.com"):
+            old_item["url"] = match["url"]
+            old_item["source"] = match.get("source") or old_item.get("source")
+            old_item["feed"] = match.get("feed") or old_item.get("feed")
+            if match.get("description") and len(match.get("description", "")) > len(old_item.get("description", "")):
+                old_item["description"] = match["description"][:700]
+            existing_changes = True
     run_now = datetime.now(timezone.utc)
     previous_seen_dt = parse_iso_datetime(state.get("newest_seen_at", ""))
     cutoff_dt = previous_seen_dt - timedelta(minutes=30) if previous_seen_dt else run_now - timedelta(hours=6)
@@ -506,7 +534,7 @@ def main():
         if len(fresh) >= MAX_NEW_PER_CYCLE:
             break
 
-    changed_news = False
+    changed_news = existing_changes
     if fresh:
         existing_by_url = {item.get("url"): item for item in old_items if item.get("url")}
         for item in fresh:
@@ -656,7 +684,7 @@ def main():
     NEWS_FILE.write_text(json.dumps(old_news, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     STATE_FILE.write_text(json.dumps(state_out, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(
-        f"Sources checked: {len(FEEDS)}; accepted feed entries: {len(candidates)}; "
+        f"Sources checked: {len(FEEDS) + len(DIRECT_FEEDS)}; accepted feed entries: {len(candidates)}; "
         f"new items: {len(fresh)}; website total: {len(old_news.get('items', []))}; "
         f"RSS items with images: {sum(1 for x in candidates if x.get('image_url'))}; "
         f"image lookups: {image_lookups}; images added: {images_added}; "
