@@ -405,7 +405,7 @@ def resolve_publisher_url(article_url: str, source_home: str = "", article_title
 def extract_article_image(article_url: str, source_home: str = "", article_title: str = "") -> str:
     if not article_url.startswith(("https://", "http://")):
         return ""
-    resolved_url = resolve_publisher_url(article_url, source_home, article_title)
+    resolved_url = article_url
     resolved_host = (urllib.parse.urlparse(resolved_url).hostname or "").lower()
     if resolved_host.endswith("news.google.com"):
         print("Image lookup skipped: Google News supplied no verifiable publisher article URL.")
@@ -745,9 +745,8 @@ def main():
                 item_url = resolved_url
                 changed_news = True
         last_image_attempt = parse_iso_datetime(image_lookup_attempts.get(item_url, ""))
-        was_google_wrapper = (urllib.parse.urlparse(item_url).hostname or "").lower().endswith("news.google.com")
         should_try_image = not item.get("image_url") and (
-            was_google_wrapper or last_image_attempt is None or datetime.now(timezone.utc) - last_image_attempt >= timedelta(hours=24)
+            last_image_attempt is None or datetime.now(timezone.utc) - last_image_attempt >= timedelta(hours=24)
         )
         if should_try_image and image_lookups < MAX_IMAGE_LOOKUPS_PER_CYCLE:
             image_lookups += 1
