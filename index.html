@@ -4,44 +4,91 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#12352b">
-  <meta name="description" content="سوريا مباشر — تابع آخر الأخبار السورية من مصادرها الأصلية.">
+  <meta name="description" content="سوريا مباشر — آخر الأخبار السورية من مصادرها الأصلية مع تحديث تلقائي.">
   <title>سوريا مباشر | آخر الأخبار السورية</title>
   <style>
-    :root{color-scheme:light;--green:#12352b;--green2:#1c5944;--gold:#d6b56d;--paper:#f5f6f2;--ink:#1b2923;--muted:#66736c}
+    :root{color-scheme:light;--green:#12352b;--green2:#1c5944;--gold:#d6b56d;--paper:#f5f6f2;--ink:#1b2923;--muted:#66736c;--line:#e0e6df}
     *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Tahoma,Arial,sans-serif;line-height:1.8}
     a{color:inherit}.top{background:var(--green);color:#fff;border-bottom:4px solid var(--gold)}.wrap{width:min(1100px,92%);margin:auto}
     .nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 0}.brand{font-size:1.45rem;font-weight:800}.brand span{color:var(--gold)}
-    .nav a{font-size:.92rem;text-decoration:none;color:#e7eee9}.hero{padding:42px 0 38px}.eyebrow{color:var(--gold);font-weight:700}.hero h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.25;margin:8px 0 12px}.hero p{max-width:680px;color:#dbe7df;margin:0}
-    .pill{display:inline-block;margin-top:22px;background:var(--gold);color:#17251e;padding:7px 13px;border-radius:999px;font-weight:700;font-size:.86rem}
+    .nav a{font-size:.92rem;text-decoration:none;color:#e7eee9}.hero{padding:37px 0 34px}.eyebrow{color:var(--gold);font-weight:700}.hero h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.25;margin:8px 0 12px}.hero p{max-width:680px;color:#dbe7df;margin:0}
+    .pill{display:inline-block;margin-top:22px;background:rgba(214,181,109,.15);border:1px solid rgba(214,181,109,.7);color:#f2dca8;padding:6px 12px;border-radius:999px;font-weight:700;font-size:.84rem}
     main{padding:30px 0 55px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;border-bottom:1px solid #dce2dc;padding-bottom:12px}.section-head h2{margin:0;font-size:1.45rem}.section-head p{margin:0;color:var(--muted);font-size:.9rem}
-    .notice{margin-top:20px;background:#fff;border:1px solid #e0e6df;border-radius:16px;padding:24px}.notice h3{margin:0 0 8px}.notice p{margin:0;color:var(--muted)}
-    .categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:22px}.category{background:#fff;border:1px solid #e0e6df;border-radius:12px;padding:14px;font-weight:700}
+    .status{margin:16px 0;color:var(--muted);font-size:.88rem}.news-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr));gap:15px;margin-top:18px}
+    .news-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:15px;padding:19px;min-height:220px;box-shadow:0 3px 12px rgba(18,53,43,.035)}
+    .meta{display:flex;align-items:center;justify-content:space-between;gap:8px;color:var(--muted);font-size:.78rem}.source{display:inline-block;background:#edf4ee;color:var(--green2);border-radius:999px;padding:3px 9px;font-weight:700}
+    .news-card h3{font-size:1.08rem;line-height:1.7;margin:12px 0 8px}.news-card p{margin:0 0 17px;color:#526159;font-size:.94rem;white-space:pre-line}
+    .news-card .read{margin-top:auto;align-self:flex-start;color:var(--green2);font-weight:800;text-decoration:none}.news-card .read:hover{text-decoration:underline}
+    .empty{background:#fff;border:1px solid var(--line);border-radius:15px;padding:24px;margin-top:18px;color:var(--muted)}
+    .categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-top:19px}.category{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px;font-weight:700}
     footer{background:#10271f;color:#dbe7df;padding:22px 0;font-size:.88rem}footer p{margin:4px 0}.small{color:#aebfb4}
+    @media(max-width:550px){.section-head{align-items:flex-start;flex-direction:column}.hero{padding-top:28px}.news-card{padding:16px}}
   </style>
 </head>
 <body>
   <header class="top">
     <div class="wrap">
-      <nav class="nav"><div class="brand">🇸🇾 <span>سوريا</span> مباشر</div><a href="#latest">آخر الأخبار</a></nav>
+      <nav class="nav"><div class="brand">🇸🇾 <span>سوريا</span> مباشر</div><a href="#latest">آخر الأخبار ↓</a></nav>
       <section class="hero">
         <div class="eyebrow">نبض سوريا لحظة بلحظة</div>
         <h1>أخبار سوريا من مصادرها</h1>
-        <p>منصة إخبارية لمتابعة المستجدات السورية حسب المحافظة والموضوع، مع إتاحة رابط المصدر الأصلي لكل خبر.</p>
-        <span class="pill">الموقع قيد التجهيز — النشر الآلي سيُفعّل بعد ربط المصادر</span>
+        <p>تابع آخر المستجدات السورية من مصادر إخبارية متعددة، مع رابط يتيح لك الرجوع إلى الخبر الأصلي.</p>
+        <span class="pill">تحديث تلقائي للأخبار كل 5 دقائق</span>
       </section>
     </div>
   </header>
   <main class="wrap">
     <section id="latest">
-      <div class="section-head"><h2>آخر الأخبار</h2><p>تُعرض الأخبار هنا بعد تفعيل نظام النشر الآلي.</p></div>
-      <div class="notice"><h3>نجهّز تدفّق الأخبار الآن</h3><p>لم تُنشر أخبار آلية على الموقع بعد. في الخطوة التالية سنربط مصادر RSS ونضيف فحص التكرار، ثم نفعّل النشر إلى الموقع ومجموعة واتساب.</p></div>
+      <div class="section-head"><h2>آخر الأخبار</h2><p id="updateTime">يجري تحميل الأخبار…</p></div>
+      <div class="status" id="feedStatus" role="status">جارٍ تحميل الأخبار من المصادر.</div>
+      <div class="news-grid" id="newsGrid"></div>
+      <div class="empty" id="emptyState" hidden>لا توجد أخبار متاحة الآن. سيُعاد فحص المصادر تلقائيًا.</div>
     </section>
     <section aria-label="الأقسام">
-      <div class="section-head" style="margin-top:32px"><h2>تصفّح حسب المنطقة</h2><p>أقسام الموقع</p></div>
-      <div class="categories"><div class="category">حمص</div><div class="category">حلب</div><div class="category">إدلب</div><div class="category">دمشق وريفها</div><div class="category">اللاذقية وطرطوس</div><div class="category">دير الزور والرقة</div></div>
+      <div class="section-head" style="margin-top:34px"><h2>تصفّح حسب المنطقة</h2><p>أقسام التغطية</p></div>
+      <div class="categories"><div class="category">حمص</div><div class="category">حلب</div><div class="category">إدلب</div><div class="category">دمشق وريفها</div><div class="category">اللاذقية وطرطوس</div><div class="category">دير الزور والرقة</div><div class="category">درعا والسويداء</div><div class="category">الحسكة والقامشلي</div></div>
     </section>
   </main>
-  <footer><div class="wrap"><p><strong>سوريا مباشر</strong></p><p>نحيل إلى المصادر الأصلية، ونعمل على التحقق من الروابط وتجنّب تكرار الأخبار.</p><p class="small">© <span id="year"></span> سوريا مباشر</p></div></footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+  <footer><div class="wrap"><p><strong>🇸🇾 سوريا مباشر</strong></p><p>نحيل إلى المصادر الأصلية، ونعمل على الحد من تكرار الأخبار.</p><p class="small">© <span id="year"></span> سوريا مباشر</p></div></footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+    const formatDate = value => {
+      if (!value) return 'تاريخ غير متاح';
+      const date = new Date(value);
+      return Number.isNaN(date.getTime()) ? 'تاريخ غير متاح' : date.toLocaleString('ar-SY',{dateStyle:'medium',timeStyle:'short'});
+    };
+    async function loadNews(){
+      const grid = document.getElementById('newsGrid');
+      const empty = document.getElementById('emptyState');
+      const status = document.getElementById('feedStatus');
+      try {
+        const response = await fetch('./data/news.json?v=' + Date.now(), {cache:'no-store'});
+        if (!response.ok) throw new Error('feed unavailable');
+        const data = await response.json();
+        const items = Array.isArray(data.items) ? data.items : [];
+        document.getElementById('updateTime').textContent = data.updated_at ? 'آخر تحديث: ' + formatDate(data.updated_at) : 'بانتظار أول تحديث';
+        if (!items.length) {
+          grid.innerHTML = '';
+          empty.hidden = false;
+          status.textContent = 'لم تصل أخبار جديدة بعد؛ يتم فحص المصادر تلقائيًا.';
+          return;
+        }
+        empty.hidden = true;
+        grid.innerHTML = items.map(item => {
+          const title = esc(item.title || 'خبر من سوريا');
+          const description = esc(item.description || 'اضغط لقراءة التفاصيل من المصدر الأصلي.');
+          const source = esc(item.source || item.feed || 'مصدر إخباري');
+          const url = /^https?:\/\//i.test(item.url || '') ? esc(item.url) : '#';
+          return '<article class="news-card"><div class="meta"><span class="source">' + source + '</span><time>' + esc(formatDate(item.published_at)) + '</time></div><h3>' + title + '</h3><p>' + description + '</p><a class="read" href="' + url + '" target="_blank" rel="noopener noreferrer">اقرأ الخبر الأصلي ←</a></article>';
+        }).join('');
+        status.textContent = 'عدد الأخبار المعروضة: ' + items.length + ' — الروابط تفتح المصدر الأصلي.';
+      } catch (error) {
+        status.textContent = 'تعذّر تحميل ملف الأخبار حاليًا. أعد المحاولة بعد قليل.';
+        empty.hidden = false;
+      }
+    }
+    loadNews();
+  </script>
 </body>
 </html>
