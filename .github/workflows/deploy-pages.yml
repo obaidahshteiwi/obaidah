@@ -1,4 +1,5 @@
 name: Syria Mubasher - RSS and Website
+# Manual publication updates to the site should trigger a fresh Pages deployment.
 
 on:
   push:
