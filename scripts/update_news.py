@@ -615,6 +615,75 @@ def mirror_image_locally(image_url: str, article_url: str = "") -> str:
         return ""
 
 
+def extract_wordpress_featured_image(article_url: str) -> str:
+    """Use a publisher's public WordPress API when its article HTML blocks server-side requests."""
+    parsed = urllib.parse.urlparse(article_url or "")
+    host = (parsed.hostname or "").lower()
+    if not (host == "enabbaladi.net" or host.endswith(".enabbaladi.net")):
+        return ""
+    match = re.search(r"/(\d{4,})(?:/|$)", parsed.path)
+    if not match:
+        return ""
+    post_id = match.group(1)
+    api_hosts = list(dict.fromkeys([host, "www.enabbaladi.net", "enabbaladi.net"]))
+    for api_host in api_hosts:
+        api_url = f"https://{api_host}/wp-json/wp/v2/posts/{post_id}?_embed=1"
+        request = urllib.request.Request(api_url, headers={
+            "User-Agent": "Mozilla/5.0 (compatible; SyriaMubasherNewsBot/1.0)",
+            "Accept": "application/json",
+            "Referer": "https://" + api_host + "/",
+        })
+        try:
+            with urllib.request.urlopen(request, timeout=7) as response:
+                raw = response.read(1_500_000).decode("utf-8", errors="replace")
+            post = json.loads(raw)
+            if isinstance(post, list):
+                post = post[0] if post else {}
+            if not isinstance(post, dict) or post.get("code"):
+                continue
+            candidates = []
+            for key in ("jetpack_featured_media_url", "featured_image_url"):
+                if isinstance(post.get(key), str):
+                    candidates.append(post[key])
+            featured = post.get("better_featured_image")
+            if isinstance(featured, dict):
+                candidates.append(featured.get("source_url", ""))
+            yoast = post.get("yoast_head_json")
+            if isinstance(yoast, dict):
+                for image in yoast.get("og_image", []) if isinstance(yoast.get("og_image"), list) else []:
+                    if isinstance(image, dict):
+                        candidates.append(image.get("url", ""))
+            embedded = post.get("_embedded")
+            if isinstance(embedded, dict):
+                media_items = embedded.get("wp:featuredmedia", [])
+                if isinstance(media_items, list):
+                    for media in media_items:
+                        if not isinstance(media, dict):
+                            continue
+                        candidates.append(media.get("source_url", ""))
+                        sizes = media.get("media_details", {}).get("sizes", {})
+                        if isinstance(sizes, dict):
+                            for size_name in ("large", "medium_large", "full", "medium"):
+                                size = sizes.get(size_name)
+                                if isinstance(size, dict):
+                                    candidates.append(size.get("source_url", ""))
+            for candidate in candidates:
+                value = normalize_image_url(str(candidate or ""))
+                if value and not is_generic_image_url(value):
+                    print(f"Publisher featured image found via WordPress API: {api_host}.")
+                    return value
+            content = post.get("content", {})
+            if isinstance(content, dict):
+                value = extract_markup_image(str(content.get("rendered", "")), article_url)
+                if value and not is_generic_image_url(value):
+                    print(f"Publisher image found in WordPress content API: {api_host}.")
+                    return value
+        except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, OSError, ValueError, json.JSONDecodeError):
+            continue
+    print("Publisher WordPress image API was unavailable.")
+    return ""
+
+
 def extract_article_image(article_url: str, source_home: str = "", article_title: str = "") -> str:
     if not article_url.startswith(("https://", "http://")):
         return ""
@@ -647,6 +716,10 @@ def extract_article_image(article_url: str, source_home: str = "", article_title
             print(f"Article image {'found' if picture else 'not found'} from {final_host}.")
         return picture
     except urllib.error.HTTPError as exc:
+        if exc.code in (401, 403, 429):
+            api_picture = extract_wordpress_featured_image(article_url)
+            if api_picture:
+                return api_picture
         print(f"Article image lookup returned HTTP {exc.code} from {original_host}.")
         return ""
     except (urllib.error.URLError, TimeoutError, OSError, ValueError):
