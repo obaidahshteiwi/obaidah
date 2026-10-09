@@ -68,14 +68,71 @@
     "https://news.google.com/rss/articles/CBMi0wJBVV95cUxPb3htaGJFaVgzTk1Gc01TMmxnOTJkUXZISEVPMWNLQU4ydEpKWmM5dEpJd0dkU2NkTXRMbHBWMnBkRXU1aGRKUTBYWGZZdm5fdWhYNU9sWDVNRW1zTFBiOUFRQXRLRWgtUjRYRFFhbjNHS2Z6UXBtMHFJenpkQlJkS3daMGJHWFVZaGZpOW5zUzFPU2NLSExTcUpHSnpfRHNxcVVwSDY0QW5XV3dmWUJpZFlUVzl6clhZeDVYLWRyejQxeU1aeW0tekNrVkdkVUFvRkc0bUszOGFtYl9MaEZsTHgzcHA4ZTlXY0s0N2VJMlIzLTk5RmphOXhFWjZTN3R0cF9CT0FuVV94VEItS2w4VG9iYWw0blBDb21VZDgyUWtrOHU5c3pqcGxoVGxzNmxqWWxnSUlzOVRYckc4ZFpEOUNMa1pldjhOT3JHUXJlUnRNREnSAdgCQVVfeXFMTUlaVDZJLWlURXI4QVp1MW5NLVEtRGVCbkY3Q3g0aVN0WUxEV3pOT3RjVGpPajlUU3FzdWRkbk9BRlFfVXlOb1ROWDN1N2haM29LTG9MdC01MDVQVmtJR2VOS3dxdWMtRklRS3Y2NWJLS0pneUtIb3RaaFdwaWtGd0I1eHRWcG0wa05PNHY0c205WnFrU2VCaTlqbTFmTEVvQkFYUjl3NDMtV280U0JfU1JZUGkzOFhvNnFLNmZYLVVNd0R1WWtKck9NTzFDTkZ0Rlg1aE8xazFmc1pSSU4wQ0NObkwteGRscjBKa0o1bkE4dkFVcEFfajBmZmpsU3FRVzZZUDctdFRFU3hqRmtVTEs1SUwyU2toR01UaWpMRVgxSXY5eWVYN2t2WTZqUWE2NlFkdmhfaVJTQ1FPV3p1cGhkTnl4Nnd5QkFXVjloMVFlc2RHUXUtd0Y?oc=5",
     "https://news.google.com/rss/articles/CBMikwRBVV95cUxOSGxQbDNOYi1KWEVkSGtubXdNSTQ4cGdUUG5iMmRCa1JtSDFjVFloOUJNdzhJZlhsYU90RzhtX0UxcTk3TUozY0hjVVAzb2pNdF8wNi1HSTJBNzBmc3FQdW4tTHFOaDhQb1hya21aZ1BBWWN5UHQySm1TR1ZLOGEtVGp0aEhvbUxLMVZLdlh6djVwNWlZWXpsT1U5QlAxNkFGZ1ViZS16aWY3aWRnamE4dnVRdUZYS05hTEVwaHlRTjd3MGR5R1RfSk1idDBlUEVnLUF5akRyU3p0ZGgyOW1qdkN5blBxU2drZTI2VXYtNXpoNkNfWUZwbDNsaUZmNFF2bFNES3pkbVdJcndORy1lY1Vqdm1wMFVSelRVcF9zbVNlNVFEc252akhUcTFNUFNoLVNpck1wUXJUbWVjQWI3MlpOV3NEUG80ZnJiT1B1R0tNMU5UTzRyTTJUOXFIZUNqek1LY2dJUVZsYmVKaXhSMkZDOUZORGp5WjlaZ3JpdExXUWVRME0yeEJZUllkNW1rUjBWay1vOGtSUFdoNmNHaXlSQVdoZGZSeE02VXM0aExZaklRTWxkRkNsNnhQeWNZeG14UDEtREI2ay10d2R5LTItWnN3dmk0bnBmcG9CZkRub092RGhEb01QRHo0dGRNMXRBZlhWYktSdl9rVjNCSWF2SUxPeTY4S0x0b0ExX1RuUzDSAZgEQVVfeXFMT0w3eC14MGJFcW5CSWlqaWxBYnllSjFrZUYxLWdqX2lDS2ExMEQ2eE5ZYUF0Y0NIeTdDdk5KekltOE1ETzNkeUFZS21nOW9COHpCWlVLemMybE1jWEdadUc4MzVERUhoLV9vdUlNTVlvbTllcG1GU3dQem85YXhReGx0RFdhUzF4U2tNdFppb2VNWnNNVzVEY0JiWlZ4Q1JBaVhlbzZhYUhsV3RKQTV6eFVCVmgzWWllNlpWVnVhQUdPX2NHcnFHSEV5V2JlWmkzeXNiZ2J6ZGpqZzNSc1dGYmVvQ0xBckJzRzNQRHQzRHIweXVMVlc5NnZsa3dJdWN2QXN2UjVrczlVQ1Bad25aTHd2Ql9ONXNGazIydnZuS1hkYTNSMWpuMThzNVZzOUdHMXh6ZS1obGNGNTFwOUJUZmN1TFZWTGw3MWtpZXJJaThudnFOdTdsTmhlUWFEZFBqVkNUTHI3WUNWNEZRSnREZmhLMF9LelZkRzYwTG9iUW9vMzlLMXpCNEkzQmJFTzJiaHppeHlfZ2p0YlpLSGFBR0J5NktPWEJhRWRrQTlJcTNtS0RxanFmellVdUVmRHRUN1Y0WlBUMDU0a29ETTJjMkxXaU1DaUR2cXdtbjJCdmpkU2JOUFVVYU1ocUhzY3h5V2NpMmRZUEh1cnpmQXFoMGJwNmNlZzNvdDBvTkpMMjdpX2NucUJrS3Y?oc=5",
     "https://news.google.com/rss/articles/CBMiwAJBVV95cUxOTWpfQ1J5NUg3cWZCZkx1V0gyUEJ1MEF3bmpyWVdCNHlTc0M4NFNlOTVheXhsMnFCU3JqU1RmLWhVMlRuSXdpRUZ4bGg1QWQ0STJOd0Q0ZVRscFFmNjN3dFRhZk93cmhPMGl6bXIxSlpuUUI3YWdSV1ZucG9CcWZIbmhtdzZSUWw1SVRQM3c3SFFaLWtsdEhuWmZpWDU5dHdpTmg2Um1fMFFORlg5MDlkSVI1V01IVjBHZnZsSnVJZlBNeEtaOGlYSVdiU1VfcGwwSzlDMHBUSS0wQ3dJOV8tS2VJVVBhNVJYUGNxbW9JRDZkZ1dsV1EtckYzaVIyTm5XZFZYdVJfS3llUDN1aElEXzhwbnJ1VnQ5QnBZUzhRRFhFekpoSjhRZDl1d21hbTFWYzh1LTZDSzNsNGhYRm92X9IBxgJBVV95cUxPd0ZPa1dFX2thMVR2VVFzdmV1R1ZmeFpVOVFXM2ZoUlcwOGNVeG9ld3VrRVdkQ2NrS2JwMzVHVzg2Vmx3THNwdHdtbHNfdFZqbFZHQ1N0Vl9WTW5fZDhrSFZYdHNDMlBoZzNoSW5mdmstc3ZaWFdBcFVZWWpGTWNlRUdEbTliQjNIU0FyQmxEaV84bTN0ZEVkcHk1cUtScWQwUV9mYi1jbWpuZlRORVNxeE1qeFpldzhDeC1DdGNJSjhLYmt1S2tkZFVHVWIzdWhJel84dDVVTE13blhsdEsxWWNNRW5SbmVBRDVlYThQZ3AyVUtpMFRaWDlUN1FXUUgzdmRfOFpXX2o5Vk1hekFuU0JmdElvdk5ScXRZRXVtQTdPVHprZkU5TU1vcXJMUkxWVkkwVTZybWNTZlVBdVo1cm54Mm80QQ?oc=5",
-    "https://news.google.com/rss/articles/CBMif0FVX3lxTFB0U0VsVmF4Tk5zZGh4aktuNTBNS0pwWHZndVlnX3ExN2JabVZzWHlVclo5ZVJhUWhPek15UU5ZR3lJZmNEUTJXSk1CRDVQOTVXaWh3NFpLU2U3R19vcFpqU0wtZzR3LXRVcXpwTW1mUDBlMURsTmROYk5aLTBYek0?oc=5"
+    "https://news.google.com/rss/articles/CBMif0FVX3lxTFB0U0VsVmF4Tk5zZGh4aktuNTBNS0pwWHZndVlnX3ExN2JabVZzWHlVclo5ZVJhUWhPek15UU5ZR3lJZmNEUTJXSk1CRDVQOTVXaWh3NFpLU2U3R19vcFpqU0wtZzR3LXRVcXpwTW1mUDBlMURsTmROYk5aLTBYek0?oc=5",
+    "https://www.enabbaladi.net/828558/%d8%a5%d8%b3%d8%b1%d8%a7%d8%a6%d9%8a%d9%84-%d8%aa%d8%b3%d8%aa%d9%87%d8%af%d9%81-%d8%b3%d9%88%d8%b1%d9%8a%d9%8b%d8%a7-%d8%a8%d8%aa%d9%87%d9%85%d8%a9-%d8%a7%d9%84%d8%aa%d8%ae%d8%b7%d9%8a%d8%b7-%d9%84/",
+    "https://www.enabbaladi.net/828562/%d8%ac%d9%85%d8%b9%d8%a9-%d8%a7%d9%84%d8%b9%d9%84%d9%85-%d9%81%d9%8a-%d8%a7%d9%84%d8%ad%d8%b3%d9%83%d8%a9-%d9%84%d9%81%d8%b1%d8%b6-%d8%a7%d9%84%d8%a3%d9%85%d9%86-%d9%88%d8%aa%d8%b9%d8%b2%d9%8a/",
+    "https://news.google.com/rss/articles/CBMizgRBVV95cUxPT2w4ZklMcWdwdXY0b1V5Q1VCdXg0dGIzSE4tYTN2aC1FWjV3enViU0k3amdBN3E3S3hGempwR2s1ZDJpZ1JJRXBoME51WWhBYk1mNkNQSWp1SmNZLXNkSXZMblhuY0U1MDU5SDF5UFlaajdrd0JodW95VmFQWGQ5UXdTd1BQZVZNWDhPMWJjZzViQm5vMGtvd0VxY0o3QXVNYXREMHlRa0dkZzZJdmVxcVZtSDJlaUY4UjZqX2FLWTNNWEtydmlfMjR3MWlBeVROX3lvTlpMUGlJelBJSWRxT1Rrd25LTWsxczRpanE4MC1DVUtDMEpRM090blMza0pZSmVKQmk2cHQ2MGcyQnlwT1pkSnZGdDFUTjJpT2dnaUZLeUdhOEltWEFQTDZTRHNjNDZLdFRlTl95QmpMcWkyNUs0dDd1N2xRNWtzZ24yemJsdWV5dy02X0RXUU43OEp5alBRbWNHNnhjYnFrcWx6UXBTS2hXYzlkX0VTbFdORUVwVV9RUWJIT1FIQmFfVVZzVVlZUTBBRFFKNGJmT1Ntak5LQUdJMmhYREFYbUlZUlFrTlg1MnJfS2J1X25KdGJiOC1POVhDUVB4S3NrUWd4aUdIYjBNaVRQZ2dYU3A2QUtNQ0VTOER0N1dFRE4tN0M3a2hMcGpzaG9rY2FPVDVUZGs1OEozS1FjSHVvRmFrWXVUS0JGTDhHSjJXbkNWVDhXdnBjN25aMkxWUzR2MEt2bGYtU0lnQ0t3MmlaZThqclRfbE9iX0kzN2xNWE5XZ9IB0wRBVV95cUxOdFplZlI5YTdLcW96LXJCMmZxR2xGUkNZaHhKdTBqTEs2RFAxRzc2eTJlWGhlSHFvWFJoOHVVXzZfd0tLbkFTMDJMb0lqLUwyNC1aS0dZR2t0WWprN1pkUmpqWGg1VU44ZkUxeHBrNTdSMDFTWXBTek15Y2lDYmhQRTBlYkVseFZJX1paRXZ2SHM0OFhTMXRpMElCSUF3U09sejhSRkVZVUJma0o1VW5qUzRpLWRXRExuTzAzYjFGWkYtTmIzTkhZOF9BX3g1aHpLYnJYZnY3UHA0dGYyS1IyaHNLV29pM3hYaTllRDYtanZVRDNQb0F6enFieDh6SzZOSFJuX2h1MmRLcm53MFI5VlpTUU1la1JzYlRaU3hSWDZxeWtUOUltTW5tX2pHZGc2eU80NERfekZiNkgwTGpqU2tXYXFDQzkzelkydHpOUXVPV3VrdDNlbXlzYTA1THZVLXQ3c3djeW8tR0RCcU5icUpKdHpZMzdfZU50V3o3c3VYb3VfNzZhZ2JwZVdGa20tekducWtpWnVmU3BkZUNNSkFhLUM5dEUxU0xCaF9MbHJJa1E1MVc2aHNoR1pLdlJSaE92VzNtdWdrc2k5a0xCNk5xMFhkRGhhZmYxVmI4LThNLVJfMEh3YTBPcnE0eURDME9hNGpjajVybWpiZW02MzczUHJoa2p5SjJLdm1MMnR0ZVpndWFac0pjV3hpUVY2WGthRDE1UzB2b0FkeFZNSTFLNGhidnpRb21JaThxOURzZUVubVdqNWZCQ1RkalpmUHMw?oc=5",
+    "https://news.google.com/rss/articles/CBMi2wJBVV95cUxPZlUzdHF2THI4WW1JLU9nX1l6T3o2a1lhYzdfRklZU3lMVDhGQ2NOajF0QkhicUdKdlY2bGloTkJNS2dqQ1BOOGZLemtoZERsdWtjUHZtaTNNUWY1dEhPWV9DTnNYbFZWOVYwd3QxTTRxaF9PN1pnQkc1bk9BcnJFOF9EeHBvN1BIc1BpSDlqbEl4U2FSZEdBdURyc2c5LUxVSE8zaTRpMzJaZWJmLUQxNnVyQVVLNUtlWGNBT2huckdQUDJxT1M2SGdDTlB5X21QQnBJVFZVMlA4SEhOSmVWSmpTQ1R4NDhMSlZtai1GSmNaUXpWdDhjakNkTXNSeDZCaWFyY01WRXd2Q25CVWZ5N3dqVVh1dWZVQ2JteXlnckVUcHZqUWtJR2o5dUNHYnBYTnc2bFVjcERBbjJCUVVidThqSk1HMm5VODlNWTY3MENrd3BOa2JGYktlVdIB4AJBVV95cUxNYTFXR294a0tKRVJhUTBxUVdNQmNBc29mS3VITTdFWHp1aHpuUWxzWl8zTFFFQmdsaVloM1ladEFqRG9VVmtaQzdUclc1Y2tKUEZOU0Y2VjB0WjJYXzA5VHJKcHJGZjhaZXpiWjVQMllDeXNjZHhaRkoxZTlHaXk3TE90TDdFQlZNS08xNVhVMHM5MWd0R0ZncW1ZLXgtUmg0UTk1MHpaRjVGcTQ0QlFwTElBUDBycFU4dlU4enhac1FScWQ1WGdQc1lLT3ZfaTlnUXpQZUxEWUpuYVA1RmQwQkFFVkJucFB1WGt5cUVET1RkTWtiSGV6R3o0NkJON2p2ZXFZTG5LYV9Qd3V2RkMtODhHM3hRV0FYcjNvSmxmYmlkYm5XRTMtUV9YNHpJcXRFWWZEbXlrMHZFTHlsWDhkaUNib2pVNlFTTWJ6RnR6OFo1WlR5YmtsbzQxV2tZekpT?oc=5",
+    "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOTUZpVjNWMXU2SGdzU2lpWllIOG1fTmhocUJ1cW55WDg5LVMtNENDbkFuZ3lVamx2c0s0eUVNUWRPMEtXX3ZGRTBhT3JBcktXZHBtb2lhTF96RFFkZWZILVZWME45NHBMNTRza3VPLTU2d0swclJpUjVHdTNXVV9WeUQxUVFDX1FhdGNUelpIeFRHcFZmX3VLOGljZWxOMFR2cUF2aHYyZTNDejcxUHFYbjNVT05wd0Z6LXJGR2FORHNERFVUN0ZORV9zVHR4NmJyMDdzempHdmVMSnRLRDBmaFd5TQ?oc=5"
   ],
   "whatsapp_sent_urls": [],
-  "whatsapp_pending": {},
+  "whatsapp_pending": {
+    "https://www.enabbaladi.net/828558/%d8%a5%d8%b3%d8%b1%d8%a7%d8%a6%d9%8a%d9%84-%d8%aa%d8%b3%d8%aa%d9%87%d8%af%d9%81-%d8%b3%d9%88%d8%b1%d9%8a%d9%8b%d8%a7-%d8%a8%d8%aa%d9%87%d9%85%d8%a9-%d8%a7%d9%84%d8%aa%d8%ae%d8%b7%d9%8a%d8%b7-%d9%84/": {
+      "id_message": "3EB08A618D2C7970D5E2A4",
+      "chat_id": "120363413362085519@g.us",
+      "title": "إسرائيل تستهدف سوريًا بتهمة التخطيط لهجمات بتوجيه إيراني",
+      "kind": "text",
+      "attempts": 1,
+      "status": "pending",
+      "queued_at": "2026-10-09T20:29:05+00:00"
+    },
+    "https://www.enabbaladi.net/828562/%d8%ac%d9%85%d8%b9%d8%a9-%d8%a7%d9%84%d8%b9%d9%84%d9%85-%d9%81%d9%8a-%d8%a7%d9%84%d8%ad%d8%b3%d9%83%d8%a9-%d9%84%d9%81%d8%b1%d8%b6-%d8%a7%d9%84%d8%a3%d9%85%d9%86-%d9%88%d8%aa%d8%b9%d8%b2%d9%8a/": {
+      "id_message": "3EB0474C0B721FFFA2A973",
+      "chat_id": "120363413362085519@g.us",
+      "title": "“جمعة العلم” في الحسكة لفرض الأمن وتعزيز سلطة الدولة",
+      "kind": "image",
+      "attempts": 1,
+      "status": "pending",
+      "queued_at": "2026-10-09T20:29:05+00:00"
+    },
+    "https://www.enabbaladi.net/828547/%d8%b3%d9%88%d8%b1%d9%8a%d8%a7-%d9%88%d9%84%d8%a8%d9%86%d8%a7%d9%86-%d8%aa%d9%83%d8%ab%d9%81%d8%a7%d9%86-%d9%85%d9%84%d8%a7%d8%ad%d9%82%d8%a9-%d8%b9%d9%85%d9%84%d9%8a%d8%a7%d8%aa-%d8%a7%d9%84%d8%aa/": {
+      "id_message": "3EB0884A75FDE34E036D4B",
+      "chat_id": "120363413362085519@g.us",
+      "title": "سوريا ولبنان تكثفان ملاحقة عمليات التهريب على الحدود",
+      "kind": "text",
+      "attempts": 1,
+      "status": "pending",
+      "queued_at": "2026-10-09T20:29:05+00:00"
+    },
+    "https://sana.sy/sport/syrian-sport/2602117/": {
+      "id_message": "3EB0B55B245A31D21EA584",
+      "chat_id": "120363413362085519@g.us",
+      "title": "اختتام منافسات اليوم الأول من كأس رئيس دولة الإمارات للخيول العربية الأصيلة في اللاذقية",
+      "kind": "image",
+      "attempts": 1,
+      "status": "pending",
+      "queued_at": "2026-10-09T20:29:06+00:00"
+    },
+    "https://sana.sy/politics/2602121/": {
+      "id_message": "3EB0C31ACE2FDEFC1BA9B6",
+      "chat_id": "120363413362085519@g.us",
+      "title": "مفوضية الأمم المتحدة لحقوق الإنسان تحذر من تداعيات التوغلات الإسرائيلية جنوب سوريا",
+      "kind": "image",
+      "attempts": 1,
+      "status": "pending",
+      "queued_at": "2026-10-09T20:29:06+00:00"
+    }
+  },
   "evolution_sent": {},
   "whatsapp_tracking_version": 2,
-  "whatsapp_quota_blocked": true,
-  "whatsapp_attempt_counts": {},
+  "whatsapp_quota_blocked": false,
+  "whatsapp_attempt_counts": {
+    "https://www.enabbaladi.net/828558/%d8%a5%d8%b3%d8%b1%d8%a7%d8%a6%d9%8a%d9%84-%d8%aa%d8%b3%d8%aa%d9%87%d8%af%d9%81-%d8%b3%d9%88%d8%b1%d9%8a%d9%8b%d8%a7-%d8%a8%d8%aa%d9%87%d9%85%d8%a9-%d8%a7%d9%84%d8%aa%d8%ae%d8%b7%d9%8a%d8%b7-%d9%84/": 1,
+    "https://www.enabbaladi.net/828562/%d8%ac%d9%85%d8%b9%d8%a9-%d8%a7%d9%84%d8%b9%d9%84%d9%85-%d9%81%d9%8a-%d8%a7%d9%84%d8%ad%d8%b3%d9%83%d8%a9-%d9%84%d9%81%d8%b1%d8%b6-%d8%a7%d9%84%d8%a3%d9%85%d9%86-%d9%88%d8%aa%d8%b9%d8%b2%d9%8a/": 1,
+    "https://www.enabbaladi.net/828547/%d8%b3%d9%88%d8%b1%d9%8a%d8%a7-%d9%88%d9%84%d8%a8%d9%86%d8%a7%d9%86-%d8%aa%d9%83%d8%ab%d9%81%d8%a7%d9%86-%d9%85%d9%84%d8%a7%d8%ad%d9%82%d8%a9-%d8%b9%d9%85%d9%84%d9%8a%d8%a7%d8%aa-%d8%a7%d9%84%d8%aa/": 1,
+    "https://sana.sy/sport/syrian-sport/2602117/": 1,
+    "https://sana.sy/politics/2602121/": 1
+  },
   "image_lookup_attempts": {
     "https://www.enabbaladi.net/828525/%d8%a7%d9%84%d8%a3%d9%85%d9%85-%d8%a7%d9%84%d9%85%d8%aa%d8%ad%d8%af%d8%a9-%d8%aa%d9%88%d8%ab%d9%82-%d8%a7%d9%86%d8%aa%d9%87%d8%a7%d9%83%d8%a7%d8%aa-%d8%a5%d8%b3%d8%b1%d8%a7%d8%a6%d9%8a%d9%84-%d9%81/": "2026-10-09T17:46:34+00:00",
     "https://www.enabbaladi.net/828523/%d9%87%d9%8a%d9%83%d9%84-%d8%b2%d9%8a%d9%86-%d8%aa%d8%a8%d8%af%d8%a3-%d8%b9%d9%85%d9%84%d9%87%d8%a7-%d9%81%d9%8a-%d8%b3%d9%88%d8%b1%d9%8a%d8%a7-%d8%ae%d9%84%d8%a7%d9%84-%d8%a3%d9%8a%d8%a7%d9%85/": "2026-10-09T17:46:34+00:00",
@@ -110,7 +167,9 @@
     "https://sana.sy/sport/syrian-sport/2602117/": "2026-10-09T19:59:42+00:00",
     "https://sana.sy/politics/2602121/": "2026-10-09T19:59:42+00:00",
     "https://www.enabbaladi.net/828518/%d8%a5%d8%ba%d9%84%d8%a7%d9%82-%d9%81%d8%b1%d9%86-%d9%85%d8%b9%d8%b1%d8%af%d8%b3-%d8%a7%d9%84%d9%88%d8%ad%d9%8a%d8%af-15-%d8%a3%d9%84%d9%81-%d9%86%d8%b3%d9%85%d8%a9-%d8%a8%d9%84%d8%a7-%d8%ae%d8%a8/": "2026-10-09T19:59:42+00:00",
-    "https://www.syria.tv/%D9%82%D9%8A%D9%85%D8%AA%D9%87-50-%D9%85%D9%84%D9%8A%D8%A7%D8%B1-%D8%AF%D9%88%D9%84%D8%A7%D8%B1-%D8%A7%D9%84%D8%B5%D9%86%D8%AF%D9%88%D9%82-%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%AF%D9%8A-%D9%8A%D8%B6%D8%B9-%D9%8A%D8%AF%D9%87-%D8%B9%D9%84%D9%89-%D8%A3%D8%B5%D9%88%D9%84-%D8%A7%D9%84%D9%85%D9%82%D8%B1%D8%A8%D9%8A%D9%86-%D9%85%D9%86-%D8%A7%D9%84%D8%A3%D8%B3%D8%AF": "2026-10-09T20:03:21+00:00"
+    "https://www.syria.tv/%D9%82%D9%8A%D9%85%D8%AA%D9%87-50-%D9%85%D9%84%D9%8A%D8%A7%D8%B1-%D8%AF%D9%88%D9%84%D8%A7%D8%B1-%D8%A7%D9%84%D8%B5%D9%86%D8%AF%D9%88%D9%82-%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%AF%D9%8A-%D9%8A%D8%B6%D8%B9-%D9%8A%D8%AF%D9%87-%D8%B9%D9%84%D9%89-%D8%A3%D8%B5%D9%88%D9%84-%D8%A7%D9%84%D9%85%D9%82%D8%B1%D8%A8%D9%8A%D9%86-%D9%85%D9%86-%D8%A7%D9%84%D8%A3%D8%B3%D8%AF": "2026-10-09T20:03:21+00:00",
+    "https://www.enabbaladi.net/828558/%d8%a5%d8%b3%d8%b1%d8%a7%d8%a6%d9%8a%d9%84-%d8%aa%d8%b3%d8%aa%d9%87%d8%af%d9%81-%d8%b3%d9%88%d8%b1%d9%8a%d9%8b%d8%a7-%d8%a8%d8%aa%d9%87%d9%85%d8%a9-%d8%a7%d9%84%d8%aa%d8%ae%d8%b7%d9%8a%d8%b7-%d9%84/": "2026-10-09T20:28:04+00:00",
+    "https://alwatan.sy/%d9%88%d8%b5%d9%81%d8%a9-%d9%84%d9%84%d8%aa%d8%b9%d8%a7%d9%81%d9%8a-%d8%a8%d8%aa%d9%85%d9%88%d9%8a%d9%84-%d8%a8%d8%b3%d8%a8%d8%b7/": "2026-10-09T20:28:04+00:00"
   },
   "image_download_attempts": {
     "https://cdn.sananews.sy/2026/10/IMG_8811-1024x683.jpg": "2026-10-09T17:46:34+00:00",
@@ -153,10 +212,12 @@
     "https://cdn.sananews.sy/2026/10/IMG_8896-1024x683.jpg": "2026-10-09T19:59:42+00:00",
     "https://cdn.sananews.sy/2026/10/الاحتلال-الاسرائيلي-1-1.jpg": "2026-10-09T19:59:42+00:00",
     "https://www.zamanalwsl.net//CustomImage/get/770/438/6fc719cd0788f7e6dfa9acbb.jpg": "2026-10-09T19:59:42+00:00",
-    "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/Syria-1-e1782110490784-1024x440.jpg?itok=fZLSfhLc": "2026-10-09T20:03:21+00:00"
+    "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/Syria-1-e1782110490784-1024x440.jpg?itok=fZLSfhLc": "2026-10-09T20:03:21+00:00",
+    "https://cdn.enabbaladi.net/arabic/wp-content/uploads/2026/10/muzahara-haska2-2-150x150.jpg": "2026-10-09T20:28:04+00:00",
+    "https://alwatan.sy/wp-content/uploads/2020/09/%D9%87%D9%8A%D8%A6%D8%A9-%D8%A7%D9%84%D9%85%D8%B4%D8%B1%D9%88%D8%B9%D8%A7%D8%AA-%D8%A7%D9%84%D8%B5%D8%BA%D9%8A%D8%B1%D8%A9-%D9%88%D8%A7%D9%84%D9%85%D8%AA%D9%88%D8%B3%D8%B7%D8%A9.jpg": "2026-10-09T20:28:04+00:00"
   },
   "image_storage_version": 1,
   "image_lookup_version": 5,
-  "newest_seen_at": "2026-10-09T19:42:08+00:00",
+  "newest_seen_at": "2026-10-09T20:19:48+00:00",
   "feed_errors": []
 }
