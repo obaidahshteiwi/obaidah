@@ -70,7 +70,7 @@ PROVINCES = [
 SYRIA_TERMS = (
     "سوريا", "السوري", "السورية", "دمشق", "حلب", "حمص", "حماة", "إدلب",
     "اللاذقية", "طرطوس", "الحسكة", "دير الزور", "الرقة", "القامشلي",
-    "السويداء", "درعا", "القنيطرة", "ريف دمشق", "سوريون", "سوريين",
+    "السويداء", "درعا", "القنيطرة", "ريف دمشق", "سوري", "سورية", "سوريون", "سوريين",
     "syria", "syrian", "damascus", "aleppo", "homs", "hama", "idlib",
     "hasakah", "raqqa", "deir ez zor", "daraa", "latakia", "tartous",
     "sweida", "quneitra",
@@ -111,9 +111,18 @@ def strip_publisher_branding(value: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
-def is_syria_related(title: str, description: str) -> bool:
+def is_syria_related(title: str, description: str, article_url: str = "") -> bool:
     combined = strip_publisher_branding(normalize_news_title(title) + " " + str(description or "")).casefold()
-    return any(term.casefold() in combined for term in SYRIA_TERMS)
+    if any(term.casefold() in combined for term in SYRIA_TERMS):
+        return True
+    parsed = urllib.parse.urlparse(str(article_url or ""))
+    host = (parsed.hostname or "").lower()
+    path = (parsed.path or "").lower()
+    # A resolved SANA article in its Syria-and-the-world section can be about a Syrian
+    # official even when the feed summary omits the word Syria.
+    if (host == "sana.sy" or host.endswith(".sana.sy")) and "/syria-and-the-world/" in path:
+        return True
+    return False
 
 
 
@@ -1046,7 +1055,7 @@ def main():
         if cleaned_title and cleaned_title != old_title:
             old_item["title"] = cleaned_title
             existing_changes = True
-        if not is_syria_related(str(old_item.get("title", "")), str(old_item.get("description", ""))):
+        if not is_syria_related(str(old_item.get("title", "")), str(old_item.get("description", "")), str(old_item.get("url", ""))):
             print(f"Dropped a story whose article title/summary could not be verified as Syria-related: {cleaned_title[:100]}")
             existing_changes = True
             continue
@@ -1067,7 +1076,9 @@ def main():
             candidates.extend(parse_feed(raw, feed_label))
             time.sleep(0.12)
         except (urllib.error.URLError, TimeoutError, OSError, ET.ParseError) as exc:
-            errors.append(f"{feed_label}: {type(exc).__name__}")
+            status_code = getattr(exc, "code", None)
+            detail = f"{type(exc).__name__} HTTP {status_code}" if status_code else type(exc).__name__
+            errors.append(f"{feed_label}: {detail}")
 
     for feed_label, feed_url in DIRECT_FEEDS:
         request = urllib.request.Request(feed_url, headers={"User-Agent": user_agent, "Accept": "application/rss+xml, application/xml, text/xml"})
@@ -1077,7 +1088,9 @@ def main():
             candidates.extend(parse_feed(raw, feed_label))
             time.sleep(0.12)
         except (urllib.error.URLError, TimeoutError, OSError, ET.ParseError) as exc:
-            errors.append(f"{feed_label}: {type(exc).__name__}")
+            status_code = getattr(exc, "code", None)
+            detail = f"{type(exc).__name__} HTTP {status_code}" if status_code else type(exc).__name__
+            errors.append(f"{feed_label}: {detail}")
 
     unique = []
     used_urls = set()
