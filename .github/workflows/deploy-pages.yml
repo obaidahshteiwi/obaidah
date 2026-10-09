@@ -6,6 +6,7 @@ on:
     paths-ignore:
       - "data/news.json"
       - "data/state.json"
+      - "images/**"
   schedule:
     - cron: "*/5 * * * *"
   workflow_dispatch:
@@ -53,7 +54,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           if [[ -n "$(git status --porcelain data/news.json data/state.json images/news)" ]]; then
-            git add data/news.json data/state.json images/news
+            git add data/news.json data/state.json
+            if [[ -d images/news ]]; then git add images/news; fi
             git commit -m "Update Syria news feed"
             git push
             echo "changed=true" >> "$GITHUB_OUTPUT"
