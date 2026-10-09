@@ -21,11 +21,14 @@
     "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPeUZzMXVjSHNUVVgtSDhLLXlfcTlmLUIxMlZobDR5QVo5bkdkMS14VU9nRTlxOGw4bzZHTnJpUFRiaFdiZ0JJZmo2Q3BtMm1PVmpQSmVQUURUM2hqQUF6SVNQa1Y4LWRSLUpIdm9ETmc2bXRKaDhWS3NiVmxZOGxTWEF0ak5kcGZkdlEteGp3ZEgwOVRieUdtNnJvLVE2T1lvQkpMTThqX2t0dUNEbGFVMmFZYW5wTTE5c0VN?oc=5",
     "https://news.google.com/rss/articles/CBMiRkFVX3lxTFBSZUtzWkVoSWR0Y0RZclhiYk5hUHlsWlBWeUE1WjhyLWtwZDhPQjRrMXUxQUYyc3ZyMVNjZGpVTl9RLVZ5Wnc?oc=5",
     "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5adlJkeHB5UjlRVm5HM1pXNm9Sd2dQSERERjJZYlhlSXd4WW1pUlRpUFNCaTlWUFlBVE9sZ2FTNTY5aVdJeEQ2cDlnd2txMGVBU01nQmZVeWw4WWtr?oc=5",
-    "https://www.enabbaladi.net/828525/%d8%a7%d9%84%d8%a3%d9%85%d9%85-%d8%a7%d9%84%d9%85%d8%aa%d8%ad%d8%af%d8%a9-%d8%aa%d9%88%d8%ab%d9%82-%d8%a7%d9%86%d8%aa%d9%87%d8%a7%d9%83%d8%a7%d8%aa-%d8%a5%d8%b3%d8%b1%d8%a7%d8%a6%d9%8a%d9%84-%d9%81/"
+    "https://www.enabbaladi.net/828525/%d8%a7%d9%84%d8%a3%d9%85%d9%85-%d8%a7%d9%84%d9%85%d8%aa%d8%ad%d8%af%d8%a9-%d8%aa%d9%88%d8%ab%d9%82-%d8%a7%d9%86%d8%aa%d9%87%d8%a7%d9%83%d8%a7%d8%aa-%d8%a5%d8%b3%d8%b1%d8%a7%d8%a6%d9%8a%d9%84-%d9%81/",
+    "https://news.google.com/rss/articles/CBMitAJBVV95cUxQQ3hadDRwdDhmUHhpVms5SkxnZlBILUxWWE9vTEFHLUJmYWJNb1UtTm5IQUtsY1ppNjM0TGVjS2ZCQzlXSm1zOUFZcVdicmNfM09rVmtjRmRySlRsbjJHN2pnWHJBbV9MWmFfZUZNQ1ZCSmZSZ2ZNck5sTVM2OHhTc1UyMDZuSDdvb1pwcUhhaGlnSE5jcEtJVFRPR3B5ZUxla3BWb2FFNXZTSGFna0NuMlFXR1B2NlV3dXdzbTNxaVRMUjRib0Y4TlNLLWE4RGZLMGJZUHNMUTdHVmNSNTBqTmZUZFlDOHNmWnZ3WW1FdUYzNDdLOEJKYVBma3RCakZ5cDFUQ0xVYUE1aW1pN0tsaUNKZmVaaHZTNlNzY1dhVHNHVi1kN0NKTEJZbW9XWlo4aEkyTA?oc=5",
+    "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5qLTVQUDdiYUFoc2E3U1NiRWJJejlsOFdfSUhCckVUZW9pSW1vek5TYlNOZUhQSElxVWZiX0ZWMG5Gbm52VVk3M2IzNWlOZ1V0LTdldVRmaw?oc=5"
   ],
   "whatsapp_sent_urls": [],
   "whatsapp_pending": {},
   "whatsapp_tracking_version": 2,
+  "whatsapp_quota_blocked": true,
   "whatsapp_attempt_counts": {},
   "image_lookup_attempts": {
     "https://sana.sy/governorates/alhassakeh/2601953/": "2026-10-09T16:54:32+00:00",
@@ -35,7 +38,15 @@
     "https://www.enabbaladi.net/828494/%d9%87%d9%84-%d8%aa%d9%82%d9%81-%d8%a7%d9%84%d8%ae%d9%81%d8%a7%d9%81%d9%8a%d8%b4-%d9%88%d8%b1%d8%a7%d8%a1-%d8%a5%d8%b5%d8%a7%d8%a8%d8%a7%d8%aa-%d8%af%d8%a7%d8%a1-%d8%a7%d9%84%d9%83%d9%84%d8%a8/": "2026-10-09T16:54:32+00:00",
     "https://sana.sy/syria-and-the-world/2601819/": "2026-10-09T16:54:32+00:00",
     "https://sana.sy/sport/syrian-sport/2601799/": "2026-10-09T16:54:32+00:00",
-    "https://sana.sy/culture-and-arts/2601714/": "2026-10-09T16:54:32+00:00"
+    "https://sana.sy/culture-and-arts/2601714/": "2026-10-09T16:54:32+00:00",
+    "https://alwatan.sy/%d8%a7%d9%84%d8%aa%d9%83%d9%86%d9%88%d9%84%d9%88%d8%ac%d9%8a%d8%a7-%d8%a7%d9%84%d9%85%d8%aa%d9%82%d8%af%d9%85%d8%a9-%d8%b1%d9%87%d8%a7%d9%86-%d8%b3%d9%88%d8%b1%d9%8a%d8%a7-%d9%84%d8%a8%d9%86/": "2026-10-09T16:59:13+00:00",
+    "https://sana.sy/syria-and-the-world/2601930/": "2026-10-09T16:59:13+00:00",
+    "https://sana.sy/locals/2601723/": "2026-10-09T16:59:13+00:00",
+    "https://sana.sy/culture-and-arts/2601688/": "2026-10-09T16:59:13+00:00",
+    "https://sana.sy/syria-and-the-world/2601649/": "2026-10-09T16:59:13+00:00",
+    "https://sana.sy/video/2601656/": "2026-10-09T16:59:13+00:00",
+    "https://www.enabbaladi.net/828337/%d9%86%d9%82%d8%b5-%d8%a7%d9%84%d9%83%d8%aa%d8%a8-%d8%a7%d9%84%d9%85%d8%af%d8%b1%d8%b3%d9%8a%d8%a9-%d9%8a%d8%b1%d8%a8%d9%83-%d8%a7%d9%84%d9%85%d8%b9%d9%84%d9%85%d9%8a%d9%86-%d9%88%d8%a7%d9%84%d8%a3/": "2026-10-09T16:59:13+00:00",
+    "https://www.enabbaladi.net/828502/%d8%a7%d9%84%d8%a7%d9%82%d8%aa%d8%b5%d8%a7%d8%af-%d8%aa%d8%b9%d9%84%d9%86-%d8%a8%d8%af%d8%a1-%d8%a7%d9%84%d8%a7%d9%83%d8%aa%d8%aa%d8%a7%d8%a8-%d9%81%d9%8a-%d8%a7%d9%84%d9%85%d8%af%d9%8a%d9%86/": "2026-10-09T16:59:13+00:00"
   },
   "image_lookup_version": 4,
   "newest_seen_at": "2026-10-09T16:39:59+00:00",
