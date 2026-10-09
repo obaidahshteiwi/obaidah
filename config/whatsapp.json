@@ -1,0 +1,6 @@
+{
+  "enabled": true,
+  "send_images": true,
+  "link_preview": true,
+  "note": "Connection credentials are intentionally stored in GitHub Actions Secrets, not in this file."
+}
