@@ -22,6 +22,22 @@
       "kind": "text",
       "status": "pending",
       "queued_at": "2026-10-09T14:31:13+00:00"
+    },
+    "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBiOFc5aDhtY1o4Mk90dUNncy11a1lWRjdSc25RaEZPNmEwbEluU3RqS2VyYjV5RTB5Ymt0YWV3VG1jakhKM3NEQTBuT2djVTdFSEo4?oc=5": {
+      "id_message": "3EB0ED04F9525747E97EC6",
+      "chat_id": "120363409802320735@g.us",
+      "title": "لوحة «احتواء» للفنانة نوار نداف.. صمود سوري يُزهر من عتمة الفقد - وكالة الأنباء السورية – سانا",
+      "kind": "text",
+      "status": "pending",
+      "queued_at": "2026-10-09T14:34:17+00:00"
+    },
+    "https://news.google.com/rss/articles/CBMiRkFVX3lxTE9uTGc0OVh1REZURGptU1ZVUEpoVnZJd1I3b1o0LTdCV3FZNXhmM2JfRzBqYW1oanVCTkV1NHpySWFlMTdnblE?oc=5": {
+      "id_message": "3EB041D0AF8DFFDB877D98",
+      "chat_id": "120363409802320735@g.us",
+      "title": "تظاهرة في الحسكة تدعو إلى بسط سيادة الدولة وتفعيل مؤسساتها في المحافظة - وكالة الأنباء السورية – سانا",
+      "kind": "text",
+      "status": "pending",
+      "queued_at": "2026-10-09T14:34:18+00:00"
     }
   },
   "whatsapp_tracking_version": 2,
