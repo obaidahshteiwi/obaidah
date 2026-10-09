@@ -25,6 +25,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 NEWS_FILE = DATA / "news.json"
 STATE_FILE = DATA / "state.json"
+WHATSAPP_SETTINGS_FILE = ROOT / "config" / "whatsapp.json"
 MAX_NEW_PER_CYCLE = 5
 MAX_SITE_NEWS = 100
 MAX_HISTORY = 1000
@@ -888,6 +889,18 @@ def parse_iso_datetime(value: str):
         return None
 
 
+def whatsapp_settings():
+    # Keep credentials in GitHub Secrets; this file contains only safe behavior toggles.
+    settings = load_json(WHATSAPP_SETTINGS_FILE, {})
+    if not isinstance(settings, dict):
+        settings = {}
+    return {
+        "enabled": bool(settings.get("enabled", True)),
+        "send_images": bool(settings.get("send_images", True)),
+        "link_preview": bool(settings.get("link_preview", True)),
+    }
+
+
 def green_api_config():
     base = os.getenv("GREEN_API_URL", "").strip().rstrip("/")
     instance = os.getenv("GREEN_API_INSTANCE", "").strip()
@@ -1001,7 +1014,8 @@ def post_whatsapp(item: dict) -> tuple[str, str, str]:
         return "", "", "not_configured"
     title = clean_text(item.get("title", "خبر من سوريا"))
     message = build_message(item)
-    image_url = normalize_image_url(item.get("image_url", ""))
+    settings = whatsapp_settings()
+    image_url = normalize_image_url(item.get("image_url", "")) if settings["send_images"] else ""
     if image_url:
         path = urllib.parse.urlparse(image_url).path.lower()
         suffix = next((ext for ext in (".jpg", ".jpeg", ".png", ".webp") if path.endswith(ext)), ".jpg")
@@ -1024,7 +1038,7 @@ def post_whatsapp(item: dict) -> tuple[str, str, str]:
         if error.startswith("http_466"):
             return "", "", error
         print(f"WhatsApp image send failed; falling back to text. Reason: {error or 'invalid_response'}", file=sys.stderr)
-    result, error = green_request("sendMessage", {"chatId": chat_id, "message": message, "linkPreview": True})
+    result, error = green_request("sendMessage", {"chatId": chat_id, "message": message, "linkPreview": settings["link_preview"]})
     if isinstance(result, dict) and isinstance(result.get("idMessage"), str) and result["idMessage"]:
         return result["idMessage"], "text", ""
     return "", "", error or "invalid_response"
@@ -1328,7 +1342,8 @@ def main():
     old_news.setdefault("updated_at", "")
 
     base, instance, token, chat_id = green_api_config()
-    configured = all((base, instance, token, chat_id))
+    settings = whatsapp_settings()
+    configured = settings["enabled"] and all((base, instance, token, chat_id))
     quota_blocked = bool(state.get("whatsapp_quota_blocked", False))
     manual_retry = os.getenv("GITHUB_EVENT_NAME", "") == "workflow_dispatch"
     if manual_retry:
@@ -1343,7 +1358,9 @@ def main():
     if not isinstance(whatsapp_attempt_counts, dict):
         whatsapp_attempt_counts = {}
     max_whatsapp_attempts = 3
-    if quota_blocked:
+    if not settings["enabled"]:
+        print("WhatsApp sending disabled in config/whatsapp.json; RSS collection and website publishing continue normally.")
+    elif quota_blocked:
         print("WhatsApp sending paused after Green-API HTTP 466 plan limit. Upgrade/restore the plan, then use Run workflow in GitHub Actions to retry.")
     elif configured and instance_status == "authorized":
         group_valid, group_error = validate_whatsapp_group(chat_id)
