@@ -320,6 +320,14 @@ def parse_feed(xml_bytes: bytes, feed_label: str) -> list[dict]:
             "province": classify_province(title, description),
         }
         picture = image_from_feed_item(node, link) or extract_markup_image(description_markup, link)
+        # Many publishers put the featured photo in content:encoded rather than description.
+        if not picture:
+            for part in list(node):
+                local_name = part.tag.rsplit("}", 1)[-1].lower()
+                if local_name in ("encoded", "content", "summary", "description", "fulltext"):
+                    picture = extract_markup_image(part.text or "", link)
+                    if picture:
+                        break
         if picture:
             item["image_url"] = picture
         output.append(item)
@@ -482,6 +490,52 @@ def resolve_publisher_url(article_url: str, source_home: str = "", article_title
                         best = (overlap, candidate)
                 if best[0] >= 0.7:
                     print(f"Publisher headline matched on its website: {urllib.parse.urlparse(best[1]).hostname}.")
+                    return best[1]
+            except (urllib.error.URLError, TimeoutError, OSError, ValueError):
+                pass
+        # Last fallback: scan the publisher homepage's current story links. Search endpoints
+        # are not consistently implemented across news sites, but homepage cards often include
+        # both the exact headline and its canonical article URL.
+        if source_home and article_title:
+            try:
+                home_req = urllib.request.Request(source_home, headers={
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+                    "Accept": "text/html,application/xhtml+xml",
+                })
+                with urllib.request.urlopen(home_req, timeout=7) as home_response:
+                    home_url = home_response.geturl()
+                    home_raw = home_response.read(1_200_000).decode("utf-8", errors="replace")
+                home_links = LinkCollector()
+                home_links.feed(home_raw)
+                clean_title = re.sub(r"\s*[-–—|]\s*(وكالة الأنباء السورية.*|سانا.*|sana.*|تلفزيون سوريا.*|عنب بلدي.*|زمان الوصل.*|الوطن.*|أورينت.*|syrian observer.*)$", "", article_title, flags=re.I)
+                title_key = canonical_title(clean_title)
+                title_words = {word for word in re.findall(r"[\w\u0600-\u06ff]+", clean_title.casefold()) if len(word) > 2}
+                best = (0.0, "")
+                source_host = (urllib.parse.urlparse(source_home).hostname or "").lower()
+                for href, label in home_links.links:
+                    candidate = urllib.parse.urljoin(home_url, html.unescape(href.strip()))
+                    p = urllib.parse.urlparse(candidate)
+                    candidate_host = (p.hostname or "").lower()
+                    if p.scheme not in ("http", "https") or not candidate_host:
+                        continue
+                    if source_host and candidate_host != source_host and not candidate_host.endswith("." + source_host):
+                        continue
+                    if any(host in candidate_host for host in ("google.com", "googleusercontent.com", "gstatic.com", "youtube.com")):
+                        continue
+                    path_parts = [part.lower() for part in p.path.strip("/").split("/") if part]
+                    if not path_parts or any(part in ("category", "tag", "author", "page", "contact", "about", "search") for part in path_parts):
+                        continue
+                    label_key = canonical_title(label)
+                    if len(label_key) < 12:
+                        continue
+                    label_words = {word for word in re.findall(r"[\w\u0600-\u06ff]+", label.casefold()) if len(word) > 2}
+                    overlap = len(title_words.intersection(label_words)) / max(1, len(title_words))
+                    if title_key and label_key and (title_key in label_key or label_key in title_key):
+                        overlap = max(overlap, 0.95)
+                    if overlap > best[0]:
+                        best = (overlap, candidate)
+                if best[0] >= 0.72:
+                    print(f"Publisher headline matched on homepage: {urllib.parse.urlparse(best[1]).hostname}.")
                     return best[1]
             except (urllib.error.URLError, TimeoutError, OSError, ValueError):
                 pass
