@@ -269,6 +269,7 @@ class LinkCollector(HTMLParser):
         super().__init__()
         self.links = []
         self._href = ""
+        self._text = []
 
     def handle_starttag(self, tag, attrs):
         attrs = {str(k).lower(): str(v) for k, v in attrs if k and v}
@@ -283,18 +284,20 @@ class LinkCollector(HTMLParser):
                 self.links.append((match.group(1), "refresh"))
         elif tag.lower() == "a" and attrs.get("href"):
             self._href = attrs["href"]
+            self._text = []
 
     def handle_data(self, data):
-        if self._href and data.strip():
-            self.links.append((self._href, clean_text(data)))
-            self._href = ""
+        if self._href:
+            self._text.append(data)
 
     def handle_endtag(self, tag):
-        if tag.lower() == "a":
+        if tag.lower() == "a" and self._href:
+            self.links.append((self._href, clean_text(" ".join(self._text))))
             self._href = ""
+            self._text = []
 
 
-def resolve_publisher_url(article_url: str, source_home: str = "") -> str:
+def resolve_publisher_url(article_url: str, source_home: str = "", article_title: str = "") -> str:
     parsed = urllib.parse.urlparse(article_url or "")
     host = (parsed.hostname or "").lower()
     if not host or not host.endswith("news.google.com"):
@@ -351,6 +354,40 @@ def resolve_publisher_url(article_url: str, source_home: str = "") -> str:
             if best_score >= 12:
                 print(f"Publisher link resolved: {source_host or 'Google News'} -> {urllib.parse.urlparse(best_url).hostname}.")
                 return best_url
+        # Fallback: search the publisher's own latest-news page for a matching headline.
+        if source_home and article_title:
+            home_req = urllib.request.Request(source_home, headers={
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+                "Accept": "text/html,application/xhtml+xml",
+            })
+            try:
+                with urllib.request.urlopen(home_req, timeout=8) as home_response:
+                    home_url = home_response.geturl()
+                    home_raw = home_response.read(900_000).decode("utf-8", errors="replace")
+                home_links = LinkCollector()
+                home_links.feed(home_raw)
+                title_key = canonical_title(article_title)
+                title_words = {word for word in re.findall(r"[\w\u0600-\u06ff]+", article_title.casefold()) if len(word) > 2}
+                best = (0.0, "")
+                for href, label in home_links.links:
+                    candidate = urllib.parse.urljoin(home_url, html.unescape(href.strip()))
+                    p = urllib.parse.urlparse(candidate)
+                    candidate_host = (p.hostname or "").lower()
+                    if p.scheme not in ("http", "https") or not candidate_host or candidate_host.endswith(("google.com", "gstatic.com")):
+                        continue
+                    if not p.path.strip("/") or p.path.rstrip("/") == urllib.parse.urlparse(home_url).path.rstrip("/"):
+                        continue
+                    label_key = canonical_title(label)
+                    overlap = len(title_words.intersection(re.findall(r"[\w\u0600-\u06ff]+", label.casefold()))) / max(1, len(title_words))
+                    if title_key and (title_key in label_key or label_key in title_key):
+                        overlap = max(overlap, 0.9)
+                    if overlap > best[0]:
+                        best = (overlap, candidate)
+                if best[0] >= 0.55:
+                    print(f"Publisher headline matched on its website: {urllib.parse.urlparse(best[1]).hostname}.")
+                    return best[1]
+            except (urllib.error.URLError, TimeoutError, OSError, ValueError):
+                pass
         print("Publisher link could not be resolved from Google News page.")
         return article_url
     except (urllib.error.URLError, TimeoutError, OSError, ValueError):
@@ -358,10 +395,14 @@ def resolve_publisher_url(article_url: str, source_home: str = "") -> str:
         return article_url
 
 
-def extract_article_image(article_url: str, source_home: str = "") -> str:
+def extract_article_image(article_url: str, source_home: str = "", article_title: str = "") -> str:
     if not article_url.startswith(("https://", "http://")):
         return ""
-    resolved_url = resolve_publisher_url(article_url, source_home)
+    resolved_url = resolve_publisher_url(article_url, source_home, article_title)
+    resolved_host = (urllib.parse.urlparse(resolved_url).hostname or "").lower()
+    if resolved_host.endswith("news.google.com"):
+        print("Image lookup skipped: Google News supplied no verifiable publisher article URL.")
+        return ""
     original_host = urllib.parse.urlparse(resolved_url).hostname or "unknown"
     req = urllib.request.Request(resolved_url, headers={
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
@@ -670,6 +711,17 @@ def main():
     image_lookups = 0
     images_added = 0
     now_iso = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    image_frequency = {}
+    for entry in old_news.get("items", []):
+        image_value = entry.get("image_url", "")
+        if image_value:
+            image_frequency[image_value] = image_frequency.get(image_value, 0) + 1
+    for entry in old_news.get("items", []):
+        image_value = entry.get("image_url", "")
+        image_host = (urllib.parse.urlparse(image_value).hostname or "").lower()
+        if image_frequency.get(image_value, 0) > 1 and image_host.endswith("googleusercontent.com"):
+            entry.pop("image_url", None)
+            changed_news = True
     for item in old_news.get("items", [])[:MAX_SITE_NEWS]:
         if not item.get("province"):
             item["province"] = classify_province(item.get("title", ""), item.get("description", ""))
@@ -677,7 +729,7 @@ def main():
         item_url = item.get("url", "")
         source_home = source_home_for_item(item)
         if item_url:
-            resolved_url = resolve_publisher_url(item_url, source_home)
+            resolved_url = resolve_publisher_url(item_url, source_home, item.get("title", ""))
             if resolved_url and resolved_url != item_url:
                 item["url"] = resolved_url
                 item_url = resolved_url
@@ -690,7 +742,7 @@ def main():
         if should_try_image and image_lookups < MAX_IMAGE_LOOKUPS_PER_CYCLE:
             image_lookups += 1
             image_lookup_attempts[item_url] = now_iso
-            picture = extract_article_image(item_url, source_home)
+            picture = extract_article_image(item_url, source_home, item.get("title", ""))
             if picture:
                 item["image_url"] = picture
                 images_added += 1
