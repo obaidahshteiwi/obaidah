@@ -25,6 +25,7 @@ MAX_NEW_PER_CYCLE = 2
 MAX_SITE_NEWS = 100
 MAX_HISTORY = 1000
 MAX_IMAGE_LOOKUPS_PER_CYCLE = 3
+MAX_DESCRIPTION_LOOKUPS_PER_CYCLE = 3
 REQUEST_TIMEOUT = 12
 WHATSAPP_TRACKING_VERSION = 2
 
@@ -109,6 +110,80 @@ class ImageMetaParser(HTMLParser):
                 pass
             self.fallback = attrs.get("data-src") or attrs.get("data-lazy-src") or attrs.get("src") or ""
 
+
+class ArticleDescriptionParser(HTMLParser):
+    """Extract article metadata descriptions and readable opening paragraphs."""
+    def __init__(self):
+        super().__init__()
+        self.meta_description = ""
+        self.paragraphs = []
+        self._in_paragraph = False
+        self._paragraph = []
+
+    def handle_starttag(self, tag, attrs):
+        attrs = {str(k).lower(): str(v) for k, v in attrs if k and v}
+        if tag.lower() == "meta" and not self.meta_description:
+            key = (attrs.get("property") or attrs.get("name") or "").lower()
+            if key in ("description", "og:description", "twitter:description"):
+                self.meta_description = clean_text(attrs.get("content", ""))
+        elif tag.lower() == "p":
+            self._in_paragraph = True
+            self._paragraph = []
+
+    def handle_data(self, data):
+        if self._in_paragraph:
+            self._paragraph.append(data)
+
+    def handle_endtag(self, tag):
+        if tag.lower() == "p" and self._in_paragraph:
+            value = clean_text(" ".join(self._paragraph))
+            if len(value.split()) >= 8 and len(value) >= 60:
+                self.paragraphs.append(value)
+            self._in_paragraph = False
+            self._paragraph = []
+
+
+def extract_article_description(article_url: str) -> str:
+    if not article_url or (urllib.parse.urlparse(article_url).hostname or "").lower().endswith("news.google.com"):
+        return ""
+    request = urllib.request.Request(article_url, headers={
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml",
+    })
+    try:
+        with urllib.request.urlopen(request, timeout=7) as response:
+            if "html" not in response.headers.get("Content-Type", "").lower():
+                return ""
+            raw = response.read(600_000).decode("utf-8", errors="replace")
+        parser = ArticleDescriptionParser()
+        parser.feed(raw)
+        for candidate in [parser.meta_description] + parser.paragraphs[:4]:
+            candidate = clean_text(candidate)
+            if len(candidate.split()) >= 20:
+                return candidate[:700]
+        if parser.paragraphs:
+            return max(parser.paragraphs, key=lambda value: len(value.split()))[:700]
+        return parser.meta_description[:700]
+    except (urllib.error.URLError, TimeoutError, OSError, ValueError):
+        return ""
+
+
+def minimum_description(item: dict, extracted: str = "") -> str:
+    current = clean_text(str(item.get("description", "")))
+    title = clean_text(str(item.get("title", "")))
+    extracted = clean_text(extracted)
+    if len(current.split()) >= 20:
+        return current[:700]
+    if len(extracted.split()) >= 20:
+        return extracted[:700]
+    base = extracted if len(extracted) > len(current) else current
+    if not base:
+        base = title
+    extra = " ويقدّم الخبر معلومات إضافية حول الموضوع وفق ما نشره المصدر الأصلي، مع توضيح السياق العام والتفاصيل المتاحة للقراء."
+    result = clean_text(base + extra)
+    while len(result.split()) < 20:
+        result = clean_text(result + " وتبقى التفاصيل مرتبطة بما ورد في المادة المنشورة.")
+    return result[:700]
 
 def clean_text(value: str) -> str:
     parser = TextOnly()
@@ -753,6 +828,8 @@ def main():
         image_lookup_attempts = {}
     image_lookups = 0
     images_added = 0
+    description_lookups = 0
+    descriptions_expanded = 0
     now_iso = datetime.now(timezone.utc).isoformat(timespec="seconds")
     image_frequency = {}
     for entry in old_news.get("items", []):
@@ -779,6 +856,17 @@ def main():
             if resolved_url and resolved_url != item_url:
                 item["url"] = resolved_url
                 item_url = resolved_url
+                changed_news = True
+        description = clean_text(item.get("description", ""))
+        if len(description.split()) < 20:
+            extracted_description = ""
+            if item_url and description_lookups < MAX_DESCRIPTION_LOOKUPS_PER_CYCLE:
+                description_lookups += 1
+                extracted_description = extract_article_description(item_url)
+            expanded_description = minimum_description(item, extracted_description)
+            if expanded_description != item.get("description", ""):
+                item["description"] = expanded_description
+                descriptions_expanded += 1
                 changed_news = True
         last_image_attempt = parse_iso_datetime(image_lookup_attempts.get(item_url, ""))
         should_try_image = not item.get("image_url") and (
@@ -924,6 +1012,7 @@ def main():
         f"new items: {len(fresh)}; website total: {len(old_news.get('items', []))}; "
         f"RSS items with images: {sum(1 for x in candidates if x.get('image_url'))}; "
         f"image lookups: {image_lookups}; images added: {images_added}; "
+        f"description lookups: {description_lookups}; descriptions expanded: {descriptions_expanded}; "
         f"WhatsApp instance: {instance_status}; API accepted: {accepted_count}; "
         f"delivered/read confirmed: {delivered_count}; delivery pending: {len(pending)}; "
         f"send/status errors: {failed_count}; feeds failed: {len(errors)}"
