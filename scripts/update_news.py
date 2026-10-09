@@ -373,7 +373,14 @@ def resolve_publisher_url(article_url: str, source_home: str = "", article_title
                     candidate = urllib.parse.urljoin(home_url, html.unescape(href.strip()))
                     p = urllib.parse.urlparse(candidate)
                     candidate_host = (p.hostname or "").lower()
-                    if p.scheme not in ("http", "https") or not candidate_host or candidate_host.endswith(("google.com", "gstatic.com")):
+                    source_host = (urllib.parse.urlparse(source_home).hostname or "").lower()
+                    if p.scheme not in ("http", "https") or not candidate_host:
+                        continue
+                    if candidate_host.endswith(("google.com", "googleusercontent.com", "gstatic.com", "youtube.com")):
+                        continue
+                    if candidate_host in ("facebook.com", "www.facebook.com", "instagram.com", "www.instagram.com", "x.com", "twitter.com", "linkedin.com", "t.me"):
+                        continue
+                    if source_host and candidate_host != source_host and not candidate_host.endswith("." + source_host):
                         continue
                     if not p.path.strip("/") or p.path.rstrip("/") == urllib.parse.urlparse(home_url).path.rstrip("/"):
                         continue
@@ -663,9 +670,12 @@ def main():
         if not old_item.get("image_url") and match.get("image_url"):
             old_item["image_url"] = match["image_url"]
             existing_changes = True
-        old_host = urllib.parse.urlparse(old_item.get("url", "")).hostname or ""
-        new_host = urllib.parse.urlparse(match.get("url", "")).hostname or ""
-        if old_host.endswith("news.google.com") and new_host and not new_host.endswith("news.google.com"):
+        old_host = (urllib.parse.urlparse(old_item.get("url", "")).hostname or "").lower()
+        new_host = (urllib.parse.urlparse(match.get("url", "")).hostname or "").lower()
+        social_hosts = ("facebook.com", "instagram.com", "x.com", "twitter.com", "linkedin.com", "t.me")
+        old_link_is_wrapper = old_host.endswith("news.google.com") or any(old_host == domain or old_host.endswith("." + domain) for domain in social_hosts)
+        new_link_is_social = any(new_host == domain or new_host.endswith("." + domain) for domain in social_hosts)
+        if old_link_is_wrapper and new_host and not new_link_is_social:
             old_item["url"] = match["url"]
             old_item["source"] = match.get("source") or old_item.get("source")
             old_item["feed"] = match.get("feed") or old_item.get("feed")
