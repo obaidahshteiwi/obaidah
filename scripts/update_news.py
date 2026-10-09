@@ -4,8 +4,6 @@ from __future__ import annotations
 
 import email.utils
 import html
-import hashlib
-import io
 import json
 import os
 import re
@@ -14,7 +12,6 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
-from PIL import Image, UnidentifiedImageError
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
 from html.parser import HTMLParser
@@ -28,9 +25,7 @@ MAX_NEW_PER_CYCLE = 2
 MAX_SITE_NEWS = 100
 MAX_HISTORY = 1000
 MAX_IMAGE_LOOKUPS_PER_CYCLE = 8
-MAX_IMAGE_MIRRORS_PER_CYCLE = 8
-MAX_IMAGE_DOWNLOAD_BYTES = 12_000_000
-IMAGE_LOOKUP_VERSION = 3
+IMAGE_LOOKUP_VERSION = 4
 MAX_DESCRIPTION_LOOKUPS_PER_CYCLE = 3
 REQUEST_TIMEOUT = 12
 WHATSAPP_TRACKING_VERSION = 2
@@ -185,7 +180,7 @@ def minimum_description(item: dict, extracted: str = "") -> str:
     base = extracted if len(extracted) > len(current) else current
     if not base:
         base = title
-    extra = " ويقدّم الخبر معلومات إضافية حول الموضوع وفق ما نشره المصدر الأصلي، مع توضيح السياق العام والتفاصيل المتاحة للقراء."
+    extra = " الوصف المتاح مختصر ولا يكفي وحده لعرض جميع التفاصيل؛ يُرجى فتح رابط المصدر الأصلي لقراءة المعلومات الكاملة والتحقق من السياق كما نشره المصدر."
     result = clean_text(base + extra)
     while len(result.split()) < 20:
         result = clean_text(result + " وتبقى التفاصيل مرتبطة بما ورد في المادة المنشورة.")
@@ -582,61 +577,6 @@ def is_generic_image_url(image_url: str) -> bool:
     }
     return stem in generic_names or "placeholder" in stem or "default" in stem
 
-
-def mirror_image_locally(image_url: str, article_url: str = "") -> str:
-    """Download and optimize a real article photo into the site's own static assets."""
-    value = (image_url or "").strip()
-    if value.startswith("images/news/"):
-        return value if (ROOT / value).is_file() else ""
-    parsed = urllib.parse.urlparse(value)
-    if parsed.scheme not in ("http", "https") or not parsed.netloc:
-        return ""
-    article_host = (urllib.parse.urlparse(article_url).hostname or "").lower()
-    referer = article_url if article_url.startswith(("http://", "https://")) and not article_host.endswith("news.google.com") else "https://" + parsed.netloc + "/"
-    request = urllib.request.Request(value, headers={
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
-        "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
-        "Referer": referer,
-    })
-    try:
-        with urllib.request.urlopen(request, timeout=12) as response:
-            content_type = (response.headers.get("Content-Type") or "").split(";", 1)[0].strip().lower()
-            if not content_type.startswith("image/"):
-                print(f"Image mirror skipped: server returned {content_type or 'unknown content type'}.")
-                return ""
-            raw = response.read(MAX_IMAGE_DOWNLOAD_BYTES + 1)
-        if len(raw) > MAX_IMAGE_DOWNLOAD_BYTES:
-            print("Image mirror skipped: source image exceeds 12 MB.")
-            return ""
-        with Image.open(io.BytesIO(raw)) as original:
-            original.load()
-            width, height = original.size
-            if width < 220 or height < 140:
-                print(f"Image mirror rejected a small image ({width}x{height}).")
-                return ""
-            picture = original.copy()
-            picture.thumbnail((1200, 800), Image.Resampling.LANCZOS)
-            if picture.mode not in ("RGB", "RGBA"):
-                picture = picture.convert("RGBA" if "transparency" in picture.info else "RGB")
-            output = io.BytesIO()
-            picture.save(output, format="WEBP", quality=78, method=4)
-            if output.tell() > 350_000:
-                output = io.BytesIO()
-                picture.thumbnail((960, 640), Image.Resampling.LANCZOS)
-                picture.save(output, format="WEBP", quality=68, method=4)
-        image_dir = ROOT / "images" / "news"
-        image_dir.mkdir(parents=True, exist_ok=True)
-        identity = hashlib.sha256((article_url or value).encode("utf-8")).hexdigest()[:24]
-        destination = image_dir / f"{identity}.webp"
-        temporary = destination.with_suffix(".tmp")
-        temporary.write_bytes(output.getvalue())
-        temporary.replace(destination)
-        relative = destination.relative_to(ROOT).as_posix()
-        print(f"Image saved locally: {relative} ({destination.stat().st_size} bytes).")
-        return relative
-    except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, OSError, ValueError, UnidentifiedImageError) as exc:
-        print(f"Image mirror failed for {urllib.parse.urlparse(value).hostname or 'unknown host'}: {type(exc).__name__}.")
-        return ""
 
 
 def extract_wordpress_featured_image(article_url: str) -> str:
@@ -1070,10 +1010,6 @@ def main():
         image_lookup_attempts = {}
     image_lookups = 0
     images_added = 0
-    image_mirrors = 0
-    image_download_attempts = state.get("image_download_attempts", {})
-    if not isinstance(image_download_attempts, dict):
-        image_download_attempts = {}
     description_lookups = 0
     descriptions_expanded = 0
     now_iso = datetime.now(timezone.utc).isoformat(timespec="seconds")
@@ -1089,13 +1025,18 @@ def main():
             entry.pop("image_url", None)
             changed_news = True
     for item in old_news.get("items", [])[:MAX_SITE_NEWS]:
+        item_url = item.get("url", "")
+        # Migrate away from previously cached local photos and retry their original source URLs.
+        if str(item.get("image_url", "") or "").startswith("images/news/"):
+            item.pop("image_url", None)
+            image_lookup_attempts.pop(item_url, None)
+            changed_news = True
         if item.get("image_url") and is_generic_image_url(item.get("image_url", "")):
             item.pop("image_url", None)
             changed_news = True
         if not item.get("province"):
             item["province"] = classify_province(item.get("title", ""), item.get("description", ""))
             changed_news = True
-        item_url = item.get("url", "")
         source_home = source_home_for_item(item)
         if item_url:
             resolved_url = resolve_publisher_url(item_url, source_home, item.get("title", ""))
@@ -1129,23 +1070,7 @@ def main():
                 item["image_url"] = picture
                 images_added += 1
                 changed_news = True
-        # Save article photos under this site's own domain so visitors do not depend on
-        # third-party hotlink permissions, CDNs, or browser access to publisher image URLs.
-        remote_image = str(item.get("image_url", "") or "")
-        if remote_image.startswith("images/news/"):
-            if not (ROOT / remote_image).is_file():
-                item.pop("image_url", None)
-                changed_news = True
-        elif remote_image and image_mirrors < MAX_IMAGE_MIRRORS_PER_CYCLE:
-            last_mirror_attempt = parse_iso_datetime(image_download_attempts.get(remote_image, ""))
-            mirror_due = last_mirror_attempt is None or datetime.now(timezone.utc) - last_mirror_attempt >= timedelta(hours=6)
-            if mirror_due:
-                image_mirrors += 1
-                image_download_attempts[remote_image] = now_iso
-                local_image = mirror_image_locally(remote_image, item_url)
-                if local_image:
-                    item["image_url"] = local_image
-                    changed_news = True
+        # Keep publisher image URLs as links; never download or save image copies in this repository.
 
     # Avoid associating one publisher article URL with two different headlines.
     seen_article_urls = {}
@@ -1199,6 +1124,21 @@ def main():
             for item_url, record in list(pending.items()):
                 message_id = str(record.get("id_message", ""))
                 record_chat = str(record.get("chat_id", chat_id))
+                if record_chat != chat_id:
+                    # A group was changed in secrets; never mark a message for the old group as delivered to the new one.
+                    pending.pop(item_url, None)
+                    whatsapp_attempt_counts.pop(item_url, None)
+                    pending_title = canonical_title(str(record.get("title", "")))
+                    if pending_title:
+                        for current_item in old_news.get("items", []):
+                            if canonical_title(str(current_item.get("title", ""))) == pending_title:
+                                current_url = str(current_item.get("url", ""))
+                                whatsapp_attempt_counts.pop(current_url, None)
+                                wa_sent_urls.discard(current_url)
+                                wa_sent_urls_list = [sent_url for sent_url in wa_sent_urls_list if sent_url != current_url]
+                                break
+                    print("WhatsApp target group changed; cleared an old pending record so its story can be retried for the configured group.")
+                    continue
                 if not message_id:
                     pending.pop(item_url, None)
                     continue
@@ -1269,7 +1209,6 @@ def main():
         "whatsapp_attempt_counts": whatsapp_attempt_counts,
         "image_lookup_attempts": image_lookup_attempts,
         "image_lookup_version": IMAGE_LOOKUP_VERSION,
-        "image_download_attempts": image_download_attempts,
         "newest_seen_at": newest_seen_dt.isoformat(timespec="seconds") if newest_seen_dt else state.get("newest_seen_at", ""),
         "feed_errors": errors,
     }
@@ -1279,7 +1218,7 @@ def main():
         f"Sources checked: {len(FEEDS) + len(DIRECT_FEEDS)}; accepted feed entries: {len(candidates)}; "
         f"new items: {len(fresh)}; website total: {len(old_news.get('items', []))}; "
         f"RSS items with images: {sum(1 for x in candidates if x.get('image_url'))}; "
-        f"image lookups: {image_lookups}; images added: {images_added}; local image mirrors: {image_mirrors}; "
+        f"image lookups: {image_lookups}; images added: {images_added}; image storage: disabled; "
         f"description lookups: {description_lookups}; descriptions expanded: {descriptions_expanded}; "
         f"WhatsApp instance: {instance_status}; API accepted: {accepted_count}; "
         f"delivered/read confirmed: {delivered_count}; delivery pending: {len(pending)}; "

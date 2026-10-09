@@ -251,7 +251,7 @@
         const url = safeUrl(item.url);
         const image = safeUrl(item.image_url);
         const picture = image
-          ? '<img class="story-image" src="' + esc(image) + '" alt="' + title + '" loading="lazy" referrerpolicy="no-referrer"><div class="image-overlay"></div>'
+          ? '<img class="story-image" src="' + esc(image) + '" alt="' + title + '" loading="lazy"><div class="image-overlay"></div>'
           : placeholder(province);
         return '<article class="story' + (index === 0 && state.province === 'الكل' && !query ? ' featured' : '') + '">' +
           '<div class="image-wrap">' + picture + '<span class="province-overlay">' + esc(province) + '</span></div>' +
