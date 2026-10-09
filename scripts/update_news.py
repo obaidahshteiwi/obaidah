@@ -14,7 +14,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -141,6 +141,18 @@ def canonical_title(text: str) -> str:
     return re.sub(r"[^\w\u0600-\u06ff]+", "", (text or "").casefold())
 
 
+def parse_iso_datetime(value: str):
+    if not value:
+        return None
+    try:
+        parsed = datetime.fromisoformat(value)
+        if parsed.tzinfo is None:
+            parsed = parsed.replace(tzinfo=timezone.utc)
+        return parsed.astimezone(timezone.utc)
+    except (TypeError, ValueError):
+        return None
+
+
 def post_whatsapp(item: dict) -> bool:
     base = os.getenv("GREEN_API_URL", "").strip().rstrip("/")
     instance = os.getenv("GREEN_API_INSTANCE", "").strip()
@@ -212,9 +224,20 @@ def main():
         unique.append(item)
 
     unique.sort(key=lambda item: item.get("published_at", ""), reverse=True)
+    run_now = datetime.now(timezone.utc)
+    previous_seen_dt = parse_iso_datetime(state.get("newest_seen_at", ""))
+    cutoff_dt = previous_seen_dt - timedelta(minutes=30) if previous_seen_dt else run_now - timedelta(hours=6)
+    published_dates = [parse_iso_datetime(item.get("published_at", "")) for item in unique]
+    published_dates = [value for value in published_dates if value is not None]
+    latest_feed_date = max(published_dates) if published_dates else previous_seen_dt
+    newest_seen_dt = max([value for value in (previous_seen_dt, latest_feed_date) if value is not None], default=None)
     fresh = []
     old_titles = {canonical_title(item.get("title", "")) for item in old_items}
     for item in unique:
+        item_dt = parse_iso_datetime(item.get("published_at", ""))
+        # Ignore old RSS archive entries; the short overlap catches delayed feed updates.
+        if item_dt is None or item_dt < cutoff_dt:
+            continue
         if item["url"] in published_urls or canonical_title(item["title"]) in old_titles:
             continue
         fresh.append(item)
@@ -256,6 +279,7 @@ def main():
     state_out = {
         "published_urls": list(dict.fromkeys(published_urls_list))[-MAX_HISTORY:],
         "whatsapp_sent_urls": list(dict.fromkeys(wa_sent_urls_list))[-MAX_HISTORY:],
+        "newest_seen_at": newest_seen_dt.isoformat(timespec="seconds") if newest_seen_dt else state.get("newest_seen_at", ""),
         "feed_errors": errors,
     }
     NEWS_FILE.write_text(json.dumps(old_news, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
