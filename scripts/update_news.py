@@ -327,6 +327,8 @@ def resolve_publisher_url(article_url: str, source_home: str = "") -> str:
                 continue
             if candidate_host in ("facebook.com", "instagram.com", "x.com", "twitter.com", "linkedin.com", "t.me"):
                 continue
+            if source_host and (candidate_host == source_host or candidate_host.endswith("." + source_host)) and not p.path.strip("/"):
+                continue
             score = 0
             if source_host and (candidate_host == source_host or candidate_host.endswith("." + source_host)):
                 score += 100
