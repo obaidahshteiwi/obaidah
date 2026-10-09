@@ -40,6 +40,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Validate Python syntax
+        run: python -m py_compile scripts/update_news.py
+
       - name: Install image processing library
         run: python -m pip install --disable-pip-version-check --quiet Pillow
 
