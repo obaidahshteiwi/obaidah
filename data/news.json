@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-09T15:58:12+00:00",
+  "updated_at": "2026-10-09T15:59:57+00:00",
   "items": [
     {
       "title": "هيكل: “زين” تبدأ عملها في سوريا خلال أيام",
@@ -145,6 +145,27 @@
       "feed": "سانا",
       "published_at": "2026-10-09T10:52:26+00:00",
       "province": "أخبار عامة"
+    },
+    {
+      "title": "مطار الملك خالد - الوكالة العربية السورية للأنباء - وكالة الأنباء السورية – سانا",
+      "description": "مطار الملك خالد - الوكالة العربية السورية للأنباء وكالة الأنباء السورية – سانا ويقدّم الخبر معلومات إضافية حول الموضوع وفق ما نشره المصدر الأصلي، مع توضيح السياق العام والتفاصيل المتاحة للقراء.",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQZE9xX0t5cEZhLW5SbllTaV84Tjc5YW1ORTVvUnBKV3lEUmNZUzZEbUZEdmlDWlhxV1g5U2paakNlNVVzQjlMMHd0anR0WUZDdGVyOUhUcWZFVlhSMU53N1dqeGpEbUtLWGF5Zy1yWW1NaTdKaWRldDdTZzNJRGd6M1djRlJteDlhcm1yeFhWMWFINWJBTXhpMjc3MjJRSnkzMTNN?oc=5",
+      "source": "وكالة الأنباء السورية – سانا",
+      "source_home": "https://sana.sy",
+      "feed": "سانا",
+      "published_at": "2026-10-09T10:07:05+00:00",
+      "province": "أخبار عامة"
+    },
+    {
+      "title": "\"أجنحة التخريب الموازية\".. كيف تعطل الشبيبة الثورية مسارات الاستقرار في الحسكة؟ | تلفزيون سوريا - تلفزيون سوريا",
+      "description": "عبر التاريخ الحديث، برزت ظاهرة تُعرف في الأدبيات السياسية والأمنية بـ \"أجنحة الإرغام الموازية\"؛ وهي تنظيمات ومجموعات شبابية متطرفة تُنشئها القوى الفاعلة",
+      "url": "https://www.syria.tv/%D8%A3%D8%AC%D9%86%D8%AD%D8%A9-%D8%A7%D9%84%D8%AA%D8%AE%D8%B1%D9%8A%D8%A8-%D8%A7%D9%84%D9%85%D9%88%D8%A7%D8%B2%D9%8A%D8%A9-%D9%83%D9%8A%D9%81-%D8%AA%D8%B9%D8%B7%D9%84-%D8%A7%D9%84%D8%B4%D8%A8%D9%8A%D8%A8%D8%A9-%D8%A7%D9%84%D8%AB%D9%88%D8%B1%D9%8A%D8%A9-%D9%85%D8%B3%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%82%D8%B1%D8%A7%D8%B1-%D9%81%D9%8A-%D8%A7%D9%84%D8%AD%D8%B3%D9%83%D8%A9%D8%9F",
+      "source": "تلفزيون سوريا",
+      "source_home": "https://www.syria.tv",
+      "feed": "تلفزيون سوريا",
+      "published_at": "2026-10-09T09:55:39+00:00",
+      "province": "الحسكة",
+      "image_url": "images/news/8cd1a919572c9c3cad774023.webp"
     }
   ]
 }
