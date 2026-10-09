@@ -682,7 +682,12 @@ def main():
         old_host = (urllib.parse.urlparse(old_item.get("url", "")).hostname or "").lower()
         new_host = (urllib.parse.urlparse(match.get("url", "")).hostname or "").lower()
         social_hosts = ("facebook.com", "instagram.com", "x.com", "twitter.com", "linkedin.com", "t.me")
-        old_link_is_wrapper = old_host.endswith("news.google.com") or any(old_host == domain or old_host.endswith("." + domain) for domain in social_hosts)
+        old_path_parts = [part.lower() for part in urllib.parse.urlparse(old_item.get("url", "")).path.strip("/").split("/") if part]
+        old_link_is_wrapper = (
+            old_host.endswith("news.google.com")
+            or any(old_host == domain or old_host.endswith("." + domain) for domain in social_hosts)
+            or any(part in ("governorates", "category", "tag", "author", "page", "contact", "about") for part in old_path_parts)
+        )
         new_link_is_social = any(new_host == domain or new_host.endswith("." + domain) for domain in social_hosts)
         if old_link_is_wrapper and new_host and not new_link_is_social:
             old_item["url"] = match["url"]
