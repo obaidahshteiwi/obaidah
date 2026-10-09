@@ -359,7 +359,8 @@ def resolve_publisher_url(article_url: str, source_home: str = "", article_title
                 return best_url
         # Fallback: search the publisher's own latest-news page for a matching headline.
         if source_home and article_title:
-            home_req = urllib.request.Request(source_home, headers={
+            search_url = source_home.rstrip("/") + "/?s=" + urllib.parse.quote_plus(article_title)
+            home_req = urllib.request.Request(search_url, headers={
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
                 "Accept": "text/html,application/xhtml+xml",
             })
@@ -411,6 +412,19 @@ def resolve_publisher_url(article_url: str, source_home: str = "", article_title
         return article_url
 
 
+def is_generic_image_url(image_url: str) -> bool:
+    parsed = urllib.parse.urlparse(image_url or "")
+    filename = urllib.parse.unquote(parsed.path.rsplit("/", 1)[-1]).casefold()
+    stem = re.sub(r"\.[a-z0-9]{2,5}$", "", filename)
+    generic_names = {
+        "دمشق", "الحسكة", "حلب", "حمص", "حماة", "ادلب", "إدلب", "طرطوس",
+        "اللاذقية", "درعا", "الرقة", "دير الزور", "السويداء", "القنيطرة",
+        "damascus", "aleppo", "homs", "hama", "idlib", "latakia", "tartous",
+        "hasakah", "raqqa", "daraa", "syria", "default", "placeholder",
+    }
+    return stem in generic_names or "placeholder" in stem or "default" in stem
+
+
 def extract_article_image(article_url: str, source_home: str = "", article_title: str = "") -> str:
     if not article_url.startswith(("https://", "http://")):
         return ""
@@ -436,7 +450,11 @@ def extract_article_image(article_url: str, source_home: str = "", article_title
         parser = ImageMetaParser()
         parser.feed(raw)
         picture = normalize_image_url(parser.image or parser.fallback, final_url)
-        print(f"Article image {'found' if picture else 'not found'} from {final_host}.")
+        if picture and is_generic_image_url(picture):
+            picture = ""
+            print(f"Generic region image rejected from {final_host}.")
+        else:
+            print(f"Article image {'found' if picture else 'not found'} from {final_host}.")
         return picture
     except urllib.error.HTTPError as exc:
         print(f"Article image lookup returned HTTP {exc.code} from {original_host}.")
@@ -747,6 +765,9 @@ def main():
             entry.pop("image_url", None)
             changed_news = True
     for item in old_news.get("items", [])[:MAX_SITE_NEWS]:
+        if item.get("image_url") and is_generic_image_url(item.get("image_url", "")):
+            item.pop("image_url", None)
+            changed_news = True
         if not item.get("province"):
             item["province"] = classify_province(item.get("title", ""), item.get("description", ""))
             changed_news = True
@@ -770,6 +791,21 @@ def main():
                 item["image_url"] = picture
                 images_added += 1
                 changed_news = True
+
+    # Avoid associating one publisher article URL with two different headlines.
+    seen_article_urls = {}
+    for item in old_news.get("items", []):
+        item_url = item.get("url", "")
+        title_key = canonical_title(item.get("title", ""))
+        if item_url and item_url in seen_article_urls and seen_article_urls[item_url] != title_key:
+            alternative = unique_by_title.get(title_key)
+            if alternative and alternative.get("url") and alternative.get("url") != item_url:
+                item["url"] = alternative["url"]
+            item.pop("image_url", None)
+            changed_news = True
+            print("Duplicate article URL detected across different headlines; kept the original feed link for the second story.")
+        elif item_url:
+            seen_article_urls[item_url] = title_key
 
     if changed_news:
         old_news["updated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
