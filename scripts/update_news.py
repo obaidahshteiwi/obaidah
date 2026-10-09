@@ -287,10 +287,17 @@ def green_request(method_name: str, payload: dict | None = None, http_method: st
     except urllib.error.HTTPError as exc:
         # Do not log the raw response or URL: both can contain provider-specific sensitive data.
         try:
-            error_body = json.loads(exc.read(2000).decode("utf-8", errors="replace"))
+            raw_error = exc.read(2000).decode("utf-8", errors="replace")
+            try:
+                error_body = json.loads(raw_error)
+            except (ValueError, TypeError):
+                error_body = {}
         except Exception:
             error_body = {}
-        kind = str(error_body.get("error", "") or error_body.get("message", "") or "")
+        if isinstance(error_body, dict):
+            kind = str(error_body.get("error", "") or error_body.get("message", "") or "")
+        else:
+            kind = ""
         kind = re.sub(r"[^A-Za-z0-9 _.-]", "", kind)[:80]
         return None, f"http_{exc.code}" + (f":{kind}" if kind else "")
     except (urllib.error.URLError, TimeoutError, OSError, ValueError):
@@ -472,10 +479,15 @@ def main():
 
     if configured and instance_status == "authorized":
         group_valid, group_error = validate_whatsapp_group(chat_id)
+        if not group_valid and group_error.startswith("http_500"):
+            # A provider-side failure in the read-only group lookup should not block a send attempt.
+            print("WhatsApp group lookup returned HTTP 500; attempting sends and checking each message status.")
+            group_valid = True
         if not group_valid:
             print(f"WhatsApp group check failed: {group_error or 'group_id_mismatch'}. Sending paused to avoid targeting the wrong chat.")
         else:
-            print("WhatsApp group check: valid.")
+            if not group_error:
+                print("WhatsApp group check: valid.")
             # Verify queue IDs on later runs instead of falsely equating API acceptance with delivery.
             for item_url, record in list(pending.items()):
                 message_id = str(record.get("id_message", ""))
