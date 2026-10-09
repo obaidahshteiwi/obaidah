@@ -3,91 +3,299 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#12352b">
-  <meta name="description" content="سوريا مباشر — آخر الأخبار السورية من مصادرها الأصلية مع تحديث تلقائي.">
-  <title>سوريا مباشر | آخر الأخبار السورية</title>
+  <meta name="theme-color" content="#102c24">
+  <meta name="description" content="سوريا مباشر — أخبار سوريا بالصور مصنفة حسب المحافظات الأربعة عشر، مع روابط المصادر الأصلية.">
+  <title>سوريا مباشر | أخبار سوريا الآن</title>
   <style>
-    :root{color-scheme:light;--green:#12352b;--green2:#1c5944;--gold:#d6b56d;--paper:#f5f6f2;--ink:#1b2923;--muted:#66736c;--line:#e0e6df}
-    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Tahoma,Arial,sans-serif;line-height:1.8}
-    a{color:inherit}.top{background:var(--green);color:#fff;border-bottom:4px solid var(--gold)}.wrap{width:min(1100px,92%);margin:auto}
-    .nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 0}.brand{font-size:1.45rem;font-weight:800}.brand span{color:var(--gold)}
-    .nav a{font-size:.92rem;text-decoration:none;color:#e7eee9}.hero{padding:37px 0 34px}.eyebrow{color:var(--gold);font-weight:700}.hero h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.25;margin:8px 0 12px}.hero p{max-width:680px;color:#dbe7df;margin:0}
-    .pill{display:inline-block;margin-top:22px;background:rgba(214,181,109,.15);border:1px solid rgba(214,181,109,.7);color:#f2dca8;padding:6px 12px;border-radius:999px;font-weight:700;font-size:.84rem}
-    main{padding:30px 0 55px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;border-bottom:1px solid #dce2dc;padding-bottom:12px}.section-head h2{margin:0;font-size:1.45rem}.section-head p{margin:0;color:var(--muted);font-size:.9rem}
-    .status{margin:16px 0;color:var(--muted);font-size:.88rem}.news-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr));gap:15px;margin-top:18px}
-    .news-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:15px;padding:19px;min-height:220px;box-shadow:0 3px 12px rgba(18,53,43,.035)}
-    .meta{display:flex;align-items:center;justify-content:space-between;gap:8px;color:var(--muted);font-size:.78rem}.source{display:inline-block;background:#edf4ee;color:var(--green2);border-radius:999px;padding:3px 9px;font-weight:700}
-    .news-card h3{font-size:1.08rem;line-height:1.7;margin:12px 0 8px}.news-card p{margin:0 0 17px;color:#526159;font-size:.94rem;white-space:pre-line}
-    .news-card .read{margin-top:auto;align-self:flex-start;color:var(--green2);font-weight:800;text-decoration:none}.news-card .read:hover{text-decoration:underline}
-    .empty{background:#fff;border:1px solid var(--line);border-radius:15px;padding:24px;margin-top:18px;color:var(--muted)}
-    .categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-top:19px}.category{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px;font-weight:700}
-    footer{background:#10271f;color:#dbe7df;padding:22px 0;font-size:.88rem}footer p{margin:4px 0}.small{color:#aebfb4}
-    @media(max-width:550px){.section-head{align-items:flex-start;flex-direction:column}.hero{padding-top:28px}.news-card{padding:16px}}
+    :root{
+      color-scheme:light;
+      --forest:#102c24;--forest-2:#194637;--leaf:#2f7257;--gold:#e5c47c;
+      --paper:#f6f7f4;--surface:#fff;--ink:#17251f;--muted:#6b7871;
+      --line:#e4e9e4;--soft:#edf3ef;--shadow:0 18px 45px rgba(17,43,34,.08);
+      --radius:22px
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Tahoma,Arial,sans-serif;line-height:1.8}
+    a{color:inherit}
+    button,input{font:inherit}
+    button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #d4ae50;outline-offset:3px}
+    .wrap{width:min(1180px,92%);margin-inline:auto}
+    .top{color:white;overflow:hidden;position:relative;background:radial-gradient(ellipse at 8% 0%,rgba(75,136,100,.35),transparent 44%),linear-gradient(128deg,#0d251e 5%,#174332 62%,#265943 100%)}
+    .top:after{content:"";position:absolute;inset:auto -8% -150px 28%;height:240px;border:1px solid rgba(255,255,255,.08);border-radius:50%;transform:rotate(-8deg);pointer-events:none}
+    .nav{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:19px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-size:1.22rem;font-weight:900;letter-spacing:-.4px}
+    .brand-mark{display:grid;place-items:center;width:43px;height:43px;border-radius:15px;background:linear-gradient(145deg,#f1d995,#d8b360);color:#183629;font-size:1.35rem;box-shadow:0 8px 18px #081c1580}
+    .brand small{display:block;color:#bed1c5;font-size:.69rem;font-weight:500;letter-spacing:0}
+    .nav-links{display:flex;align-items:center;gap:18px}
+    .nav-links a{color:#dbe8df;text-decoration:none;font-size:.9rem}
+    .nav-links a:hover{color:#fff}
+    .hero{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,.48fr);gap:30px;align-items:center;padding:48px 0 56px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.84rem;font-weight:800;color:#f0d695}
+    .live-dot{width:8px;height:8px;border-radius:50%;background:#8fd7a6;box-shadow:0 0 0 5px #8fd7a622}
+    h1{font-size:clamp(2.15rem,5vw,3.75rem);line-height:1.24;letter-spacing:-1.4px;margin:12px 0 16px;max-width:700px}
+    .hero p{font-size:1.02rem;color:#d2e1d7;max-width:660px;margin:0}
+    .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:11px;margin-top:25px}
+    .primary-btn,.soft-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:10px 17px;border-radius:14px;text-decoration:none;font-weight:800;font-size:.9rem}
+    .primary-btn{background:#edcf86;color:#1a3025}
+    .soft-btn{border:1px solid #ffffff3d;color:#f4f7f4;background:#ffffff0b}
+    .hero-side{justify-self:end;max-width:320px;width:100%;border:1px solid #ffffff20;background:linear-gradient(145deg,#ffffff14,#ffffff07);border-radius:26px;padding:22px;box-shadow:0 22px 60px #061a1338;backdrop-filter:blur(10px)}
+    .hero-side .syria-symbol{height:124px;display:grid;place-items:center;font-size:5.1rem;filter:drop-shadow(0 10px 14px #04140e65)}
+    .hero-side h2{font-size:1.08rem;margin:6px 0 3px}
+    .hero-side p{font-size:.83rem;color:#c9d9cf;margin:0}
+    .hero-stats{display:flex;gap:8px;margin-top:17px}
+    .hero-stat{flex:1;border-radius:13px;background:#061a132e;border:1px solid #ffffff12;padding:9px 10px}
+    .hero-stat strong{display:block;font-size:1.06rem;color:#f5daa0}
+    .hero-stat span{font-size:.72rem;color:#c8d9cf}
+    main{padding:32px 0 58px}
+    .toolbar{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:20px}
+    .section-title{margin:0;font-size:1.63rem;letter-spacing:-.5px;line-height:1.45}
+    .section-subtitle{margin:5px 0 0;font-size:.88rem;color:var(--muted)}
+    .update-chip{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;border:1px solid #dfe8e0;background:#fff;border-radius:999px;color:#53665a;padding:8px 12px;font-size:.78rem}
+    .update-chip i{display:block;width:7px;height:7px;border-radius:50%;background:#3d9b6b}
+    .filters-panel{padding:18px;border:1px solid var(--line);border-radius:20px;background:#fff;box-shadow:0 7px 24px #163e2a08}
+    .filters-top{display:flex;align-items:center;justify-content:space-between;gap:13px;margin-bottom:13px}
+    .filters-top strong{font-size:.93rem}
+    .search-wrap{position:relative;flex:0 1 330px}
+    .search-wrap span{position:absolute;right:13px;top:50%;transform:translateY(-50%);color:#829087;pointer-events:none}
+    .search{width:100%;height:43px;border:1px solid #e1e7e1;border-radius:13px;background:#f9faf8;padding:8px 39px 8px 12px;color:var(--ink);font-size:.86rem}
+    .province-list{display:flex;flex-wrap:wrap;gap:8px}
+    .province-chip{border:1px solid #e0e7e1;border-radius:999px;padding:7px 13px;color:#4e6155;background:#fbfcfa;cursor:pointer;font-size:.82rem;transition:background .15s,border-color .15s,color .15s}
+    .province-chip:hover{border-color:#a4c1ad;color:var(--forest)}
+    .province-chip.active{background:var(--forest);border-color:var(--forest);color:white;box-shadow:0 4px 12px #102c2426}
+    .news-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:30px 0 14px}
+    .news-heading h2{font-size:1.35rem;margin:0}
+    .result-count{font-size:.81rem;color:var(--muted)}
+    .status{margin:0 0 12px;color:var(--muted);font-size:.83rem;min-height:1.6em}
+    .news-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+    .story{position:relative;display:flex;flex-direction:column;min-width:0;overflow:hidden;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 7px 25px #173c2b08;transition:transform .18s ease,box-shadow .18s ease}
+    .story:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+    .story.featured{grid-column:span 2;display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);grid-template-rows:1fr}
+    .image-wrap{position:relative;aspect-ratio:16/10;background:linear-gradient(135deg,#184432,#31674d 55%,#d2b36e);overflow:hidden}
+    .featured .image-wrap{aspect-ratio:auto;min-height:100%;height:100%}
+    .story-image{display:block;width:100%;height:100%;min-height:100%;object-fit:cover;transition:transform .35s ease}
+    .story:hover .story-image{transform:scale(1.035)}
+    .image-overlay{position:absolute;inset:35% 0 0;background:linear-gradient(transparent,#071b12a6);pointer-events:none}
+    .image-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#f8efd9;text-align:center;background:radial-gradient(circle at 20% 15%,#729a6c55,transparent 45%),linear-gradient(135deg,#153d2f,#367454)}
+    .image-placeholder .symbol{font-size:2.4rem;line-height:1.25}
+    .image-placeholder span:last-child{font-weight:800;font-size:.8rem;letter-spacing:.4px;margin-top:8px}
+    .province-overlay{position:absolute;right:13px;bottom:12px;z-index:1;background:#102d25d9;border:1px solid #ffffff27;color:#fff;padding:4px 10px;border-radius:999px;font-size:.76rem;font-weight:800;backdrop-filter:blur(5px)}
+    .story-content{display:flex;flex-direction:column;flex:1;padding:17px 18px 18px;min-width:0}
+    .story-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;color:var(--muted);font-size:.73rem}
+    .source-label{display:inline-flex;align-items:center;max-width:65%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background:var(--soft);color:var(--forest-2);border-radius:999px;padding:3px 9px;font-weight:800}
+    .story h3{font-size:1.01rem;line-height:1.72;margin:12px 0 8px;letter-spacing:-.1px}
+    .featured h3{font-size:1.28rem;line-height:1.65;margin-top:15px}
+    .story p{font-size:.87rem;line-height:1.85;color:#647168;margin:0 0 17px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+    .featured p{-webkit-line-clamp:5;font-size:.91rem}
+    .story-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:12px;border-top:1px solid #eef1ed}
+    .read-link{color:var(--leaf);font-size:.84rem;text-decoration:none;font-weight:900;white-space:nowrap}
+    .read-link:hover{text-decoration:underline}
+    .story-time{font-size:.71rem;color:#8a958e;white-space:nowrap}
+    .empty{border:1px dashed #d5ded6;background:#fff;border-radius:20px;padding:38px 20px;text-align:center;color:var(--muted)}
+    .empty-icon{font-size:2.2rem;margin-bottom:7px}
+    .empty strong{display:block;color:var(--ink);margin-bottom:4px}
+    .footer{background:#0c211a;color:#d5e1d8;padding:26px 0}
+    .footer-row{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .footer p{font-size:.82rem;color:#aebeb4;margin:5px 0}
+    .footer-brand{font-weight:900;color:#f2d899}
+    .footer a{color:#e9f0eb;text-decoration:none}
+    @media(max-width:1000px){.news-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.story.featured{grid-column:span 2}.hero{grid-template-columns:minmax(0,1fr) 240px;gap:20px}.hero-side{padding:17px}.hero-side .syria-symbol{height:100px}}
+    @media(max-width:650px){
+      .wrap{width:min(100% - 26px,1180px)}
+      .nav{padding:13px 0}.brand{font-size:1.08rem}.brand-mark{width:39px;height:39px;border-radius:13px}
+      .nav-links{gap:10px}.nav-links a{font-size:.79rem}
+      .hero{display:block;padding:34px 0 37px}.hero-side{display:none}h1{font-size:2.25rem;letter-spacing:-.7px}
+      .hero p{font-size:.94rem}.hero-actions{margin-top:20px}.primary-btn,.soft-btn{min-height:43px;padding:9px 13px}
+      main{padding:24px 0 42px}.toolbar{align-items:flex-start;flex-direction:column;gap:11px}
+      .section-title{font-size:1.45rem}.update-chip{font-size:.73rem}
+      .filters-panel{padding:13px;border-radius:17px}.filters-top{align-items:stretch;flex-direction:column}
+      .search-wrap{flex-basis:auto}.province-list{gap:7px}.province-chip{font-size:.76rem;padding:6px 10px}
+      .news-grid{grid-template-columns:1fr;gap:13px}.story.featured{grid-column:auto;display:flex}
+      .featured .image-wrap{aspect-ratio:16/9;min-height:0}
+      .featured h3{font-size:1.08rem}.story-content{padding:15px}
+      .news-heading{margin-top:25px}.footer-row{align-items:flex-start;flex-direction:column;gap:8px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
   </style>
 </head>
 <body>
   <header class="top">
     <div class="wrap">
-      <nav class="nav"><div class="brand">🇸🇾 <span>سوريا</span> مباشر</div><a href="#latest">آخر الأخبار ↓</a></nav>
+      <nav class="nav">
+        <a class="brand" href="#" aria-label="سوريا مباشر الصفحة الرئيسية">
+          <span class="brand-mark">🇸🇾</span>
+          <span>سوريا مباشر<small>أخبار من كل المحافظات</small></span>
+        </a>
+        <div class="nav-links"><a href="#latest">آخر الأخبار</a><a href="#governorates">المحافظات</a></div>
+      </nav>
       <section class="hero">
-        <div class="eyebrow">نبض سوريا لحظة بلحظة</div>
-        <h1>أخبار سوريا من مصادرها</h1>
-        <p>تابع آخر المستجدات السورية من مصادر إخبارية متعددة، مع رابط يتيح لك الرجوع إلى الخبر الأصلي.</p>
-        <span class="pill">تحديث تلقائي للأخبار كل 5 دقائق</span>
+        <div>
+          <div class="eyebrow"><span class="live-dot"></span> متابعة يومية من مصادر الأخبار</div>
+          <h1>صورة أوضح لما يحدث في <span style="color:#efd18c">سوريا</span></h1>
+          <p>آخر المستجدات والأخبار المصنّفة حسب المحافظات السورية الأربع عشرة، مع الصور المتاحة وروابط المصادر الأصلية.</p>
+          <div class="hero-actions">
+            <a class="primary-btn" href="#latest">تصفّح آخر الأخبار <span aria-hidden="true">←</span></a>
+            <a class="soft-btn" href="#governorates">اختر محافظتك</a>
+          </div>
+        </div>
+        <aside class="hero-side" aria-label="عن الموقع">
+          <div class="syria-symbol">🇸🇾</div>
+          <h2>من كل سوريا، بخبر واضح</h2>
+          <p>العنوان، الصورة المتاحة، المنطقة، والمصدر في مكان واحد.</p>
+          <div class="hero-stats">
+            <div class="hero-stat"><strong>14</strong><span>محافظة</span></div>
+            <div class="hero-stat"><strong>5 د</strong><span>فحص دوري</span></div>
+          </div>
+        </aside>
       </section>
     </div>
   </header>
+
   <main class="wrap">
     <section id="latest">
-      <div class="section-head"><h2>آخر الأخبار</h2><p id="updateTime">يجري تحميل الأخبار…</p></div>
-      <div class="status" id="feedStatus" role="status">جارٍ تحميل الأخبار من المصادر.</div>
+      <div class="toolbar">
+        <div><h2 class="section-title">الخبر السوري أولًا</h2><p class="section-subtitle">تغطية مستمرة من مصادر متعددة، مع الحفاظ على رابط الخبر الأصلي.</p></div>
+        <div class="update-chip"><i></i><span id="updateTime">يجري تحميل الأخبار…</span></div>
+      </div>
+
+      <div class="filters-panel" id="governorates">
+        <div class="filters-top">
+          <strong>تصفّح حسب المحافظة</strong>
+          <label class="search-wrap"><span aria-hidden="true">⌕</span><input id="searchInput" class="search" type="search" placeholder="ابحث عن خبر أو مصدر…" autocomplete="off" aria-label="ابحث عن خبر أو مصدر"></label>
+        </div>
+        <div class="province-list" id="provinceFilters" aria-label="تصفية أخبار المحافظات"></div>
+      </div>
+
+      <div class="news-heading"><h2 id="newsHeading">آخر الأخبار</h2><span class="result-count" id="resultCount"></span></div>
+      <p class="status" id="feedStatus" role="status" aria-live="polite">جارٍ تحميل الأخبار من المصادر…</p>
       <div class="news-grid" id="newsGrid"></div>
-      <div class="empty" id="emptyState" hidden>لا توجد أخبار متاحة الآن. سيُعاد فحص المصادر تلقائيًا.</div>
-    </section>
-    <section aria-label="الأقسام">
-      <div class="section-head" style="margin-top:34px"><h2>تصفّح حسب المنطقة</h2><p>أقسام التغطية</p></div>
-      <div class="categories"><div class="category">حمص</div><div class="category">حلب</div><div class="category">إدلب</div><div class="category">دمشق وريفها</div><div class="category">اللاذقية وطرطوس</div><div class="category">دير الزور والرقة</div><div class="category">درعا والسويداء</div><div class="category">الحسكة والقامشلي</div></div>
+      <div class="empty" id="emptyState" hidden><div class="empty-icon">📰</div><strong>لا توجد أخبار ضمن هذا الاختيار</strong><span>جرّب محافظة أخرى أو امسح كلمات البحث.</span></div>
     </section>
   </main>
-  <footer><div class="wrap"><p><strong>🇸🇾 سوريا مباشر</strong></p><p>نحيل إلى المصادر الأصلية، ونعمل على الحد من تكرار الأخبار.</p><p class="small">© <span id="year"></span> سوريا مباشر</p></div></footer>
+
+  <footer class="footer">
+    <div class="wrap footer-row">
+      <div><div class="footer-brand">🇸🇾 سوريا مباشر</div><p>نقل الخبر مع الرجوع إلى مصدره الأصلي.</p></div>
+      <div><p>يُحدّث النظام مصادر الأخبار دوريًا.</p><p>© <span id="year"></span> سوريا مباشر</p></div>
+    </div>
+  </footer>
+
   <script>
+    const PROVINCES = [
+      'الكل','دمشق','ريف دمشق','حلب','حمص','حماة','اللاذقية','طرطوس',
+      'إدلب','دير الزور','الرقة','الحسكة','درعا','السويداء','القنيطرة','أخبار عامة'
+    ];
+    const state = {items:[], province:'الكل', search:''};
     document.getElementById('year').textContent = new Date().getFullYear();
-    const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+
+    const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[ch]));
+    const safeUrl = value => {
+      try { const url = new URL(String(value || '')); return ['https:','http:'].includes(url.protocol) ? url.href : ''; }
+      catch { return ''; }
+    };
     const formatDate = value => {
       if (!value) return 'تاريخ غير متاح';
       const date = new Date(value);
       return Number.isNaN(date.getTime()) ? 'تاريخ غير متاح' : date.toLocaleString('ar-SY',{dateStyle:'medium',timeStyle:'short'});
     };
-    async function loadNews(){
+    const provinceOf = item => PROVINCES.includes(item.province) && item.province !== 'الكل' ? item.province : 'أخبار عامة';
+
+    function makeProvinceFilters() {
+      const holder = document.getElementById('provinceFilters');
+      holder.innerHTML = PROVINCES.map(province =>
+        '<button type="button" class="province-chip' + (province === state.province ? ' active' : '') +
+        '" aria-pressed="' + (province === state.province) + '" data-province="' + esc(province) + '">' + esc(province) + '</button>'
+      ).join('');
+      holder.querySelectorAll('button').forEach(button => {
+        button.addEventListener('click', () => {
+          state.province = button.dataset.province || 'الكل';
+          makeProvinceFilters();
+          renderNews();
+        });
+      });
+    }
+
+    function placeholder(province) {
+      return '<div class="image-placeholder" aria-label="الصورة غير متاحة"><span class="symbol">🇸🇾</span><span>' + esc(province) + ' · سوريا مباشر</span></div>';
+    }
+
+    function renderNews() {
+      const query = state.search.trim().toLocaleLowerCase('ar');
+      const filtered = state.items.filter(item => {
+        const province = provinceOf(item);
+        const matchesProvince = state.province === 'الكل' || province === state.province;
+        const haystack = [item.title,item.description,item.source,item.feed,province].join(' ').toLocaleLowerCase('ar');
+        return matchesProvince && (!query || haystack.includes(query));
+      });
       const grid = document.getElementById('newsGrid');
       const empty = document.getElementById('emptyState');
+      document.getElementById('newsHeading').textContent = state.province === 'الكل' ? 'آخر الأخبار' : 'أخبار ' + state.province;
+      document.getElementById('resultCount').textContent = filtered.length + ' خبر';
+      if (!filtered.length) {
+        grid.innerHTML = '';
+        empty.hidden = false;
+        return;
+      }
+      empty.hidden = true;
+      grid.innerHTML = filtered.map((item,index) => {
+        const title = esc(item.title || 'خبر من سوريا');
+        const description = esc(item.description || 'افتح رابط المصدر لقراءة التفاصيل الكاملة.');
+        const source = esc(item.source || item.feed || 'مصدر إخباري');
+        const province = provinceOf(item);
+        const url = safeUrl(item.url);
+        const image = safeUrl(item.image_url);
+        const picture = image
+          ? '<img class="story-image" src="' + esc(image) + '" alt="' + title + '" loading="lazy" referrerpolicy="no-referrer"><div class="image-overlay"></div>'
+          : placeholder(province);
+        return '<article class="story' + (index === 0 && state.province === 'الكل' && !query ? ' featured' : '') + '">' +
+          '<div class="image-wrap">' + picture + '<span class="province-overlay">' + esc(province) + '</span></div>' +
+          '<div class="story-content"><div class="story-meta"><span class="source-label">' + source + '</span><time>' + esc(formatDate(item.published_at)) + '</time></div>' +
+          '<h3>' + title + '</h3><p>' + description + '</p>' +
+          '<div class="story-bottom"><span class="story-time">سوريا · ' + esc(province) + '</span>' +
+          (url ? '<a class="read-link" href="' + esc(url) + '" target="_blank" rel="noopener noreferrer">اقرأ الخبر ←</a>' : '') +
+          '</div></div></article>';
+      }).join('');
+      grid.querySelectorAll('img.story-image').forEach(img => {
+        img.addEventListener('error', () => {
+          const wrap = img.closest('.image-wrap');
+          if (wrap) {
+            const province = wrap.querySelector('.province-overlay')?.textContent || 'سوريا';
+            img.remove();
+            const overlay = wrap.querySelector('.image-overlay');
+            if (overlay) overlay.remove();
+            wrap.insertAdjacentHTML('afterbegin', placeholder(province));
+          }
+        }, {once:true});
+      });
+    }
+
+    document.getElementById('searchInput').addEventListener('input', event => {
+      state.search = event.target.value || '';
+      renderNews();
+    });
+
+    async function loadNews() {
       const status = document.getElementById('feedStatus');
       try {
         const response = await fetch('./data/news.json?v=' + Date.now(), {cache:'no-store'});
         if (!response.ok) throw new Error('feed unavailable');
         const data = await response.json();
-        const items = Array.isArray(data.items) ? data.items : [];
+        state.items = Array.isArray(data.items) ? data.items : [];
         document.getElementById('updateTime').textContent = data.updated_at ? 'آخر تحديث: ' + formatDate(data.updated_at) : 'بانتظار أول تحديث';
-        if (!items.length) {
-          grid.innerHTML = '';
-          empty.hidden = false;
-          status.textContent = 'لم تصل أخبار جديدة بعد؛ يتم فحص المصادر تلقائيًا.';
-          return;
-        }
-        empty.hidden = true;
-        grid.innerHTML = items.map(item => {
-          const title = esc(item.title || 'خبر من سوريا');
-          const description = esc(item.description || 'اضغط لقراءة التفاصيل من المصدر الأصلي.');
-          const source = esc(item.source || item.feed || 'مصدر إخباري');
-          const url = /^https?:\/\//i.test(item.url || '') ? esc(item.url) : '#';
-          return '<article class="news-card"><div class="meta"><span class="source">' + source + '</span><time>' + esc(formatDate(item.published_at)) + '</time></div><h3>' + title + '</h3><p>' + description + '</p><a class="read" href="' + url + '" target="_blank" rel="noopener noreferrer">اقرأ الخبر الأصلي ←</a></article>';
-        }).join('');
-        status.textContent = 'عدد الأخبار المعروضة: ' + items.length + ' — الروابط تفتح المصدر الأصلي.';
+        status.textContent = state.items.length
+          ? 'الأخبار جاهزة. استخدم التصنيفات أو البحث للوصول إلى الخبر الذي تريده.'
+          : 'يتم فحص المصادر تلقائيًا؛ لم تصل أخبار بعد.';
+        makeProvinceFilters();
+        renderNews();
       } catch (error) {
-        status.textContent = 'تعذّر تحميل ملف الأخبار حاليًا. أعد المحاولة بعد قليل.';
-        empty.hidden = false;
+        status.textContent = 'تعذّر تحميل ملف الأخبار حاليًا. تحقّق من الاتصال ثم أعد المحاولة.';
+        document.getElementById('newsGrid').innerHTML = '';
+        document.getElementById('emptyState').hidden = false;
       }
     }
+    makeProvinceFilters();
     loadNews();
   </script>
 </body>
