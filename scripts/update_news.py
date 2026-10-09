@@ -1434,6 +1434,7 @@ def main():
     evolution_base, evolution_key, evolution_instance, evolution_destinations = evolution_config()
     evolution_configured = bool(evolution_base and evolution_key and evolution_instance and all(chat for _, chat in evolution_destinations))
     settings = whatsapp_settings()
+    quota_blocked = False
     evolution_sent = state.get("evolution_sent", {})
     if not isinstance(evolution_sent, dict):
         evolution_sent = {}
@@ -1445,6 +1446,7 @@ def main():
         else:
             instance_status = "evolution_api"
             accepted_count = delivered_count = failed_count = 0
+            stories_attempted = 0
             for item in old_news.get("items", [])[:MAX_SITE_NEWS]:
                 item_url = str(item.get("url", "") or "")
                 if not item_url:
@@ -1474,7 +1476,9 @@ def main():
                     wa_sent_urls.add(item_url)
                 else:
                     all_destinations_sent = False
-                if attempted and accepted_count >= MAX_NEW_PER_CYCLE * len(evolution_destinations):
+                if attempted:
+                    stories_attempted += 1
+                if stories_attempted >= MAX_NEW_PER_CYCLE:
                     break
             pending = {}
             quota_blocked = False
