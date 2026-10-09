@@ -1,36 +1,73 @@
-name: Deploy Syria Mubasher website
+name: Syria Mubasher - RSS and Website
 
 on:
   push:
     branches: ["main"]
+  schedule:
+    - cron: "*/5 * * * *"
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: "syria-mubasher-pages"
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  update-and-deploy:
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch RSS news and post to WhatsApp when configured
+        env:
+          GREEN_API_URL: ${{ secrets.GREEN_API_URL }}
+          GREEN_API_INSTANCE: ${{ secrets.GREEN_API_INSTANCE }}
+          GREEN_API_TOKEN: ${{ secrets.GREEN_API_TOKEN }}
+          WHATSAPP_GROUP_ID: ${{ secrets.WHATSAPP_GROUP_ID }}
+        run: python scripts/update_news.py
+
+      - name: Commit updated news data
+        id: data_commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [[ -n "$(git status --porcelain data/news.json data/state.json)" ]]; then
+            git add data/news.json data/state.json
+            git commit -m "Update Syria news feed"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Configure GitHub Pages
+        if: steps.data_commit.outputs.changed == 'true' || github.event_name != 'schedule'
         uses: actions/configure-pages@v5
         with:
           enablement: true
+
       - name: Upload website files
+        if: steps.data_commit.outputs.changed == 'true' || github.event_name != 'schedule'
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
+
       - name: Deploy to GitHub Pages
+        if: steps.data_commit.outputs.changed == 'true' || github.event_name != 'schedule'
         id: deployment
         uses: actions/deploy-pages@v4
