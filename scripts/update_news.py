@@ -166,7 +166,7 @@ def post_whatsapp(item: dict) -> bool:
     try:
         with urllib.request.urlopen(req, timeout=20) as response:
             result = json.loads(response.read().decode("utf-8", errors="replace") or "{}")
-        return bool(result.get("idMessage") or result.get("idMessage") == "")
+        return isinstance(result.get("idMessage"), str) and bool(result["idMessage"])
     except (urllib.error.URLError, TimeoutError, ValueError, OSError) as exc:
         print(f"WhatsApp send failed for one news item: {type(exc).__name__}", file=sys.stderr)
         return False
@@ -176,8 +176,10 @@ def main():
     DATA.mkdir(parents=True, exist_ok=True)
     old_news = load_json(NEWS_FILE, {"updated_at": "", "items": []})
     state = load_json(STATE_FILE, {"published_urls": [], "whatsapp_sent_urls": [], "feed_errors": []})
-    published_urls = set(state.get("published_urls", []))
-    wa_sent_urls = set(state.get("whatsapp_sent_urls", []))
+    published_urls_list = list(state.get("published_urls", []))
+    wa_sent_urls_list = list(state.get("whatsapp_sent_urls", []))
+    published_urls = set(published_urls_list)
+    wa_sent_urls = set(wa_sent_urls_list)
     old_items = old_news.get("items", []) if isinstance(old_news, dict) else []
     errors = []
     candidates = []
@@ -223,7 +225,9 @@ def main():
         existing_by_url = {item.get("url"): item for item in old_items if item.get("url")}
         for item in fresh:
             existing_by_url[item["url"]] = item
-            published_urls.add(item["url"])
+            if item["url"] not in published_urls:
+                published_urls.add(item["url"])
+                published_urls_list.append(item["url"])
         new_items = list(existing_by_url.values())
         new_items.sort(key=lambda item: item.get("published_at", ""), reverse=True)
         old_news = {
@@ -234,23 +238,24 @@ def main():
         old_news.setdefault("items", [])
         old_news.setdefault("updated_at", "")
 
-    # Retry recent items to WhatsApp if an earlier send was not successful.
-    for item in old_news.get("items", [])[:MAX_SITE_NEWS]:
-        url = item.get("url", "")
-        if not url or url in wa_sent_urls:
-            continue
-        # When no secrets are configured, leave WhatsApp state untouched.
-        if not all(os.getenv(key, "").strip() for key in ("GREEN_API_URL", "GREEN_API_INSTANCE", "GREEN_API_TOKEN", "WHATSAPP_GROUP_ID")):
-            break
-        if post_whatsapp(item):
-            wa_sent_urls.add(url)
-        # Respect the intended maximum of two WhatsApp posts per run.
-        if len(wa_sent_urls.intersection({x.get("url") for x in old_news.get("items", [])})) >= 2:
-            break
+    # Retry recent unsent items, but attempt at most two posts per workflow run.
+    attempted_this_run = 0
+    whatsapp_configured = all(os.getenv(key, "").strip() for key in ("GREEN_API_URL", "GREEN_API_INSTANCE", "GREEN_API_TOKEN", "WHATSAPP_GROUP_ID"))
+    if whatsapp_configured:
+        for item in old_news.get("items", [])[:MAX_SITE_NEWS]:
+            url = item.get("url", "")
+            if not url or url in wa_sent_urls:
+                continue
+            if post_whatsapp(item):
+                wa_sent_urls.add(url)
+                wa_sent_urls_list.append(url)
+            attempted_this_run += 1
+            if attempted_this_run >= MAX_NEW_PER_CYCLE:
+                break
 
     state_out = {
-        "published_urls": list(published_urls)[-MAX_HISTORY:],
-        "whatsapp_sent_urls": list(wa_sent_urls)[-MAX_HISTORY:],
+        "published_urls": list(dict.fromkeys(published_urls_list))[-MAX_HISTORY:],
+        "whatsapp_sent_urls": list(dict.fromkeys(wa_sent_urls_list))[-MAX_HISTORY:],
         "feed_errors": errors,
     }
     NEWS_FILE.write_text(json.dumps(old_news, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
