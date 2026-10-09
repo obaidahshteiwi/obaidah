@@ -330,6 +330,9 @@ def resolve_publisher_url(article_url: str, source_home: str = "", article_title
                 continue
             if candidate_host in ("facebook.com", "instagram.com", "x.com", "twitter.com", "linkedin.com", "t.me"):
                 continue
+            path_parts = [part.lower() for part in p.path.strip("/").split("/") if part]
+            if any(part in ("governorates", "category", "tag", "author", "page", "contact", "about") for part in path_parts):
+                continue
             if source_host and (candidate_host == source_host or candidate_host.endswith("." + source_host)) and not p.path.strip("/"):
                 continue
             score = 0
@@ -382,15 +385,21 @@ def resolve_publisher_url(article_url: str, source_home: str = "", article_title
                         continue
                     if source_host and candidate_host != source_host and not candidate_host.endswith("." + source_host):
                         continue
+                    path_parts = [part.lower() for part in p.path.strip("/").split("/") if part]
+                    if any(part in ("governorates", "category", "tag", "author", "page", "contact", "about") for part in path_parts):
+                        continue
                     if not p.path.strip("/") or p.path.rstrip("/") == urllib.parse.urlparse(home_url).path.rstrip("/"):
                         continue
                     label_key = canonical_title(label)
-                    overlap = len(title_words.intersection(re.findall(r"[\w\u0600-\u06ff]+", label.casefold()))) / max(1, len(title_words))
-                    if title_key and (title_key in label_key or label_key in title_key):
+                    if len(label_key) < 12:
+                        continue
+                    label_words = set(re.findall(r"[\w\u0600-\u06ff]+", label.casefold()))
+                    overlap = len(title_words.intersection(label_words)) / max(1, len(title_words))
+                    if title_key and label_key and (title_key in label_key or label_key in title_key):
                         overlap = max(overlap, 0.9)
                     if overlap > best[0]:
                         best = (overlap, candidate)
-                if best[0] >= 0.55:
+                if best[0] >= 0.7:
                     print(f"Publisher headline matched on its website: {urllib.parse.urlparse(best[1]).hostname}.")
                     return best[1]
             except (urllib.error.URLError, TimeoutError, OSError, ValueError):
