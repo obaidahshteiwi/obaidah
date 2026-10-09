@@ -30,6 +30,7 @@ MAX_HISTORY = 1000
 MAX_IMAGE_LOOKUPS_PER_CYCLE = 8
 MAX_IMAGE_MIRRORS_PER_CYCLE = 8
 MAX_IMAGE_DOWNLOAD_BYTES = 12_000_000
+IMAGE_LOOKUP_VERSION = 2
 MAX_DESCRIPTION_LOOKUPS_PER_CYCLE = 3
 REQUEST_TIMEOUT = 12
 WHATSAPP_TRACKING_VERSION = 2
@@ -1014,6 +1015,9 @@ def main():
     image_lookup_attempts = state.get("image_lookup_attempts", {})
     if not isinstance(image_lookup_attempts, dict):
         image_lookup_attempts = {}
+    if int(state.get("image_lookup_version", 0) or 0) < IMAGE_LOOKUP_VERSION:
+        # Reset stale failure cooldowns after changing image extraction fallbacks.
+        image_lookup_attempts = {}
     image_lookups = 0
     images_added = 0
     image_mirrors = 0
@@ -1214,6 +1218,7 @@ def main():
         "whatsapp_tracking_version": WHATSAPP_TRACKING_VERSION,
         "whatsapp_attempt_counts": whatsapp_attempt_counts,
         "image_lookup_attempts": image_lookup_attempts,
+        "image_lookup_version": IMAGE_LOOKUP_VERSION,
         "image_download_attempts": image_download_attempts,
         "newest_seen_at": newest_seen_dt.isoformat(timespec="seconds") if newest_seen_dt else state.get("newest_seen_at", ""),
         "feed_errors": errors,
