@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-09T17:56:31+00:00",
+  "updated_at": "2026-10-09T17:59:18+00:00",
   "items": [
     {
       "title": "سوريا ترحب بتأكيد مجلس الأمن على ضرورة الاحترام الكامل لاتفاقية فصل القوات لعام 1974‏",
@@ -189,7 +189,8 @@
       "feed": "سانا",
       "published_at": "2026-10-09T11:59:55+00:00",
       "province": "أخبار عامة",
-      "image_url": "https://cdn.sananews.sy/2026/10/photo_2026-10-08_22-40-41-3.jpg"
+      "image_url": "https://cdn.sananews.sy/2026/10/photo_2026-10-08_22-40-41-3.jpg",
+      "local_image_url": "images/news/b8e7e68bbef68a1f1a2836f7.webp"
     },
     {
       "title": "طريق دير الزور- حلب.. عبّارات وجسور متهالكة تعرقل حركة السائقين وخطة لإعادة التأهيل",
@@ -200,7 +201,8 @@
       "feed": "سانا",
       "published_at": "2026-10-09T11:17:44+00:00",
       "province": "حلب",
-      "image_url": "https://cdn.sananews.sy/2026/10/photo_2026-10-09_02-19-32.jpg"
+      "image_url": "https://cdn.sananews.sy/2026/10/photo_2026-10-09_02-19-32.jpg",
+      "local_image_url": "images/news/63a172aa78be433052669da9.webp"
     },
     {
       "title": "نقص الكتب المدرسية يربك المعلمين والأهالي بالحسكة",
@@ -231,7 +233,8 @@
       "feed": "سانا",
       "published_at": "2026-10-09T11:03:55+00:00",
       "province": "أخبار عامة",
-      "image_url": "https://cdn.sananews.sy/2026/10/photo_2026-10-08_21-19-12.jpg"
+      "image_url": "https://cdn.sananews.sy/2026/10/photo_2026-10-08_21-19-12.jpg",
+      "local_image_url": "images/news/e8ac45fb74e8f7af930ca7a3.webp"
     },
     {
       "title": "مدير السورية للبريد: التحول الرقمي وتطوير الخدمات يرسمان مستقبل البريد السوري",
@@ -252,7 +255,8 @@
       "feed": "تلفزيون سوريا",
       "published_at": "2026-10-09T09:55:39+00:00",
       "province": "الحسكة",
-      "image_url": "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/%D8%A7%D9%84%D8%B4%D8%A8%D9%8A%D9%8A%D8%A8%D8%A9%20%D8%A7%D9%84%D8%AB%D9%88%D8%B1%D8%A9%D9%8A%20%D8%A7%D9%84%D8%AD%D9%83%D8%B3%D8%A9.jpg?itok=Igyy6BOu"
+      "image_url": "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/%D8%A7%D9%84%D8%B4%D8%A8%D9%8A%D9%8A%D8%A8%D8%A9%20%D8%A7%D9%84%D8%AB%D9%88%D8%B1%D8%A9%D9%8A%20%D8%A7%D9%84%D8%AD%D9%83%D8%B3%D8%A9.jpg?itok=Igyy6BOu",
+      "local_image_url": "images/news/8cd1a919572c9c3cad774023.webp"
     },
     {
       "title": "وفاة 4 أشخاص وإصابة 33 بحوادث سير خلال الساعات الـ 24 الماضية في سوريا",
@@ -297,6 +301,17 @@
       "published_at": "2026-10-09T07:41:44+00:00",
       "province": "أخبار عامة",
       "image_url": "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/%D8%A7%D9%84%D9%84%D9%8A%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%D9%8A%D8%A9%20%D8%AC%D8%AF%D9%8A%D8%AF%201111.png?itok=zG77TtoB"
+    },
+    {
+      "title": "الممثلة تولين البكري تزعم تعرضها للضرب في دمشق.. ما القصة؟ |فيديو",
+      "description": "أثار خلاف بين الفنانة السورية تولين البكري وسائق يعمل لدى تطبيق «يلا غو» للنقل في العاصمة دمشق تفاعلاً على مواقع التواصل الاجتماعي، بعد انتشار مقاطع مصورة وثّقت",
+      "url": "https://www.syria.tv/%D8%A7%D9%84%D9%85%D9%85%D8%AB%D9%84%D8%A9-%D8%AA%D9%88%D9%84%D9%8A%D9%86-%D8%A7%D9%84%D8%A8%D9%83%D8%B1%D9%8A-%D8%AA%D8%B2%D8%B9%D9%85-%D8%AA%D8%B9%D8%B1%D8%B6%D9%87%D8%A7-%D9%84%D9%84%D8%B6%D8%B1%D8%A8-%D9%81%D9%8A-%D8%AF%D9%85%D8%B4%D9%82-%D9%85%D8%A7-%D8%A7%D9%84%D9%82%D8%B5%D8%A9%D8%9F-%D9%81%D9%8A%D8%AF%D9%8A%D9%88",
+      "source": "تلفزيون سوريا",
+      "source_home": "https://www.syria.tv",
+      "feed": "تلفزيون سوريا",
+      "published_at": "2026-10-09T06:55:29+00:00",
+      "province": "دمشق",
+      "image_url": "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/Yan%20Yana%20Duygusal%20Portreler.png?itok=sSxiadSY"
     },
     {
       "title": "انطلاق معرض \"ذهب إكسبو\" للأحذية والألبسة والجلديات في دمشق",
