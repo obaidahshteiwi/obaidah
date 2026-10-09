@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import email.utils
+import hashlib
 import html
+import io
 import json
 import os
 import re
@@ -17,6 +19,8 @@ from datetime import datetime, timezone, timedelta
 from html.parser import HTMLParser
 from pathlib import Path
 
+from PIL import Image, UnidentifiedImageError
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 NEWS_FILE = DATA / "news.json"
@@ -25,7 +29,10 @@ MAX_NEW_PER_CYCLE = 2
 MAX_SITE_NEWS = 100
 MAX_HISTORY = 1000
 MAX_IMAGE_LOOKUPS_PER_CYCLE = 8
-IMAGE_LOOKUP_VERSION = 4
+MAX_IMAGE_MIRRORS_PER_CYCLE = 4
+MAX_IMAGE_DOWNLOAD_BYTES = 12_000_000
+IMAGE_STORAGE_VERSION = 1
+IMAGE_LOOKUP_VERSION = 5
 MAX_DESCRIPTION_LOOKUPS_PER_CYCLE = 3
 REQUEST_TIMEOUT = 12
 WHATSAPP_TRACKING_VERSION = 2
@@ -68,6 +75,47 @@ SYRIA_TERMS = (
     "hasakah", "raqqa", "deir ez zor", "daraa", "latakia", "tartous",
     "sweida", "quneitra",
 )
+
+
+
+def normalize_news_title(value: str) -> str:
+    title = clean_text(str(value or ""))
+    suffix = (
+        r"(?:وكالة الأنباء السورية(?:\s*[–—-]\s*سانا)?|الوكالة العربية السورية للأنباء|"
+        r"وكالة سانا|سانا|SANA|عنب بلدي|تلفزيون سوريا|صحيفة الوطن السورية|الوطن السورية|"
+        r"الوطن|زمان الوصل|سوريا دايركت|Syria Direct|The Syrian Observer|Syrian Observer|"
+        r"Orient News|أورينت(?: نيوز)?|Syria TV|Enab Baladi)"
+    )
+    for _ in range(3):
+        cleaned = re.sub(r"\s+[-–—|]\s*" + suffix + r"\s*$", "", title, flags=re.I).strip()
+        if cleaned == title:
+            break
+        title = cleaned
+    return title
+
+
+def strip_publisher_branding(value: str) -> str:
+    text = clean_text(str(value or ""))
+    text = re.sub(
+        r"الوكالة الوطنية الرسمية للأخبار في سوريا[^.،؛]*|"
+        r"الوكالة العربية السورية للأنباء|وكالة الأنباء السورية(?:\s*[–—-]\s*سانا)?|"
+        r"وكالة سانا",
+        " ",
+        text,
+        flags=re.I,
+    )
+    text = re.sub(r"\s+[-–—|]\s*(?:عنب بلدي|تلفزيون سوريا|صحيفة الوطن السورية|الوطن السورية|"
+                  r"الوطن|زمان الوصل|سوريا دايركت|Syria Direct|The Syrian Observer|"
+                  r"Syrian Observer|Orient News|أورينت(?: نيوز)?|Syria TV|Enab Baladi)\s*$",
+                  "", text, flags=re.I)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def is_syria_related(title: str, description: str) -> bool:
+    combined = strip_publisher_branding(normalize_news_title(title) + " " + str(description or "")).casefold()
+    return any(term.casefold() in combined for term in SYRIA_TERMS)
+
+
 
 
 class TextOnly(HTMLParser):
@@ -124,8 +172,12 @@ class ArticleDescriptionParser(HTMLParser):
     def handle_starttag(self, tag, attrs):
         attrs = {str(k).lower(): str(v) for k, v in attrs if k and v}
         if tag.lower() == "meta" and not self.meta_description:
-            key = (attrs.get("property") or attrs.get("name") or "").lower()
-            if key in ("description", "og:description", "twitter:description"):
+            keys = {
+                attrs.get("property", "").lower(),
+                attrs.get("name", "").lower(),
+                attrs.get("itemprop", "").lower(),
+            }
+            if keys.intersection({"description", "og:description", "twitter:description"}):
                 self.meta_description = clean_text(attrs.get("content", ""))
         elif tag.lower() == "p":
             self._in_paragraph = True
@@ -144,7 +196,26 @@ class ArticleDescriptionParser(HTMLParser):
             self._paragraph = []
 
 
-def extract_article_description(article_url: str) -> str:
+def is_generic_description(value: str) -> bool:
+    text = clean_text(value).casefold()
+    markers = (
+        "ويقدّم الخبر معلومات إضافية حول الموضوع",
+        "ويقدم الخبر معلومات اضافية حول الموضوع",
+        "مع توضيح السياق العام والتفاصيل المتاحة للقراء",
+        "الوصف المتاح مختصر ولا يكفي وحده",
+        "الوكالة الوطنية الرسمية للأخبار في سوريا",
+        "تأسست في 24 يونيو 1965",
+        "تتبع وزارة الإعلام",
+        "تتيح متابعة المنافسات والنتائج ضمن فعالية",
+        "تسلط البطولة الضوء على مشاركة الشابات والسيدات",
+        "وتقدم اللوحة تجربة فنية تتناول الصمود والفقد",
+        "مع التركيز على العلاقات المشتركة والمبادرات التي تدعم التبادل المعرفي",
+        "يرسمان مستقبل البريد السوري وكالة الأنباء السورية",
+    )
+    return any(marker.casefold() in text for marker in markers)
+
+
+def extract_article_description(article_url: str, article_title: str = "") -> str:
     if not article_url or (urllib.parse.urlparse(article_url).hostname or "").lower().endswith("news.google.com"):
         return ""
     request = urllib.request.Request(article_url, headers={
@@ -158,33 +229,42 @@ def extract_article_description(article_url: str) -> str:
             raw = response.read(600_000).decode("utf-8", errors="replace")
         parser = ArticleDescriptionParser()
         parser.feed(raw)
-        for candidate in [parser.meta_description] + parser.paragraphs[:4]:
+        candidates = [parser.meta_description] + parser.paragraphs[:6]
+        for candidate in candidates:
             candidate = clean_text(candidate)
-            if len(candidate.split()) >= 20:
+            if len(candidate.split()) >= 20 and not is_generic_description(candidate):
                 return candidate[:700]
-        if parser.paragraphs:
-            return max(parser.paragraphs, key=lambda value: len(value.split()))[:700]
-        return parser.meta_description[:700]
+        useful_short = [
+            clean_text(candidate)
+            for candidate in candidates
+            if len(clean_text(candidate).split()) >= 8 and not is_generic_description(candidate)
+        ]
+        return max(useful_short, key=lambda value: len(value.split()))[:700] if useful_short else ""
     except (urllib.error.URLError, TimeoutError, OSError, ValueError):
         return ""
 
 
 def minimum_description(item: dict, extracted: str = "") -> str:
     current = clean_text(str(item.get("description", "")))
-    title = clean_text(str(item.get("title", "")))
+    title = normalize_news_title(str(item.get("title", "")))
     extracted = clean_text(extracted)
-    if len(current.split()) >= 20:
-        return current[:700]
-    if len(extracted.split()) >= 20:
+    if len(extracted.split()) >= 20 and not is_generic_description(extracted):
         return extracted[:700]
-    base = extracted if len(extracted) > len(current) else current
+    if len(current.split()) >= 20 and not is_generic_description(current):
+        return current[:700]
+    base = current if current and not is_generic_description(current) else title
     if not base:
-        base = title
-    extra = " الوصف المتاح مختصر ولا يكفي وحده لعرض جميع التفاصيل؛ يُرجى فتح رابط المصدر الأصلي لقراءة المعلومات الكاملة والتحقق من السياق كما نشره المصدر."
-    result = clean_text(base + extra)
+        base = title or "خبر من سوريا"
+    extra = (
+        " لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. "
+        "المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط "
+        "لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة."
+    )
+    result = clean_text(base + "." + extra)
     while len(result.split()) < 20:
-        result = clean_text(result + " وتبقى التفاصيل مرتبطة بما ورد في المادة المنشورة.")
+        result = clean_text(result + " افتح الرابط الأصلي للاطلاع على النص الكامل.")
     return result[:700]
+
 
 def clean_text(value: str) -> str:
     parser = TextOnly()
@@ -280,7 +360,7 @@ def parse_feed(xml_bytes: bytes, feed_label: str) -> list[dict]:
     for node in list(container):
         if node.tag.rsplit("}", 1)[-1].lower() not in ("item", "entry"):
             continue
-        title = clean_text(item_text(node, "title"))
+        title = normalize_news_title(item_text(node, "title"))
         link = item_text(node, "link")
         if not link:
             for child in list(node):
@@ -302,8 +382,7 @@ def parse_feed(xml_bytes: bytes, feed_label: str) -> list[dict]:
                     break
         if not title or not link.startswith(("http://", "https://")):
             continue
-        combined = (title + " " + description).casefold()
-        if not any(term.casefold() in combined for term in SYRIA_TERMS):
+        if not is_syria_related(title, description):
             continue
         item = {
             "title": title[:300],
@@ -675,6 +754,62 @@ def extract_wordpress_featured_image(article_url: str) -> str:
     return ""
 
 
+def mirror_image_locally(image_url: str, article_url: str = "") -> str:
+    """Download and optimize a publisher photo into the website's own static assets."""
+    value = (image_url or "").strip()
+    if value.startswith("images/news/"):
+        return value if (ROOT / value).is_file() else ""
+    parsed = urllib.parse.urlparse(value)
+    if parsed.scheme not in ("http", "https") or not parsed.netloc:
+        return ""
+    article_host = (urllib.parse.urlparse(article_url).hostname or "").lower()
+    referer = article_url if article_url.startswith(("http://", "https://")) and not article_host.endswith("news.google.com") else "https://" + parsed.netloc + "/"
+    request = urllib.request.Request(value, headers={
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "Accept": "image/avif,image/webp,image/apng,image/*,*/*;q=0.8",
+        "Referer": referer,
+    })
+    try:
+        with urllib.request.urlopen(request, timeout=12) as response:
+            content_type = (response.headers.get("Content-Type") or "").split(";", 1)[0].strip().lower()
+            if not content_type.startswith("image/"):
+                print(f"Image mirror skipped: server returned {content_type or 'unknown content type'}.")
+                return ""
+            raw = response.read(MAX_IMAGE_DOWNLOAD_BYTES + 1)
+        if len(raw) > MAX_IMAGE_DOWNLOAD_BYTES:
+            print("Image mirror skipped: source image exceeds 12 MB.")
+            return ""
+        with Image.open(io.BytesIO(raw)) as original:
+            original.load()
+            width, height = original.size
+            if width < 220 or height < 140:
+                print(f"Image mirror rejected a small image ({width}x{height}).")
+                return ""
+            picture = original.copy()
+            picture.thumbnail((1200, 800), Image.Resampling.LANCZOS)
+            if picture.mode not in ("RGB", "RGBA"):
+                picture = picture.convert("RGBA" if "transparency" in picture.info else "RGB")
+            output = io.BytesIO()
+            picture.save(output, format="WEBP", quality=78, method=4)
+            if output.tell() > 350_000:
+                output = io.BytesIO()
+                picture.thumbnail((960, 640), Image.Resampling.LANCZOS)
+                picture.save(output, format="WEBP", quality=68, method=4)
+        image_dir = ROOT / "images" / "news"
+        image_dir.mkdir(parents=True, exist_ok=True)
+        identity = hashlib.sha256((article_url or value).encode("utf-8")).hexdigest()[:24]
+        destination = image_dir / f"{identity}.webp"
+        temporary = destination.with_suffix(".tmp")
+        temporary.write_bytes(output.getvalue())
+        temporary.replace(destination)
+        relative = destination.relative_to(ROOT).as_posix()
+        print(f"Image saved locally: {relative} ({destination.stat().st_size} bytes).")
+        return relative
+    except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, OSError, ValueError, UnidentifiedImageError) as exc:
+        print(f"Image mirror failed for {urllib.parse.urlparse(value).hostname or 'unknown host'}: {type(exc).__name__}.")
+        return ""
+
+
 def extract_article_image(article_url: str, source_home: str = "", article_title: str = "") -> str:
     if not article_url.startswith(("https://", "http://")):
         return ""
@@ -900,6 +1035,25 @@ def main():
     if not isinstance(pending, dict):
         pending = {}
     old_items = old_news.get("items", []) if isinstance(old_news, dict) else []
+    existing_changes = False
+    normalized_old_items = []
+    for old_item in old_items:
+        if not isinstance(old_item, dict):
+            existing_changes = True
+            continue
+        old_title = str(old_item.get("title", "") or "")
+        cleaned_title = normalize_news_title(old_title)
+        if cleaned_title and cleaned_title != old_title:
+            old_item["title"] = cleaned_title
+            existing_changes = True
+        if not is_syria_related(str(old_item.get("title", "")), str(old_item.get("description", ""))):
+            print(f"Dropped a story whose article title/summary could not be verified as Syria-related: {cleaned_title[:100]}")
+            existing_changes = True
+            continue
+        normalized_old_items.append(old_item)
+    if len(normalized_old_items) != len(old_items):
+        old_news["items"] = normalized_old_items
+    old_items = normalized_old_items
     errors = []
     candidates = []
     user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
@@ -955,7 +1109,6 @@ def main():
     unique.sort(key=lambda item: item.get("published_at", ""), reverse=True)
     # Enrich already-published Google News wrappers with the matching publisher URL and its RSS thumbnail.
     unique_by_title = {canonical_title(item.get("title", "")): item for item in unique if canonical_title(item.get("title", ""))}
-    existing_changes = False
     for old_item in old_items:
         key = canonical_title(old_item.get("title", ""))
         match = unique_by_title.get(key)
@@ -1021,8 +1174,13 @@ def main():
     if int(state.get("image_lookup_version", 0) or 0) < IMAGE_LOOKUP_VERSION:
         # Reset stale failure cooldowns after changing image extraction fallbacks.
         image_lookup_attempts = {}
+    image_download_attempts = state.get("image_download_attempts", {})
+    if not isinstance(image_download_attempts, dict) or int(state.get("image_storage_version", 0) or 0) < IMAGE_STORAGE_VERSION:
+        # Recheck old remote image URLs now that the site caches real photos locally.
+        image_download_attempts = {}
     image_lookups = 0
     images_added = 0
+    image_mirrors = 0
     description_lookups = 0
     descriptions_expanded = 0
     now_iso = datetime.now(timezone.utc).isoformat(timespec="seconds")
@@ -1039,6 +1197,10 @@ def main():
             changed_news = True
     for item in old_news.get("items", [])[:MAX_SITE_NEWS]:
         item_url = item.get("url", "")
+        normalized_title = normalize_news_title(str(item.get("title", "")))
+        if normalized_title and normalized_title != item.get("title", ""):
+            item["title"] = normalized_title
+            changed_news = True
         # Migrate away from previously cached local photos and retry their original source URLs.
         if str(item.get("image_url", "") or "").startswith("images/news/"):
             item.pop("image_url", None)
@@ -1058,11 +1220,11 @@ def main():
                 item_url = resolved_url
                 changed_news = True
         description = clean_text(item.get("description", ""))
-        if len(description.split()) < 20:
+        if len(description.split()) < 20 or is_generic_description(description):
             extracted_description = ""
             if item_url and description_lookups < MAX_DESCRIPTION_LOOKUPS_PER_CYCLE:
                 description_lookups += 1
-                extracted_description = extract_article_description(item_url)
+                extracted_description = extract_article_description(item_url, str(item.get("title", "")))
             expanded_description = minimum_description(item, extracted_description)
             if expanded_description != item.get("description", ""):
                 item["description"] = expanded_description
@@ -1083,7 +1245,38 @@ def main():
                 item["image_url"] = picture
                 images_added += 1
                 changed_news = True
-        # Keep publisher image URLs as links; never download or save image copies in this repository.
+        # Cache verified photo bytes on our own site so browser display does not depend on publisher hotlink rules.
+        # Keep image_url pointing at the original remote image: Green-API needs a public URL for WhatsApp.
+        local_image = str(item.get("local_image_url", "") or "").strip()
+        if local_image and (
+            not local_image.startswith("images/news/")
+            or not (ROOT / local_image).is_file()
+        ):
+            item.pop("local_image_url", None)
+            local_image = ""
+            changed_news = True
+        remote_image = str(item.get("image_url", "") or "").strip()
+        if remote_image.startswith("images/news/"):
+            # Migrate any legacy local image reference; it remains local-only and is never sent as a remote URL.
+            if (ROOT / remote_image).is_file():
+                item["local_image_url"] = remote_image
+                item.pop("image_url", None)
+                changed_news = True
+            else:
+                item.pop("image_url", None)
+                changed_news = True
+            remote_image = ""
+        if remote_image and not local_image and image_mirrors < MAX_IMAGE_MIRRORS_PER_CYCLE:
+            last_mirror_attempt = parse_iso_datetime(image_download_attempts.get(remote_image, ""))
+            mirror_due = last_mirror_attempt is None or datetime.now(timezone.utc) - last_mirror_attempt >= timedelta(hours=6)
+            if mirror_due:
+                image_mirrors += 1
+                image_download_attempts[remote_image] = now_iso
+                mirrored_path = mirror_image_locally(remote_image, item_url)
+                if mirrored_path:
+                    item["local_image_url"] = mirrored_path
+                    changed_news = True
+
 
     # Avoid associating one publisher article URL with two different headlines.
     seen_article_urls = {}
@@ -1099,6 +1292,23 @@ def main():
             print("Duplicate article URL detected across different headlines; kept the original feed link for the second story.")
         elif item_url:
             seen_article_urls[item_url] = title_key
+
+    # Remove image files that no longer belong to any published story.
+    image_dir = ROOT / "images" / "news"
+    if image_dir.exists():
+        active_images = {
+            str(item.get("local_image_url", "") or "")
+            for item in old_news.get("items", [])
+            if str(item.get("local_image_url", "") or "").startswith("images/news/")
+        }
+        for image_file in image_dir.glob("*.webp"):
+            relative_image = image_file.relative_to(ROOT).as_posix()
+            if relative_image not in active_images:
+                try:
+                    image_file.unlink()
+                    print(f"Removed an unused cached image: {relative_image}")
+                except OSError:
+                    pass
 
     if changed_news:
         old_news["updated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
@@ -1236,6 +1446,8 @@ def main():
         "whatsapp_quota_blocked": quota_blocked,
         "whatsapp_attempt_counts": whatsapp_attempt_counts,
         "image_lookup_attempts": image_lookup_attempts,
+        "image_download_attempts": image_download_attempts,
+        "image_storage_version": IMAGE_STORAGE_VERSION,
         "image_lookup_version": IMAGE_LOOKUP_VERSION,
         "newest_seen_at": newest_seen_dt.isoformat(timespec="seconds") if newest_seen_dt else state.get("newest_seen_at", ""),
         "feed_errors": errors,
@@ -1246,7 +1458,7 @@ def main():
         f"Sources checked: {len(FEEDS) + len(DIRECT_FEEDS)}; accepted feed entries: {len(candidates)}; "
         f"new items: {len(fresh)}; website total: {len(old_news.get('items', []))}; "
         f"RSS items with images: {sum(1 for x in candidates if x.get('image_url'))}; "
-        f"image lookups: {image_lookups}; images added: {images_added}; image storage: disabled; "
+        f"image lookups: {image_lookups}; images added: {images_added}; local image mirror attempts: {image_mirrors}; "
         f"description lookups: {description_lookups}; descriptions expanded: {descriptions_expanded}; "
         f"WhatsApp instance: {instance_status}; API accepted: {accepted_count}; "
         f"delivered/read confirmed: {delivered_count}; delivery pending: {len(pending)}; "
