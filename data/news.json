@@ -1,6 +1,39 @@
 {
-  "updated_at": "2026-10-09T19:36:31+00:00",
+  "updated_at": "2026-10-09T20:00:35+00:00",
   "items": [
+    {
+      "title": "سوريا ولبنان تكثفان ملاحقة عمليات التهريب على الحدود",
+      "description": "كثفت السلطات السورية واللبنانية عمليات إحباط تهريب المخدرات والأسلحة على جانبي الحدود بين البلدين خلال اليومين الماضيين. الجيش اللبناني أعلن […]",
+      "url": "https://www.enabbaladi.net/828547/%d8%b3%d9%88%d8%b1%d9%8a%d8%a7-%d9%88%d9%84%d8%a8%d9%86%d8%a7%d9%86-%d8%aa%d9%83%d8%ab%d9%81%d8%a7%d9%86-%d9%85%d9%84%d8%a7%d8%ad%d9%82%d8%a9-%d8%b9%d9%85%d9%84%d9%8a%d8%a7%d8%aa-%d8%a7%d9%84%d8%aa/",
+      "source": "عنب بلدي RSS",
+      "source_home": "",
+      "feed": "عنب بلدي RSS",
+      "published_at": "2026-10-09T19:42:08+00:00",
+      "province": "أخبار عامة"
+    },
+    {
+      "title": "اختتام منافسات اليوم الأول من كأس رئيس دولة الإمارات للخيول العربية الأصيلة في اللاذقية",
+      "description": "اختُتمت اليوم الجمعة منافسات اليوم الأول من بطولة كأس رئيس دولة الإمارات للخيول العربية الأصيلة، المقامة على مضمار السباقات في المدينة الرياضية باللاذقية.",
+      "url": "https://sana.sy/sport/syrian-sport/2602117/",
+      "source": "وكالة الأنباء السورية – سانا",
+      "source_home": "https://sana.sy",
+      "feed": "سانا",
+      "published_at": "2026-10-09T19:39:32+00:00",
+      "province": "اللاذقية",
+      "image_url": "https://cdn.sananews.sy/2026/10/IMG_8896-1024x683.jpg",
+      "local_image_url": "images/news/0256e9ab43214203534780bc.webp"
+    },
+    {
+      "title": "مفوضية الأمم المتحدة لحقوق الإنسان تحذر من تداعيات التوغلات الإسرائيلية جنوب سوريا",
+      "description": "حذرت المفوضية السامية للأمم المتحدة لحقوق الإنسان اليوم الجمعة من تداعيات التوغلات العسكرية الإسرائيلية على المدنيين في جنوب سوريا، داعية سلطات الاحتلال الإسرائيلي إلى وقف أعمال المضايقة والترهيب بحق المواطنين السوريين.",
+      "url": "https://sana.sy/politics/2602121/",
+      "source": "وكالة الأنباء السورية – سانا",
+      "source_home": "https://sana.sy",
+      "feed": "سانا",
+      "published_at": "2026-10-09T19:33:23+00:00",
+      "province": "أخبار عامة",
+      "image_url": "https://cdn.sananews.sy/2026/10/الاحتلال-الاسرائيلي-1-1.jpg"
+    },
     {
       "title": "مجلس الأمن يجدد دعوته للتنفيذ الكامل لاتفاق فض الاشتباك ويؤكد سيادة سوريا ووحدتها",
       "description": "جدد أعضاء مجلس الأمن الدولي دعوة جميع الأطراف إلى الاحترام والتنفيذ الكاملين لاتفاق فض ‏الاشتباك لعام 1974 في الجولان السوري المحتل.",
@@ -23,6 +56,16 @@
       "published_at": "2026-10-09T19:07:39+00:00",
       "province": "أخبار عامة",
       "image_url": "https://cdn.sananews.sy/2026/10/مهندسان_سوريان_يحصدان_المركز_الثاني_في_تكنوفيست.png"
+    },
+    {
+      "title": "إغلاق فرن معردس الوحيد.. 15 ألف نسمة بلا خبز",
+      "description": "أثار إغلاق فرن معردس الوحيد بريف حماة، بقرار من مديرية التجارة الداخلية وحماية المستهلك، غضبًا بين أهالي البلدة. وأفادت شهادات […]",
+      "url": "https://www.enabbaladi.net/828518/%d8%a5%d8%ba%d9%84%d8%a7%d9%82-%d9%81%d8%b1%d9%86-%d9%85%d8%b9%d8%b1%d8%af%d8%b3-%d8%a7%d9%84%d9%88%d8%ad%d9%8a%d8%af-15-%d8%a3%d9%84%d9%81-%d9%86%d8%b3%d9%85%d8%a9-%d8%a8%d9%84%d8%a7-%d8%ae%d8%a8/",
+      "source": "عنب بلدي RSS",
+      "source_home": "",
+      "feed": "عنب بلدي RSS",
+      "published_at": "2026-10-09T19:06:35+00:00",
+      "province": "حماة"
     },
     {
       "title": "من العمل بالإنشاءات إلى المركز الأول في \"تكنوفيست\".. قصة المهندس السوري طلال البكور",
@@ -101,7 +144,8 @@
       "feed": "زمان الوصل",
       "published_at": "2026-10-09T17:35:31+00:00",
       "province": "أخبار عامة",
-      "image_url": "https://www.zamanalwsl.net//CustomImage/get/770/438/6fc719cd0788f7e6dfa9acbb.jpg"
+      "image_url": "https://www.zamanalwsl.net//CustomImage/get/770/438/6fc719cd0788f7e6dfa9acbb.jpg",
+      "local_image_url": "images/news/f44c2dabeaa9ed52e87fbda2.webp"
     },
     {
       "title": "متحدث أممي لرووداو بشأن أحداث الحسكة: سنتحقق من التقارير - Rudaw",
@@ -189,6 +233,16 @@
       "feed": "الشرق للأخبار",
       "published_at": "2026-10-09T16:01:04+00:00",
       "province": "أخبار عامة"
+    },
+    {
+      "title": "تجريف ورشّ مبيدات وسلب للمراعي.. كيف يجفف الاحتلال مصادر رزق أهالي القنيطرة؟ - الجزيرة نت",
+      "description": "تجريف ورشّ مبيدات وسلب للمراعي.. كيف يجفف الاحتلال مصادر رزق أهالي القنيطرة؟ الجزيرة نت. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "url": "https://news.google.com/rss/articles/CBMi2wJBVV95cUxOU21veV9oSDRTU1JaTUEwaGRMWjM4WDhVNHJweVBOTWUtdTljTHhFM084NHhoUGpkY1U5TExHWDNJa2N0VXExVUdfckdGbWZpNjN1b2lTSTNoSmVVb1JUTUxpRVlaRWUxN0Jvc3dOZUpCbFZOMTJRMzMydVZFQmdnRXliVTN3OVE4VzlRNlJETjhIN1YyTEIyX1lhSVc2ZFVEWjBkaXFZWWotd2VjOFI0cEJoYlhqd1F6UUZ5RGExM2xmT25CQ2M5R0F2bF9VRkZva1VjQy1OLUM3VC11M0loX0ZDTkVmLWxldFRjRDE2TEF0c3oya3p5bWVpUTNqR3RnMmpFRXZwLWQ2SXhxRkN4dDRjUllNTjNMQ1lJbk5GSGFfRXRDZHdkUWI3WmpUNmpyRE1OUzZ5Q3RLOWpLSHZiNDBOM1JCTUNQSjB4VUNYdDNrbDl4bHVzUlEtVdIB4AJBVV95cUxOYVpZcHJIYkwtMmI1SlE2dXJfbU9HNUFzNktUNlV2N0dGdnRoQ3JHWUhzRmdhRUtONEtfVGYzMnFhZS1ocHFhQUNuell5X3c0d3FWLXZCZWxxZnZQeDFBMVo1OW9WbVo3bFZHRlB1ZFhzWVFPWjRlaDlzWGN4OUg1cFBiTFEtRm1mVUQtZkxScVdMQlA0TWpQNXNEZWNXamNGdjVHRHBjcVdRbklJSlhMeVhrak9HZ3BXYUp4dGpmYWVWWUdLUi1zOVFac0ZZOWF1SEl1dHpiczQ4eDFRNnB6aFhrdkJrZE9OQ29PTGZReHNpUUNfUVI0U0FTOGhmcmVZMjdjYTRrd05FMDkybFhkQ0k0WWZiWnVyY0VpbXBzMW52b1Q1ZXljbkNTS3NnVEFvcURfREZjV1RjTWtOUWtjY0d0YktzUGI1QWVKNU5TOURpSW9CWlNxYWRscllPSmdG?oc=5",
+      "source": "الجزيرة نت",
+      "source_home": "https://www.aljazeera.net",
+      "feed": "الجزيرة",
+      "published_at": "2026-10-09T16:00:03+00:00",
+      "province": "القنيطرة"
     },
     {
       "title": "هيكل: “زين” تبدأ عملها في سوريا خلال أيام",
