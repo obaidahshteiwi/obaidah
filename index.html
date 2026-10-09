@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#12352b">
+  <meta name="description" content="سوريا مباشر — تابع آخر الأخبار السورية من مصادرها الأصلية.">
+  <title>سوريا مباشر | آخر الأخبار السورية</title>
+  <style>
+    :root{color-scheme:light;--green:#12352b;--green2:#1c5944;--gold:#d6b56d;--paper:#f5f6f2;--ink:#1b2923;--muted:#66736c}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Tahoma,Arial,sans-serif;line-height:1.8}
+    a{color:inherit}.top{background:var(--green);color:#fff;border-bottom:4px solid var(--gold)}.wrap{width:min(1100px,92%);margin:auto}
+    .nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 0}.brand{font-size:1.45rem;font-weight:800}.brand span{color:var(--gold)}
+    .nav a{font-size:.92rem;text-decoration:none;color:#e7eee9}.hero{padding:42px 0 38px}.eyebrow{color:var(--gold);font-weight:700}.hero h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.25;margin:8px 0 12px}.hero p{max-width:680px;color:#dbe7df;margin:0}
+    .pill{display:inline-block;margin-top:22px;background:var(--gold);color:#17251e;padding:7px 13px;border-radius:999px;font-weight:700;font-size:.86rem}
+    main{padding:30px 0 55px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;border-bottom:1px solid #dce2dc;padding-bottom:12px}.section-head h2{margin:0;font-size:1.45rem}.section-head p{margin:0;color:var(--muted);font-size:.9rem}
+    .notice{margin-top:20px;background:#fff;border:1px solid #e0e6df;border-radius:16px;padding:24px}.notice h3{margin:0 0 8px}.notice p{margin:0;color:var(--muted)}
+    .categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:22px}.category{background:#fff;border:1px solid #e0e6df;border-radius:12px;padding:14px;font-weight:700}
+    footer{background:#10271f;color:#dbe7df;padding:22px 0;font-size:.88rem}footer p{margin:4px 0}.small{color:#aebfb4}
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <nav class="nav"><div class="brand">🇸🇾 <span>سوريا</span> مباشر</div><a href="#latest">آخر الأخبار</a></nav>
+      <section class="hero">
+        <div class="eyebrow">نبض سوريا لحظة بلحظة</div>
+        <h1>أخبار سوريا من مصادرها</h1>
+        <p>منصة إخبارية لمتابعة المستجدات السورية حسب المحافظة والموضوع، مع إتاحة رابط المصدر الأصلي لكل خبر.</p>
+        <span class="pill">الموقع قيد التجهيز — النشر الآلي سيُفعّل بعد ربط المصادر</span>
+      </section>
+    </div>
+  </header>
+  <main class="wrap">
+    <section id="latest">
+      <div class="section-head"><h2>آخر الأخبار</h2><p>تُعرض الأخبار هنا بعد تفعيل نظام النشر الآلي.</p></div>
+      <div class="notice"><h3>نجهّز تدفّق الأخبار الآن</h3><p>لم تُنشر أخبار آلية على الموقع بعد. في الخطوة التالية سنربط مصادر RSS ونضيف فحص التكرار، ثم نفعّل النشر إلى الموقع ومجموعة واتساب.</p></div>
+    </section>
+    <section aria-label="الأقسام">
+      <div class="section-head" style="margin-top:32px"><h2>تصفّح حسب المنطقة</h2><p>أقسام الموقع</p></div>
+      <div class="categories"><div class="category">حمص</div><div class="category">حلب</div><div class="category">إدلب</div><div class="category">دمشق وريفها</div><div class="category">اللاذقية وطرطوس</div><div class="category">دير الزور والرقة</div></div>
+    </section>
+  </main>
+  <footer><div class="wrap"><p><strong>سوريا مباشر</strong></p><p>نحيل إلى المصادر الأصلية، ونعمل على التحقق من الروابط وتجنّب تكرار الأخبار.</p><p class="small">© <span id="year"></span> سوريا مباشر</p></div></footer>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>
