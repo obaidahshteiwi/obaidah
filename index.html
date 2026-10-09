@@ -192,8 +192,12 @@
       '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
     }[ch]));
     const safeUrl = value => {
-      try { const url = new URL(String(value || '')); return ['https:','http:'].includes(url.protocol) ? url.href : ''; }
-      catch { return ''; }
+      try {
+        const raw = String(value || '').trim();
+        if (!raw) return '';
+        const url = new URL(raw, window.location.href);
+        return ['https:','http:'].includes(url.protocol) ? url.href : '';
+      } catch { return ''; }
     };
     const formatDate = value => {
       if (!value) return 'تاريخ غير متاح';
