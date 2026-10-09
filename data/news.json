@@ -1,6 +1,16 @@
 {
-  "updated_at": "2026-10-09T18:02:44+00:00",
+  "updated_at": "2026-10-09T18:09:12+00:00",
   "items": [
+    {
+      "title": "الأمن السوري يعلن تفكيك خلية لتنظيم “الدولة” في حمص",
+      "description": "فكك جهاز الاستخبارات العامة، بالتعاون مع قوى الأمن الداخلي، خلية قال إنها مرتبطة بتنظيم “الدولة الإسلامية”، في منطقة الحولة بريف […]",
+      "url": "https://www.enabbaladi.net/828533/%d8%a7%d9%84%d8%a3%d9%85%d9%86-%d8%a7%d9%84%d8%b3%d9%88%d8%b1%d9%8a-%d9%8a%d8%b9%d9%84%d9%86-%d8%aa%d9%81%d9%83%d9%8a%d9%83-%d8%ae%d9%84%d9%8a%d8%a9-%d9%84%d8%aa%d9%86%d8%b8%d9%8a%d9%85-%d8%a7%d9%84/",
+      "source": "عنب بلدي RSS",
+      "source_home": "",
+      "feed": "عنب بلدي RSS",
+      "published_at": "2026-10-09T18:05:49+00:00",
+      "province": "حمص"
+    },
     {
       "title": "سوريا ترحب بتأكيد مجلس الأمن على ضرورة الاحترام الكامل لاتفاقية فصل القوات لعام 1974‏",
       "description": "رحبت الجمهورية العربية السورية بتأكيد مجلس الأمن الدولي بإجماع أعضائه أمس الخميس، ‏على ضرورة الاحترام الكامل لاتفاقية فصل القوات لعام 1974، وتنفيذ جميع أحكامها والالتزام ‏بسيادة سوريا واستقلالها ووحدتها وسلامة أراضيها.‏",
@@ -167,6 +177,18 @@
       "province": "الحسكة",
       "image_url": "https://cdn.sananews.sy/2026/10/photo_2026-10-09_14-55-46-3.jpg",
       "local_image_url": "images/news/8a014dc77310a11d7fb43ab0.webp"
+    },
+    {
+      "title": "التقارب السوري السعودي.. من جسور السياسة إلى بوابة الإعمار",
+      "description": "فتحت زيارة الرئيس أحمد الشرع إلى الرياض آفاقاً جديدة أمام العلاقات السورية السعودية، في مرحلة يحتاج فيها الاقتصاد السوري حتماً إلى مصادر دعم وتمويل تساعده على تجاوز أزماته المتراكمة، واستعادة الثقة ببيئته الاستثمارية، وهنا يرى الباحث في الشؤون السياسية والاقتصادية، باسل كويفي، أن العلاقات السورية السعودية تتجاوز الإطار الدبلوماسي التقليدي، لتشكل فرصة لتعزيز الاستقرار الإقليمي […]",
+      "url": "https://alwatan.sy/%d8%a7%d9%84%d8%aa%d9%82%d8%a7%d8%b1%d8%a8-%d8%a7%d9%84%d8%b3%d9%88%d8%b1%d9%8a-%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a-%d9%85%d9%86-%d8%ac%d8%b3%d9%88%d8%b1-%d8%a7%d9%84%d8%b3%d9%8a%d8%a7%d8%b3/",
+      "source": "صحيفة الوطن السورية",
+      "source_home": "https://alwatan.sy",
+      "feed": "الوطن",
+      "published_at": "2026-10-09T12:13:25+00:00",
+      "province": "أخبار عامة",
+      "image_url": "https://alwatan.sy/wp-content/uploads/2026/10/%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3-%D8%A7%D9%84%D8%B4%D8%B1%D8%B9-%D9%88%D9%88%D9%84%D9%8A-%D8%A7%D9%84%D8%B9%D9%87%D8%AF-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A.jpg",
+      "local_image_url": "images/news/9cf9f99883190aac265d5ea0.webp"
     },
     {
       "title": "ملتقى الشارقة للخط يستقطب 272 فناناً ويعرض 681 عملاً بمشاركة سورية متميزة",
@@ -392,7 +414,8 @@
       "feed": "تلفزيون سوريا",
       "published_at": "2026-10-08T23:24:54+00:00",
       "province": "أخبار عامة",
-      "image_url": "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/19cacded-1c40-4a83-b649-67eaba8194c5.jpg?itok=RfbaDduT"
+      "image_url": "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/19cacded-1c40-4a83-b649-67eaba8194c5.jpg?itok=RfbaDduT",
+      "local_image_url": "images/news/47acd38d1104af0fe187ce0a.webp"
     },
     {
       "title": "بعد 13 عاما من إغلاقه بسبب قصف النظام المخلوع.. افتتاح المسجد الأموي الكبير بحلب",
@@ -413,7 +436,8 @@
       "feed": "سانا",
       "published_at": "2026-10-08T22:52:16+00:00",
       "province": "أخبار عامة",
-      "image_url": "https://cdn.sananews.sy/2026/10/photo_2026-10-09_01-49-44.jpg"
+      "image_url": "https://cdn.sananews.sy/2026/10/photo_2026-10-09_01-49-44.jpg",
+      "local_image_url": "images/news/da02964010f6a54d9b29fb23.webp"
     },
     {
       "title": "قصر المهاجرين.. حين تستعيد الدولة ذاكرتها الوطنية",
@@ -424,7 +448,8 @@
       "feed": "الوطن",
       "published_at": "2026-10-08T21:23:18+00:00",
       "province": "أخبار عامة",
-      "image_url": "https://alwatan.sy/wp-content/uploads/2026/10/%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3-%D8%A7%D9%84%D8%B4%D8%B1%D8%B9-%D9%88%D8%A7%D9%84%D9%82%D9%88%D8%AA%D9%84%D9%8A.jpg"
+      "image_url": "https://alwatan.sy/wp-content/uploads/2026/10/%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3-%D8%A7%D9%84%D8%B4%D8%B1%D8%B9-%D9%88%D8%A7%D9%84%D9%82%D9%88%D8%AA%D9%84%D9%8A.jpg",
+      "local_image_url": "images/news/14c721ce409cb9033f5f2690.webp"
     },
     {
       "title": "عندما تتحول الفكرة إلى منتج.. قصص ملهمة من Syria Build Week",
@@ -446,6 +471,37 @@
       "published_at": "2026-10-08T20:22:35+00:00",
       "province": "حلب",
       "image_url": "https://cdn.enabbaladi.net/arabic/wp-content/uploads/2026/10/Destruction-of-the-Umayyad-Mosque-in-Aleppo-150x150.jpg"
+    },
+    {
+      "title": "علبي: سوريا اختارت طريق إعادة بناء الدولة وترسيخ سيادة القانون",
+      "description": "شارك مندوب سوريا الدائم لدى الأمم المتحدة إبراهيم علبي، اليوم الخميس، في مناقشة بند \"سيادة القانون على الصعيدين الوطني والدولي\"، أمام اللجنة القانونية للجمعية العامة للأمم المتحدة، وأدلى ببيان الجمهورية العربية السورية.",
+      "url": "https://sana.sy/politics/2601234/",
+      "source": "وكالة الأنباء السورية – سانا",
+      "source_home": "https://sana.sy",
+      "feed": "سانا",
+      "published_at": "2026-10-08T20:04:00+00:00",
+      "province": "أخبار عامة",
+      "image_url": "https://cdn.sananews.sy/2026/10/photo_2026-10-09_00-00-28.jpg"
+    },
+    {
+      "title": "كنز فاطمي في قبضة الأمن السياسي : وثائق تكشف العثور على 80 قطعة ذهبية في بيت دمشقي قديم",
+      "description": "كنز فاطمي في قبضة الأمن السياسي : وثائق تكشف العثور على 80 قطعة ذهبية في بيت دمشقي قديم زمان الوصل",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9ONDYtTXNmSm8xbm00eEpsRVBmWmVfLXc1NUNQMDkyeHY1NGswVjJwNTAzVUgzR2t1NjFIMHVHNlZQWDR0WERyN3U4eTh0V0IwWURHdUE0NGtUdw?oc=5",
+      "source": "زمان الوصل",
+      "source_home": "https://www.zamanalwsl.net",
+      "feed": "زمان الوصل",
+      "published_at": "2026-10-08T19:56:21+00:00",
+      "province": "دمشق"
+    },
+    {
+      "title": "رؤساء بعثات الاتحاد الأوروبي لدى سوريا",
+      "description": "رؤساء بعثات الاتحاد الأوروبي لدى سوريا - الوكالة العربية السورية للأنباء وكالة الأنباء السورية – سانا. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "url": "https://news.google.com/rss/articles/CBMivwJBVV95cUxPNjlTRUVJdlNjUExKM0RsVUFhSkVBQnlOQ3NiRjlkRWdqWFM0U0J2blRacHdYcHhOQXZIWG1aWl9Db1kzMVloMHY2WXRyYkFzSzVTRUFUTWRmOUduMVNuOUV4SHFXcFBHZHF2ZjhxYmZPejg2Xy0teVdmUE0zdF9yZTRhdmR5WUUyb3dGNWpLbWdpeXZiUjExWl9wZzdqMjJTRkd0aUtYd0xQdG15cVYzUzBNczhGTGdhdktGS2hxOF9wYkxGSnY0bElXUHdpYVdQV3R6dy1aOEV4ekx5ZWpybUJyM3BoTXZLc3BvRUFjYWNTazFNRWJOYmpNWldTN1hJa1lNdWRiWUd3TnFlTUdQM0FCZTVEV3UwRlRhN1ZfM0FEQWVnT2hTOHVUR3NwUzU1TE1ZVm9WNzB1eWdXT3VR?oc=5",
+      "source": "وكالة الأنباء السورية – سانا",
+      "source_home": "https://sana.sy",
+      "feed": "سانا",
+      "published_at": "2026-10-08T19:50:36+00:00",
+      "province": "أخبار عامة"
     },
     {
       "title": "بغداد ترفض تسليم دمشق أربعة آلاف محتجز سوري",
