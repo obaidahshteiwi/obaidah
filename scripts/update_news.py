@@ -38,6 +38,10 @@ FEEDS = [
     ("The Syrian Observer", "site:syrianobserver.com Syria"),
     ("أورينت", "site:orient-news.net سوريا"),
 ]
+DIRECT_FEEDS = [
+    ("سانا RSS", "https://sana.sy/feed/"),
+    ("عنب بلدي RSS", "https://www.enabbaladi.net/feed/"),
+]
 
 PROVINCES = [
     ("ريف دمشق", ("ريف دمشق", "غوطة دمشق", "الغوطة الشرقية", "الغوطة الغربية", "دوما", "داريا", "جرمانا", "يبرود", "النبك", "الزبداني", "حرستا", "القلمون", "Rif Dimashq", "Rural Damascus")),
@@ -81,16 +85,30 @@ class ImageMetaParser(HTMLParser):
     def __init__(self):
         super().__init__()
         self.image = ""
+        self.fallback = ""
 
     def handle_starttag(self, tag, attrs):
-        if self.image or tag.lower() != "meta":
-            return
         attrs = {str(k).lower(): str(v) for k, v in attrs if k and v}
-        key = (attrs.get("property") or attrs.get("name") or attrs.get("itemprop") or "").lower()
-        if key in ("og:image", "og:image:url", "twitter:image", "twitter:image:src", "image"):
-            value = (attrs.get("content") or "").strip()
-            if value:
-                self.image = value
+        if tag.lower() == "meta" and not self.image:
+            key = (attrs.get("property") or attrs.get("name") or attrs.get("itemprop") or "").lower()
+            if key in ("og:image", "og:image:url", "twitter:image", "twitter:image:src", "image"):
+                value = (attrs.get("content") or "").strip()
+                if value:
+                    self.image = value
+        elif tag.lower() == "img" and not self.fallback:
+            classes = (attrs.get("class") or "").lower()
+            if any(bad in classes for bad in ("logo", "avatar", "icon", "pixel", "emoji")):
+                return
+            width = attrs.get("width", "")
+            height = attrs.get("height", "")
+            try:
+                if width and int(re.sub(r"[^0-9]", "", width) or "0") < 260:
+                    return
+                if height and int(re.sub(r"[^0-9]", "", height) or "0") < 140:
+                    return
+            except ValueError:
+                pass
+            self.fallback = attrs.get("data-src") or attrs.get("data-lazy-src") or attrs.get("src") or ""
 
 
 def clean_text(value: str) -> str:
@@ -141,7 +159,9 @@ def normalize_image_url(value: str, base_url: str = "") -> str:
 
 
 def image_from_feed_item(node: ET.Element, base_url: str = "") -> str:
-    for child in list(node):
+    for child in node.iter():
+        if child is node:
+            continue
         local = child.tag.rsplit("}", 1)[-1].lower()
         candidate = ""
         if local in ("thumbnail", "content", "image"):
@@ -153,6 +173,17 @@ def image_from_feed_item(node: ET.Element, base_url: str = "") -> str:
             if result:
                 return result
     return ""
+
+
+def extract_markup_image(markup: str, base_url: str = "") -> str:
+    if not markup:
+        return ""
+    parser = ImageMetaParser()
+    try:
+        parser.feed(html.unescape(markup))
+    except Exception:
+        return ""
+    return normalize_image_url(parser.image or parser.fallback, base_url)
 
 
 def classify_province(title: str, description: str = "") -> str:
@@ -182,7 +213,8 @@ def parse_feed(xml_bytes: bytes, feed_label: str) -> list[dict]:
                     link = child.attrib.get("href", "")
                     if link:
                         break
-        description = clean_text(item_text(node, "description") or item_text(node, "summary") or item_text(node, "content"))
+        description_markup = item_text(node, "description") or item_text(node, "summary") or item_text(node, "content")
+        description = clean_text(description_markup)
         pubdate = item_text(node, "pubDate") or item_text(node, "published") or item_text(node, "updated")
         source = feed_label
         for child in list(node):
@@ -203,7 +235,7 @@ def parse_feed(xml_bytes: bytes, feed_label: str) -> list[dict]:
             "published_at": parse_date(pubdate),
             "province": classify_province(title, description),
         }
-        picture = image_from_feed_item(node, link)
+        picture = image_from_feed_item(node, link) or extract_markup_image(description_markup, link)
         if picture:
             item["image_url"] = picture
         output.append(item)
@@ -213,21 +245,30 @@ def parse_feed(xml_bytes: bytes, feed_label: str) -> list[dict]:
 def extract_article_image(article_url: str) -> str:
     if not article_url.startswith(("https://", "http://")):
         return ""
+    original_host = urllib.parse.urlparse(article_url).hostname or "unknown"
     req = urllib.request.Request(article_url, headers={
-        "User-Agent": "Mozilla/5.0 (compatible; SyriaMubasherNewsBot/1.0)",
+        "User-Agent": "Mozilla/5.0 (compatible; SyriaMubasherNewsBot/1.1)",
         "Accept": "text/html,application/xhtml+xml",
     })
     try:
         with urllib.request.urlopen(req, timeout=8) as response:
             final_url = response.geturl()
+            final_host = urllib.parse.urlparse(final_url).hostname or original_host
             content_type = response.headers.get("Content-Type", "")
             if "html" not in content_type.lower():
+                print(f"Image lookup skipped: page from {final_host} was not HTML.")
                 return ""
-            raw = response.read(400_000).decode("utf-8", errors="replace")
+            raw = response.read(500_000).decode("utf-8", errors="replace")
         parser = ImageMetaParser()
         parser.feed(raw)
-        return normalize_image_url(parser.image, final_url)
+        picture = normalize_image_url(parser.image or parser.fallback, final_url)
+        print(f"Article image {'found' if picture else 'not found'} from {final_host}.")
+        return picture
+    except urllib.error.HTTPError as exc:
+        print(f"Article image lookup returned HTTP {exc.code} from {original_host}.")
+        return ""
     except (urllib.error.URLError, TimeoutError, OSError, ValueError):
+        print(f"Article image lookup could not connect to {original_host}.")
         return ""
 
 
@@ -239,7 +280,10 @@ def load_json(path: Path, default):
 
 
 def canonical_title(text: str) -> str:
-    return re.sub(r"[^\w\u0600-\u06ff]+", "", (text or "").casefold())
+    value = (text or "").casefold()
+    value = re.sub(r"\s*[-–—|]\s*(وكالة الأنباء السورية.*|سانا.*|sana.*|تلفزيون سوريا.*|عنب بلدي.*|زمان الوصل.*|الوطن.*|أورينت.*|syrian observer.*)$", "", value, flags=re.I)
+    value = re.sub(r"^(عاجل|خبر عاجل)\s*[:：-]?\s*", "", value)
+    return re.sub(r"[^\w\u0600-\u06ff]+", "", value)
 
 
 def parse_iso_datetime(value: str):
@@ -405,18 +449,41 @@ def main():
         except (urllib.error.URLError, TimeoutError, OSError, ET.ParseError) as exc:
             errors.append(f"{feed_label}: {type(exc).__name__}")
 
+    for feed_label, feed_url in DIRECT_FEEDS:
+        request = urllib.request.Request(feed_url, headers={"User-Agent": user_agent, "Accept": "application/rss+xml, application/xml, text/xml"})
+        try:
+            with urllib.request.urlopen(request, timeout=REQUEST_TIMEOUT) as response:
+                raw = response.read(2_000_000)
+            candidates.extend(parse_feed(raw, feed_label))
+            time.sleep(0.12)
+        except (urllib.error.URLError, TimeoutError, OSError, ET.ParseError) as exc:
+            errors.append(f"{feed_label}: {type(exc).__name__}")
+
     unique = []
     used_urls = set()
-    used_titles = set()
+    title_indexes = {}
     for item in candidates:
         url = item["url"].split("&oc=5", 1)[0]
         title_key = canonical_title(item["title"])
-        if url in used_urls or (title_key and title_key in used_titles):
+        item["url"] = url
+        if url in used_urls:
+            continue
+        if title_key and title_key in title_indexes:
+            existing = unique[title_indexes[title_key]]
+            if not existing.get("image_url") and item.get("image_url"):
+                existing["image_url"] = item["image_url"]
+            old_host = urllib.parse.urlparse(existing.get("url", "")).hostname or ""
+            new_host = urllib.parse.urlparse(item.get("url", "")).hostname or ""
+            if old_host.endswith("news.google.com") and new_host and not new_host.endswith("news.google.com"):
+                existing["url"] = item["url"]
+                existing["source"] = item.get("source") or existing.get("source")
+                existing["feed"] = item.get("feed") or existing.get("feed")
+                if item.get("image_url"):
+                    existing["image_url"] = item["image_url"]
             continue
         used_urls.add(url)
         if title_key:
-            used_titles.add(title_key)
-        item["url"] = url
+            title_indexes[title_key] = len(unique)
         unique.append(item)
 
     unique.sort(key=lambda item: item.get("published_at", ""), reverse=True)
@@ -452,17 +519,29 @@ def main():
         old_news["items"] = new_items[:MAX_SITE_NEWS]
         changed_news = True
 
-    # Backfill governorate categories and article photos for older items already on the website.
+    # Backfill province labels and give image lookup failures a 24-hour cooldown.
+    image_lookup_attempts = state.get("image_lookup_attempts", {})
+    if not isinstance(image_lookup_attempts, dict):
+        image_lookup_attempts = {}
     image_lookups = 0
+    images_added = 0
+    now_iso = datetime.now(timezone.utc).isoformat(timespec="seconds")
     for item in old_news.get("items", [])[:MAX_SITE_NEWS]:
         if not item.get("province"):
             item["province"] = classify_province(item.get("title", ""), item.get("description", ""))
             changed_news = True
-        if not item.get("image_url") and image_lookups < MAX_IMAGE_LOOKUPS_PER_CYCLE:
+        item_url = item.get("url", "")
+        last_image_attempt = parse_iso_datetime(image_lookup_attempts.get(item_url, ""))
+        should_try_image = not item.get("image_url") and (
+            last_image_attempt is None or datetime.now(timezone.utc) - last_image_attempt >= timedelta(hours=24)
+        )
+        if should_try_image and image_lookups < MAX_IMAGE_LOOKUPS_PER_CYCLE:
             image_lookups += 1
-            picture = extract_article_image(item.get("url", ""))
+            image_lookup_attempts[item_url] = now_iso
+            picture = extract_article_image(item_url)
             if picture:
                 item["image_url"] = picture
+                images_added += 1
                 changed_news = True
 
     if changed_news:
@@ -477,14 +556,24 @@ def main():
     accepted_count = 0
     failed_count = 0
 
+    whatsapp_attempt_counts = state.get("whatsapp_attempt_counts", {})
+    if not isinstance(whatsapp_attempt_counts, dict):
+        whatsapp_attempt_counts = {}
+    max_whatsapp_attempts = 3
     if configured and instance_status == "authorized":
         group_valid, group_error = validate_whatsapp_group(chat_id)
-        if not group_valid and group_error.startswith("http_500"):
-            # A provider-side failure in the read-only group lookup should not block a send attempt.
-            print("WhatsApp group lookup returned HTTP 500; attempting sends and checking each message status.")
+        fatal_group_error = any(reason in group_error.lower() for reason in ("forbidden", "item-not-found", "group_id_mismatch"))
+        if not group_valid and group_error.startswith("http_500") and not fatal_group_error:
+            # If lookup has an unexplained 500, make a limited send attempt and track its delivery.
+            print("WhatsApp group lookup returned an unexplained HTTP 500; allowing limited send attempts with delivery checks.")
             group_valid = True
         if not group_valid:
-            print(f"WhatsApp group check failed: {group_error or 'group_id_mismatch'}. Sending paused to avoid targeting the wrong chat.")
+            if "forbidden" in group_error.lower():
+                print("WhatsApp group check failed: this Green-API instance is not a member of the target group.")
+            elif "item-not-found" in group_error.lower():
+                print("WhatsApp group check failed: the configured group ID was not found by Green-API.")
+            else:
+                print(f"WhatsApp group check failed: {group_error or 'group_id_mismatch'}. Sending paused to avoid targeting the wrong chat.")
         else:
             if not group_error:
                 print("WhatsApp group check: valid.")
@@ -505,16 +594,18 @@ def main():
                     record["status"] = status_message
                     record["checked_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
                 elif status_message == "failed":
+                    whatsapp_attempt_counts[item_url] = max(int(whatsapp_attempt_counts.get(item_url, 0) or 0), int(record.get("attempts", 1) or 1))
                     pending.pop(item_url, None)
                     failed_count += 1
-                    print("WhatsApp delivery status: failed; item will be retried.")
+                    print("WhatsApp delivery status: failed; item will be retried within the attempt limit.")
                 elif error.startswith("http_400:Message not found by id"):
                     queued_at = parse_iso_datetime(record.get("queued_at", ""))
                     age = (datetime.now(timezone.utc) - queued_at).total_seconds() if queued_at else 0
                     if age >= 180:
+                        whatsapp_attempt_counts[item_url] = max(int(whatsapp_attempt_counts.get(item_url, 0) or 0), int(record.get("attempts", 1) or 1))
                         pending.pop(item_url, None)
                         failed_count += 1
-                        print("WhatsApp cannot find a queued message after 3 minutes; releasing it for a controlled retry.")
+                        print("WhatsApp cannot find the accepted message in its history after 3 minutes; it will be retried within the attempt limit.")
                     else:
                         print("WhatsApp message is not yet visible in delivery history; will check again.")
                 elif error:
@@ -523,16 +614,20 @@ def main():
             attempts_this_run = 0
             for item in old_news.get("items", [])[:MAX_SITE_NEWS]:
                 item_url = item.get("url", "")
-                if not item_url or item_url in wa_sent_urls or item_url in pending:
+                attempts_for_item = int(whatsapp_attempt_counts.get(item_url, 0) or 0)
+                if not item_url or item_url in wa_sent_urls or item_url in pending or attempts_for_item >= max_whatsapp_attempts:
                     continue
                 message_id, kind, error = post_whatsapp(item)
                 attempts_this_run += 1
                 if message_id:
+                    attempts_for_item += 1
+                    whatsapp_attempt_counts[item_url] = attempts_for_item
                     pending[item_url] = {
                         "id_message": message_id,
                         "chat_id": chat_id,
                         "title": clean_text(item.get("title", ""))[:200],
                         "kind": kind,
+                        "attempts": attempts_for_item,
                         "status": "pending",
                         "queued_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
                     }
@@ -553,6 +648,8 @@ def main():
         "whatsapp_sent_urls": list(dict.fromkeys(wa_sent_urls_list))[-MAX_HISTORY:],
         "whatsapp_pending": pending,
         "whatsapp_tracking_version": WHATSAPP_TRACKING_VERSION,
+        "whatsapp_attempt_counts": whatsapp_attempt_counts,
+        "image_lookup_attempts": image_lookup_attempts,
         "newest_seen_at": newest_seen_dt.isoformat(timespec="seconds") if newest_seen_dt else state.get("newest_seen_at", ""),
         "feed_errors": errors,
     }
@@ -561,9 +658,11 @@ def main():
     print(
         f"Sources checked: {len(FEEDS)}; accepted feed entries: {len(candidates)}; "
         f"new items: {len(fresh)}; website total: {len(old_news.get('items', []))}; "
-        f"images looked up: {image_lookups}; WhatsApp instance: {instance_status}; "
-        f"API accepted: {accepted_count}; delivered/read confirmed: {delivered_count}; "
-        f"delivery pending: {len(pending)}; send/status errors: {failed_count}; feed errors: {len(errors)}"
+        f"RSS items with images: {sum(1 for x in candidates if x.get('image_url'))}; "
+        f"image lookups: {image_lookups}; images added: {images_added}; "
+        f"WhatsApp instance: {instance_status}; API accepted: {accepted_count}; "
+        f"delivered/read confirmed: {delivered_count}; delivery pending: {len(pending)}; "
+        f"send/status errors: {failed_count}; feeds failed: {len(errors)}"
     )
 
 
