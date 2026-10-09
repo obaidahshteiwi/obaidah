@@ -1057,6 +1057,83 @@ def post_whatsapp(item: dict) -> tuple[str, str, str]:
     return "", "", error or "invalid_response"
 
 
+
+def evolution_config():
+    """Return Evolution API endpoint, key, instance, and configured destinations."""
+    base = os.getenv("EVOLUTION_API_URL", "").strip().rstrip("/")
+    api_key = os.getenv("EVOLUTION_API_KEY", "").strip()
+    instance = os.getenv("EVOLUTION_INSTANCE", "").strip()
+    group_id = os.getenv("WHATSAPP_GROUP_ID", "").strip()
+    channel_id = os.getenv("WHATSAPP_CHANNEL_ID", "").strip()
+    if base and not base.startswith(("https://", "http://")):
+        base = "https://" + base
+    # Evolution expects WhatsApp JIDs: groups end in @g.us and channels/newsletters in @newsletter.
+    if group_id and not group_id.endswith("@g.us"):
+        group_id += "@g.us"
+    if channel_id and "@newsletter" not in channel_id:
+        channel_id += "@newsletter"
+    return base, api_key, instance, [("group", group_id), ("channel", channel_id)]
+
+
+def evolution_request(path: str, payload: dict):
+    base, api_key, instance, _ = evolution_config()
+    if not all((base, api_key, instance)):
+        return None, "not_configured"
+    endpoint = f"{base}/message/{path}/{urllib.parse.quote(instance, safe='')}"
+    req = urllib.request.Request(
+        endpoint,
+        data=json.dumps(payload, ensure_ascii=False).encode("utf-8"),
+        headers={
+            "Content-Type": "application/json",
+            "apikey": api_key,
+            "User-Agent": "SyriaMubasher/1.2",
+        },
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT) as response:
+            result = json.loads(response.read().decode("utf-8", errors="replace") or "{}")
+        if not isinstance(result, dict):
+            return None, "invalid_response"
+        return result, ""
+    except urllib.error.HTTPError as exc:
+        # Never log response bodies or endpoint URLs, which can contain sensitive information.
+        return None, f"http_{exc.code}"
+    except (urllib.error.URLError, TimeoutError, OSError, ValueError):
+        return None, "connection_error"
+
+
+def post_evolution(item: dict, destination: str) -> tuple[str, str]:
+    """Send one story to a group or channel through Evolution API."""
+    settings = whatsapp_settings()
+    title = clean_text(item.get("title", "خبر من سوريا"))
+    message = build_message(item)
+    image_url = normalize_image_url(item.get("image_url", "")) if settings["send_images"] else ""
+    result = None
+    error = ""
+    if image_url:
+        result, error = evolution_request("sendMedia", {
+            "number": destination,
+            "mediatype": "image",
+            "media": image_url,
+            "caption": message[:1000],
+            "fileName": "syria-mubasher.jpg",
+        })
+    if not isinstance(result, dict) or not (result.get("key") or result.get("message") or result.get("id")):
+        result, error = evolution_request("sendText", {
+            "number": destination,
+            "text": message,
+            "linkPreview": settings["link_preview"],
+        })
+    if isinstance(result, dict):
+        key = result.get("key") if isinstance(result.get("key"), dict) else {}
+        message_id = str(key.get("id") or result.get("id") or "")
+        if message_id:
+            return message_id, ""
+    return "", error or "invalid_response"
+
+
+
 def main():
     DATA.mkdir(parents=True, exist_ok=True)
     old_news = load_json(NEWS_FILE, {"updated_at": "", "items": []})
@@ -1354,136 +1431,190 @@ def main():
     old_news.setdefault("items", [])
     old_news.setdefault("updated_at", "")
 
-    base, instance, token, chat_id = green_api_config()
+    evolution_base, evolution_key, evolution_instance, evolution_destinations = evolution_config()
+    evolution_configured = bool(evolution_base and evolution_key and evolution_instance and all(chat for _, chat in evolution_destinations))
     settings = whatsapp_settings()
-    configured = settings["enabled"] and all((base, instance, token, chat_id))
-    quota_blocked = bool(state.get("whatsapp_quota_blocked", False))
-    manual_retry = os.getenv("GITHUB_EVENT_NAME", "") == "workflow_dispatch"
-    if manual_retry:
-        # Permit a deliberate manual test after the account plan has been fixed.
-        quota_blocked = False
-    instance_status = get_instance_state() if configured and not quota_blocked else ("quota_blocked" if quota_blocked else "not_configured")
-    delivered_count = 0
-    accepted_count = 0
-    failed_count = 0
-
-    whatsapp_attempt_counts = state.get("whatsapp_attempt_counts", {})
-    if not isinstance(whatsapp_attempt_counts, dict):
-        whatsapp_attempt_counts = {}
-    max_whatsapp_attempts = 3
-    if not settings["enabled"]:
-        print("WhatsApp sending disabled in config/whatsapp.json; RSS collection and website publishing continue normally.")
-    elif quota_blocked:
-        print("WhatsApp sending paused after Green-API HTTP 466 plan limit. Upgrade/restore the plan, then use Run workflow in GitHub Actions to retry.")
-    elif configured and instance_status == "authorized":
-        group_valid, group_error = validate_whatsapp_group(chat_id)
-        fatal_group_error = any(reason in group_error.lower() for reason in ("forbidden", "item-not-found", "group_id_mismatch"))
-        if not group_valid and group_error.startswith("http_500") and not fatal_group_error:
-            # If lookup has an unexplained 500, make a limited send attempt and track its delivery.
-            print("WhatsApp group lookup returned an unexplained HTTP 500; allowing limited send attempts with delivery checks.")
-            group_valid = True
-        if not group_valid:
-            if group_error.startswith("http_466"):
-                quota_blocked = True
-                print("WhatsApp group validation hit Green-API HTTP 466 plan limit; pausing further sends until a manual retry after plan recovery.")
-            if "forbidden" in group_error.lower():
-                print("WhatsApp group check failed: this Green-API instance is not a member of the target group.")
-            elif "item-not-found" in group_error.lower():
-                print("WhatsApp group check failed: the configured group ID was not found by Green-API.")
-            else:
-                print(f"WhatsApp group check failed: {group_error or 'group_id_mismatch'}. Sending paused to avoid targeting the wrong chat.")
+    evolution_sent = state.get("evolution_sent", {})
+    if not isinstance(evolution_sent, dict):
+        evolution_sent = {}
+    if settings["enabled"] and evolution_base:
+        if not evolution_configured:
+            print("Evolution API configured incompletely; add EVOLUTION_API_URL, EVOLUTION_API_KEY, EVOLUTION_INSTANCE, WHATSAPP_GROUP_ID, and WHATSAPP_CHANNEL_ID. No messages were sent.")
+            instance_status = "evolution_incomplete_config"
+            accepted_count = delivered_count = failed_count = 0
         else:
-            if not group_error:
-                print("WhatsApp group check: valid.")
-            # Verify queue IDs on later runs instead of falsely equating API acceptance with delivery.
-            for item_url, record in list(pending.items()):
-                message_id = str(record.get("id_message", ""))
-                record_chat = str(record.get("chat_id", chat_id))
-                if record_chat != chat_id:
-                    # A group was changed in secrets; never mark a message for the old group as delivered to the new one.
-                    pending.pop(item_url, None)
-                    whatsapp_attempt_counts.pop(item_url, None)
-                    pending_title = canonical_title(str(record.get("title", "")))
-                    if pending_title:
-                        for current_item in old_news.get("items", []):
-                            if canonical_title(str(current_item.get("title", ""))) == pending_title:
-                                current_url = str(current_item.get("url", ""))
-                                whatsapp_attempt_counts.pop(current_url, None)
-                                wa_sent_urls.discard(current_url)
-                                wa_sent_urls_list = [sent_url for sent_url in wa_sent_urls_list if sent_url != current_url]
-                                break
-                    print("WhatsApp target group changed; cleared an old pending record so its story can be retried for the configured group.")
+            instance_status = "evolution_api"
+            accepted_count = delivered_count = failed_count = 0
+            for item in old_news.get("items", [])[:MAX_SITE_NEWS]:
+                item_url = str(item.get("url", "") or "")
+                if not item_url:
                     continue
-                if not message_id:
-                    pending.pop(item_url, None)
-                    continue
-                status_message, error = read_message_status(record_chat, message_id)
-                if status_message in ("delivered", "read"):
+                sent_to = evolution_sent.get(item_url, [])
+                if not isinstance(sent_to, list):
+                    sent_to = []
+                attempted = False
+                all_destinations_sent = True
+                for destination_name, destination_id in evolution_destinations:
+                    if destination_name in sent_to:
+                        continue
+                    attempted = True
+                    message_id, error = post_evolution(item, destination_id)
+                    if message_id:
+                        sent_to.append(destination_name)
+                        evolution_sent[item_url] = sent_to
+                        accepted_count += 1
+                        print(f"Evolution API accepted one message for {destination_name}; message ID recorded.")
+                    else:
+                        all_destinations_sent = False
+                        failed_count += 1
+                        print(f"Evolution API send failed for {destination_name}: {error}")
+                if all(name in sent_to for name, _ in evolution_destinations):
+                    if item_url not in wa_sent_urls:
+                        wa_sent_urls_list.append(item_url)
                     wa_sent_urls.add(item_url)
-                    wa_sent_urls_list.append(item_url)
-                    pending.pop(item_url, None)
-                    delivered_count += 1
-                elif status_message in ("sent", "pending"):
-                    record["status"] = status_message
-                    record["checked_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
-                elif status_message == "failed":
-                    whatsapp_attempt_counts[item_url] = max(int(whatsapp_attempt_counts.get(item_url, 0) or 0), int(record.get("attempts", 1) or 1))
-                    pending.pop(item_url, None)
-                    failed_count += 1
-                    print("WhatsApp delivery status: failed; item will be retried within the attempt limit.")
-                elif error.startswith("http_400:Message not found by id"):
-                    queued_at = parse_iso_datetime(record.get("queued_at", ""))
-                    age = (datetime.now(timezone.utc) - queued_at).total_seconds() if queued_at else 0
-                    if age >= 180:
+                else:
+                    all_destinations_sent = False
+                if attempted and accepted_count >= MAX_NEW_PER_CYCLE * len(evolution_destinations):
+                    break
+            pending = {}
+            quota_blocked = False
+    elif not settings["enabled"]:
+        instance_status = "disabled"
+        accepted_count = delivered_count = failed_count = 0
+        print("WhatsApp sending disabled in config/whatsapp.json; RSS collection and website publishing continue normally.")
+    else:
+        base, instance, token, chat_id = green_api_config()
+        settings = whatsapp_settings()
+        configured = settings["enabled"] and all((base, instance, token, chat_id))
+        quota_blocked = bool(state.get("whatsapp_quota_blocked", False))
+        manual_retry = os.getenv("GITHUB_EVENT_NAME", "") == "workflow_dispatch"
+        if manual_retry:
+            # Permit a deliberate manual test after the account plan has been fixed.
+            quota_blocked = False
+        instance_status = get_instance_state() if configured and not quota_blocked else ("quota_blocked" if quota_blocked else "not_configured")
+        delivered_count = 0
+        accepted_count = 0
+        failed_count = 0
+
+        whatsapp_attempt_counts = state.get("whatsapp_attempt_counts", {})
+        if not isinstance(whatsapp_attempt_counts, dict):
+            whatsapp_attempt_counts = {}
+        max_whatsapp_attempts = 3
+        if not settings["enabled"]:
+            print("WhatsApp sending disabled in config/whatsapp.json; RSS collection and website publishing continue normally.")
+        elif quota_blocked:
+            print("WhatsApp sending paused after Green-API HTTP 466 plan limit. Upgrade/restore the plan, then use Run workflow in GitHub Actions to retry.")
+        elif configured and instance_status == "authorized":
+            group_valid, group_error = validate_whatsapp_group(chat_id)
+            fatal_group_error = any(reason in group_error.lower() for reason in ("forbidden", "item-not-found", "group_id_mismatch"))
+            if not group_valid and group_error.startswith("http_500") and not fatal_group_error:
+                # If lookup has an unexplained 500, make a limited send attempt and track its delivery.
+                print("WhatsApp group lookup returned an unexplained HTTP 500; allowing limited send attempts with delivery checks.")
+                group_valid = True
+            if not group_valid:
+                if group_error.startswith("http_466"):
+                    quota_blocked = True
+                    print("WhatsApp group validation hit Green-API HTTP 466 plan limit; pausing further sends until a manual retry after plan recovery.")
+                if "forbidden" in group_error.lower():
+                    print("WhatsApp group check failed: this Green-API instance is not a member of the target group.")
+                elif "item-not-found" in group_error.lower():
+                    print("WhatsApp group check failed: the configured group ID was not found by Green-API.")
+                else:
+                    print(f"WhatsApp group check failed: {group_error or 'group_id_mismatch'}. Sending paused to avoid targeting the wrong chat.")
+            else:
+                if not group_error:
+                    print("WhatsApp group check: valid.")
+                # Verify queue IDs on later runs instead of falsely equating API acceptance with delivery.
+                for item_url, record in list(pending.items()):
+                    message_id = str(record.get("id_message", ""))
+                    record_chat = str(record.get("chat_id", chat_id))
+                    if record_chat != chat_id:
+                        # A group was changed in secrets; never mark a message for the old group as delivered to the new one.
+                        pending.pop(item_url, None)
+                        whatsapp_attempt_counts.pop(item_url, None)
+                        pending_title = canonical_title(str(record.get("title", "")))
+                        if pending_title:
+                            for current_item in old_news.get("items", []):
+                                if canonical_title(str(current_item.get("title", ""))) == pending_title:
+                                    current_url = str(current_item.get("url", ""))
+                                    whatsapp_attempt_counts.pop(current_url, None)
+                                    wa_sent_urls.discard(current_url)
+                                    wa_sent_urls_list = [sent_url for sent_url in wa_sent_urls_list if sent_url != current_url]
+                                    break
+                        print("WhatsApp target group changed; cleared an old pending record so its story can be retried for the configured group.")
+                        continue
+                    if not message_id:
+                        pending.pop(item_url, None)
+                        continue
+                    status_message, error = read_message_status(record_chat, message_id)
+                    if status_message in ("delivered", "read"):
+                        wa_sent_urls.add(item_url)
+                        wa_sent_urls_list.append(item_url)
+                        pending.pop(item_url, None)
+                        delivered_count += 1
+                    elif status_message in ("sent", "pending"):
+                        record["status"] = status_message
+                        record["checked_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+                    elif status_message == "failed":
                         whatsapp_attempt_counts[item_url] = max(int(whatsapp_attempt_counts.get(item_url, 0) or 0), int(record.get("attempts", 1) or 1))
                         pending.pop(item_url, None)
                         failed_count += 1
-                        print("WhatsApp cannot find the accepted message in its history after 3 minutes; it will be retried within the attempt limit.")
-                    else:
-                        print("WhatsApp message is not yet visible in delivery history; will check again.")
-                elif error:
-                    print(f"WhatsApp status check failed: {error}")
+                        print("WhatsApp delivery status: failed; item will be retried within the attempt limit.")
+                    elif error.startswith("http_400:Message not found by id"):
+                        queued_at = parse_iso_datetime(record.get("queued_at", ""))
+                        age = (datetime.now(timezone.utc) - queued_at).total_seconds() if queued_at else 0
+                        if age >= 180:
+                            whatsapp_attempt_counts[item_url] = max(int(whatsapp_attempt_counts.get(item_url, 0) or 0), int(record.get("attempts", 1) or 1))
+                            pending.pop(item_url, None)
+                            failed_count += 1
+                            print("WhatsApp cannot find the accepted message in its history after 3 minutes; it will be retried within the attempt limit.")
+                        else:
+                            print("WhatsApp message is not yet visible in delivery history; will check again.")
+                    elif error:
+                        print(f"WhatsApp status check failed: {error}")
 
-            attempts_this_run = 0
-            for item in old_news.get("items", [])[:MAX_SITE_NEWS]:
-                item_url = item.get("url", "")
-                attempts_for_item = int(whatsapp_attempt_counts.get(item_url, 0) or 0)
-                if not item_url or item_url in wa_sent_urls or item_url in pending or attempts_for_item >= max_whatsapp_attempts:
-                    continue
-                message_id, kind, error = post_whatsapp(item)
-                attempts_this_run += 1
-                if message_id:
-                    attempts_for_item += 1
-                    whatsapp_attempt_counts[item_url] = attempts_for_item
-                    pending[item_url] = {
-                        "id_message": message_id,
-                        "chat_id": chat_id,
-                        "title": clean_text(item.get("title", ""))[:200],
-                        "kind": kind,
-                        "attempts": attempts_for_item,
-                        "status": "pending",
-                        "queued_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-                    }
-                    accepted_count += 1
-                    print(f"WhatsApp API accepted one {kind} message; waiting for delivery confirmation.")
-                else:
-                    failed_count += 1
-                    print(f"WhatsApp send failed: {error}")
-                    if error.startswith("http_466"):
-                        quota_blocked = True
-                        print("Green-API plan limit reached (HTTP 466); stopping this cycle and pausing scheduled WhatsApp retries.")
+                attempts_this_run = 0
+                for item in old_news.get("items", [])[:MAX_SITE_NEWS]:
+                    item_url = item.get("url", "")
+                    attempts_for_item = int(whatsapp_attempt_counts.get(item_url, 0) or 0)
+                    if not item_url or item_url in wa_sent_urls or item_url in pending or attempts_for_item >= max_whatsapp_attempts:
+                        continue
+                    message_id, kind, error = post_whatsapp(item)
+                    attempts_this_run += 1
+                    if message_id:
+                        attempts_for_item += 1
+                        whatsapp_attempt_counts[item_url] = attempts_for_item
+                        pending[item_url] = {
+                            "id_message": message_id,
+                            "chat_id": chat_id,
+                            "title": clean_text(item.get("title", ""))[:200],
+                            "kind": kind,
+                            "attempts": attempts_for_item,
+                            "status": "pending",
+                            "queued_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                        }
+                        accepted_count += 1
+                        print(f"WhatsApp API accepted one {kind} message; waiting for delivery confirmation.")
+                    else:
+                        failed_count += 1
+                        print(f"WhatsApp send failed: {error}")
+                        if error.startswith("http_466"):
+                            quota_blocked = True
+                            print("Green-API plan limit reached (HTTP 466); stopping this cycle and pausing scheduled WhatsApp retries.")
+                            break
+                    if attempts_this_run >= MAX_NEW_PER_CYCLE:
                         break
-                if attempts_this_run >= MAX_NEW_PER_CYCLE:
-                    break
-    elif configured:
-        print(f"WhatsApp sending skipped because Green-API instance state is {instance_status!r}; no message marked as delivered.")
-    else:
-        print("WhatsApp sending skipped: one or more required GitHub Actions secrets are missing.")
+        elif configured:
+            print(f"WhatsApp sending skipped because Green-API instance state is {instance_status!r}; no message marked as delivered.")
+        else:
+            print("WhatsApp sending skipped: one or more required GitHub Actions secrets are missing.")
+
 
     state_out = {
         "published_urls": list(dict.fromkeys(published_urls_list))[-MAX_HISTORY:],
         "whatsapp_sent_urls": list(dict.fromkeys(wa_sent_urls_list))[-MAX_HISTORY:],
         "whatsapp_pending": pending,
+        "evolution_sent": evolution_sent,
         "whatsapp_tracking_version": WHATSAPP_TRACKING_VERSION,
         "whatsapp_quota_blocked": quota_blocked,
         "whatsapp_attempt_counts": whatsapp_attempt_counts,
