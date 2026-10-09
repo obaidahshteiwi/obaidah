@@ -56,7 +56,7 @@ class TextOnly(HTMLParser):
         self.parts.append(data)
 
     def get_text(self):
-        return re.sub(r"\\s+", " ", " ".join(self.parts)).strip()
+        return re.sub(r"\s+", " ", " ".join(self.parts)).strip()
 
 
 def clean_text(value: str) -> str:
@@ -65,7 +65,7 @@ def clean_text(value: str) -> str:
         parser.feed(html.unescape(value or ""))
         return parser.get_text()
     except Exception:
-        return re.sub(r"\\s+", " ", html.unescape(value or "")).strip()
+        return re.sub(r"\s+", " ", html.unescape(value or "")).strip()
 
 
 def parse_date(value: str) -> str:
@@ -138,7 +138,7 @@ def load_json(path: Path, default):
 
 
 def canonical_title(text: str) -> str:
-    return re.sub(r"[^\\w\\u0600-\\u06ff]+", "", (text or "").casefold())
+    return re.sub(r"[^\w\u0600-\u06ff]+", "", (text or "").casefold())
 
 
 def post_whatsapp(item: dict) -> bool:
@@ -154,10 +154,10 @@ def post_whatsapp(item: dict) -> bool:
         chat_id += "@g.us"
     description = item.get("description") or "اضغط على الرابط لقراءة التفاصيل من المصدر."
     message = (
-        "🇸🇾 *سوريا مباشر*\\n\\n"
-        f"*{item['title']}*\\n\\n"
-        f"{description}\\n\\n"
-        f"📰 المصدر: {item.get('source') or item.get('feed') or 'المصدر الأصلي'}\\n"
+        "🇸🇾 *سوريا مباشر*\n\n"
+        f"*{item['title']}*\n\n"
+        f"{description}\n\n"
+        f"📰 المصدر: {item.get('source') or item.get('feed') or 'المصدر الأصلي'}\n"
         f"🔗 {item['url']}"
     )
     url = f"{base}/{instance}/sendMessage/{token}"
@@ -258,8 +258,8 @@ def main():
         "whatsapp_sent_urls": list(dict.fromkeys(wa_sent_urls_list))[-MAX_HISTORY:],
         "feed_errors": errors,
     }
-    NEWS_FILE.write_text(json.dumps(old_news, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
-    STATE_FILE.write_text(json.dumps(state_out, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+    NEWS_FILE.write_text(json.dumps(old_news, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    STATE_FILE.write_text(json.dumps(state_out, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Sources checked: {len(FEEDS)}; accepted feed entries: {len(candidates)}; new items: {len(fresh)}; website total: {len(old_news.get('items', []))}; WhatsApp configured: {all(os.getenv(key, '').strip() for key in ('GREEN_API_URL', 'GREEN_API_INSTANCE', 'GREEN_API_TOKEN', 'WHATSAPP_GROUP_ID'))}; feed errors: {len(errors)}")
 
 
