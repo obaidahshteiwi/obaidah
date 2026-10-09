@@ -25,7 +25,7 @@
     .top:after{content:"";position:absolute;inset:auto -8% -150px 28%;height:240px;border:1px solid rgba(255,255,255,.08);border-radius:50%;transform:rotate(-8deg);pointer-events:none}
     .nav{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:19px 0;border-bottom:1px solid rgba(255,255,255,.12)}
     .brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-size:1.22rem;font-weight:900;letter-spacing:-.4px}
-    .brand-mark{display:grid;place-items:center;width:43px;height:43px;border-radius:15px;background:linear-gradient(145deg,#f1d995,#d8b360);color:#183629;font-size:1.35rem;box-shadow:0 8px 18px #081c1580}
+    .brand-mark{display:grid;place-items:center;width:48px;height:34px;border-radius:7px;background:#ffffff20;padding:3px;box-shadow:0 8px 18px #081c1580}.syria-flag{display:block;width:100%;height:100%;border-radius:3px;overflow:hidden;box-shadow:0 2px 7px #00150d30}.brand .syria-flag{width:40px;height:27px}.hero-side .syria-flag{width:min(230px,100%);height:auto;aspect-ratio:3/2;border-radius:9px;filter:drop-shadow(0 10px 14px #04140e65)}.hero-side .syria-symbol{height:124px;display:grid;place-items:center}.image-placeholder .syria-flag{width:86px;height:57px;border-radius:6px;box-shadow:0 8px 20px #071b1250}.footer-brand .syria-flag{display:inline-block;vertical-align:middle;width:30px;height:20px;margin-left:7px}
     .brand small{display:block;color:#bed1c5;font-size:.69rem;font-weight:500;letter-spacing:0}
     .nav-links{display:flex;align-items:center;gap:18px}
     .nav-links a{color:#dbe8df;text-decoration:none;font-size:.9rem}
@@ -123,7 +123,7 @@
     <div class="wrap">
       <nav class="nav">
         <a class="brand" href="#" aria-label="سوريا مباشر الصفحة الرئيسية">
-          <span class="brand-mark">🇸🇾</span>
+          <span class="brand-mark"><svg class="syria-flag" viewBox="0 0 3 2" role="img" aria-label="علم سوريا الأخضر"><rect width="3" height="2" fill="#fff"/><rect width="3" height=".6667" fill="#007a3d"/><rect y="1.3333" width="3" height=".6667" fill="#000"/><g fill="#ce1126"><path d="M.5 .82l.05.14.15 0-.12.09.05.14-.13-.09-.13.09.05-.14-.12-.09.15 0z"/><path d="M1.5 .82l.05.14.15 0-.12.09.05.14-.13-.09-.13.09.05-.14-.12-.09.15 0z"/><path d="M2.5 .82l.05.14.15 0-.12.09.05.14-.13-.09-.13.09.05-.14-.12-.09.15 0z"/></g></svg></span>
           <span>سوريا مباشر<small>أخبار من كل المحافظات</small></span>
         </a>
         <div class="nav-links"><a href="#latest">آخر الأخبار</a><a href="#governorates">المحافظات</a></div>
@@ -139,7 +139,7 @@
           </div>
         </div>
         <aside class="hero-side" aria-label="عن الموقع">
-          <div class="syria-symbol">🇸🇾</div>
+          <div class="syria-symbol"><svg class="syria-flag" viewBox="0 0 3 2" role="img" aria-label="علم سوريا الأخضر"><rect width="3" height="2" fill="#fff"/><rect width="3" height=".6667" fill="#007a3d"/><rect y="1.3333" width="3" height=".6667" fill="#000"/><g fill="#ce1126"><path d="M.5 .82l.05.14.15 0-.12.09.05.14-.13-.09-.13.09.05-.14-.12-.09.15 0z"/><path d="M1.5 .82l.05.14.15 0-.12.09.05.14-.13-.09-.13.09.05-.14-.12-.09.15 0z"/><path d="M2.5 .82l.05.14.15 0-.12.09.05.14-.13-.09-.13.09.05-.14-.12-.09.15 0z"/></g></svg></div>
           <h2>من كل سوريا، بخبر واضح</h2>
           <p>العنوان، الصورة المتاحة، المنطقة، والمصدر في مكان واحد.</p>
           <div class="hero-stats">
@@ -175,7 +175,7 @@
 
   <footer class="footer">
     <div class="wrap footer-row">
-      <div><div class="footer-brand">🇸🇾 سوريا مباشر</div><p>نقل الخبر مع الرجوع إلى مصدره الأصلي.</p></div>
+      <div><div class="footer-brand"><svg class="syria-flag" viewBox="0 0 3 2" role="img" aria-label="علم سوريا الأخضر"><rect width="3" height="2" fill="#fff"/><rect width="3" height=".6667" fill="#007a3d"/><rect y="1.3333" width="3" height=".6667" fill="#000"/><g fill="#ce1126"><path d="M.5 .82l.05.14.15 0-.12.09.05.14-.13-.09-.13.09.05-.14-.12-.09.15 0z"/><path d="M1.5 .82l.05.14.15 0-.12.09.05.14-.13-.09-.13.09.05-.14-.12-.09.15 0z"/><path d="M2.5 .82l.05.14.15 0-.12.09.05.14-.13-.09-.13.09.05-.14-.12-.09.15 0z"/></g></svg> سوريا مباشر</div><p>نقل الخبر مع الرجوع إلى مصدره الأصلي.</p></div>
       <div><p>يُحدّث النظام مصادر الأخبار دوريًا.</p><p>© <span id="year"></span> سوريا مباشر</p></div>
     </div>
   </footer>
@@ -218,7 +218,7 @@
     }
 
     function placeholder(province) {
-      return '<div class="image-placeholder" aria-label="الصورة غير متاحة"><span class="symbol">🇸🇾</span><span>' + esc(province) + ' · سوريا مباشر</span></div>';
+      return '<div class="image-placeholder" aria-label="الصورة الأصلية غير متاحة"><span class="symbol"><svg class='syria-flag' viewBox='0 0 3 2' role='img' aria-label='علم سوريا الأخضر'><rect width='3' height='2' fill='#fff'/><rect width='3' height='.6667' fill='#007a3d'/><rect y='1.3333' width='3' height='.6667' fill='#000'/><g fill='#ce1126'><path d='M.5 .82l.05.14.15 0-.12.09.05.14-.13-.09-.13.09.05-.14-.12-.09.15 0z'/><path d='M1.5 .82l.05.14.15 0-.12.09.05.14-.13-.09-.13.09.05-.14-.12-.09.15 0z'/><path d='M2.5 .82l.05.14.15 0-.12.09.05.14-.13-.09-.13.09.05-.14-.12-.09.15 0z'/></g></svg></span><span>صورة الخبر غير متاحة · ' + esc(province) + '</span></div>';
     }
 
     function renderNews() {
