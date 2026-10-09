@@ -310,6 +310,15 @@ def read_message_status(chat_id: str, message_id: str) -> tuple[str, str]:
         return "unknown", error or "invalid_response"
     return str(result.get("statusMessage", "unknown")), ""
 
+def validate_whatsapp_group(chat_id: str) -> tuple[bool, str]:
+    result, error = green_request("getGroupData", {"groupId": chat_id})
+    if error:
+        return False, error
+    if not isinstance(result, dict):
+        return False, "invalid_response"
+    resolved_id = str(result.get("groupId", ""))
+    return resolved_id == chat_id, "" if resolved_id == chat_id else "group_id_mismatch"
+
 
 def build_message(item: dict) -> str:
     description = clean_text(item.get("description", "")) or "اضغط على الرابط لقراءة التفاصيل من المصدر الأصلي."
@@ -462,52 +471,66 @@ def main():
     failed_count = 0
 
     if configured and instance_status == "authorized":
-        # Verify queue IDs on later runs instead of falsely equating API acceptance with delivery.
-        for item_url, record in list(pending.items()):
-            message_id = str(record.get("id_message", ""))
-            record_chat = str(record.get("chat_id", chat_id))
-            if not message_id:
-                pending.pop(item_url, None)
-                continue
-            status_message, error = read_message_status(record_chat, message_id)
-            if status_message in ("delivered", "read"):
-                wa_sent_urls.add(item_url)
-                wa_sent_urls_list.append(item_url)
-                pending.pop(item_url, None)
-                delivered_count += 1
-            elif status_message in ("sent", "pending"):
-                record["status"] = status_message
-                record["checked_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
-            elif status_message == "failed":
-                pending.pop(item_url, None)
-                failed_count += 1
-                print("WhatsApp delivery status: failed; item will be retried.")
-            elif error not in ("", "http_400"):
-                print(f"WhatsApp status check failed: {error}")
+        group_valid, group_error = validate_whatsapp_group(chat_id)
+        if not group_valid:
+            print(f"WhatsApp group check failed: {group_error or 'group_id_mismatch'}. Sending paused to avoid targeting the wrong chat.")
+        else:
+            print("WhatsApp group check: valid.")
+            # Verify queue IDs on later runs instead of falsely equating API acceptance with delivery.
+            for item_url, record in list(pending.items()):
+                message_id = str(record.get("id_message", ""))
+                record_chat = str(record.get("chat_id", chat_id))
+                if not message_id:
+                    pending.pop(item_url, None)
+                    continue
+                status_message, error = read_message_status(record_chat, message_id)
+                if status_message in ("delivered", "read"):
+                    wa_sent_urls.add(item_url)
+                    wa_sent_urls_list.append(item_url)
+                    pending.pop(item_url, None)
+                    delivered_count += 1
+                elif status_message in ("sent", "pending"):
+                    record["status"] = status_message
+                    record["checked_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+                elif status_message == "failed":
+                    pending.pop(item_url, None)
+                    failed_count += 1
+                    print("WhatsApp delivery status: failed; item will be retried.")
+                elif error.startswith("http_400:Message not found by id"):
+                    queued_at = parse_iso_datetime(record.get("queued_at", ""))
+                    age = (datetime.now(timezone.utc) - queued_at).total_seconds() if queued_at else 0
+                    if age >= 180:
+                        pending.pop(item_url, None)
+                        failed_count += 1
+                        print("WhatsApp cannot find a queued message after 3 minutes; releasing it for a controlled retry.")
+                    else:
+                        print("WhatsApp message is not yet visible in delivery history; will check again.")
+                elif error:
+                    print(f"WhatsApp status check failed: {error}")
 
-        attempts_this_run = 0
-        for item in old_news.get("items", [])[:MAX_SITE_NEWS]:
-            item_url = item.get("url", "")
-            if not item_url or item_url in wa_sent_urls or item_url in pending:
-                continue
-            message_id, kind, error = post_whatsapp(item)
-            attempts_this_run += 1
-            if message_id:
-                pending[item_url] = {
-                    "id_message": message_id,
-                    "chat_id": chat_id,
-                    "title": clean_text(item.get("title", ""))[:200],
-                    "kind": kind,
-                    "status": "pending",
-                    "queued_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-                }
-                accepted_count += 1
-                print(f"WhatsApp API accepted one {kind} message; waiting for delivery confirmation.")
-            else:
-                failed_count += 1
-                print(f"WhatsApp send failed: {error}")
-            if attempts_this_run >= MAX_NEW_PER_CYCLE:
-                break
+            attempts_this_run = 0
+            for item in old_news.get("items", [])[:MAX_SITE_NEWS]:
+                item_url = item.get("url", "")
+                if not item_url or item_url in wa_sent_urls or item_url in pending:
+                    continue
+                message_id, kind, error = post_whatsapp(item)
+                attempts_this_run += 1
+                if message_id:
+                    pending[item_url] = {
+                        "id_message": message_id,
+                        "chat_id": chat_id,
+                        "title": clean_text(item.get("title", ""))[:200],
+                        "kind": kind,
+                        "status": "pending",
+                        "queued_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                    }
+                    accepted_count += 1
+                    print(f"WhatsApp API accepted one {kind} message; waiting for delivery confirmation.")
+                else:
+                    failed_count += 1
+                    print(f"WhatsApp send failed: {error}")
+                if attempts_this_run >= MAX_NEW_PER_CYCLE:
+                    break
     elif configured:
         print(f"WhatsApp sending skipped because Green-API instance state is {instance_status!r}; no message marked as delivered.")
     else:
