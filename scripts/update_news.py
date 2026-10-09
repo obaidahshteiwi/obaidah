@@ -47,6 +47,19 @@ FEEDS = [
     ("سوريا دايركت", "site:syriadirect.org سوريا"),
     ("The Syrian Observer", "site:syrianobserver.com Syria"),
     ("أورينت", "site:orient-news.net سوريا"),
+    # Additional established regional and international newsrooms.
+    ("رويترز", "site:reuters.com Syria"),
+    ("بي بي سي عربي", "site:bbc.com/arabic سوريا"),
+    ("الجزيرة", "site:aljazeera.net سوريا"),
+    ("فرانس 24 عربي", "site:france24.com/ar سوريا"),
+    ("العربية", "site:alarabiya.net سوريا"),
+    ("الحدث", "site:alhadath.net سوريا"),
+    ("الشرق الأوسط", "site:aawsat.com سوريا"),
+    ("روداو عربي", "site:rudaw.net/arabic سوريا"),
+    ("أسوشيتد برس", "site:apnews.com Syria"),
+    ("وكالة فرانس برس", "site:afp.com سوريا"),
+    ("الشرق للأخبار", "site:asharq.com سوريا"),
+    ("ميدل إيست آي", "site:middleeasteye.net Syria"),
 ]
 DIRECT_FEEDS = [
     ("عنب بلدي RSS", "https://www.enabbaladi.net/feed/"),
