@@ -405,9 +405,32 @@ def resolve_publisher_url(article_url: str, source_home: str = "", article_title
             raw = response.read(700_000).decode("utf-8", errors="replace") if "html" in content_type.lower() else ""
         if not raw:
             return article_url
+        source_host = (urllib.parse.urlparse(source_home).hostname or "").lower()
+        # Google's newer article pages keep the publisher URL in data-n-au (not an <a href>).
+        # Extract that exact article target before considering any other links on the page.
+        raw_unescaped = html.unescape(raw).replace("\\/", "/")
+        raw_unescaped = raw_unescaped.replace("\\u003d", "=").replace("\\u0026", "&").replace("\\u003f", "?")
+        embedded_targets = []
+        for attr in ("data-n-au", "data-article-url", "data-original-url"):
+            embedded_targets.extend(re.findall(rf'{attr}\s*=\s*["\']([^"\']+)["\']', raw_unescaped, flags=re.I))
+        for embedded in embedded_targets:
+            embedded = urllib.parse.unquote(html.unescape(embedded.strip()))
+            embedded = embedded.replace("\\/", "/")
+            candidate = urllib.parse.urljoin(final_url, embedded)
+            p = urllib.parse.urlparse(candidate)
+            candidate_host = (p.hostname or "").lower()
+            same_source = bool(source_host and (
+                candidate_host == source_host
+                or candidate_host.endswith("." + source_host)
+                or source_host.endswith("." + candidate_host)
+            ))
+            path_parts = [part.lower() for part in p.path.strip("/").split("/") if part]
+            blocked_parts = ("category", "tag", "author", "page", "contact", "about", "search", "governorates")
+            if p.scheme in ("http", "https") and candidate_host and same_source and path_parts and not any(part in blocked_parts for part in path_parts):
+                print(f"Publisher URL extracted from Google News article metadata: {candidate_host}.")
+                return candidate
         collector = LinkCollector()
         collector.feed(raw)
-        source_host = (urllib.parse.urlparse(source_home).hostname or "").lower()
         candidates = []
         for href, label in collector.links:
             candidate = urllib.parse.urljoin(final_url, html.unescape(href.strip()))
