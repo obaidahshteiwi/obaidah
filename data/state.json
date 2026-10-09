@@ -5,12 +5,26 @@
     "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBiOFc5aDhtY1o4Mk90dUNncy11a1lWRjdSc25RaEZPNmEwbEluU3RqS2VyYjV5RTB5Ymt0YWV3VG1jakhKM3NEQTBuT2djVTdFSEo4?oc=5",
     "https://news.google.com/rss/articles/CBMiRkFVX3lxTE9uTGc0OVh1REZURGptU1ZVUEpoVnZJd1I3b1o0LTdCV3FZNXhmM2JfRzBqYW1oanVCTkV1NHpySWFlMTdnblE?oc=5"
   ],
-  "whatsapp_sent_urls": [
-    "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBHNTZFdWZfYU1YX0VZYnRWeG1oWXkwQXRkc0J3b3RfdjFPbWdGSmNFbEh6NzduOGpsY3p1TWl2NzQxOFFCRE1IMDhhU3RPZ1UwOV9JdWhCZw?oc=5",
-    "https://news.google.com/rss/articles/CBMiVkFVX3lxTE4xM2VGZDlVRXRqSEtwWmFBYzRZRThsWU8yVGRiOUo2cWx2SEpjVG84Qlg1VWRqR0dVZm5DS1pva29KOENPV19aSTZYSjF2MFJ5bG5IdFl3?oc=5",
-    "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBiOFc5aDhtY1o4Mk90dUNncy11a1lWRjdSc25RaEZPNmEwbEluU3RqS2VyYjV5RTB5Ymt0YWV3VG1jakhKM3NEQTBuT2djVTdFSEo4?oc=5",
-    "https://news.google.com/rss/articles/CBMiRkFVX3lxTE9uTGc0OVh1REZURGptU1ZVUEpoVnZJd1I3b1o0LTdCV3FZNXhmM2JfRzBqYW1oanVCTkV1NHpySWFlMTdnblE?oc=5"
-  ],
+  "whatsapp_sent_urls": [],
+  "whatsapp_pending": {
+    "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBHNTZFdWZfYU1YX0VZYnRWeG1oWXkwQXRkc0J3b3RfdjFPbWdGSmNFbEh6NzduOGpsY3p1TWl2NzQxOFFCRE1IMDhhU3RPZ1UwOV9JdWhCZw?oc=5": {
+      "id_message": "3EB0A41D5897B0CB8D2316",
+      "chat_id": "120363409802320735@g.us",
+      "title": "مباحثات سورية لبنانية لتعزيز التعاون الثقافي بين البلدين - وكالة الأنباء السورية – سانا",
+      "kind": "text",
+      "status": "pending",
+      "queued_at": "2026-10-09T14:31:12+00:00"
+    },
+    "https://news.google.com/rss/articles/CBMiVkFVX3lxTE4xM2VGZDlVRXRqSEtwWmFBYzRZRThsWU8yVGRiOUo2cWx2SEpjVG84Qlg1VWRqR0dVZm5DS1pva29KOENPV19aSTZYSjF2MFJ5bG5IdFl3?oc=5": {
+      "id_message": "3EB0BABECD25E9645A15B6",
+      "chat_id": "120363409802320735@g.us",
+      "title": "انطلاق بطولة الجمهورية للتايكوندو للشابات والسيدات في مدينة الجلاء الرياضية بدمشق - وكالة الأنباء السورية – سانا",
+      "kind": "text",
+      "status": "pending",
+      "queued_at": "2026-10-09T14:31:13+00:00"
+    }
+  },
+  "whatsapp_tracking_version": 2,
   "newest_seen_at": "2026-10-09T13:43:04+00:00",
   "feed_errors": []
 }
