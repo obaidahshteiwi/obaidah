@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-09T15:59:57+00:00",
+  "updated_at": "2026-10-09T16:03:17+00:00",
   "items": [
     {
       "title": "هيكل: “زين” تبدأ عملها في سوريا خلال أيام",
@@ -166,6 +166,26 @@
       "published_at": "2026-10-09T09:55:39+00:00",
       "province": "الحسكة",
       "image_url": "images/news/8cd1a919572c9c3cad774023.webp"
+    },
+    {
+      "title": "وفاة 4 أشخاص وإصابة 33 بحوادث سير خلال الساعات الـ 24 الماضية في سوريا - وكالة الأنباء السورية – سانا",
+      "description": "وفاة 4 أشخاص وإصابة 33 بحوادث سير خلال الساعات الـ 24 الماضية في سوريا وكالة الأنباء السورية – سانا ويقدّم الخبر معلومات إضافية حول الموضوع وفق ما نشره المصدر الأصلي، مع توضيح السياق العام والتفاصيل المتاحة للقراء.",
+      "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE93ZnlselhBSm1LVVdnakNmWFJUWjYyVHpRM0NlWTlEYWM1bHFzM2VYZm5JNFJoVTA4UDBReTdTMERTT2tyN1E?oc=5",
+      "source": "وكالة الأنباء السورية – سانا",
+      "source_home": "https://sana.sy",
+      "feed": "سانا",
+      "published_at": "2026-10-09T09:19:13+00:00",
+      "province": "أخبار عامة"
+    },
+    {
+      "title": "المفكرة الثقافية في سوريا ليوم الجمعة الـ 9 من تشرين الأول 2026 - وكالة الأنباء السورية – سانا",
+      "description": "المفكرة الثقافية في سوريا ليوم الجمعة الـ 9 من تشرين الأول 2026 وكالة الأنباء السورية – سانا ويقدّم الخبر معلومات إضافية حول الموضوع وفق ما نشره المصدر الأصلي، مع توضيح السياق العام والتفاصيل المتاحة للقراء.",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBvLUxfa0xKTEY1ZDNhcDQybHFhQUFwLWNUVHh4QzlnTkpCcndYb0Q1bHVDQ3pTb2VPeFBnbmZNa3BRTGtrMDI1TlhXQmxpWFpXNXBZ?oc=5",
+      "source": "وكالة الأنباء السورية – سانا",
+      "source_home": "https://sana.sy",
+      "feed": "سانا",
+      "published_at": "2026-10-09T09:10:41+00:00",
+      "province": "أخبار عامة"
     }
   ]
 }
