@@ -17,9 +17,11 @@ permissions:
   pages: write
   id-token: write
 
+# Serialize runs instead of cancelling an active run. This prevents concurrent
+# runs from racing to push data/news.json and data/state.json to main.
 concurrency:
   group: "syria-mubasher-pages"
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   update-and-deploy:
