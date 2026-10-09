@@ -30,7 +30,7 @@ MAX_HISTORY = 1000
 MAX_IMAGE_LOOKUPS_PER_CYCLE = 8
 MAX_IMAGE_MIRRORS_PER_CYCLE = 8
 MAX_IMAGE_DOWNLOAD_BYTES = 12_000_000
-IMAGE_LOOKUP_VERSION = 2
+IMAGE_LOOKUP_VERSION = 3
 MAX_DESCRIPTION_LOOKUPS_PER_CYCLE = 3
 REQUEST_TIMEOUT = 12
 WHATSAPP_TRACKING_VERSION = 2
@@ -681,7 +681,34 @@ def extract_wordpress_featured_image(article_url: str) -> str:
                     return value
         except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, OSError, ValueError, json.JSONDecodeError):
             continue
-    print("Publisher WordPress image API was unavailable.")
+    # Some publishers block GitHub runner IPs, including their public REST API.
+    # Jina Reader provides a text rendering of the same exact article; use only its
+    # embedded image URLs, then still validate and mirror the actual image bytes.
+    reader_target = urllib.parse.urlunparse((parsed.scheme or "https", parsed.netloc, parsed.path, "", "", ""))
+    reader_url = "https://r.jina.ai/http://" + urllib.parse.urlparse(reader_target).netloc + urllib.parse.urlparse(reader_target).path
+    request = urllib.request.Request(reader_url, headers={
+        "User-Agent": "Mozilla/5.0 (compatible; SyriaMubasherImageResolver/1.0)",
+        "Accept": "text/plain,text/markdown,text/html,*/*",
+        "X-Return-Format": "html",
+    })
+    try:
+        with urllib.request.urlopen(request, timeout=12) as response:
+            reader_content = response.read(1_000_000).decode("utf-8", errors="replace")
+        reader_parser = ImageMetaParser()
+        reader_parser.feed(reader_content)
+        candidates = [reader_parser.image, reader_parser.fallback]
+        candidates.extend(re.findall(r'!\[[^\]]*\]\((https?://[^)\s]+)', reader_content))
+        candidates.extend(re.findall(r'https?://[^\s"<>]+?\.(?:jpe?g|png|webp)(?:\?[^\s"<>)]*)?', reader_content, flags=re.I))
+        for candidate in candidates:
+            picture = normalize_image_url(str(candidate or ""), article_url)
+            if picture and not is_generic_image_url(picture):
+                image_host = (urllib.parse.urlparse(picture).hostname or "").lower()
+                if image_host and not any(blocked in image_host for blocked in ("google.com", "googleusercontent.com", "gstatic.com")):
+                    print(f"Publisher image found through article-reader fallback: {image_host}.")
+                    return picture
+    except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, OSError, ValueError):
+        pass
+    print("Publisher WordPress API and article-reader image fallbacks were unavailable.")
     return ""
 
 
