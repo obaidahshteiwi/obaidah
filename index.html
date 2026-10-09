@@ -249,9 +249,12 @@
         const source = esc(item.source || item.feed || 'مصدر إخباري');
         const province = provinceOf(item);
         const url = safeUrl(item.url);
-        const image = safeUrl(item.image_url);
+        const remoteImage = safeUrl(item.image_url);
+        const localImage = safeUrl(item.local_image_url);
+        const image = localImage || remoteImage;
+        const fallbackImage = localImage && remoteImage && localImage !== remoteImage ? remoteImage : '';
         const picture = image
-          ? '<img class="story-image" src="' + esc(image) + '" alt="' + title + '" loading="lazy"><div class="image-overlay"></div>'
+          ? '<img class="story-image" src="' + esc(image) + '" data-fallback="' + esc(fallbackImage) + '" alt="' + title + '" loading="lazy"><div class="image-overlay"></div>'
           : placeholder(province);
         return '<article class="story' + (index === 0 && state.province === 'الكل' && !query ? ' featured' : '') + '">' +
           '<div class="image-wrap">' + picture + '<span class="province-overlay">' + esc(province) + '</span></div>' +
@@ -263,6 +266,12 @@
       }).join('');
       grid.querySelectorAll('img.story-image').forEach(img => {
         img.addEventListener('error', () => {
+          const fallback = img.dataset.fallback || '';
+          if (fallback) {
+            img.dataset.fallback = '';
+            img.src = fallback;
+            return;
+          }
           const wrap = img.closest('.image-wrap');
           if (wrap) {
             const province = wrap.querySelector('.province-overlay')?.textContent || 'سوريا';
