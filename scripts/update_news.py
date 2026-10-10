@@ -1688,6 +1688,7 @@ def main():
         "image_download_attempts": image_download_attempts,
         "image_storage_version": IMAGE_STORAGE_VERSION,
         "image_lookup_version": IMAGE_LOOKUP_VERSION,
+        "news_since": news_since.isoformat(timespec="seconds") if news_since else state.get("news_since", ""),
         "newest_seen_at": newest_seen_dt.isoformat(timespec="seconds") if newest_seen_dt else state.get("newest_seen_at", ""),
         "feed_errors": errors,
     }
