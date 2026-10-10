@@ -178,6 +178,7 @@
     "سورياتطالببتحقيقمستقلفيغرقسفينةشحنبالبحرالأسودالشرقللأخبار"
   ],
   "whatsapp_sent_urls": [],
+  "whatsapp_queue": [],
   "whatsapp_pending": {
     "https://www.enabbaladi.net/828558/%d8%a5%d8%b3%d8%b1%d8%a7%d8%a6%d9%8a%d9%84-%d8%aa%d8%b3%d8%aa%d9%87%d8%af%d9%81-%d8%b3%d9%88%d8%b1%d9%8a%d9%8b%d8%a7-%d8%a8%d8%aa%d9%87%d9%85%d8%a9-%d8%a7%d9%84%d8%aa%d8%ae%d8%b7%d9%8a%d8%b7-%d9%84/": {
       "id_message": "3EB08A618D2C7970D5E2A4",
@@ -187,7 +188,7 @@
       "attempts": 1,
       "status": "sent",
       "queued_at": "2026-10-09T20:29:05+00:00",
-      "checked_at": "2026-10-10T04:40:29+00:00"
+      "checked_at": "2026-10-10T04:44:27+00:00"
     },
     "https://www.enabbaladi.net/828562/%d8%ac%d9%85%d8%b9%d8%a9-%d8%a7%d9%84%d8%b9%d9%84%d9%85-%d9%81%d9%8a-%d8%a7%d9%84%d8%ad%d8%b3%d9%83%d8%a9-%d9%84%d9%81%d8%b1%d8%b6-%d8%a7%d9%84%d8%a3%d9%85%d9%86-%d9%88%d8%aa%d8%b9%d8%b2%d9%8a/": {
       "id_message": "3EB0474C0B721FFFA2A973",
@@ -197,7 +198,7 @@
       "attempts": 1,
       "status": "sent",
       "queued_at": "2026-10-09T20:29:05+00:00",
-      "checked_at": "2026-10-10T04:40:29+00:00"
+      "checked_at": "2026-10-10T04:44:28+00:00"
     },
     "https://www.enabbaladi.net/828547/%d8%b3%d9%88%d8%b1%d9%8a%d8%a7-%d9%88%d9%84%d8%a8%d9%86%d8%a7%d9%86-%d8%aa%d9%83%d8%ab%d9%81%d8%a7%d9%86-%d9%85%d9%84%d8%a7%d8%ad%d9%82%d8%a9-%d8%b9%d9%85%d9%84%d9%8a%d8%a7%d8%aa-%d8%a7%d9%84%d8%aa/": {
       "id_message": "3EB0884A75FDE34E036D4B",
@@ -207,7 +208,7 @@
       "attempts": 1,
       "status": "sent",
       "queued_at": "2026-10-09T20:29:05+00:00",
-      "checked_at": "2026-10-10T04:40:30+00:00"
+      "checked_at": "2026-10-10T04:44:28+00:00"
     },
     "https://sana.sy/sport/syrian-sport/2602117/": {
       "id_message": "3EB0B55B245A31D21EA584",
@@ -217,7 +218,7 @@
       "attempts": 1,
       "status": "sent",
       "queued_at": "2026-10-09T20:29:06+00:00",
-      "checked_at": "2026-10-10T04:40:30+00:00"
+      "checked_at": "2026-10-10T04:44:28+00:00"
     },
     "https://sana.sy/politics/2602121/": {
       "id_message": "3EB0C31ACE2FDEFC1BA9B6",
@@ -227,7 +228,7 @@
       "attempts": 1,
       "status": "sent",
       "queued_at": "2026-10-09T20:29:06+00:00",
-      "checked_at": "2026-10-10T04:40:31+00:00"
+      "checked_at": "2026-10-10T04:44:29+00:00"
     },
     "https://news.google.com/rss/articles/CBMiRkFVX3lxTE9OWUlVRFM0aHMxSUlNVHlWbTlqbWVRU3Z3NU16SWFlR2ozN3lLRUFDTW9nbjBRUnpFTS1NbGV6X3ZqOXV4ZUE?oc=5": {
       "id_message": "3EB0446992A59B190782E2",
@@ -237,7 +238,7 @@
       "attempts": 1,
       "status": "sent",
       "queued_at": "2026-10-09T23:29:21+00:00",
-      "checked_at": "2026-10-10T04:40:31+00:00"
+      "checked_at": "2026-10-10T04:44:29+00:00"
     },
     "https://www.enabbaladi.net/828537/%d9%85%d8%a7%d8%b0%d8%a7-%d8%aa%d8%b9%d8%b1%d9%81-%d8%b9%d9%86-%d8%aa%d9%83%d8%a7%d9%84%d9%8a%d9%81-%d8%b6%d9%8a%d8%a7%d9%81%d8%a9-%d8%a7%d9%84%d9%88%d9%81%d9%88%d8%af-%d8%a7%d9%84%d8%a3%d8%ac%d9%86/": {
       "id_message": "3EB04A2396EDC870EDC64D",
@@ -247,7 +248,7 @@
       "attempts": 1,
       "status": "sent",
       "queued_at": "2026-10-09T23:29:21+00:00",
-      "checked_at": "2026-10-10T04:40:32+00:00"
+      "checked_at": "2026-10-10T04:44:30+00:00"
     },
     "https://alwatan.sy/%d8%b3%d9%88%d8%b1%d9%8a%d8%a7-%d8%aa%d8%b4%d8%a7%d8%b1%d9%83-%d8%a8%d9%85%d9%86%d8%aa%d8%af%d9%89-%d8%b6%d9%85%d8%a7%d9%86-%d8%a7%d9%84%d8%ac%d9%88%d8%af%d8%a9-%d9%81%d9%8a-%d8%a7%d9%84%d8%aa%d8%b9/": {
       "id_message": "3EB0C9336D7E8BF71A4B2F",
@@ -257,7 +258,7 @@
       "attempts": 1,
       "status": "sent",
       "queued_at": "2026-10-09T23:29:22+00:00",
-      "checked_at": "2026-10-10T04:40:32+00:00"
+      "checked_at": "2026-10-10T04:44:30+00:00"
     },
     "https://sana.sy/international/2602110/": {
       "id_message": "3EB0207FE0C75B0D978FFE",
@@ -267,7 +268,7 @@
       "attempts": 1,
       "status": "sent",
       "queued_at": "2026-10-09T23:29:22+00:00",
-      "checked_at": "2026-10-10T04:40:33+00:00"
+      "checked_at": "2026-10-10T04:44:31+00:00"
     },
     "https://sana.sy/infographic/2602092/": {
       "id_message": "3EB0F75AD0C87F1C407C34",
@@ -277,7 +278,7 @@
       "attempts": 1,
       "status": "sent",
       "queued_at": "2026-10-09T23:29:22+00:00",
-      "checked_at": "2026-10-10T04:40:33+00:00"
+      "checked_at": "2026-10-10T04:44:31+00:00"
     },
     "https://sana.sy/syria-and-the-world/2602274/": {
       "id_message": "3EB05A3D4063D5B54CA564",
@@ -287,7 +288,7 @@
       "attempts": 1,
       "status": "sent",
       "queued_at": "2026-10-10T02:38:17+00:00",
-      "checked_at": "2026-10-10T04:40:34+00:00"
+      "checked_at": "2026-10-10T04:44:31+00:00"
     },
     "https://www.enabbaladi.net/828518/%d8%a5%d8%ba%d9%84%d8%a7%d9%82-%d9%81%d8%b1%d9%86-%d9%85%d8%b9%d8%b1%d8%af%d8%b3-%d8%a7%d9%84%d9%88%d8%ad%d9%8a%d8%af-15-%d8%a3%d9%84%d9%81-%d9%86%d8%b3%d9%85%d8%a9-%d8%a8%d9%84%d8%a7-%d8%ae%d8%a8/": {
       "id_message": "3EB003E8FC3B62750844CD",
@@ -297,7 +298,7 @@
       "attempts": 1,
       "status": "sent",
       "queued_at": "2026-10-10T02:38:17+00:00",
-      "checked_at": "2026-10-10T04:40:34+00:00"
+      "checked_at": "2026-10-10T04:44:32+00:00"
     },
     "https://sana.sy/reports/2602079/": {
       "id_message": "3EB0456A3A90D82E3048DA",
@@ -307,7 +308,7 @@
       "attempts": 1,
       "status": "sent",
       "queued_at": "2026-10-10T02:38:18+00:00",
-      "checked_at": "2026-10-10T04:40:35+00:00"
+      "checked_at": "2026-10-10T04:44:32+00:00"
     },
     "https://sana.sy/economy/syrian-economy/2602056/": {
       "id_message": "3EB07505B58E1EBE678DB3",
@@ -317,7 +318,7 @@
       "attempts": 1,
       "status": "sent",
       "queued_at": "2026-10-10T02:38:18+00:00",
-      "checked_at": "2026-10-10T04:40:35+00:00"
+      "checked_at": "2026-10-10T04:44:33+00:00"
     },
     "https://sana.sy/reports/2602052/": {
       "id_message": "3EB0F142A9AE1D537483C1",
@@ -327,7 +328,7 @@
       "attempts": 1,
       "status": "sent",
       "queued_at": "2026-10-10T02:38:19+00:00",
-      "checked_at": "2026-10-10T04:40:36+00:00"
+      "checked_at": "2026-10-10T04:44:33+00:00"
     },
     "https://alwatan.sy/%d9%85%d9%81%d9%88%d8%b6%d9%8a%d8%a9-%d8%ad%d9%82%d9%88%d9%82-%d8%a7%d9%84%d8%a5%d9%86%d8%b3%d8%a7%d9%86-%d8%aa%d8%af%d8%b9%d9%88-%d8%a5%d9%84%d9%89-%d9%88%d9%82%d9%81-%d8%a7%d9%84%d8%aa%d9%88/": {
       "id_message": "3EB02DBEBFD9543BF8F3F6",
@@ -337,7 +338,7 @@
       "attempts": 1,
       "status": "sent",
       "queued_at": "2026-10-10T04:34:24+00:00",
-      "checked_at": "2026-10-10T04:40:37+00:00"
+      "checked_at": "2026-10-10T04:44:34+00:00"
     },
     "https://alwatan.sy/%d8%b3%d9%88%d8%b1%d9%8a%d8%a7-%d8%aa%d8%b1%d8%ad%d8%a8-%d8%a8%d8%aa%d8%ac%d8%af%d9%8a%d8%af-%d9%85%d8%ac%d9%84%d8%b3-%d8%a7%d9%84%d8%a3%d9%85%d9%86-%d8%af%d8%b9%d9%88%d8%aa%d9%87-%d8%a5%d9%84%d9%89/": {
       "id_message": "3EB03DCA1D4551E19A206E",
@@ -347,7 +348,7 @@
       "attempts": 1,
       "status": "sent",
       "queued_at": "2026-10-10T04:34:25+00:00",
-      "checked_at": "2026-10-10T04:40:37+00:00"
+      "checked_at": "2026-10-10T04:44:34+00:00"
     },
     "https://news.google.com/rss/articles/CBMiwgJBVV95cUxPanhST0RReFhtdEdGUTNRQnhSSmhQZWhpUW85Z1FGX1dXRlhfQU0xanl3STN2OVhqTmJ5M1E4MVB5bmFqNHNYVGVGVnhONUYtRkdaRDlIM29zMGZQSUstQ0lZS216S05IU20tcUk3dldOZEFpYlR0MUlCU3NpTkltdEhyRnFtRmMzYUcycTJBbTRkSThlSkNPZWdWTWU5ZGZSWjdkaWRYXzZabDh1eEIycVFURlRJN2RzYW9weGVCb1RfQXhYSF9XRlBZc1MtNlJXSndrcUZWRWUteUtjbDV1WTYwTm84ejFhQlhZWkVvYUoxRDJXMG9UTEplSUlqM0J6bS1ibF84QTN0WkF0TUNGcXZNMk42Q3BHdFhOQWlzdEU0SHpQMHp0a1B3RUdka2NVLXhwb3B3ZFpaa3huR1lWZnB30gHHAkFVX3lxTE5VS0FyRjQxTU9MQWNzN1RwdjlUZ2tOd1paTURaZ3JQUG9JQXluUmExR1U2MlliQ1AxdjhQU09qcDNSNWVQYnNNTHB4aFVCUGp4cV9HWlVIMWlaUXd1SVkzM3VwYzdrb2dKcmxYaVpKWnI0RnJqVGhGa28tWmJPYjBqc3oxa1MxOVIwNzBMejdUTHZIa3ZZelhySlA0Zm5aMVVJSmZ1RHp5aUQtOWhxcnFwUlFGY3YwUEt5SXFXOE9naHVFZjd2Ny1zVjBNNkVITDBFMHZfVkhnbEoxLVBkRloxbmRrZnU2QmRKRVBXdmZpMnpENjFmeUt6WktaUE1SVHA4RU1zNXU1QWUxeExhQjlELXdqbkVyamNMU3VwNUhDOFdDWUh3cmcwbmRtZXBaUEZudGVUOTFZZHNTY2FYaDFVVm1ZN3lJdw?oc=5": {
       "id_message": "3EB0A9C8E1707F65BE12DD",
@@ -357,7 +358,7 @@
       "attempts": 1,
       "status": "sent",
       "queued_at": "2026-10-10T04:37:15+00:00",
-      "checked_at": "2026-10-10T04:40:38+00:00"
+      "checked_at": "2026-10-10T04:44:34+00:00"
     },
     "https://www.enabbaladi.net/828533/%d8%a7%d9%84%d8%a3%d9%85%d9%86-%d8%a7%d9%84%d8%b3%d9%88%d8%b1%d9%8a-%d9%8a%d8%b9%d9%84%d9%86-%d8%aa%d9%81%d9%83%d9%8a%d9%83-%d8%ae%d9%84%d9%8a%d8%a9-%d9%84%d8%aa%d9%86%d8%b8%d9%8a%d9%85-%d8%a7%d9%84/": {
       "id_message": "3EB0547EEA784E4E27853E",
@@ -367,7 +368,7 @@
       "attempts": 1,
       "status": "sent",
       "queued_at": "2026-10-10T04:37:15+00:00",
-      "checked_at": "2026-10-10T04:40:38+00:00"
+      "checked_at": "2026-10-10T04:44:35+00:00"
     },
     "https://sana.sy/syria-and-the-world/2601992/": {
       "id_message": "3EB022ABC1725105EF8793",
@@ -375,8 +376,9 @@
       "title": "سوريا ترحب بتأكيد مجلس الأمن على ضرورة الاحترام الكامل لاتفاقية فصل القوات لعام 1974‏",
       "kind": "image",
       "attempts": 1,
-      "status": "pending",
-      "queued_at": "2026-10-10T04:40:38+00:00"
+      "status": "sent",
+      "queued_at": "2026-10-10T04:40:38+00:00",
+      "checked_at": "2026-10-10T04:44:35+00:00"
     },
     "https://www.zamanalwsl.net/news/article/179307": {
       "id_message": "3EB094B68483617B97409A",
@@ -384,8 +386,9 @@
       "title": "سوريا تكشف عن استراتيجية جديدة لمكافحة غسل الأموال وتُعيد تفعيل حساباتها الدولية الكبرى",
       "kind": "image",
       "attempts": 1,
-      "status": "pending",
-      "queued_at": "2026-10-10T04:40:39+00:00"
+      "status": "sent",
+      "queued_at": "2026-10-10T04:40:39+00:00",
+      "checked_at": "2026-10-10T04:44:36+00:00"
     }
   },
   "evolution_sent": {},
