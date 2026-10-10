@@ -1474,6 +1474,21 @@ def main():
     old_news.setdefault("items", [])
     old_news.setdefault("updated_at", "")
 
+    # WhatsApp receives only the same stories newly accepted by the website, never the site archive.
+    whatsapp_queue = state.get("whatsapp_queue", [])
+    if not isinstance(whatsapp_queue, list):
+        whatsapp_queue = []
+    whatsapp_queue = list(dict.fromkeys(str(url) for url in whatsapp_queue if isinstance(url, str) and url))
+    queued_urls = set(whatsapp_queue)
+    for fresh_item in fresh:
+        fresh_title = canonical_title(str(fresh_item.get("title", "")))
+        current_item = next((entry for entry in old_news.get("items", []) if canonical_title(str(entry.get("title", ""))) == fresh_title), None)
+        current_url = str((current_item or fresh_item).get("url", "") or "")
+        if current_url and current_url not in queued_urls and current_url not in wa_sent_urls:
+            whatsapp_queue.append(current_url)
+            queued_urls.add(current_url)
+    queued_items = [item for item in old_news.get("items", []) if str(item.get("url", "") or "") in set(whatsapp_queue)]
+
     evolution_base, evolution_key, evolution_instance, evolution_destinations = evolution_config()
     evolution_configured = bool(evolution_base and evolution_key and evolution_instance and all(chat for _, chat in evolution_destinations))
     settings = whatsapp_settings()
@@ -1490,7 +1505,7 @@ def main():
             instance_status = "evolution_api"
             accepted_count = delivered_count = failed_count = 0
             stories_attempted = 0
-            for item in old_news.get("items", [])[:MAX_SITE_NEWS]:
+            for item in queued_items:
                 item_url = str(item.get("url", "") or "")
                 if not item_url:
                     continue
@@ -1517,6 +1532,7 @@ def main():
                     if item_url not in wa_sent_urls:
                         wa_sent_urls_list.append(item_url)
                     wa_sent_urls.add(item_url)
+                    whatsapp_queue = [queued_url for queued_url in whatsapp_queue if queued_url != item_url]
                 else:
                     all_destinations_sent = False
                 if attempted:
@@ -1597,6 +1613,7 @@ def main():
                     if status_message in ("delivered", "read"):
                         wa_sent_urls.add(item_url)
                         wa_sent_urls_list.append(item_url)
+                        whatsapp_queue = [queued_url for queued_url in whatsapp_queue if queued_url != item_url]
                         pending.pop(item_url, None)
                         delivered_count += 1
                     elif status_message in ("sent", "pending"):
@@ -1621,7 +1638,7 @@ def main():
                         print(f"WhatsApp status check failed: {error}")
 
                 attempts_this_run = 0
-                for item in old_news.get("items", [])[:MAX_SITE_NEWS]:
+                for item in queued_items:
                     item_url = item.get("url", "")
                     attempts_for_item = int(whatsapp_attempt_counts.get(item_url, 0) or 0)
                     if not item_url or item_url in wa_sent_urls or item_url in pending or attempts_for_item >= max_whatsapp_attempts:
@@ -1661,6 +1678,7 @@ def main():
         "published_urls": list(dict.fromkeys(published_urls_list))[-MAX_HISTORY:],
         "published_titles": list(dict.fromkeys(published_titles_list))[-MAX_HISTORY:],
         "whatsapp_sent_urls": list(dict.fromkeys(wa_sent_urls_list))[-MAX_HISTORY:],
+        "whatsapp_queue": list(dict.fromkeys(whatsapp_queue))[-MAX_HISTORY:],
         "whatsapp_pending": pending,
         "evolution_sent": evolution_sent,
         "whatsapp_tracking_version": WHATSAPP_TRACKING_VERSION,
