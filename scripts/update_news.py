@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import email.utils
+import difflib
 import hashlib
 import html
 import io
@@ -27,6 +28,7 @@ NEWS_FILE = DATA / "news.json"
 STATE_FILE = DATA / "state.json"
 WHATSAPP_SETTINGS_FILE = ROOT / "config" / "whatsapp.json"
 MAX_NEW_PER_CYCLE = 2
+TITLE_SIMILARITY_THRESHOLD = 0.90
 MAX_SITE_NEWS = 100
 MAX_HISTORY = 1000
 MAX_IMAGE_LOOKUPS_PER_CYCLE = 8
@@ -884,10 +886,26 @@ def load_json(path: Path, default):
 
 
 def canonical_title(text: str) -> str:
-    value = (text or "").casefold()
+    value = normalize_news_title(text or "").casefold()
     value = re.sub(r"\s*[-–—|]\s*(وكالة الأنباء السورية.*|سانا.*|sana.*|تلفزيون سوريا.*|عنب بلدي.*|زمان الوصل.*|الوطن.*|أورينت.*|syrian observer.*)$", "", value, flags=re.I)
     value = re.sub(r"^(عاجل|خبر عاجل)\s*[:：-]?\s*", "", value)
     return re.sub(r"[^\w\u0600-\u06ff]+", "", value)
+
+
+def titles_are_duplicates(first: str, second: str) -> bool:
+    """Detect identical headlines and small publisher-specific headline variations."""
+    a = canonical_title(first)
+    b = canonical_title(second)
+    if not a or not b:
+        return False
+    if a == b:
+        return True
+    shorter, longer = sorted((a, b), key=len)
+    if len(shorter) >= 24 and shorter in longer:
+        return True
+    if min(len(a), len(b)) < 28:
+        return False
+    return difflib.SequenceMatcher(None, a, b).ratio() >= TITLE_SIMILARITY_THRESHOLD
 
 
 def parse_iso_datetime(value: str):
@@ -1265,11 +1283,23 @@ def main():
     newest_seen_dt = max([value for value in (previous_seen_dt, latest_feed_date) if value is not None], default=None)
     fresh = []
     old_titles = {canonical_title(item.get("title", "")) for item in old_items}
+    # Persist headline history so a story is not republished when a feed changes its URL.
+    published_titles_list = list(state.get("published_titles", []))
+    if not published_titles_list:
+        published_titles_list = [canonical_title(item.get("title", "")) for item in old_items]
+    published_titles = {title for title in published_titles_list if title}
     for item in unique:
         item_dt = parse_iso_datetime(item.get("published_at", ""))
         if item_dt is None or item_dt < cutoff_dt:
             continue
-        if item["url"] in published_urls or canonical_title(item["title"]) in old_titles:
+        item_title = canonical_title(item.get("title", ""))
+        if item["url"] in published_urls or item_title in published_titles or item_title in old_titles:
+            continue
+        if any(titles_are_duplicates(item.get("title", ""), previous.get("title", "")) for previous in old_items):
+            continue
+        if any(titles_are_duplicates(item.get("title", ""), previous_title) for previous_title in published_titles_list[-MAX_HISTORY:]):
+            continue
+        if any(titles_are_duplicates(item.get("title", ""), previous.get("title", "")) for previous in fresh):
             continue
         fresh.append(item)
         if len(fresh) >= MAX_NEW_PER_CYCLE:
@@ -1283,6 +1313,10 @@ def main():
             if item["url"] not in published_urls:
                 published_urls.add(item["url"])
                 published_urls_list.append(item["url"])
+            title_key = canonical_title(item.get("title", ""))
+            if title_key and title_key not in published_titles:
+                published_titles.add(title_key)
+                published_titles_list.append(title_key)
         new_items = list(existing_by_url.values())
         new_items.sort(key=lambda item: item.get("published_at", ""), reverse=True)
         old_news["items"] = new_items[:MAX_SITE_NEWS]
@@ -1621,6 +1655,7 @@ def main():
 
     state_out = {
         "published_urls": list(dict.fromkeys(published_urls_list))[-MAX_HISTORY:],
+        "published_titles": list(dict.fromkeys(published_titles_list))[-MAX_HISTORY:],
         "whatsapp_sent_urls": list(dict.fromkeys(wa_sent_urls_list))[-MAX_HISTORY:],
         "whatsapp_pending": pending,
         "evolution_sent": evolution_sent,
