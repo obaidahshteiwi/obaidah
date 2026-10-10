@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-10T22:15:14+00:00",
+  "updated_at": "2026-10-10T22:29:43+00:00",
   "items": [
     {
       "title": "عاجل | مندوب سوريا الدائم لدى الأمم المتحدة للجزيرة: قرار مجلس الأمن يعد سابقة ويدعم سيادة سوريا على أراضيها - الجزيرة نت",
@@ -260,6 +260,18 @@
       "published_at": "2026-10-10T15:21:01+00:00",
       "province": "اللاذقية",
       "image_url": "https://cdn.enabbaladi.net/arabic/wp-content/uploads/2026/10/%D9%86%D8%A7%D9%8A%D9%81-%D8%A7%D9%84%D8%A5%D8%A8%D8%B1%D8%A7%D9%87%D9%8A%D9%85-10-%D8%AA%D8%B4%D8%B1%D9%8A%D9%86-%D8%A7%D9%84%D8%A3%D9%88%D9%84-2026-150x150.jpg"
+    },
+    {
+      "title": "بطولة الأندية العربية لكرة السلة.. فوز أهلي حلب وخسارة قاسية لحمص الفداء",
+      "description": "استهل فريق أهلي حلب مشاركته في بطولة الأندية العربية لكرة السلة بنسختها الـ38، المقامة في العاصمة اللبنانية بيروت، بفوز على السيب العماني بنتيجة 89-74.",
+      "url": "https://www.syria.tv/%D8%A8%D8%B7%D9%88%D9%84%D8%A9-%D8%A7%D9%84%D8%A3%D9%86%D8%AF%D9%8A%D8%A9-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-%D9%84%D9%83%D8%B1%D8%A9-%D8%A7%D9%84%D8%B3%D9%84%D8%A9-%D9%81%D9%88%D8%B2-%D8%A3%D9%87%D9%84%D9%8A-%D8%AD%D9%84%D8%A8-%D9%88%D8%AE%D8%B3%D8%A7%D8%B1%D8%A9-%D9%82%D8%A7%D8%B3%D9%8A%D8%A9-%D9%84%D8%AD%D9%85%D8%B5-%D8%A7%D9%84%D9%81%D8%AF%D8%A7%D8%A1",
+      "source": "تلفزيون سوريا",
+      "source_home": "https://www.syria.tv",
+      "feed": "تلفزيون سوريا",
+      "published_at": "2026-10-10T15:18:45+00:00",
+      "province": "حلب",
+      "image_url": "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/Fotoram.io%20%281%29.jpg?itok=6ercapOT",
+      "local_image_url": "images/news/3253597fe138c9538909dbca.webp"
     },
     {
       "title": "حصر القبول في بعض الاختصاصات بالذكور يثير انتقادات في سوريا - الشرق الأوسط",
@@ -1095,16 +1107,6 @@
       "province": "دمشق",
       "image_url": "https://cdn.sananews.sy/2026/10/2N4A9588-1-1024x683.jpg",
       "local_image_url": "images/news/9d51c597a658f545dc1a2c1d.webp"
-    },
-    {
-      "title": "درجات الحرارة أعلى من معدلاتها في عموم سوريا وزخات مطرية محتملة في بعض ‏المناطق",
-      "description": "درجات الحرارة أعلى من معدلاتها في عموم سوريا وزخات مطرية محتملة في بعض ‏المناطق وكالة الأنباء السورية – سانا. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
-      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1URlNoYVBTSlFlNHh5ejI5dlQ4NVZRcnVtc0VWaVhQUHZrdzY1Ym9Ba19sN1pXekNtaGx4REhCeFp3aURLanc5N3RtMDU4dw?oc=5",
-      "source": "وكالة الأنباء السورية – سانا",
-      "source_home": "https://sana.sy",
-      "feed": "سانا",
-      "published_at": "2026-10-09T06:02:00+00:00",
-      "province": "أخبار عامة"
     }
   ]
 }
