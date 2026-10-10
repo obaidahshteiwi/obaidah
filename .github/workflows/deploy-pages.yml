@@ -1,5 +1,5 @@
 name: Syria Mubasher - RSS and Website
-# Scheduled every five minutes; this harmless workflow update triggers an immediate run.
+# Scheduled every five minutes, offset from the top of the hour to reduce delays.
 # Manual publication updates to the site should trigger a fresh Pages deployment.
 
 on:
@@ -10,7 +10,7 @@ on:
       - "data/state.json"
       - "images/**"
   schedule:
-    - cron: "2-59/5 * * * *"
+    - cron: "3-58/5 * * * *"
   workflow_dispatch:
 
 permissions:
