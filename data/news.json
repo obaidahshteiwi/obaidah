@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-10T23:18:29+00:00",
+  "updated_at": "2026-10-10T23:24:00+00:00",
   "items": [
     {
       "title": "سوريا.. تساؤلات بعد نقل تمثال صلاح الدين الأيوبي - الشرق للأخبار",
@@ -44,6 +44,18 @@
       "province": "أخبار عامة",
       "image_url": "https://cdn.sananews.sy/2026/10/20261010_185503-768x576-1.png",
       "local_image_url": "images/news/e9fd7c8217c4d94e72c866fb.webp"
+    },
+    {
+      "title": "مكاتب الصرافة غير المرخصة.. ما تأثيرها على الاقتصاد السوري؟",
+      "description": "حذّر الخبير الاقتصادي الدكتور زياد عربش من تداعيات استمرار عمل مكاتب صرافة وحوالات مالية من دون ترخيص في سوريا، معتبراً أن تنظيم القطاع المصرفي...",
+      "url": "https://www.syria.tv/%D9%85%D9%83%D8%A7%D8%AA%D8%A8-%D8%A7%D9%84%D8%B5%D8%B1%D8%A7%D9%81%D8%A9-%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%B1%D8%AE%D8%B5%D8%A9-%D9%85%D8%A7-%D8%AA%D8%A3%D8%AB%D9%8A%D8%B1%D9%87%D8%A7-%D8%B9%D9%84%D9%89-%D8%A7%D9%84%D8%A7%D9%82%D8%AA%D8%B5%D8%A7%D8%AF-%D8%A7%D9%84%D8%B3%D9%88%D8%B1%D9%8A%D8%9F",
+      "source": "تلفزيون سوريا",
+      "source_home": "https://www.syria.tv",
+      "feed": "تلفزيون سوريا",
+      "published_at": "2026-10-10T19:44:51+00:00",
+      "province": "أخبار عامة",
+      "image_url": "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/Wide_1.jpg?itok=M6zZtdRs",
+      "local_image_url": "images/news/b045853594512b079969e0ad.webp"
     },
     {
       "title": "القائم بأعمال السفارة السورية في بيروت يجري جولة في منطقة البقاع لتفعيل الشراكة",
@@ -1095,16 +1107,6 @@
       "province": "أخبار عامة",
       "image_url": "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/%D8%A7%D9%84%D9%84%D9%8A%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%D9%8A%D8%A9%20%D8%AC%D8%AF%D9%8A%D8%AF%201111.png?itok=zG77TtoB",
       "local_image_url": "images/news/c1a0a8efb2a207fb9528b2fe.webp"
-    },
-    {
-      "title": "سوريا تطالب بتحقيق مستقل في غرق سفينة شحن بالبحر الأسود - الشرق للأخبار",
-      "description": "سوريا تطالب بتحقيق مستقل في غرق سفينة شحن بالبحر الأسود الشرق للأخبار. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
-      "url": "https://news.google.com/rss/articles/CBMiyANBVV95cUxPcEt5Q1J6S1pJaW9uX1FuSHVMVlRNT3V2ejBvd0J4d0tlTlZwWkluaGFlU2VwenRYNHFWbldsRGFHMFJ0RTg0NjNOV1pBbkVjT0hxQkpROG1IYTZYdU82YXZESDF5Y0J1WExXT05ZUXI5UzdiWTFaT3VKd25pYThodzduejJYMUNIZkloUjk1cnlKTHluTHdnODI1amowbW1Lckl0TXg3UFdtUFRuR3hxdlE4cWJiNkpSTVl5Q1U3YTdvaW42YkJFQnp4WjY2bUxMdE1VVjJVSUh5ei1mZ051Zmxnc3Jfb0FrVVVrTE05RmtYT2V2cFVDdzBSTjNJWnBKaUpOUUdvZmJwMDFBZHI5b21RNVR5WlNPc0NNdklJeUtHdjBpZGxjWG5YU0VQYTNsTzdvZXpsVmY5ZXl5b1ZqOG5maFFfMUtWSTYtOW5ONXFvU1dnN2VfTjAyQjNrS29VX0FkMGo4VlpZVkRQbGxseFZSODJKdkRLX3BURlhMel9xVDBteXRjN2dQdHpPdDNWQVFodkV1dUpRNFlzbS1Dd0ZPVDVHSGs5UVQ5aDlZeDJIVk56WmJtUEZwN3NmNnhmRk9KSHo3V04?oc=5",
-      "source": "الشرق للأخبار",
-      "source_home": "https://asharq.com",
-      "feed": "الشرق للأخبار",
-      "published_at": "2026-10-09T07:26:02+00:00",
-      "province": "أخبار عامة"
     }
   ]
 }
