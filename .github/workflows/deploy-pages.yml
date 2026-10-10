@@ -1,5 +1,5 @@
 name: Syria Mubasher - RSS and Website
-# Scheduled every five minutes, offset from the top of the hour to reduce delays.
+# Scheduled every five minutes, offset from the top of the hour. An auto-dispatch loop is a fallback.
 # Manual publication updates to the site should trigger a fresh Pages deployment.
 
 on:
@@ -12,8 +12,15 @@ on:
   schedule:
     - cron: "3-58/5 * * * *"
   workflow_dispatch:
+    inputs:
+      continue_loop:
+        description: "Internal switch used by the automatic update loop"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
+  actions: write
   contents: write
   pages: write
   id-token: write
@@ -86,3 +93,55 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # Start a self-recovering five-minute cycle only when the workflow file
+      # itself is changed, or when the previous cycle explicitly dispatches it.
+      # Ordinary scheduled runs do not create extra loops.
+      - name: Continue automatic update loop
+        if: always() && ((github.event_name == 'push' && contains(github.event.head_commit.modified, '.github/workflows/deploy-pages.yml')) || (github.event_name == 'workflow_dispatch' && inputs.continue_loop))
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          # The news/deploy work usually takes about two minutes; this delay
+          # makes the next cycle start about every five minutes.
+          sleep 160
+          python - <<'PY'
+          import json
+          import os
+          import sys
+          import time
+          import urllib.error
+          import urllib.request
+
+          token = os.environ["GH_TOKEN"]
+          repo = os.environ["REPOSITORY"]
+          url = f"https://api.github.com/repos/{repo}/actions/workflows/deploy-pages.yml/dispatches"
+          payload = json.dumps({"ref": "main", "inputs": {"continue_loop": True}}).encode("utf-8")
+
+          for attempt in range(1, 4):
+              request = urllib.request.Request(
+                  url,
+                  data=payload,
+                  headers={
+                      "Accept": "application/vnd.github+json",
+                      "Authorization": f"Bearer {token}",
+                      "X-GitHub-Api-Version": "2022-11-28",
+                      "Content-Type": "application/json",
+                  },
+                  method="POST",
+              )
+              try:
+                  with urllib.request.urlopen(request, timeout=20) as response:
+                      if response.status == 204:
+                          print("Next automatic update cycle dispatched.")
+                          break
+                      print(f"GitHub returned unexpected HTTP status {response.status}.")
+              except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError) as exc:
+                  print(f"Dispatch attempt {attempt}/3 failed: {type(exc).__name__}: {exc}")
+              if attempt < 3:
+                  time.sleep(10)
+          else:
+              print("Could not dispatch the next cycle after three attempts.")
+              sys.exit(1)
+          PY
