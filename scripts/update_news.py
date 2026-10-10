@@ -1275,8 +1275,12 @@ def main():
             existing_changes = True
     run_now = datetime.now(timezone.utc)
     previous_seen_dt = parse_iso_datetime(state.get("newest_seen_at", ""))
-    # Allow recovery from delayed or skipped RSS cycles while avoiding a large historical backfill.
-    cutoff_dt = run_now - timedelta(hours=24)
+    # Only publish articles published from the activation time onward; never backfill older news.
+    news_since = parse_iso_datetime(state.get("news_since", ""))
+    if news_since is None:
+        news_since = run_now
+        state["news_since"] = news_since.isoformat(timespec="seconds")
+    cutoff_dt = news_since
     published_dates = [parse_iso_datetime(item.get("published_at", "")) for item in unique]
     published_dates = [value for value in published_dates if value is not None]
     latest_feed_date = max(published_dates) if published_dates else previous_seen_dt
