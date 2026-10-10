@@ -73,18 +73,15 @@ jobs:
           fi
 
       - name: Configure GitHub Pages
-        if: steps.data_commit.outputs.changed == 'true' || github.event_name != 'schedule'
         uses: actions/configure-pages@v5
         with:
           enablement: true
 
       - name: Upload website files
-        if: steps.data_commit.outputs.changed == 'true' || github.event_name != 'schedule'
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
 
       - name: Deploy to GitHub Pages
-        if: steps.data_commit.outputs.changed == 'true' || github.event_name != 'schedule'
         id: deployment
         uses: actions/deploy-pages@v4
