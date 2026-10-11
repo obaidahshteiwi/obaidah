@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-11T08:16:10+00:00",
+  "updated_at": "2026-10-11T08:21:03+00:00",
   "items": [
     {
       "title": "إصابة 20 شخصاً جراء حوادث سير وحرائق في سوريا ‏خلال الـ 24 ساعة الماضية",
@@ -35,6 +35,18 @@
       "province": "أخبار عامة",
       "image_url": "https://cdn.sananews.sy/2026/10/WSS3975-1024x683.jpg",
       "local_image_url": "images/news/4aa960755c76d816cd399e29.webp"
+    },
+    {
+      "title": "أيهما الأنسب للمرحلة المقبلة .. المصارف التخصصية أم الشمولية؟",
+      "description": "‌‏مع إعادة هيكلة القطاع المصرفي السوري، يعود الجدل حول مستقبل المصارف المتخصصة، الزراعي والصناعي والتوفير، ومدى قدرتها على مواكبة التحولات الاقتصادية والمصرفية. وبين التمسك بدورها التنموي والتوجه نحو المصارف الشاملة، تبرز الحاجة إلى نموذج يوازن بين الكفاءة المصرفية ومتطلبات التنمية، من دون التفريط بتمويل القطاعات الإنتاجية والشرائح المحدودة الدخل. ‌‏التخصص لا يكفي ‌‏وفي تصريح لـ«الوطن»، […]",
+      "url": "https://alwatan.sy/%d8%a3%d9%8a%d9%87%d9%85%d8%a7-%d8%a7%d9%84%d8%a3%d9%86%d8%b3%d8%a8-%d9%84%d9%84%d9%85%d8%b1%d8%ad%d9%84%d8%a9-%d8%a7%d9%84%d9%85%d9%82%d8%a8%d9%84%d8%a9-%d8%a7%d9%84%d9%85%d8%b5%d8%a7%d8%b1%d9%81/",
+      "source": "صحيفة الوطن السورية",
+      "source_home": "https://alwatan.sy",
+      "feed": "الوطن",
+      "published_at": "2026-10-11T07:23:55+00:00",
+      "province": "أخبار عامة",
+      "image_url": "https://alwatan.sy/wp-content/uploads/2026/01/%D9%85%D8%B5%D8%B1%D9%81-%D8%B3%D9%88%D8%B1%D9%8A%D8%A7-%D8%A7%D9%84%D9%85%D8%B1%D9%83%D8%B2%D9%8A.jpg",
+      "local_image_url": "images/news/209da7aaaaabd249a8466760.webp"
     },
     {
       "title": "مصرف سوريا يوجه 755 إنذاراً لمزاولي الصرافة في عدة محافظات - العربية",
@@ -1101,16 +1113,6 @@
       "province": "أخبار عامة",
       "image_url": "https://cdn.sananews.sy/2026/10/photo_2026-10-08_22-40-41-3.jpg",
       "local_image_url": "images/news/b8e7e68bbef68a1f1a2836f7.webp"
-    },
-    {
-      "title": "السعودية تهيئ مسارات جديدة لدخول شركاتها إلى السوق السورية - الشرق الأوسط",
-      "description": "السعودية تهيئ مسارات جديدة لدخول شركاتها إلى السوق السورية الشرق الأوسط. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
-      "url": "https://news.google.com/rss/articles/CBMinARBVV95cUxNRUtLeXhYMUdVOHZvMTI3V0dBaHZiQV9ZWG05TUtHUE94UUpLVmxYMmF2S0dyUzd4WmtyQ2VyQ0xENkJDNU45T3AzZXd1djcxME93TU9sSnh1bVdCczRnclBMNVNxT3VTUExfdGp5bXZCUzlGbGhwbUpRNkFULXBsbmVURkx4MXgxcjIydUFva2g2cUdXRUxJT2xlTWNHRWpOdTExU01ybHVvZ0EwQTRjMm85TUdJenI1QXhrcjYwbkFEQm1scUFLUjJxVE9WeXJNVFNrdWlOaDJ5TTdvRU9wZXFNdlFtdDJaeENrekFiMUx0NHdnUVNkLTFwV2o5VmFBbDk1bHEyODhnZFFVVng5LVdSVFd1bnhHZEJrc1NLbkpJMzhhRjRQOVotMTIwNHRicHk0bDB3aUFUNU9CZnFVTTZRVE8zdC1sTHE1M3BTRG13cVVwRGVZM0ZoRUx1bW9DaVgxVDg5bkNkYXNFZFpiRzVTVnA4WjRwMHFtWk5VWXF1LXVkODVoM19JWjEzZnh0UU81aVd0NDRscEZ4WHdwamI2dG9TbnNua1FCb0hfVGZ1dk9BVF9QWEcycndtNFhvZ0hZcmVLc0VUNjhtdUY4WDcxY1l2QUdOcjRxZzRjV1ZIbDdzcXBlVVhzQ1FrRTczcTFuTVhwbFA4Z1dyeEFIZUxSTy1jTjVEOWk1ZW45cFdWVU1vYXVHVFVxMHQ?oc=5",
-      "source": "الشرق الأوسط",
-      "source_home": "https://aawsat.com",
-      "feed": "الشرق الأوسط",
-      "published_at": "2026-10-09T11:29:08+00:00",
-      "province": "أخبار عامة"
     }
   ]
 }
