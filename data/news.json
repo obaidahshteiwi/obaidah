@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-11T12:42:50+00:00",
+  "updated_at": "2026-10-11T12:48:12+00:00",
   "items": [
     {
       "title": "أمطار غزيرة وعواصف غبارية.. سوريا تواجه اضطرابات جوية",
@@ -191,6 +191,16 @@
       "image_url": "https://cdn.enabbaladi.net/arabic/wp-content/uploads/2026/10/%D9%88%D9%82%D9%81%D8%A9-%D8%A7%D8%AD%D8%AA%D8%AC%D8%A7%D8%AC%D9%8A%D8%A9-%D9%81%D9%8A-%D9%85%D8%AF%D9%8A%D9%86%D8%A9-%D9%85%D8%B9%D8%B6%D9%85%D9%8A%D8%A9-%D8%A7%D9%84%D8%B4%D8%A7%D9%85-%D8%A8%D8%B1%D9%8A%D9%81-%D8%AF%D9%85%D8%B4%D9%82-150x150.jpg"
     },
     {
+      "title": "سدود اللاذقية تحتفظ بـ65% من طاقتها.. تقييم “أولي” إيجابي",
+      "description": "اللاذقية – آلاء شعبو تحتفظ سدود محافظة اللاذقية بنحو 238.2 مليون متر مكعب من المياه، تعادل 65.01% من إجمالي طاقتها […]",
+      "url": "https://www.enabbaladi.net/828591/%d8%b3%d8%af%d9%88%d8%af-%d8%a7%d9%84%d9%84%d8%a7%d8%b0%d9%82%d9%8a%d8%a9-%d8%aa%d8%ad%d8%aa%d9%81%d8%b8-%d8%a8%d9%8065-%d9%85%d9%86-%d8%b7%d8%a7%d9%82%d8%aa%d9%87%d8%a7-%d8%aa%d9%82%d9%8a%d9%8a/",
+      "source": "عنب بلدي RSS",
+      "source_home": "",
+      "feed": "عنب بلدي RSS",
+      "published_at": "2026-10-11T09:58:34+00:00",
+      "province": "اللاذقية"
+    },
+    {
       "title": "قوة للاحتلال الإسرائيلي تتوغل في وادي عابدين بريف درعا الغربي",
       "description": "توغلت قوة للاحتلال الإسرائيلي، مؤلفة من ثلاث سيارات عسكرية اليوم الأحد، في الوادي المحاذي لقرية عابدين بمنطقة حوض اليرموك في ريف درعا الغربي، ومنعت المزارعين من ممارسة أعمالهم الزراعية في الوادي.",
       "url": "https://sana.sy/locals/2603266/",
@@ -201,6 +211,18 @@
       "province": "درعا",
       "image_url": "https://cdn.sananews.sy/2026/10/photo_2026-10-11_12-50-57.jpg",
       "local_image_url": "images/news/48015faa353050ef984c553c.webp"
+    },
+    {
+      "title": "باحث في “جسور”: زيارة الشيباني إلى بنغازي تعزيز للعلاقات العربية وفرص جديدة للتعاون المشترك",
+      "description": "قال الباحث في مركز جسور للدراسات، وائل علوان، حول زيارة وزير الخارجية أسعد الشيباني إلى بنغازي الليبية، إن وزارة الخارجية السورية تسعى إلى تعزيز العلاقات العربية، مشيرا إلى أن الوزير الشيباني أبدى اهتماماً كبيراً جداً بإعادة فتح السفارة السورية في ليبيا، كما أنه مهتم بفتح السفارات السورية في جميع الدول العربية. وأضاف علوان في تصريح […]",
+      "url": "https://alwatan.sy/%d8%a8%d8%a7%d8%ad%d8%ab-%d9%81%d9%8a-%d8%ac%d8%b3%d9%88%d8%b1-%d8%b2%d9%8a%d8%a7%d8%b1%d8%a9-%d8%a7%d9%84%d8%b4%d9%8a%d8%a8%d8%a7%d9%86%d9%8a-%d8%a5%d9%84%d9%89-%d8%a8%d9%86%d8%ba%d8%a7%d8%b2/",
+      "source": "صحيفة الوطن السورية",
+      "source_home": "https://alwatan.sy",
+      "feed": "الوطن",
+      "published_at": "2026-10-11T09:44:44+00:00",
+      "province": "أخبار عامة",
+      "image_url": "https://alwatan.sy/wp-content/uploads/2026/07/%D9%88%D8%A7%D8%A6%D9%84-%D8%B9%D9%84%D9%88%D8%A7%D9%86.jpg",
+      "local_image_url": "images/news/d899b13bca4064e5bc42b3f9.webp"
     },
     {
       "title": "إصدارات سورية حديثة",
@@ -1089,28 +1111,6 @@
       "province": "دمشق",
       "image_url": "https://cdn.sananews.sy/2026/10/350A9635-1-1024x683.jpg",
       "local_image_url": "images/news/81d4b2a652c7333fb2bf8da1.webp"
-    },
-    {
-      "title": "كيف استعاد البريد السوري مسارات الطرود.. 164 مكتباً وخدمات جديدة نحو دول العالم",
-      "description": "استعاد البريد السوري خدمة نقل الطرود بين المحافظات، وأعاد فتح مسارات الإرسال والاستقبال الدولي، بالتوازي مع توسيع شبكة مكاتبه وتطوير خدماته المالية والرقمية، وإبرام اتفاقيات تعاون مع جهات ودول عربية، في خطوات تستهدف تعزيز ارتباطه بالمواطنين والأسواق الخارجية.",
-      "url": "https://sana.sy/reports/2602052/",
-      "source": "وكالة الأنباء السورية – سانا",
-      "source_home": "https://sana.sy",
-      "feed": "سانا",
-      "published_at": "2026-10-09T18:39:55+00:00",
-      "province": "أخبار عامة",
-      "image_url": "https://cdn.sananews.sy/2026/10/photo_2026-06-11_17-59-05.jpg",
-      "local_image_url": "images/news/48544c420cbcedf93d4745f8.webp"
-    },
-    {
-      "title": "صور فضائية ترصد استجابة سدود جنوبي سوريا لأزمة الجفاف والتلوث - الجزيرة نت",
-      "description": "صور فضائية ترصد استجابة سدود جنوبي سوريا لأزمة الجفاف والتلوث الجزيرة نت. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
-      "url": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxPanhST0RReFhtdEdGUTNRQnhSSmhQZWhpUW85Z1FGX1dXRlhfQU0xanl3STN2OVhqTmJ5M1E4MVB5bmFqNHNYVGVGVnhONUYtRkdaRDlIM29zMGZQSUstQ0lZS216S05IU20tcUk3dldOZEFpYlR0MUlCU3NpTkltdEhyRnFtRmMzYUcycTJBbTRkSThlSkNPZWdWTWU5ZGZSWjdkaWRYXzZabDh1eEIycVFURlRJN2RzYW9weGVCb1RfQXhYSF9XRlBZc1MtNlJXSndrcUZWRWUteUtjbDV1WTYwTm84ejFhQlhZWkVvYUoxRDJXMG9UTEplSUlqM0J6bS1ibF84QTN0WkF0TUNGcXZNMk42Q3BHdFhOQWlzdEU0SHpQMHp0a1B3RUdka2NVLXhwb3B3ZFpaa3huR1lWZnB30gHHAkFVX3lxTE5VS0FyRjQxTU9MQWNzN1RwdjlUZ2tOd1paTURaZ3JQUG9JQXluUmExR1U2MlliQ1AxdjhQU09qcDNSNWVQYnNNTHB4aFVCUGp4cV9HWlVIMWlaUXd1SVkzM3VwYzdrb2dKcmxYaVpKWnI0RnJqVGhGa28tWmJPYjBqc3oxa1MxOVIwNzBMejdUTHZIa3ZZelhySlA0Zm5aMVVJSmZ1RHp5aUQtOWhxcnFwUlFGY3YwUEt5SXFXOE9naHVFZjd2Ny1zVjBNNkVITDBFMHZfVkhnbEoxLVBkRloxbmRrZnU2QmRKRVBXdmZpMnpENjFmeUt6WktaUE1SVHA4RU1zNXU1QWUxeExhQjlELXdqbkVyamNMU3VwNUhDOFdDWUh3cmcwbmRtZXBaUEZudGVUOTFZZHNTY2FYaDFVVm1ZN3lJdw?oc=5",
-      "source": "الجزيرة نت",
-      "source_home": "https://www.aljazeera.net",
-      "feed": "الجزيرة",
-      "published_at": "2026-10-09T18:22:30+00:00",
-      "province": "أخبار عامة"
     }
   ]
 }
