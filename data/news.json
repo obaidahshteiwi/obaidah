@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-11T16:29:54+00:00",
+  "updated_at": "2026-10-11T16:38:52+00:00",
   "items": [
     {
       "title": "حلب.. شكاوى السكن الجامعي تتجدد وسط محدودية القدرة الاستيعابية",
@@ -86,6 +86,27 @@
       "source_home": "https://www.aljazeera.net",
       "feed": "الجزيرة",
       "published_at": "2026-10-11T14:51:56+00:00",
+      "province": "أخبار عامة"
+    },
+    {
+      "title": "قلعة “القدموس”.. صمدت لقرون وضعضعها الزلزال الأخير",
+      "description": "عنب بلدي – شعبان شاميه تشكّل قلعة “القدموس” الأثرية في محافظة طرطوس نموذجًا فريدًا للقلاع العسكرية الشاهقة، إذ تجمع بين […]",
+      "url": "https://www.enabbaladi.net/828712/%d9%82%d9%84%d8%b9%d8%a9-%d8%a7%d9%84%d9%82%d8%af%d9%85%d9%88%d8%b3-%d8%b5%d9%85%d8%af%d8%aa-%d9%84%d9%82%d8%b1%d9%88%d9%86-%d9%88%d8%b6%d8%b9%d8%b6%d8%b9%d9%87%d8%a7-%d8%a7%d9%84%d8%b2%d9%84/",
+      "source": "عنب بلدي RSS",
+      "source_home": "",
+      "feed": "عنب بلدي RSS",
+      "published_at": "2026-10-11T14:21:21+00:00",
+      "province": "طرطوس",
+      "image_url": "https://cdn.enabbaladi.net/arabic/wp-content/uploads/2026/10/Al-Qadmus-Castle-150x150.jpg"
+    },
+    {
+      "title": "“الميكرو دراما”.. مسار موازٍ يختبر مستقبل الدراما السورية",
+      "description": "عنب بلدي – أمير حقوق لم تعد “الميكرو دراما” تجربة هامشية في المشهد الدرامي السوري، بعدما اكتسبت حضورًا أوضح خلال […]",
+      "url": "https://www.enabbaladi.net/828635/%d8%a7%d9%84%d9%85%d9%8a%d9%83%d8%b1%d9%88-%d8%af%d8%b1%d8%a7%d9%85%d8%a7-%d9%85%d8%b3%d8%a7%d8%b1-%d9%85%d9%88%d8%a7%d8%b2%d9%8d-%d9%8a%d8%ae%d8%aa%d8%a8%d8%b1-%d9%85%d8%b3%d8%aa%d9%82%d8%a8/",
+      "source": "عنب بلدي RSS",
+      "source_home": "",
+      "feed": "عنب بلدي RSS",
+      "published_at": "2026-10-11T14:10:58+00:00",
       "province": "أخبار عامة"
     },
     {
@@ -1084,28 +1105,6 @@
       "province": "حلب",
       "image_url": "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/Fotoram.io%20%281%29.jpg?itok=6ercapOT",
       "local_image_url": "images/news/3253597fe138c9538909dbca.webp"
-    },
-    {
-      "title": "واشنطن ترحب بخطوات سوريا لتحديث قانون العمل وتبحث آفاق الدعم التنموي",
-      "description": "رحّب مسؤولون أميركيون بالخطوات السورية الرامية إلى تحديث قانون العمل الموروث من عهد نظام الأسد المخلوع، معربين عن تطلعهم إلى دعم مشاريع تنموية في سوريا عبر ..",
-      "url": "https://www.syria.tv/%D9%88%D8%A7%D8%B4%D9%86%D8%B7%D9%86-%D8%AA%D8%B1%D8%AD%D8%A8-%D8%A8%D8%AE%D8%B7%D9%88%D8%A7%D8%AA-%D8%B3%D9%88%D8%B1%D9%8A%D8%A7-%D9%84%D8%AA%D8%AD%D8%AF%D9%8A%D8%AB-%D9%82%D8%A7%D9%86%D9%88%D9%86-%D8%A7%D9%84%D8%B9%D9%85%D9%84-%D9%88%D8%AA%D8%A8%D8%AD%D8%AB-%D8%A2%D9%81%D8%A7%D9%82-%D8%A7%D9%84%D8%AF%D8%B9%D9%85-%D8%A7%D9%84%D8%AA%D9%86%D9%85%D9%88%D9%8A",
-      "source": "تلفزيون سوريا",
-      "source_home": "https://www.syria.tv",
-      "feed": "تلفزيون سوريا",
-      "published_at": "2026-10-10T14:58:44+00:00",
-      "province": "أخبار عامة",
-      "image_url": "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%B4%D8%A4%D9%88%D9%86-860x573-1.jpg?itok=yzC9qSGp",
-      "local_image_url": "images/news/1192ff946391fb63e45e994c.webp"
-    },
-    {
-      "title": "حصر القبول في بعض الاختصاصات بالذكور يثير انتقادات في سوريا - الشرق الأوسط",
-      "description": "حصر القبول في بعض الاختصاصات بالذكور يثير انتقادات في سوريا الشرق الأوسط. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
-      "url": "https://news.google.com/rss/articles/CBMiogVBVV95cUxPVVBOVDdlS0NhVnlhUUh3SUM3NFZWR0Q3ZHRSd2dRV1FOYVViUmUzdnlJVFU4MldEaWlfaVo3bWJqTkZmcGNwU1FmeFRnaS14NmtWMEdoSWMxa0I4VmswODZ3Qmlyb2RjcUpibHNpUlAtUzdHZlBfOXpLS3U1aENpR3M5WmNGeUdNVUUzMEJoZ2tpQkRhYWpSOXlmRnJ4Q2FKSk9KY1VtRXdlbE40ajZPWjFqWWMtSEc5Q05GX2F6MjB5N2N0cF9ycHQyVGpmbFZrUUFBRnhicVczYXV4QTFDR200TDZQTTNkSFNjdTg1VFR3UDZzbGJBS01xamRIa2g3U2lXN0p4b0dIWXlPR19JVDI2b2lNVzNlQUZZNXM1MnJnLXVVYzFuRFBZMTVxNW5vQy1CandxMGZNdWk5WXFYV096MVBvdElMSFc0M1VQT3I2ZG1Mc2ZaVGZfVFZjQ0lyOTJWWHBuWWV1d1ppdW90WV9ld0RPcVRndFJGWmM1NUpBU0VpMUZhZ0VacngwVW9GTjlUazdsS3NvcjRXOG9iRzBqN1NFcGFJQlBhUE81NlYzeGt5bDA1czZFaGdFS0xnZ0p2YzdmbXFra3BnUWlxNk41V3Fvb1lmSjdnb0FwTElpVkUyVmhTeEIwcW42b1MwY3JWU0Zoc3BQSmwyV3B6cjk5NFpRRDhJMHF2QnhPSVJuTzl0REdfek9GelllckowbWRiQUd1OHZsdjlQb2YwYmdwaGlDdGNIQkI2QWhDazF2VzdYLVlOOXBFX3lmNkVNdzg5OWJwUnlxU1ZzRmU1RFZHcU01dW1vMzZ1UFczVEV3OVpucXNELTcweDFBY3RHeEtuc3YxR2xDeVBJQVJ4TFNKdnFLRDl0Qnc3WHF6RVV3UQ?oc=5",
-      "source": "الشرق الأوسط",
-      "source_home": "https://aawsat.com",
-      "feed": "الشرق الأوسط",
-      "published_at": "2026-10-10T14:55:04+00:00",
-      "province": "أخبار عامة"
     }
   ]
 }
