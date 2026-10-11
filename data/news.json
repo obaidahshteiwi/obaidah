@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-11T09:15:22+00:00",
+  "updated_at": "2026-10-11T09:20:46+00:00",
   "items": [
     {
       "title": "مشرعون أمريكيون يربطون دعم مشاريع في سوريا بتحديث قوانين العمل",
@@ -101,6 +101,16 @@
       "source_home": "",
       "feed": "عنب بلدي RSS",
       "published_at": "2026-10-11T07:53:02+00:00",
+      "province": "أخبار عامة"
+    },
+    {
+      "title": "سوريا تدين استهداف مطار الملك خالد الدولي وتؤكد تضامنها الكامل مع السعودية",
+      "description": "سوريا تدين استهداف مطار الملك خالد الدولي وتؤكد تضامنها الكامل مع السعودية صحيفة الوطن السورية. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "url": "https://news.google.com/rss/articles/CBMivwJBVV95cUxPLXpxR1dPWnlRVUpNaHRIWlVEN1MwREFwR09ybjVHZUQ1cXFqYjdpVHJ5Z3ZOOEdYWE1fcHd2YWpNSFJvV3pHMTIwUllFbVhHNTJDb1Uwd0hEcXhBWExuMlhhQXBPOEF0UlNQc1ZvNk1meFVpUVZBdExJQ1RNbGthbTQ1MC03Wmw2cE5VWXFBM0docXNDcTBBaHM0bG1Fd2x2Nmp3OEh5Z053YmtSZWNMUWQ3YThWaUJXUU1qOERjZ09OVUdpMkxIUGVyQW1XRFFQNWFKT2lDM2pqUkxaLTN4MEtzSS1faVlOalM5SlB2ZFpSc2VSQUNpbWttS1NhQTlQbWFCQ3JvOXFFbW43U1lzRW1fQ21sdnJMQkF0dU1YUTJnWElTeW9SQkdINTdTZS1icENsdktTOHFLWGZzUjVz?oc=5",
+      "source": "صحيفة الوطن السورية",
+      "source_home": "https://alwatan.sy",
+      "feed": "الوطن",
+      "published_at": "2026-10-11T07:35:46+00:00",
       "province": "أخبار عامة"
     },
     {
@@ -1103,18 +1113,6 @@
       "feed": "الجزيرة",
       "published_at": "2026-10-09T13:30:45+00:00",
       "province": "أخبار عامة"
-    },
-    {
-      "title": "الأمن السوري يعلن اعتقال 7 مطلوبين في حماة على خلفية اتهامات بانتهاكات",
-      "description": "أعلنت قوى الأمن الداخلي السورية اعتقال سبعة مطلوبين في محافظة حماة، تتهمهم السلطات بالتورط في جرائم وانتهاكات بحق المدنيين خلال سنوات الثورة بين عامي 2011 و2024. وذكرت الجزيرة أن الموقوفين يشملون أشخاصًا قالت السلطات إن لهم صلات بتشكيلات مسلحة وأجهزة أمنية في عهد النظام السابق، فيما تستمر التحقيقات تمهيدًا لإحالتهم إلى القضاء المختص. وتبقى هذه الاتهامات منسوبة إلى الجهات الرسمية، ولا تعني صدور أحكام قضائية نهائية بحق الموقوفين.",
-      "url": "https://www.aljazeera.net/news/2026/10/9/%D9%81%D8%B1%D8%AE-%D8%A7%D9%84%D9%86%D9%85%D8%B1-%D9%88%D9%82%D9%8A%D8%A7%D8%AF%D9%8A-%D8%A8%D9%80%D8%A7%D9%84%D8%B4%D9%88%D8%A7%D9%87%D9%8A%D9%86-%D8%A7%D9%84%D8%A3%D9%85%D9%86",
-      "source": "الجزيرة نت",
-      "source_home": "https://www.aljazeera.net/",
-      "feed": "الجزيرة نت",
-      "published_at": "2026-10-09T13:28:00+00:00",
-      "province": "حماة",
-      "image_url": "https://www.aljazeera.net/wp-content/uploads/2026/10/16-1791544215.jpg?quality=80&resize=770%2C513",
-      "local_image_url": "images/news/65ae433e3f19d6d4685ab491.webp"
     }
   ]
 }
