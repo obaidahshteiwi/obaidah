@@ -572,7 +572,7 @@
       "attempts": 1,
       "status": "sent",
       "queued_at": "2026-10-11T20:12:14+00:00",
-      "checked_at": "2026-10-11T21:13:27+00:00"
+      "checked_at": "2026-10-11T21:17:13+00:00"
     },
     "https://sana.sy/economy/syrian-economy/2603993/": {
       "id_message": "3EB04C4A090794C5BEBF6C",
@@ -582,7 +582,7 @@
       "attempts": 1,
       "status": "sent",
       "queued_at": "2026-10-11T20:12:14+00:00",
-      "checked_at": "2026-10-11T21:13:27+00:00"
+      "checked_at": "2026-10-11T21:17:13+00:00"
     },
     "https://sana.sy/syria-and-the-world/2604046/": {
       "id_message": "3EB05CECE0B8679307C3EB",
@@ -592,7 +592,7 @@
       "attempts": 1,
       "status": "sent",
       "queued_at": "2026-10-11T21:10:29+00:00",
-      "checked_at": "2026-10-11T21:13:28+00:00"
+      "checked_at": "2026-10-11T21:17:14+00:00"
     },
     "https://www.enabbaladi.net/828879/%d8%a7%d8%aa%d9%81%d8%a7%d9%82-%d8%b3%d9%88%d8%b1%d9%8a-%d8%b3%d8%b9%d9%88%d8%af%d9%8a-%d9%84%d8%aa%d9%88%d8%b1%d9%8a%d8%af-%d8%a7%d9%84%d9%85%d8%b4%d8%aa%d9%82%d8%a7%d8%aa-%d8%a7%d9%84%d9%86%d9%81/": {
       "id_message": "3EB06F4EE980AEBA8EABFB",
@@ -602,7 +602,7 @@
       "attempts": 1,
       "status": "sent",
       "queued_at": "2026-10-11T21:10:29+00:00",
-      "checked_at": "2026-10-11T21:13:28+00:00"
+      "checked_at": "2026-10-11T21:17:14+00:00"
     },
     "https://sana.sy/economy/syrian-economy/2604078/": {
       "id_message": "3EB07022880CEE6397645A",
@@ -610,8 +610,9 @@
       "title": "السورية للبترول تؤكد أهمية فتح أول اعتماد مستندي لتوريد المشتقات النفطية مع أرامكو",
       "kind": "image",
       "attempts": 1,
-      "status": "pending",
-      "queued_at": "2026-10-11T21:13:29+00:00"
+      "status": "sent",
+      "queued_at": "2026-10-11T21:13:29+00:00",
+      "checked_at": "2026-10-11T21:17:15+00:00"
     },
     "https://sana.sy/video/2604073/": {
       "id_message": "3EB0787DED9A84D84BCE42",
@@ -619,8 +620,27 @@
       "title": "وزير الإعلام يتحدث لـ سانا عن أهمية مشاركة سوريا في ملتقى مستقبل الإعلام والاتصال في عمّان",
       "kind": "image",
       "attempts": 1,
+      "status": "sent",
+      "queued_at": "2026-10-11T21:13:29+00:00",
+      "checked_at": "2026-10-11T21:17:16+00:00"
+    },
+    "https://sana.sy/locals/2603973/": {
+      "id_message": "3EB0CCB8452ACC67599AD4",
+      "chat_id": "120363430208733932@g.us",
+      "title": "وزير الطوارئ يبحث مع ممثل مفوضية اللاجئين تنفيذ رؤية \"سوريا بلا مخيمات\"",
+      "kind": "image",
+      "attempts": 1,
       "status": "pending",
-      "queued_at": "2026-10-11T21:13:29+00:00"
+      "queued_at": "2026-10-11T21:17:16+00:00"
+    },
+    "https://sana.sy/economy/syrian-economy/2603826/": {
+      "id_message": "3EB07969AAAB305A953961",
+      "chat_id": "120363430208733932@g.us",
+      "title": "هيئة الاستثمار السورية تبحث فرص الاستثمار مع وفد من مجتمع الأعمال الأمريكي",
+      "kind": "image",
+      "attempts": 1,
+      "status": "pending",
+      "queued_at": "2026-10-11T21:17:17+00:00"
     }
   },
   "evolution_sent": {},
@@ -643,7 +663,9 @@
     "https://sana.sy/syria-and-the-world/2604046/": 1,
     "https://www.enabbaladi.net/828879/%d8%a7%d8%aa%d9%81%d8%a7%d9%82-%d8%b3%d9%88%d8%b1%d9%8a-%d8%b3%d8%b9%d9%88%d8%af%d9%8a-%d9%84%d8%aa%d9%88%d8%b1%d9%8a%d8%af-%d8%a7%d9%84%d9%85%d8%b4%d8%aa%d9%82%d8%a7%d8%aa-%d8%a7%d9%84%d9%86%d9%81/": 1,
     "https://sana.sy/economy/syrian-economy/2604078/": 1,
-    "https://sana.sy/video/2604073/": 1
+    "https://sana.sy/video/2604073/": 1,
+    "https://sana.sy/locals/2603973/": 1,
+    "https://sana.sy/economy/syrian-economy/2603826/": 1
   },
   "image_lookup_attempts": {
     "https://www.enabbaladi.net/828525/%d8%a7%d9%84%d8%a3%d9%85%d9%85-%d8%a7%d9%84%d9%85%d8%aa%d8%ad%d8%af%d8%a9-%d8%aa%d9%88%d8%ab%d9%82-%d8%a7%d9%86%d8%aa%d9%87%d8%a7%d9%83%d8%a7%d8%aa-%d8%a5%d8%b3%d8%b1%d8%a7%d8%a6%d9%8a%d9%84-%d9%81/": "2026-10-11T09:03:52+00:00",
@@ -731,7 +753,7 @@
     "https://www.enabbaladi.net/828717/%d8%b9%d8%b6%d9%88%d9%8a%d8%a9-%d8%a3%d9%85-%d8%aa%d8%b9%d8%a7%d9%88%d9%86%d8%9f-%d8%b2%d9%8a%d8%a7%d8%b1%d8%a9-%d8%a7%d9%84%d8%b4%d8%b1%d8%b9-%d8%a5%d9%84%d9%89-%d8%a7%d9%84%d8%b1%d9%8a%d8%a7%d8%b6/": "2026-10-11T21:09:31+00:00",
     "https://www.syria.tv/%D8%A7%D9%84%D8%A3%D9%85%D9%86-%D8%A7%D9%84%D8%AF%D8%A7%D8%AE%D9%84%D9%8A-%D9%8A%D9%84%D9%82%D9%8A-%D8%A7%D9%84%D9%82%D8%A8%D8%B6-%D8%B9%D9%84%D9%89-%D8%A7%D9%84%D8%B9%D9%85%D9%8A%D8%AF-%D8%A7%D9%84%D8%B3%D8%A7%D8%A8%D9%82-%D9%85%D8%A7%D8%B1%D8%AF-%D9%85%D8%AD%D9%85%D8%AF-%D8%A7%D9%84%D9%85%D9%84%D9%82%D9%91%D8%A8-%D8%A8%D9%80%D8%AD%D8%A7%D8%B1%D8%B3-%D8%A7%D9%84%D8%B9%D8%A7%D8%B5%D9%85%D8%A9": "2026-10-11T09:03:52+00:00",
     "https://alwatan.sy/%d9%88%d8%b2%d9%8a%d8%b1-%d8%a7%d9%84%d8%a5%d8%b9%d9%84%d8%a7%d9%85-%d8%a7%d9%84%d9%85%d8%b4%d8%a7%d8%b1%d9%83%d8%a9-%d9%81%d9%8a-%d8%a7%d9%84%d9%85%d9%86%d8%aa%d8%af%d9%8a%d8%a7%d8%aa-%d8%a7%d9%84/": "2026-10-11T09:08:47+00:00",
-    "https://www.enabbaladi.net/828805/%d9%85%d8%b4%d8%b1%d8%b9%d9%88%d9%86-%d8%a3%d9%85%d8%b1%d9%8a%d9%83%d9%8a%d9%88%d9%86-%d9%8a%d8%b1%d8%a8%d8%b7%d9%88%d9%86-%d8%af%d8%b9%d9%85-%d9%85%d8%b4%d8%a7%d8%b1%d9%8a%d8%b9-%d9%81%d9%8a-%d8%b3/": "2026-10-11T09:14:01+00:00",
+    "https://www.enabbaladi.net/828805/%d9%85%d8%b4%d8%b1%d8%b9%d9%88%d9%86-%d8%a3%d9%85%d8%b1%d9%8a%d9%83%d9%8a%d9%88%d9%86-%d9%8a%d8%b1%d8%a8%d8%b7%d9%88%d9%86-%d8%af%d8%b9%d9%85-%d9%85%d8%b4%d8%a7%d8%b1%d9%8a%d8%b9-%d9%81%d9%8a-%d8%b3/": "2026-10-11T21:16:44+00:00",
     "https://sana.sy/economy/syrian-economy/2603183/": "2026-10-11T09:14:01+00:00",
     "https://sana.sy/syria-and-the-world/2603228/": "2026-10-11T09:34:25+00:00",
     "https://sana.sy/culture-and-arts/2603235/": "2026-10-11T09:39:34+00:00",
