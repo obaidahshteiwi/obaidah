@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-11T11:30:24+00:00",
+  "updated_at": "2026-10-11T11:35:09+00:00",
   "items": [
     {
       "title": "وزير الخارجية السوري يصل بنغازي في ثاني زيارة رسمية إلى ليبيا - الشرق للأخبار",
@@ -371,6 +371,18 @@
       "feed": "الجزيرة",
       "published_at": "2026-10-10T21:53:26+00:00",
       "province": "أخبار عامة"
+    },
+    {
+      "title": "وزير الطاقة السوري يوجّه بمتابعة أزمة البنزين ميدانياً",
+      "description": "وجّه وزير الطاقة السوري محمد البشير، بمتابعة أزمة البنزين الأخيرة والناجمة عن سوء المادة وعدم مطابقتها لمعايير الجودة، ما تسبب بتعرض مركبات المواطنين لأعطال مخت",
+      "url": "https://www.syria.tv/%D9%88%D8%B2%D9%8A%D8%B1-%D8%A7%D9%84%D8%B7%D8%A7%D9%82%D8%A9-%D8%A7%D9%84%D8%B3%D9%88%D8%B1%D9%8A-%D9%8A%D9%88%D8%AC%D9%91%D9%87-%D8%A8%D9%85%D8%AA%D8%A7%D8%A8%D8%B9%D8%A9-%D8%A3%D8%B2%D9%85%D8%A9-%D8%A7%D9%84%D8%A8%D9%86%D8%B2%D9%8A%D9%86-%D9%85%D9%8A%D8%AF%D8%A7%D9%86%D9%8A%D8%A7%D9%8B",
+      "source": "تلفزيون سوريا",
+      "source_home": "https://www.syria.tv",
+      "feed": "تلفزيون سوريا",
+      "published_at": "2026-10-10T21:04:30+00:00",
+      "province": "أخبار عامة",
+      "image_url": "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/840118688_1595068909021317_1747361766535048629_n.jpg?itok=4MuhbuQf",
+      "local_image_url": "images/news/40ad3aaab5c64eba39ffcf5f.webp"
     },
     {
       "title": "الأمن الداخلي يلقي القبض على العميد السابق مارد محمد الملقّب بـ\"حارس العاصمة\"",
@@ -1107,16 +1119,6 @@
       "feed": "الشرق للأخبار",
       "published_at": "2026-10-09T16:01:04+00:00",
       "province": "أخبار عامة"
-    },
-    {
-      "title": "تجريف ورشّ مبيدات وسلب للمراعي.. كيف يجفف الاحتلال مصادر رزق أهالي القنيطرة؟ - الجزيرة نت",
-      "description": "تجريف ورشّ مبيدات وسلب للمراعي.. كيف يجفف الاحتلال مصادر رزق أهالي القنيطرة؟ الجزيرة نت. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
-      "url": "https://news.google.com/rss/articles/CBMi2wJBVV95cUxOU21veV9oSDRTU1JaTUEwaGRMWjM4WDhVNHJweVBOTWUtdTljTHhFM084NHhoUGpkY1U5TExHWDNJa2N0VXExVUdfckdGbWZpNjN1b2lTSTNoSmVVb1JUTUxpRVlaRWUxN0Jvc3dOZUpCbFZOMTJRMzMydVZFQmdnRXliVTN3OVE4VzlRNlJETjhIN1YyTEIyX1lhSVc2ZFVEWjBkaXFZWWotd2VjOFI0cEJoYlhqd1F6UUZ5RGExM2xmT25CQ2M5R0F2bF9VRkZva1VjQy1OLUM3VC11M0loX0ZDTkVmLWxldFRjRDE2TEF0c3oya3p5bWVpUTNqR3RnMmpFRXZwLWQ2SXhxRkN4dDRjUllNTjNMQ1lJbk5GSGFfRXRDZHdkUWI3WmpUNmpyRE1OUzZ5Q3RLOWpLSHZiNDBOM1JCTUNQSjB4VUNYdDNrbDl4bHVzUlEtVdIB4AJBVV95cUxOYVpZcHJIYkwtMmI1SlE2dXJfbU9HNUFzNktUNlV2N0dGdnRoQ3JHWUhzRmdhRUtONEtfVGYzMnFhZS1ocHFhQUNuell5X3c0d3FWLXZCZWxxZnZQeDFBMVo1OW9WbVo3bFZHRlB1ZFhzWVFPWjRlaDlzWGN4OUg1cFBiTFEtRm1mVUQtZkxScVdMQlA0TWpQNXNEZWNXamNGdjVHRHBjcVdRbklJSlhMeVhrak9HZ3BXYUp4dGpmYWVWWUdLUi1zOVFac0ZZOWF1SEl1dHpiczQ4eDFRNnB6aFhrdkJrZE9OQ29PTGZReHNpUUNfUVI0U0FTOGhmcmVZMjdjYTRrd05FMDkybFhkQ0k0WWZiWnVyY0VpbXBzMW52b1Q1ZXljbkNTS3NnVEFvcURfREZjV1RjTWtOUWtjY0d0YktzUGI1QWVKNU5TOURpSW9CWlNxYWRscllPSmdG?oc=5",
-      "source": "الجزيرة نت",
-      "source_home": "https://www.aljazeera.net",
-      "feed": "الجزيرة",
-      "published_at": "2026-10-09T16:00:03+00:00",
-      "province": "القنيطرة"
     }
   ]
 }
