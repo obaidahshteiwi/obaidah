@@ -1,5 +1,5 @@
 name: Syria Mubasher - RSS and Website
-# Scheduled every five minutes, offset from the top of the hour. An auto-dispatch loop is a fallback.
+# Scheduled every five minutes, offset from the top of the hour. The self-dispatch loop is enabled as a fallback.
 # Manual publication updates to the site should trigger a fresh Pages deployment.
 
 on:
