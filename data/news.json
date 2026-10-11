@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-11T08:50:15+00:00",
+  "updated_at": "2026-10-11T08:55:08+00:00",
   "items": [
     {
       "title": "الانتخابات الإسرائيلية.. ما الذي تنتظره دمشق؟",
@@ -58,6 +58,16 @@
       "province": "أخبار عامة",
       "image_url": "https://alwatan.sy/wp-content/uploads/2026/10/%D9%88%D8%B2%D9%8A%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC%D9%8A%D8%A9-%D8%AA%D8%B1%D9%83%D9%8A%D8%A7.jpg",
       "local_image_url": "images/news/5f8e4006529695fa17da7afc.webp"
+    },
+    {
+      "title": "عضوية أم تعاون؟.. زيارة الشرع إلى الرياض تقرّب سوريا من اتفاق “مكة”",
+      "description": "عنب بلدي – أمير حقوق أعادت زيارة الرئيس السوري، أحمد الشرع، إلى الرياض، في 6 من تشرين الأول الحالي، ولقاؤه […]",
+      "url": "https://www.enabbaladi.net/828717/%d8%b9%d8%b6%d9%88%d9%8a%d8%a9-%d8%a3%d9%85-%d8%aa%d8%b9%d8%a7%d9%88%d9%86%d8%9f-%d8%b2%d9%8a%d8%a7%d8%b1%d8%a9-%d8%a7%d9%84%d8%b4%d8%b1%d8%b9-%d8%a5%d9%84%d9%89-%d8%a7%d9%84%d8%b1%d9%8a%d8%a7%d8%b6/",
+      "source": "عنب بلدي RSS",
+      "source_home": "",
+      "feed": "عنب بلدي RSS",
+      "published_at": "2026-10-11T07:53:02+00:00",
+      "province": "أخبار عامة"
     },
     {
       "title": "الذهب يحافظ على سعره في السوق السورية ‏",
@@ -1101,17 +1111,6 @@
       "province": "أخبار عامة",
       "image_url": "https://alwatan.sy/wp-content/uploads/2020/09/%D9%87%D9%8A%D8%A6%D8%A9-%D8%A7%D9%84%D9%85%D8%B4%D8%B1%D9%88%D8%B9%D8%A7%D8%AA-%D8%A7%D9%84%D8%B5%D8%BA%D9%8A%D8%B1%D8%A9-%D9%88%D8%A7%D9%84%D9%85%D8%AA%D9%88%D8%B3%D8%B7%D8%A9.jpg",
       "local_image_url": "images/news/f96331587b3fa05041cc0ccd.webp"
-    },
-    {
-      "title": "لوحة «احتواء» للفنانة نوار نداف.. صمود سوري يُزهر من عتمة الفقد",
-      "description": "تقدم سانا الثقافية هذا الأسبوع ضمن زاويتها الدورية «قراءة تشكيلية»، تحليلاً بصرياً ونقدياً للوحة «احتواء» للفنانة نوار نداف، تفكك فيه الفجوة بين واقع المجتمع وصمود المرأة.",
-      "url": "https://sana.sy/culture-and-arts/2601714/",
-      "source": "وكالة الأنباء السورية – سانا",
-      "feed": "سانا",
-      "published_at": "2026-10-09T12:22:07+00:00",
-      "province": "أخبار عامة",
-      "image_url": "https://cdn.sananews.sy/2026/10/s7lPnViY-1-12-1024x683.jpg",
-      "local_image_url": "images/news/a878aa4c129b56be88c4fe62.webp"
     }
   ]
 }
