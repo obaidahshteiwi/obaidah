@@ -98,6 +98,12 @@
     .result-count{font-size:.81rem;color:var(--muted);background:#e7f0e9;padding:5px 10px;border-radius:999px}
     .status{margin:0 0 13px;color:var(--muted);font-size:.82rem;min-height:1.6em}
     .news-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+    .load-more-wrap{display:flex;justify-content:center;padding:28px 0 8px}
+    .load-more-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-width:190px;padding:13px 22px;border:1px solid #cddfd1;border-radius:15px;background:#fff;color:var(--forest);font-weight:900;font-size:.9rem;box-shadow:0 8px 24px #173c2b0b;cursor:pointer;transition:transform .18s,background .18s,box-shadow .18s}
+    .load-more-btn:hover{transform:translateY(-2px);background:#f2f8f3;box-shadow:0 12px 28px #173c2b12}
+    .load-more-btn:focus-visible{outline:3px solid #8dbb9b;outline-offset:3px}
+    .load-more-btn[hidden]{display:none}
+    .load-more-note{text-align:center;color:var(--muted);font-size:.78rem;margin:8px 0 0}
     .story{position:relative;display:flex;flex-direction:column;min-width:0;overflow:hidden;background:var(--surface);border:1px solid #e0e9e2;border-radius:var(--radius);box-shadow:0 9px 28px #173c2b08;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
     .story:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:#cbded0}
     .story.featured{grid-column:span 2;display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);grid-template-rows:1fr}
@@ -278,6 +284,8 @@
       <div class="news-heading"><h2 id="newsHeading">آخر الأخبار</h2><span class="result-count" id="resultCount"></span></div>
       <p class="status" id="feedStatus" role="status" aria-live="polite">جارٍ تحميل الأخبار من المصادر…</p>
       <div class="news-grid" id="newsGrid"></div>
+      <div class="load-more-wrap"><button class="load-more-btn" id="loadMoreBtn" type="button" hidden>عرض المزيد من الأخبار <span aria-hidden="true">↓</span></button></div>
+      <p class="load-more-note" id="loadMoreNote" aria-live="polite"></p>
       <div class="empty" id="emptyState" hidden><div class="empty-icon">📰</div><strong>لا توجد أخبار ضمن هذا الاختيار</strong><span>جرّب محافظة أخرى أو امسح كلمات البحث.</span></div>
     </section>
   </main>
@@ -294,7 +302,8 @@
       'الكل','دمشق','ريف دمشق','حلب','حمص','حماة','اللاذقية','طرطوس',
       'إدلب','دير الزور','الرقة','الحسكة','درعا','السويداء','القنيطرة','أخبار عامة'
     ];
-    const state = {items:[], province:'الكل', search:''};
+    const PAGE_SIZE = 9;
+    const state = {items:[], province:'الكل', search:'', visibleCount:PAGE_SIZE};
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // Accessible right-to-left side navigation.
@@ -365,6 +374,7 @@
       holder.querySelectorAll('button').forEach(button => {
         button.addEventListener('click', () => {
           state.province = button.dataset.province || 'الكل';
+          state.visibleCount = PAGE_SIZE;
           makeProvinceFilters();
           renderNews();
         });
@@ -386,14 +396,19 @@
       const grid = document.getElementById('newsGrid');
       const empty = document.getElementById('emptyState');
       document.getElementById('newsHeading').textContent = state.province === 'الكل' ? 'آخر الأخبار' : 'أخبار ' + state.province;
-      document.getElementById('resultCount').textContent = filtered.length + ' خبر';
+      const visible = filtered.slice(0, state.visibleCount);
+      document.getElementById('resultCount').textContent = filtered.length ? ('عرض ' + visible.length + ' من ' + filtered.length + ' خبر') : '0 خبر';
+      const loadMoreBtn = document.getElementById('loadMoreBtn');
+      const loadMoreNote = document.getElementById('loadMoreNote');
+      loadMoreBtn.hidden = visible.length >= filtered.length;
+      loadMoreNote.textContent = filtered.length > PAGE_SIZE ? 'الأخبار مرتبة من الأحدث إلى الأقدم، ويمكنك عرض المزيد عند الحاجة.' : '';
       if (!filtered.length) {
         grid.innerHTML = '';
         empty.hidden = false;
         return;
       }
       empty.hidden = true;
-      grid.innerHTML = filtered.map((item,index) => {
+      grid.innerHTML = visible.map((item,index) => {
         const title = esc(item.title || 'خبر من سوريا');
         const description = esc(item.description || 'افتح رابط المصدر لقراءة التفاصيل الكاملة.');
         const source = esc(item.source || item.feed || 'مصدر إخباري');
@@ -436,6 +451,12 @@
 
     document.getElementById('searchInput').addEventListener('input', event => {
       state.search = event.target.value || '';
+      state.visibleCount = PAGE_SIZE;
+      renderNews();
+    });
+
+    document.getElementById('loadMoreBtn').addEventListener('click', () => {
+      state.visibleCount += PAGE_SIZE;
       renderNews();
     });
 
