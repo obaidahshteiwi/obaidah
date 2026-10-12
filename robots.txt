@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://syria-mubasher.pages.dev/sitemap.xml
