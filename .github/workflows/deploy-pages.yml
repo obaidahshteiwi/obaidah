@@ -80,9 +80,165 @@ jobs:
             for attempt in 1 2 3; do
               git fetch origin main
               if ! git rebase origin/main; then
-                git rebase --abort || true
-                echo "Could not rebase generated news data onto the latest main branch."
-                exit 1
+                echo "Rebase conflict detected; safely merging generated news and delivery state."
+                conflicts="$(git diff --name-only --diff-filter=U)"
+                unexpected="$(printf '%s\n' "$conflicts" | grep -vE '^(data/news.json|data/state.json)              if git push origin HEAD:main; then
+                pushed=true
+                break
+              fi
+              echo "Push attempt $attempt failed; refreshing main and retrying."
+              sleep 3
+            done
+
+            if [[ "$pushed" != "true" ]]; then
+              echo "Could not publish generated news data after three attempts."
+              exit 1
+            fi
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      # A newer code change may arrive while RSS enrichment is running. Deploy
+      # the current main branch, not an older checkout from the start of this job.
+      - name: Refresh files before deployment
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload website files
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+ || true)"
+                if [[ -n "$unexpected" ]] || ! printf '%s\n' "$conflicts" | grep -qx 'data/news.json' || ! printf '%s\n' "$conflicts" | grep -qx 'data/state.json'; then
+                  git rebase --abort || true
+                  echo "Unexpected conflict outside the known generated JSON files; stopping safely."
+                  exit 1
+                fi
+
+                git show REBASE_HEAD:data/news.json > /tmp/generated-news.json
+                git show HEAD:data/news.json > /tmp/latest-news.json
+                git show REBASE_HEAD:data/state.json > /tmp/generated-state.json
+                git show HEAD:data/state.json > /tmp/latest-state.json
+
+                python - <<'PY'
+                import json
+                from pathlib import Path
+                from datetime import datetime
+
+                def load(path):
+                    return json.loads(Path(path).read_text(encoding="utf-8"))
+
+                def stamp(value):
+                    try:
+                        return datetime.fromisoformat(str(value).replace("Z", "+00:00")).timestamp()
+                    except (TypeError, ValueError, OverflowError):
+                        return float("-inf")
+
+                remote_news = load("/tmp/latest-news.json")
+                generated_news = load("/tmp/generated-news.json")
+                by_url = {}
+                for collection in (remote_news.get("items", []), generated_news.get("items", [])):
+                    for item in collection:
+                        key = str(item.get("url") or item.get("title") or "").strip()
+                        if not key:
+                            continue
+                        merged_item = dict(by_url.get(key, {}))
+                        for field, value in item.items():
+                            if value not in (None, "", [], {}):
+                                merged_item[field] = value
+                        by_url[key] = merged_item
+
+                merged_news = dict(remote_news)
+                merged_news.update({k: v for k, v in generated_news.items() if k not in ("items", "updated_at")})
+                merged_news["updated_at"] = max(
+                    (v for v in (remote_news.get("updated_at"), generated_news.get("updated_at")) if v),
+                    key=stamp, default=""
+                )
+                merged_news["items"] = sorted(
+                    by_url.values(), key=lambda item: stamp(item.get("published_at")), reverse=True
+                )[:100]
+                Path("data/news.json").write_text(
+                    json.dumps(merged_news, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+                )
+
+                remote_state = load("/tmp/latest-state.json")
+                generated_state = load("/tmp/generated-state.json")
+                merged_state = dict(remote_state)
+                merged_state.update(generated_state)
+                list_keys = ("published_urls", "published_titles", "whatsapp_sent_urls", "whatsapp_queue")
+                for key in list_keys:
+                    values, seen = [], set()
+                    for value in list(remote_state.get(key, [])) + list(generated_state.get(key, [])):
+                        marker = json.dumps(value, ensure_ascii=False, sort_keys=True)
+                        if marker not in seen:
+                            seen.add(marker)
+                            values.append(value)
+                    merged_state[key] = values[-1000:]
+
+                for key in set(remote_state) | set(generated_state):
+                    if key in list_keys:
+                        continue
+                    before, after = remote_state.get(key), generated_state.get(key)
+                    if isinstance(before, dict) or isinstance(after, dict):
+                        combined = dict(before) if isinstance(before, dict) else {}
+                        newer = after if isinstance(after, dict) else {}
+                        for map_key, value in newer.items():
+                            previous = combined.get(map_key)
+                            if key == "evolution_sent" and isinstance(previous, list) and isinstance(value, list):
+                                combined[map_key] = list(dict.fromkeys(previous + value))
+                            elif key == "whatsapp_attempt_counts" and isinstance(previous, (int, float)) and isinstance(value, (int, float)):
+                                combined[map_key] = max(previous, value)
+                            elif key == "whatsapp_pending" and isinstance(previous, dict) and isinstance(value, dict):
+                                old_time = max(stamp(previous.get("checked_at")), stamp(previous.get("queued_at")))
+                                new_time = max(stamp(value.get("checked_at")), stamp(value.get("queued_at")))
+                                combined[map_key] = value if new_time >= old_time else previous
+                            elif isinstance(previous, str) and isinstance(value, str) and stamp(previous) != float("-inf") and stamp(value) != float("-inf"):
+                                combined[map_key] = max((previous, value), key=stamp)
+                            else:
+                                combined[map_key] = value
+                        merged_state[key] = combined
+                for key in ("newest_seen_at",):
+                    merged_state[key] = max(
+                        (v for v in (remote_state.get(key), generated_state.get(key)) if v),
+                        key=stamp, default=""
+                    )
+                if remote_state.get("news_since") and generated_state.get("news_since"):
+                    merged_state["news_since"] = min(
+                        (remote_state["news_since"], generated_state["news_since"]), key=stamp
+                    )
+
+                sent = set(merged_state.get("whatsapp_sent_urls", []))
+                merged_state["whatsapp_queue"] = [
+                    url for url in merged_state.get("whatsapp_queue", []) if url not in sent
+                ]
+                pending = merged_state.get("whatsapp_pending", {})
+                merged_state["whatsapp_pending"] = {
+                    url: record for url, record in pending.items() if url not in sent
+                } if isinstance(pending, dict) else {}
+                Path("data/state.json").write_text(
+                    json.dumps(merged_state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+                )
+                print(f"Resolved rebase conflict: {len(merged_news['items'])} unique website stories; delivery state merged.")
+                PY
+
+                git add data/news.json data/state.json
+                if ! GIT_EDITOR=true git rebase --continue; then
+                  git rebase --abort || true
+                  echo "Automatic JSON merge could not complete the rebase."
+                  exit 1
+                fi
               fi
               if git push origin HEAD:main; then
                 pushed=true
