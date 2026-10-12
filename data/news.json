@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-12T17:30:09+00:00",
+  "updated_at": "2026-10-12T17:35:59+00:00",
   "items": [
     {
       "title": "https://www.syria.tv/مشاهد-من-حماة",
@@ -22,6 +22,18 @@
       "province": "دير الزور",
       "image_url": "https://cdn.sananews.sy/2026/10/photo_2026-10-12_18-08-47.jpg",
       "local_image_url": "images/news/4320a3510a7cf5d9ef698a80.webp"
+    },
+    {
+      "title": "الشركة السورية للبترول تفتتح جناحها في مؤتمر الطاقة ‏العالمي الـ 25 بالرياض",
+      "description": "افتتحت الشركة السورية للبترول، اليوم الإثنين، جناحها ‏ضمن المعرض المصاحب لمؤتمر الطاقة العالمي ‏الخامس والعشرين، المقام في العاصمة السعودية ‏الرياض، وذلك بحضور القائم بأعمال السفارة السورية ‏في المملكة العربية السعودية، محسن مهباش‎.‎",
+      "url": "https://sana.sy/economy/syrian-economy/2604970/",
+      "source": "سانا",
+      "source_home": "https://sana.sy",
+      "feed": "سانا",
+      "published_at": "2026-10-12T17:23:14+00:00",
+      "province": "أخبار عامة",
+      "image_url": "https://cdn.sananews.sy/2026/10/3J1A3227-1024x683.jpg",
+      "local_image_url": "images/news/982e575c6135c22a36fed375.webp"
     },
     {
       "title": "بعد 30 يومًا.. سجناء “رومية” يعلقون إضرابهم عن الطعام والدواء",
@@ -1100,18 +1112,6 @@
       "published_at": "2026-10-11T14:21:21+00:00",
       "province": "طرطوس",
       "image_url": "https://cdn.enabbaladi.net/arabic/wp-content/uploads/2026/10/Al-Qadmus-Castle-150x150.jpg"
-    },
-    {
-      "title": "مع تزايد مدة دعاوى اللجوء.. مراجعة أوضاع حماية 10 آلاف سوري في ألمانيا",
-      "description": "ارتفع متوسط مدة البت في دعاوى اللجوء أمام المحاكم الألمانية خلال النصف الأول من عام 2026، بالتزامن مع توسيع نطاق مراجعة أوضاع الحماية للسوريين، إذ أنهى المكتب الاتحادي للهجرة واللاجئين أكثر من 10 آلاف مراجعة حتى نهاية آب/أغسطس.",
-      "url": "https://www.syria.tv/%D9%85%D8%B9-%D8%AA%D8%B2%D8%A7%D9%8A%D8%AF-%D9%85%D8%AF%D8%A9-%D8%AF%D8%B9%D8%A7%D9%88%D9%89-%D8%A7%D9%84%D9%84%D8%AC%D9%88%D8%A1-%D9%85%D8%B1%D8%A7%D8%AC%D8%B9%D8%A9-%D8%A3%D9%88%D8%B6%D8%A7%D8%B9-%D8%AD%D9%85%D8%A7%D9%8A%D8%A9-10-%D8%A2%D9%84%D8%A7%D9%81-%D8%B3%D9%88%D8%B1%D9%8A-%D9%81%D9%8A-%D8%A3%D9%84%D9%85%D8%A7%D9%86%D9%8A%D8%A7",
-      "source": "تلفزيون سوريا",
-      "source_home": "https://www.syria.tv",
-      "feed": "تلفزيون سوريا",
-      "published_at": "2026-10-11T14:18:42+00:00",
-      "province": "أخبار عامة",
-      "image_url": "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/%D8%B7%D8%A7%D9%84%D8%A8%20%D9%84%D8%AC%D9%88%D8%A1%20%D9%8A%D9%85%D9%84%D8%A3%20%D8%A7%D8%B3%D8%AA%D9%85%D8%A7%D8%B1%D8%A9%20%D8%A8%D8%AC%D9%88%D8%A7%D8%B1%20%D9%84%D8%A7%D9%81%D8%AA%D8%A9%20%D8%A7%D9%84%D9%85%D9%83%D8%AA%D8%A8%20%D8%A7%D9%84%D8%A7%D8%AA%D8%AD%D8%A7%D8%AF%D9%8A%20%D9%84%D9%84%D9%87%D8%AC%D8%B1%D8%A9%20%D9%88%D8%A7%D9%84%D9%84%D8%A7%D8%AC%D8%A6%D9%8A%D9%86%20%D9%81%D9%8A%20%D9%88%D9%84%D8%A7%D9%8A%D8%A9%20%D8%B3%D8%A7%D9%83%D8%B3%D9%88%D9%86%D9%8A%D8%A7%20%D8%A7%D9%84%D8%B3%D9%81%D9%84%D9%89%20%D8%A7%D9%84%D8%A3%D9%84%D9%85%D8%A7%D9%86%D9%8A%D8%A9%20%28%D8%AF%20%D8%A8%20%D8%A3%29.jpeg?itok=KBjfq3_K",
-      "local_image_url": "images/news/97cdc6f30416f6c3f03434e0.webp"
     }
   ]
 }
