@@ -1,15 +1,17 @@
 {
-  "updated_at": "2026-10-12T18:52:42+00:00",
+  "updated_at": "2026-10-12T19:01:29+00:00",
   "items": [
     {
-      "title": "الرقة.. مبادرات أهلية وخطة رسمية لترميم 215 مدرسة",
-      "description": "تمكّن عبد الإله البليخ، أحد أبناء ريف الرقة الشرقي، من جمع مبلغ من أهالي قريته المنتزهة للمساهمة في إعادة تأهيل […]",
-      "url": "https://www.enabbaladi.net/828899/%d8%a7%d9%84%d8%b1%d9%82%d8%a9-%d9%85%d8%a8%d8%a7%d8%af%d8%b1%d8%a7%d8%aa-%d8%a3%d9%87%d9%84%d9%8a%d8%a9-%d9%88%d8%ae%d8%b7%d8%a9-%d8%b1%d8%b3%d9%85%d9%8a%d8%a9-%d9%84%d8%aa%d8%b1%d9%85%d9%8a%d9%85/",
-      "source": "عنب بلدي RSS",
-      "source_home": "",
-      "feed": "عنب بلدي RSS",
-      "published_at": "2026-10-12T18:25:24+00:00",
-      "province": "الرقة"
+      "title": "الاحتلال الإسرائيلي يعتقل شاباً خلال توغله في قرية بريقة القديمة بريف القنيطرة",
+      "description": "وذكر مراسل سانا في القنيطرة أن قوة للاحتلال الإسرائيلي مؤلفة من أربع آليات عسكرية، توغلت في القرية وفتشت عدداً من منازل المدنيين واعتقلت شاباً واقتادته إلى داخل الجولان السوري المحتل، بالتزامن مع تحليق طائرات مسيّرة في المنطقة.",
+      "url": "https://sana.sy/governorates/alqunaytrah/2605086/",
+      "source": "سانا",
+      "source_home": "https://sana.sy",
+      "feed": "سانا",
+      "published_at": "2026-10-12T18:57:48+00:00",
+      "province": "القنيطرة",
+      "image_url": "https://cdn.sananews.sy/2026/10/photo_2026-09-29_12-43-12.png",
+      "local_image_url": "images/news/45f06e99f2013302530c575d.webp"
     },
     {
       "title": "جلسة حوارية في قمة الصحة العالمية ببرلين لتقييم الخطة ‏الوطنية للصحة في سوريا",
@@ -24,8 +26,8 @@
       "local_image_url": "images/news/3f6de22eac6e71bc3e92cfbe.webp"
     },
     {
-      "title": "https://www.syria.tv/مشاهد-من-حماة",
-      "description": "https://www.syria.tv/مشاهد-من-حماة تلفزيون سوريا. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "title": "مشاهد من حماة",
+      "description": "مشاهد من حماة. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPSkZtdjNQLWtTbWF3dVBoLXdsM3NvTlRydFFnOGhja0tnWEt0SXh3aGIyTFRQSE9Na0ZiWjBYczNDSlFTSzZRRTZOcWdPTWgtTl9YZ3Zxd29vZHh6bEYzR2FIQW9QX3l4LXoxUGtoQk9OdTRWdlBmRThUdmJ1QUlJRW0tTjV3MnVFcnhoam5xck1KYnc?oc=5",
       "source": "تلفزيون سوريا",
       "source_home": "https://www.syria.tv",
@@ -35,7 +37,7 @@
     },
     {
       "title": "حملة “تعافي 2” في دير الزور.. استشارات طبية وعمليات جراحية لمرضى انتظروا سنوات",
-      "description": "حملة “تعافي 2” في دير الزور.. استشارات طبية وعمليات جراحية لمرضى انتظروا سنوات سانا. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "انطلقت فعاليات حملة \"تعافي 2\" في محافظة دير الزور، اليوم الإثنين بالمشفى الوطني، بهدف تقديم التدخلات الطبية اللازمة للمرضى، ولا سيما الحالات التي انتظرت سنوات للحصول على العلاج، بمشاركة أطباء سوريين من المقيمين في الخارج.",
       "url": "https://sana.sy/video/2604983/",
       "source": "سانا",
       "source_home": "https://sana.sy",
@@ -56,26 +58,6 @@
       "province": "أخبار عامة",
       "image_url": "https://cdn.sananews.sy/2026/10/3J1A3227-1024x683.jpg",
       "local_image_url": "images/news/982e575c6135c22a36fed375.webp"
-    },
-    {
-      "title": "بعد 30 يومًا.. سجناء “رومية” يعلقون إضرابهم عن الطعام والدواء",
-      "description": "أنهى مئات السجناء في عدد من السجون اللبنانية، بينهم موقوفون سوريون، الاثنين 12 من تشرين الأول، إضرابًا مفتوحًا عن الطعام […]",
-      "url": "https://www.enabbaladi.net/829010/%d8%a8%d8%b9%d8%af-30-%d9%8a%d9%88%d9%85%d9%8b%d8%a7-%d8%b3%d8%ac%d9%86%d8%a7%d8%a1-%d8%b1%d9%88%d9%85%d9%8a%d8%a9-%d9%8a%d8%b9%d9%84%d9%82%d9%88%d9%86-%d8%a5%d8%b6%d8%b1%d8%a7%d8%a8%d9%87%d9%85/",
-      "source": "عنب بلدي RSS",
-      "source_home": "",
-      "feed": "عنب بلدي RSS",
-      "published_at": "2026-10-12T17:18:42+00:00",
-      "province": "أخبار عامة"
-    },
-    {
-      "title": "سوريا.. ما قصة القيود على قبول الإناث في اختصاصات جامعية؟",
-      "description": "أثارت شروط القبول الواردة في مفاضلة الجامعات والمعاهد السورية للعام الدراسي 2026- 2027 جدلًا بين السوريين، بعد تخصيص عدد من […]",
-      "url": "https://www.enabbaladi.net/828989/%d8%b3%d9%88%d8%b1%d9%8a%d8%a7-%d9%85%d8%a7-%d9%82%d8%b5%d8%a9-%d8%a7%d9%84%d9%82%d9%8a%d9%88%d8%af-%d8%b9%d9%84%d9%89-%d9%82%d8%a8%d9%88%d9%84-%d8%a7%d9%84%d8%a5%d9%86%d8%a7%d8%ab-%d9%81%d9%8a/",
-      "source": "عنب بلدي RSS",
-      "source_home": "",
-      "feed": "عنب بلدي RSS",
-      "published_at": "2026-10-12T16:57:11+00:00",
-      "province": "أخبار عامة"
     },
     {
       "title": "مشروع المسح الصناعي في سوريا ودوره في بناء قاعدة بيانات لدعم التخطيط والتنمية الصناعية.",
@@ -103,7 +85,7 @@
     },
     {
       "title": "الرئيس بارزاني ومظلوم عبدي يبحثان مستقبل الكورد في سوريا ومسار الحوار لحل الخلافات - Rudaw",
-      "description": "الرئيس بارزاني ومظلوم عبدي يبحثان مستقبل الكورد في سوريا ومسار الحوار لحل الخلافات Rudaw. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "الرئيس بارزاني ومظلوم عبدي يبحثان مستقبل الكورد في سوريا ومسار الحوار لحل الخلافات - Rudaw. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1wVlpWSHlNSktmakdJQXVuUG5ETWV1NlR1aXdqNjRhRDZSYzRqcEJpbll3U000dUJuMm1nUW5NSHdEYTZFNUFLcWZMUDF3X0Q4TXoyaEV6NXY1bE5oUEJpQ3hB?oc=5",
       "source": "Rudaw",
       "source_home": "http://rudaw.net",
@@ -137,22 +119,12 @@
     },
     {
       "title": "وزير خارجية قطر يبحث مع الشيباني التطورات في سوريا - الجزيرة نت",
-      "description": "وزير خارجية قطر يبحث مع الشيباني التطورات في سوريا الجزيرة نت. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "وزير خارجية قطر يبحث مع الشيباني التطورات في سوريا - الجزيرة نت. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://www.aljazeera.net/news/2026/10/12/وزير-خارجية-قطر-يبحث-مع-الشيباني-2",
       "source": "الجزيرة نت",
       "source_home": "https://www.aljazeera.net",
       "feed": "الجزيرة",
       "published_at": "2026-10-12T14:40:30+00:00",
-      "province": "أخبار عامة"
-    },
-    {
-      "title": "طابو رقمي في سوريا.. ماذا عن وثائق الملكية المفقودة؟",
-      "description": "تعِد وزارة الإدارة المحلية والبيئة بأن يتيح مشروع “الطابو الرقمي” القادم للسوريين الحصول على وثائقهم العقارية دون مراجعة الدوائر الحكومية، […]",
-      "url": "https://www.enabbaladi.net/828984/%d8%b7%d8%a7%d8%a8%d9%88-%d8%b1%d9%82%d9%85%d9%8a-%d9%81%d9%8a-%d8%b3%d9%88%d8%b1%d9%8a%d8%a7-%d9%85%d8%a7%d8%b0%d8%a7-%d8%b9%d9%86-%d9%88%d8%ab%d8%a7%d8%a6%d9%82-%d8%a7%d9%84%d9%85%d9%84%d9%83/",
-      "source": "عنب بلدي RSS",
-      "source_home": "",
-      "feed": "عنب بلدي RSS",
-      "published_at": "2026-10-12T14:33:05+00:00",
       "province": "أخبار عامة"
     },
     {
@@ -193,7 +165,7 @@
     },
     {
       "title": "قطاع التمور في دير الزور.. آمال التعافي تصطدم بتكاليف الإنتاج - الجزيرة نت",
-      "description": "قطاع التمور في دير الزور.. آمال التعافي تصطدم بتكاليف الإنتاج الجزيرة نت. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "قطاع التمور في دير الزور.. آمال التعافي تصطدم بتكاليف الإنتاج - الجزيرة نت. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://news.google.com/rss/articles/CBMi1AJBVV95cUxOZTBqYmlacDJoXzF4Q1pCSE1MelBiMDREV3l1ZDByY0dtZ0UwN2pIRkJjUWhVT3FaYjZqRTlpeG9UcUtPa3NvWngzTDQxYm1jbFQwblVEcVJKd2JaMVdZc3ZaUHI2SV9SeU8xZUF0ZTF4TFRrdHQ5S3Z3aEtKd0FzaUtFVHNqdUVjZGNqMHpSQVN2Z0Njbm5jTzhQTGNUdlF6Vnczem1GZjhRdEh6NWlJcnQzWUJBcXdnS2loTERsWmgwTWI4Z2psWE5xSDcza3lTQjRnVkw2aWN0WWp3ci1nRjlSa2sxNEFMOFlQM29FQVppMG4zVXhxOFR3ZFBGRnRjRnpEU1FyS0IyTUNSZDlKRUUzeU02bjJCUkVBbHVjcFgwR1Vjc2RVekdIQW9TbGZnb0VwQk92V3c0Mk9JU2l0QmRsMFQ5Z2Z3OTRDSHZFVWpINU4w0gHaAkFVX3lxTE96MGNYTEJWOUIwRzRGS21BX0o2MnhPTFp4c1hCU2xTZVRLRl9CQjlwUVpZeV9jV3AtRVZNakcxWjl0d2ZBSGlYZDhRaC1ENGk5NlBGNTFVRF9fSklOeG5STXNzSWZQY1Y2UFRpYjZwSFRIN2tIejNObEhKNC00Z0w5akJhT0lYX1ZOVUFXLWZ2QjBsUmE5Rnk2LTYzU05ic0lQbmNWVURZMDFjMUFMbm16Z1RuUFFFcThrMGJ6V1dLZUNnTDd0bllNSG5rMEZmR0gtY2Z3TXkyOGpCSkZqdjdGX2NsbmxqMXZJNHVCNFhEV3JLemZJcWNjRFBuVmg1U1BTUWUzLVpocFJDaTlfVHYtdUxpTy1uOGhkM0Z6MkxVX09obVN0YXdKWVhEMTktUlVsTjh0WHdDOWtqYURhbDhVaVlWaElXVnJlLUxPNHZQSFNIRnF3U2VNZGc?oc=5",
       "source": "الجزيرة نت",
       "source_home": "https://www.aljazeera.net",
@@ -226,37 +198,6 @@
       "local_image_url": "images/news/3d3a65d66e00abe981651755.webp"
     },
     {
-      "title": "الحسكة.. استمرار نشاط مجموعات مرتبطة بـ”قسد” يثير مخاوف أمنية",
-      "description": "تشهد مدينة الحسكة تصاعدًا في التوتر الأمني على خلفية اتهامات لعناصر من “الشبيبة الثورية” بملاحقة مشاركين في مظاهرات طالبت برفع […]",
-      "url": "https://www.enabbaladi.net/828906/%d8%a7%d9%84%d8%ad%d8%b3%d9%83%d8%a9-%d8%a7%d8%b3%d8%aa%d9%85%d8%b1%d8%a7%d8%b1-%d9%86%d8%b4%d8%a7%d8%b7-%d9%85%d8%ac%d9%85%d9%88%d8%b9%d8%a7%d8%aa-%d9%85%d8%b1%d8%aa%d8%a8%d8%b7%d8%a9-%d8%a8%d9%80/",
-      "source": "عنب بلدي RSS",
-      "source_home": "",
-      "feed": "عنب بلدي RSS",
-      "published_at": "2026-10-12T13:33:27+00:00",
-      "province": "الحسكة"
-    },
-    {
-      "title": "شح بمادتي البنزين والمازوت في حلب.. محطات بانتظار التوريدات",
-      "description": "تشهد محطات الوقود في مدينة حلب شحًا في مادتي البنزين والديزل، حيث أغلقت بعض المحطات أبوابها بسبب نفاد الكمية، وسط […]",
-      "url": "https://www.enabbaladi.net/828938/%d8%b4%d8%ad-%d8%a8%d9%85%d8%a7%d8%af%d8%aa%d9%8a-%d8%a7%d9%84%d8%a8%d9%86%d8%b2%d9%8a%d9%86-%d9%88%d8%a7%d9%84%d9%85%d8%a7%d8%b2%d9%88%d8%aa-%d9%81%d9%8a-%d8%ad%d9%84%d8%a8-%d9%85%d8%ad%d8%b7%d8%a7/",
-      "source": "عنب بلدي RSS",
-      "source_home": "",
-      "feed": "عنب بلدي RSS",
-      "published_at": "2026-10-12T13:13:21+00:00",
-      "province": "حلب"
-    },
-    {
-      "title": "عاصفة غبارية تضرب شرقي سوريا.. حالات اختناق في دير الزور",
-      "description": "ضربت عاصفة غبارية صباح اليوم، الاثنين 12 من تشرين الأول، محافظات دير الزور والرقة وأجزاء من الحسكة، متسببة بتدني مستوى […]",
-      "url": "https://www.enabbaladi.net/828949/%d8%b9%d8%a7%d8%b5%d9%81%d8%a9-%d8%ba%d8%a8%d8%a7%d8%b1%d9%8a%d8%a9-%d8%aa%d8%b6%d8%b1%d8%a8-%d8%b4%d8%b1%d9%82%d9%8a-%d8%b3%d9%88%d8%b1%d9%8a%d8%a7-%d8%ad%d8%a7%d9%84%d8%a7%d8%aa-%d8%a7%d8%ae%d8%aa/",
-      "source": "عنب بلدي RSS",
-      "source_home": "",
-      "feed": "عنب بلدي RSS",
-      "published_at": "2026-10-12T12:58:12+00:00",
-      "province": "دير الزور",
-      "image_url": "https://cdn.enabbaladi.net/arabic/wp-content/uploads/2026/10/3asifa-deer1-150x150.jpg"
-    },
-    {
       "title": "الملتقى السوري الألماني للهندسة الطبية يناقش أحدث التقنيات ومعايير ترخيص الأجهزة",
       "description": "دمشق-سانا تركزت جلسات اليوم الأول من الملتقى السوري الألماني الأول في الهندسة الطبية، المقام على مدرج كلية الهندسة الميكانيكية والكهربائية بجامعة دمشق ، على متطلبات الاتحاد الأوروبي لترخيص الأجهزة الطبية، وأحدث التقنيات المستخدمة في أجهزة الرنين المغناطيسي وتجهيزات جراحة العيون والجراحة التنظيرية، إلى جانب التدريب العملي وتبادل الخبرات في هذا المجال. وقدم عضو مجلس إدارة التجمع السوري في ألمانيا أحمد الحموي محاضرة تخصصية بعنوان “مستقبل الأجهزة الطبية في ظل التشريعات الأوروبية الجديدة (MDR)”، تناول فيها أبرز التحديثات في المنظومة التنظيمية والرقابية للاتحاد الأوروبي المتعلقة بترخيص الأجهزة الطبية ومتابعة سلامتها.",
       "url": "https://sana.sy/health/2604642/",
@@ -269,24 +210,24 @@
       "local_image_url": "images/news/eacd434686e8827223788a47.webp"
     },
     {
+      "title": "كوكي لـ«الوطن»: تحركات الشيباني تعكس اتساع مسارات الدبلوماسية السورية",
+      "description": "كوكي لـ«الوطن»: تحركات الشيباني تعكس اتساع مسارات الدبلوماسية السورية صحيفة الوطن السورية. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
+      "url": "https://news.google.com/rss/articles/CBMirgJBVV95cUxORFJyRTJjSnVMX21zeXNURHNoYkRRQUxNRHR1ZHBwNTZ1WmQzdmZwRXFTQk5jaTd5b01jUDNHdDVvcUhucGZxdnAyZWhfVXRGNDZRRWxLWU14TVNhY1NoVjVaLUw2ZEUyNnBLMkkxeWU5Mi1SZy1vclYtQnNnRklkTEFrc2stMmtfUVRVLVVSR0ZxbjNleGhxR19NUjRUdjJWT3d2RjZSeFMyWEJkWmt3bVdCN3BMX3RSYzNQUDJnQklvMDJxdWQyU2RCSmdBaUlaaUthbm8tZF9objkycnFlUDg2cFQwbUNYdVJaUU5pRWZyMm0wdkhNQldoeDBJcHJISHFVTWh1Nk1iVEpOdldSTnV5eVhBaF9ZcTVEQU95cHROTjJjem9iUUM1OXk5dw?oc=5",
+      "source": "صحيفة الوطن السورية",
+      "source_home": "https://alwatan.sy",
+      "feed": "الوطن",
+      "published_at": "2026-10-12T12:54:09+00:00",
+      "province": "أخبار عامة"
+    },
+    {
       "title": "جنوب سوريا.. واشنطن أمام اختبار الأمن والسيادة - الجزيرة نت",
-      "description": "جنوب سوريا.. واشنطن أمام اختبار الأمن والسيادة الجزيرة نت. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "جنوب سوريا.. واشنطن أمام اختبار الأمن والسيادة - الجزيرة نت. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://www.aljazeera.net/blogs/2026/10/12/جنوب-سوريا-واشنطن-أمام-اختبار-الأمن",
       "source": "الجزيرة نت",
       "source_home": "https://www.aljazeera.net",
       "feed": "الجزيرة",
       "published_at": "2026-10-12T12:41:03+00:00",
       "province": "أخبار عامة"
-    },
-    {
-      "title": "تغييرات فنية في نادي الوحدة.. استقالة مدرب القدم وإعفاء مدرب السلة",
-      "description": "بدأ نادي الوحدة الدمشقي الموسم الجديد من الدوري السوري الممتاز لكرة القدم بخسارة أمام الوافد الجديد قامشلي سبورت بهدف دون […]",
-      "url": "https://www.enabbaladi.net/828918/%d8%aa%d8%ba%d9%8a%d9%8a%d8%b1%d8%a7%d8%aa-%d9%81%d9%86%d9%8a%d8%a9-%d9%81%d9%8a-%d9%86%d8%a7%d8%af%d9%8a-%d8%a7%d9%84%d9%88%d8%ad%d8%af%d8%a9-%d8%a7%d8%b3%d8%aa%d9%82%d8%a7%d9%84%d8%a9-%d9%85%d8%af/",
-      "source": "عنب بلدي RSS",
-      "source_home": "",
-      "feed": "عنب بلدي RSS",
-      "published_at": "2026-10-12T12:31:42+00:00",
-      "province": "دمشق"
     },
     {
       "title": "افتتاح شعبة طب نفس الأطفال واليافعين في مشفى ‏الأطفال الجامعي بدمشق‎ ‎",
@@ -311,27 +252,6 @@
       "province": "أخبار عامة",
       "image_url": "https://cdn.sananews.sy/2026/10/photo_2026-10-12_14-58-27.jpg",
       "local_image_url": "images/news/fe42a2e89c96abc5dc2551b9.webp"
-    },
-    {
-      "title": "الشؤون المدنية تحدد مهلة أخيرة لاستكمال إجراءات تجنيس الكرد",
-      "description": "أعلنت الإدارة العامة للشؤون المدنية في سوريا تحديد مهلة أخيرة لاستكمال إجراءات الحصول على الجنسية السورية للمواطنين الكرد المشمولين بأحكام […]",
-      "url": "https://www.enabbaladi.net/828934/%d8%a7%d9%84%d8%b4%d8%a4%d9%88%d9%86-%d8%a7%d9%84%d9%85%d8%af%d9%86%d9%8a%d8%a9-%d8%aa%d8%ad%d8%af%d8%af-%d9%85%d9%87%d9%84%d8%a9-%d8%a3%d8%ae%d9%8a%d8%b1%d8%a9-%d9%84%d8%a7%d8%b3%d8%aa%d9%83%d9%85/",
-      "source": "عنب بلدي RSS",
-      "source_home": "",
-      "feed": "عنب بلدي RSS",
-      "published_at": "2026-10-12T11:59:18+00:00",
-      "province": "أخبار عامة"
-    },
-    {
-      "title": "بعد خسارة ثمانية آلاف شجرة.. خطة لإنعاش زراعة النخيل بدير الزور",
-      "description": "بعد سنوات من الإهمال وتداعيات الحرب التي تسببت بتراجع أعداد أشجار النخيل في مركز إكثار النخيل بدير الزور، تتجه الجهة […]",
-      "url": "https://www.enabbaladi.net/828902/%d8%a8%d8%b9%d8%af-%d8%ae%d8%b3%d8%a7%d8%b1%d8%a9-%d8%ab%d9%85%d8%a7%d9%86%d9%8a%d8%a9-%d8%a2%d9%84%d8%a7%d9%81-%d8%b4%d8%ac%d8%b1%d8%a9-%d8%ae%d8%b7%d8%a9-%d9%84%d8%a5%d9%86%d8%b9%d8%a7%d8%b4/",
-      "source": "عنب بلدي RSS",
-      "source_home": "",
-      "feed": "عنب بلدي RSS",
-      "published_at": "2026-10-12T11:52:30+00:00",
-      "province": "دير الزور",
-      "image_url": "https://cdn.enabbaladi.net/arabic/wp-content/uploads/2026/10/Dates-Festival-2-150x150.jpg"
     },
     {
       "title": "انطلاق أعمال الملتقى السوري الألماني الأول للهندسة الطبية في جامعة دمشق",
@@ -371,7 +291,7 @@
     },
     {
       "title": "القنيطرة تخسر مواردها المائية.. كيف تفاقم الأطماع الإسرائيلية خطر العطش؟ - الجزيرة نت",
-      "description": "القنيطرة تخسر مواردها المائية.. كيف تفاقم الأطماع الإسرائيلية خطر العطش؟ الجزيرة نت. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "القنيطرة تخسر مواردها المائية.. كيف تفاقم الأطماع الإسرائيلية خطر العطش؟ - الجزيرة نت. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://www.aljazeera.net/news/2026/10/12/القنيطرة-تخسر-مواردها-المائية-كيف",
       "source": "الجزيرة نت",
       "source_home": "https://www.aljazeera.net",
@@ -428,16 +348,6 @@
       "local_image_url": "images/news/2d1a56a5d83b307d19bad7a2.webp"
     },
     {
-      "title": "القنيطرة.. قرار بتخفيض رسوم تراخيص البناء بالقرى الحدودية",
-      "description": "أصدر مجلس فرع نقابة المهندسين في القنيطرة قرارًا بتخفيض رسوم تراخيص إنشاء بناء بمساحة 100 متر مربع فما دون بنسبة […]",
-      "url": "https://www.enabbaladi.net/828887/%d8%a7%d9%84%d9%82%d9%86%d9%8a%d8%b7%d8%b1%d8%a9-%d9%82%d8%b1%d8%a7%d8%b1-%d8%a8%d8%aa%d8%ae%d9%81%d9%8a%d8%b6-%d8%b1%d8%b3%d9%88%d9%85-%d8%aa%d8%b1%d8%a7%d8%ae%d9%8a%d8%b5-%d8%a7%d9%84%d8%a8%d9%86/",
-      "source": "عنب بلدي RSS",
-      "source_home": "",
-      "feed": "عنب بلدي RSS",
-      "published_at": "2026-10-12T09:54:21+00:00",
-      "province": "القنيطرة"
-    },
-    {
       "title": "ثلاثية مدوية لمانشستر سيتي أمام ليفربول.. ماذا قال هالاند بعد الفوز؟",
       "description": "حقق مانشستر سيتي فوزاً عريضاً أمام ليفربول بثلاثة أهداف دون رد، في المواجهة التي جمعتهما ليلة الأحد، ضمن منافسات الدوري الإنجليزي الممتاز.",
       "url": "https://www.syria.tv/%D8%AB%D9%84%D8%A7%D8%AB%D9%8A%D8%A9-%D9%85%D8%AF%D9%88%D9%8A%D8%A9-%D9%84%D9%85%D8%A7%D9%86%D8%B4%D8%B3%D8%AA%D8%B1-%D8%B3%D9%8A%D8%AA%D9%8A-%D8%A3%D9%85%D8%A7%D9%85-%D9%84%D9%8A%D9%81%D8%B1%D8%A8%D9%88%D9%84-%D9%85%D8%A7%D8%B0%D8%A7-%D9%82%D8%A7%D9%84-%D9%87%D8%A7%D9%84%D8%A7%D9%86%D8%AF-%D8%A8%D8%B9%D8%AF-%D8%A7%D9%84%D9%81%D9%88%D8%B2%D8%9F",
@@ -451,7 +361,7 @@
     },
     {
       "title": "ملتقى ميري في أربيل \"سوريا الجديدة.. من الانقسام إلى دولة مشتركة\" - Rudaw",
-      "description": "ملتقى ميري في أربيل \"سوريا الجديدة.. من الانقسام إلى دولة مشتركة\" Rudaw. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "ملتقى ميري في أربيل \"سوريا الجديدة.. من الانقسام إلى دولة مشتركة\" - Rudaw. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5sM214WjZCOGt5Nk83X19pX21OUFJvQUx3enJ6THo5N09BYnBPZ2tENjBhVGtDU3hxekN3RzN0aFdMdFp2WVBNX2Vqcy1fWXkzOHNLbHI4VF8tYWM?oc=5",
       "source": "Rudaw",
       "source_home": "http://rudaw.net",
@@ -461,7 +371,7 @@
     },
     {
       "title": "لبنان يضبط مجددا مواد متفجرة مهرّبة من سوريا - France 24",
-      "description": "لبنان يضبط مجددا مواد متفجرة مهرّبة من سوريا France 24. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "لبنان يضبط مجددا مواد متفجرة مهرّبة من سوريا - France 24. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://news.google.com/rss/articles/CBMi8wVBVV95cUxQODJWdy1kYnF6aERic19XTHZZV1paWGk4STJxSk9STi1yWHA1eTJraUxIMUVhR3B0cF8xZzFJUUtoMWpfTHRwY2lja09JQ25mdEZWQXdKMl9jaTg1WmRlV3ZSQVhleEYwZFEyVzNhTXFsaThfQ0RQcmJsamlRZlJJbHkya2szWGZKTG5pYnNFZ29MWjhiX09YVmIzT0RtbUkyR0FuSURKSEZkenAySGIxYU0xTHFaX1FFVWFYajFfVjFBZkU5YzRnNkYtQlFVWW82TGxJZlRoVHZScVVRcGtxWFgwTzJzdnFHcUtoaFlzQ3J2RlY3ZEJ2ZHVndjZSSWJCRTVuS3Y4X05SczZGa3hFTUNCUS1aM0RhYWF5dEJ5eEdLR1dwcGxOS1RlUFZSNndTb2pjaVNkLTdzLXRqV2ZyUGc1aTEwQ0ltQnJENGtVYlBfMkQ4MEFjWTBkdlVGUGwwREZ0YnIzQW1xR1NlZV8tUzFSWUNxWmNoT2thWmcyMmJjdlowUm0zbFJLWDdKZWFPa3ZwU0h5Z05hOVhUbFRFTTBxcGxaNUJjVlhNbG9vT3VTQmJVX3VlRjhxZC1tLXlUdFh0VXhKdGRpR3FoUWlGa0N4MUF6QlFWSWJGUWNMejZUcmpkNW9TVERrSjlHQTNyNTRHdjVEcjFrd1ZXTnZnR3I3MHUyVmJ6OURWa0liTWh1elkxRTRILWZ4TlQtTlBzemc1NldSdm5lQXV1OU0wNnBGcUtqWjNuSDY5ZDZ1dDJKR2F0QWJ2Skpsaks5OWJIUjdzbVhBbWU0TTVVa18yTXRHc0l1bGcwVGRPX1RTVUxNZ0dhRkU5NGNwU2xRb1RYWHhza3BXWUtEQk1RSVZrTW9FZHFEaDBXZTY5SnZ3VjNWZmZMLUZmTjJFYzZFNkF0WkdITV9YRVhjNHFhNkxyVFN2ZXNOenVFVFJ2S21pVUZ2VUFLb2czdkw2MWlRVkNUcm9rS21IdmFXRUd6cVJnOHkzdw?oc=5",
       "source": "France 24",
       "source_home": "https://www.france24.com",
@@ -483,7 +393,7 @@
     },
     {
       "title": "استعداداً لبطولة غرب آسيا.. معسكر تحضيري لمنتخب سوريا للريشة الطائرة",
-      "description": "استعداداً لبطولة غرب آسيا.. معسكر تحضيري لمنتخب سوريا للريشة الطائرة سانا. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "استعداداً لبطولة غرب آسيا.. معسكر تحضيري لمنتخب سوريا للريشة الطائرة. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://sana.sy/video/2604330/",
       "source": "سانا",
       "source_home": "https://sana.sy",
@@ -494,7 +404,7 @@
     },
     {
       "title": "علم الثورة السورية في أنفاق القسام بغزة.. فما القصة؟ - الجزيرة نت",
-      "description": "علم الثورة السورية في أنفاق القسام بغزة.. فما القصة؟ الجزيرة نت. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "علم الثورة السورية في أنفاق القسام بغزة.. فما القصة؟ - الجزيرة نت. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://www.aljazeera.net/news/2026/10/12/علم-الثورة-السورية-في-أنفاق-القسام",
       "source": "الجزيرة نت",
       "source_home": "https://www.aljazeera.net",
@@ -504,7 +414,7 @@
     },
     {
       "title": "إلهام أحمد: عملية الدمج تحققت بنسبة جيدة وساهمت بترسيخ نوع من الاستقرار في سوريا - Rudaw",
-      "description": "إلهام أحمد: عملية الدمج تحققت بنسبة جيدة وساهمت بترسيخ نوع من الاستقرار في سوريا Rudaw. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "إلهام أحمد: عملية الدمج تحققت بنسبة جيدة وساهمت بترسيخ نوع من الاستقرار في سوريا - Rudaw. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5sQkVIR08tRmNkcDJfc3oxTkgwT2VYNTFySVFMQ2dzbUhWcjNPVy1CcWo0d2MweUdJUEFzdXdyUWZZdDFsbGhIbEhiMU1BYWpwMnJSX2hZOXdWZXc?oc=5",
       "source": "Rudaw",
       "source_home": "http://rudaw.net",
@@ -514,23 +424,13 @@
     },
     {
       "title": "مستشار وزير الخارجية السوري نجيب الغضبان: عملية الدمج كانت انجازاً كبيراً - Rudaw",
-      "description": "مستشار وزير الخارجية السوري نجيب الغضبان: عملية الدمج كانت انجازاً كبيراً Rudaw. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "مستشار وزير الخارجية السوري نجيب الغضبان: عملية الدمج كانت انجازاً كبيراً - Rudaw. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBsR2ZwekNaX2g1LU9TalRmZFNGOVNrZHc1aF9IMHgzRmRyVFpEaVhBamxNbW1yUHYxT29LSFZySktUaWMxSHVRUzl5dVZZSlUwQmJaUktMV1FDRzQ?oc=5",
       "source": "Rudaw",
       "source_home": "http://rudaw.net",
       "feed": "روداو عربي",
       "published_at": "2026-10-12T08:37:44+00:00",
       "province": "أخبار عامة"
-    },
-    {
-      "title": "“الآثار والمتاحف” توضح طبيعة أعمال ترميم قصر “الزهراوي” بحمص",
-      "description": "أعلنت المديرية العامة للآثار والمتاحف أن الكشف الميداني الذي أجراه فريق فني وأثري على قصر “الزهراوي” في مدينة حمص لم […]",
-      "url": "https://www.enabbaladi.net/828893/%d8%a7%d9%84%d8%a2%d8%ab%d8%a7%d8%b1-%d9%88%d8%a7%d9%84%d9%85%d8%aa%d8%a7%d8%ad%d9%81-%d8%aa%d9%88%d8%b6%d8%ad-%d8%b7%d8%a8%d9%8a%d8%b9%d8%a9-%d8%a3%d8%b9%d9%85%d8%a7%d9%84-%d8%aa%d8%b1%d9%85/",
-      "source": "عنب بلدي RSS",
-      "source_home": "",
-      "feed": "عنب بلدي RSS",
-      "published_at": "2026-10-12T08:23:34+00:00",
-      "province": "حمص"
     },
     {
       "title": "سوريا والسعودية.. شراكة استراتيجية تدعم التعافي وتفتح ‏مسارات الإعمار والاستثمار",
@@ -581,7 +481,7 @@
     },
     {
       "title": "عن أولوية المعيشة.. والسياسة والإعلام",
-      "description": "عن أولوية المعيشة.. والسياسة والإعلام | تلفزيون سوريا تلفزيون سوريا. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "عن أولوية المعيشة.. والسياسة والإعلام. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://news.google.com/rss/articles/CBMitgJBVV95cUxQaFdmQXZaN1EwajNXVU5BYjQ5ZjNlY01DTW4tVEw2RVdDamdQMEFkQXFoQ1hPeFNMd2l0NG1VSmJpaFZNZEZhYzR1UkhaS1U5ejdFbURTRmtNZ1RCX1FXNERpN0phdnkycGg2bS1nb2hWTktWMEhPckUtSHBON1h4V2xOUURYaEZ6M3dUV2JOZU9GZGc4WGFmS1pjOE11SElVNl82QngwSDNIVzFId0x5ajlwc2RuSVNpOWFOQ3BFczhmWTRnczFLY1hKbVNYcC1USjVkM1Y0RFhVc1NZRERtTDJWWkVIbTlhUHZySGZZSVNZUEwyNUNnZDRFWGJxRU13eldmUzdhTG1raGFydFpqVGl4WVBsVDlMbzVJQ25yWjFNZGwxSVd5MVp3VXgxSmN6QVBiLWpn0gG7AkFVX3lxTE1HbUppLWZld1RIUXpiV1RYcEZhaVlIdGx3b2E2bHYzNlo4SUJxeTRTd0FDc1hrbVNMbGVQRzZkRkptV0lUOVBITjR1TEJnbjBhMi1HNGJjdFhiNmdVbVhyUF9PSmZEZVZuOVVCOGRVemFUYlAteUJYLVdxd19NVk9wLXFpRmVNSE1CSFREd3JBdlRUbWRwTzYwaEIwU2tFNlR3QjVPdnhoR1V5eDg2ZDNqekFxcXQ0M1NhQ01Mb2xsbG9oSmxoZkxXQldRZXNCeEJmZ2VvMWlBSTU2R2hMRUZaYW5EUUNFNVNSMnlnOUNuZy1rZXZtVUxvOVNyU3czTTJETG5BWTNUTENqMllXTjN5SmlTNlUweVFHZ1lDZzQtUE9hdVBDY0kxNnpHS1V0NjhNTzc0UzMyWGhwRQ?oc=5",
       "source": "تلفزيون سوريا",
       "source_home": "https://www.syria.tv",
@@ -591,22 +491,12 @@
     },
     {
       "title": "مصرف سوريا ينفذ أول اعتماد مستندي مع بنك أميركي منذ 14 عاماً - الحدث",
-      "description": "مصرف سوريا ينفذ أول اعتماد مستندي مع بنك أميركي منذ 14 عاماً الحدث. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "مصرف سوريا ينفذ أول اعتماد مستندي مع بنك أميركي منذ 14 عاماً - الحدث. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://news.google.com/rss/articles/CBMi1wNBVV95cUxNTklBckhHWHNxZFZ3bDRDcUI2MUVjaDltR2tnX2FTcnBuMlYzR2stdFFBX2xnWlZPcVhKVGhkNTBDcWEtcnB0bUduMGZpcnRhYVRQOFAySTJaald2ejd2eVZuTlctekh4eUtfWllWYVRPS1FhTmxkQk1WN3F2ZEw0dzRoRnZKQm5HODMyMlpqYmczZ1hleTlYZXdfSm9NYXVqWm9fRjJQbm9xZ1B0RVkzQ3g1VGo4SjFiQnJaQUs0ODhFQWtHbFBEeTFOaWp1YXhvdmJ3SnJnODJHYXB4YUlPWno1VGRSc1dUNWN2amRuOVIxOTVpUnAtZUhNMUhnY1BZSlltMlZDQmlTMTVxMVptVUg0d1JWSHpCWnM3T2V0QllCU1ozNWZxSktuNEJLYm0yR0FMei1YMTNWTld6cENpNDVDR3VsVGoxZE41cXJ5OXVhLXN2bGp6dWlhbDJneXc2cjJyMGpxczNwelZXNVdsVXdFVzBJZXg3SDJWR3VGbXc4cWlPcWpwTE9QaC1ITjFxRVB5NHQ5aXBLT1dCc1hrUWxVVXV4djFiN3pLa2oxVlFVT0RSV1B6NTg3djU2WVJTTmY2cWpueVFSa044R1MxaEhvbUxKb0nSAegDQVVfeXFMTnN2YnRlOWRocTFQWHdQQkNacjhLTmVGclZDeFZ4Y3dxenBxQ3JwVWdGZS16WjF4a0J4Q0t6LWVHNXhCV0hJcG84QUY0VjhKbVpnUEtoVDVFc24tbVJWUElzLUhpdkJENEVNRjExalFHS2NaSEJkNGZtUW1ubk1mem1DTnJhSzhzakMzcUR0WFVqT3QyMVNmNGFIR1ZBYWZleWxHY1lqOUhRZVVuZ0dpTC1hbFFNdzQyMXhydkk4TnprWVZfN2dHRm92NnhuR1VOVEZGSnNNV0xySkFsZlRvTVlfVWxLbVdOcGd3N2FpTGpmWFdld2dtTTU2WWxkTFFfWVpKWG9qNmYwY3RYZ1NfMjZDVUlSYjFFX1JmVkJFdXFncjFJaDBYZkt3NGZuaGt5S2M0R2EtUEdKLVJyQ0plWG9GSkV4QW81RXRpcFZmU0hzWjdoVEs1N0RFYk9fUlRKUzBvLXVyRDZOYmhTU09uRkdEaWpXeDkyM0VkNDRtNE50a2ZGNGkxMTlHbFVjeGZzMEJRQjZISUgtSjFYaVB3T0I4Vjl4RFh1emNyakY3cTVHeWFGbmdQdHdUV0QwanhwTXZSREhiOEluX1J6ZXhteXp0Q016TThDdHlzY3ZjdWlmT3c0MjdzZHg?oc=5",
       "source": "الحدث",
       "source_home": "https://www.alhadath.net",
       "feed": "الحدث",
       "published_at": "2026-10-12T07:08:00+00:00",
-      "province": "أخبار عامة"
-    },
-    {
-      "title": "وفاة الشاعرة والرسامة السورية فاطمة السوادي",
-      "description": "نعت وزارة الثقافة السورية الشاعرة والرسامة فاطمة السوادي، التي توفيت في مدينة اسطنبول التركية بعد معاناة مع مرض السرطان. وأعلنت […]",
-      "url": "https://www.enabbaladi.net/828886/%d9%88%d9%81%d8%a7%d8%a9-%d8%a7%d9%84%d8%b4%d8%a7%d8%b9%d8%b1%d8%a9-%d9%88%d8%a7%d9%84%d8%b1%d8%b3%d8%a7%d9%85%d8%a9-%d8%a7%d9%84%d8%b3%d9%88%d8%b1%d9%8a%d8%a9-%d9%81%d8%a7%d8%b7%d9%85%d8%a9-%d8%a7/",
-      "source": "عنب بلدي RSS",
-      "source_home": "",
-      "feed": "عنب بلدي RSS",
-      "published_at": "2026-10-12T06:40:26+00:00",
       "province": "أخبار عامة"
     },
     {
@@ -645,7 +535,7 @@
     },
     {
       "title": "مقتل أم سورية لـ4 أطفال في الهجوم الذي استهدف مطار الملك خالد الدولي - الحدث",
-      "description": "مقتل أم سورية لـ4 أطفال في الهجوم الذي استهدف مطار الملك خالد الدولي الحدث. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "مقتل أم سورية لـ4 أطفال في الهجوم الذي استهدف مطار الملك خالد الدولي - الحدث. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://news.google.com/rss/articles/CBMingRBVV95cUxQVmZ2ZHFUbGFzd2UyRGU0LUlKZkFCOVZwY2VURGxmMjFJckQwZFRLdVlCaksySHU2TlJZUnA0d2RqN3p0eFZ1NlNQVUowclhxekJvLTUxREpfaVhyYTAtMjExbTUzdld3Qjc5MU1PdThwN2ZmaVBDNVJScVZQclVxbUIxZ3FoNlNMeFlWTjVuVkVYSkx5dENkMDRNQ3ZqclJud2J0dm1Gcm5OMW9WMTV2bU14elQzQ3JyUGFfbW5IenYtSHo0TEJMd0I1QjlPeUw0ZVNjUjVxVTdYZi03bWNKbmtiUFVnMjlXZFVQc0xXcFlXeFJHa3NuNF9NNE9qUEFrd2l3MVVnSDJwTk9xNlJ2dmZGSXhTeEhfaWpNdDZPZzBvWmxXN0podFhlNnFnWG93SXBSUmZVbElvSEJnMTNjTjQ3VUR3RzY3b3RuU1hObzVCU2NuM0hYV21zWS1vd1F2QVV0WlBjNnR5Z29hUVpibFJJdVkzWFdBTDZVd3NNWm9pUVh1SWtCMktZcXdvbUJoVHBmVEx4eVNoT0JBZXpvdlFVdUFjbHdaRDVxZ3Nqd3NleVgtUDdTdkE2VVVsbklRcS04MW1vS0xjNUtBMlFlbUR6MG53eVdjREY0b0VuaXJzSnBUeEtlZjBvRVFnMXB1Ulowc2RDcWxRVjJsdnRJcVBMRWhYUFFwWGdPbTlMa2RkTmgzVmI0bHdaUFhId9IBuARBVV95cUxPZUVzVzZzV1F2blA5QzZhMFl5UlgyT0l5S1lmVGZmaHQ3dGhLMW9lX25SZ0pPczZvWl8xREVkcEZ6cjQ4dk9WLW5HaXhmR1ctVU85SUtRbUN3V3I4c08ya1BsMk9IRmdwXzl4UUtCV2lNbXpQWmZKWkl5RU40SVN0UlJtYzI2VmpZUm9yZUJqOUtZeElFN3NxU09XQi1ELXphQy1HWGxjY2doOURGM083XzJoVEE4eEVISmNLT0JURlphLUd6MFNaMVBHcVl3bnpzbzd1ckFEUnAzZEh2V3liQnR5TVpQUXhMZ0d3SWU2OFJJMHVKaWQtNnZzcXVqWXlpcDF5OVNxMkxseHducDB0czc1R2tFa3VDOFpEMHlnbFF3NERnQ0VzR3NQLV8xR3pMYkNIYVJnZndYZ0pNTnpZVmJNbEQ3czhDZkdXSTNObmlUalZSV3JSUUZxNWhldTFlZmRldkl5MXBJOEJibURWTHhBUUN1U2F2aThyM2RtaVItUW5iNFJDZDNSUGNVWlNkbUs4T0g5UnZpb2ZXMEowNkpGUGdPOVROdzhJOUF4RnQ5SUZST3BnUmpCNEpsLUlXbUlCNjVQZXNkZXFyVU9rcXh3TUNPeU03dHlQeDYzeXFVcUpyTjgzNjcwanlhanJITDhJeW01QjlZUmFQekVXb2MxSk1EWWtKUmtoc0E1SjcyRkF5bkVYQmlJMXFGOG4zVTB6SkhIN3JaQTgyQVM2bGxxMWFDanhW?oc=5",
       "source": "الحدث",
       "source_home": "https://www.alhadath.net",
@@ -667,7 +557,7 @@
     },
     {
       "title": "الاستملاك في سوريا.. هل تتحول إعادة الإعمار إلى استمرار لمظالم الماضي؟",
-      "description": "الاستملاك في سوريا.. هل تتحول إعادة الإعمار إلى استمرار لمظالم الماضي؟ | تلفزيون سوريا تلفزيون سوريا. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "الاستملاك في سوريا.. هل تتحول إعادة الإعمار إلى استمرار لمظالم الماضي؟. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://news.google.com/rss/articles/CBMilgRBVV95cUxPZEpYYkV5ZU1KVnpXY1JDSS1tTExSOWx3bE5jNUVzLU1ENVkwLXNjQUozV05DRnJQZC1rZThmQUJERWJKTzdpUnBhb1hheVkwbzlnNG1fLUlMU2xWbGkxcnN6MmNhS1UzeDlnTU5mWVVBamRIZWdWTDRkaHBpZ1JDLXJEQWNBTldlVWxQWUhvMm9sTmx2Rm5YVGtlaERYRUdSWktaeFZVenNfY0s4ejNkZnZNYkFsUXA4WnNaaGh4ZHhwRE01eURLTUxRUVRjX3Y4NGxxRVRsbjNaUGhMZWVaVUJDai12VFJDN1R5UVg0TUVVZklkaEZWOXo3b3o4Zi1jU2VRMzhJOXVIdWlaRDJKb3VjdnBsR1FVSzd4bHM4YWFoWDB3ekdLZ3V1VklpenY0aUJFcEtQX3dmVzl0bm1EaHotbVNQaVU4UnExYkNOT0tuMVFBVmM3UTBENC1ESGdiLW40c2VfY0lvbjZNZXlxSmY4V1otaUZLRDVOVHRnMkRKSVhhc2FYbHRvOV9yV0Rzb0VaMHZ3aDduN0ViSVdoUW1YSUE3N1NNU01oZ0R5M2FCY0FkejNldlQzUWtreC04WEJzRjhENV9KeHhrWEhaNVNVY3R1UDJaaDU3ZUFNTkd0dE9rOUkySXhlYWhMQlc4OENJY1ZoM0ZLYU16MWFubnF0SFZhaWtzMWVSY0FNNWY2VC1EYkHSAZsEQVVfeXFMTkJtZXEyd293WW9BY3FVWUtrU0JzNkpTTUkwU2F6SGdMVTU3LVNMZE15dkZCNVFyLTN5YVVnczFRWXBzZEE3dGswaEp6Wjd0WDJRRDYyWE1pRlFtZ3NnM2RzUjRVWlRwTFIyVVRITDBkbTV0YnRmRXVidzFxVjk5eDFMRGVpZUlsdEM1d0RybUNqdU5DUzZFcG81bzdoNTQ3UDlsZFFyb0dUdFRkT3NteUUxUmNOaDZ0Z0hwLUR1S0t4QWIwVVY3QXBET0UtRFZpTllnNU0wa3pBdkl4UFFGOVRvVV9Pank4Z3BoeUJRc0cwQmhBSGNSRDRXZGM0MFJ0OFg1LXI5ZWxYeTRacVMwdXM0NXRXNzRoRFBtUm45cjNXR19uSzZXTUdCMUktV1lieWFXc3A1MGJrdi03ellib3gtRktsYk9maldfeGlMSVZRblBGWnhFX1FaR3lndnc4UU9UREJOWjREb3gxSUp4WXd0ZGtGNTl2MmNtX0x0QTJVUGo0MlF5OEtORUloSWdhZ0JEZk5CZC1ybWdZZFA5SVgtSGI1S0lucnBUeWlybWVJcmdoRTRwbVdfbGZQQm5iZ1h0TzB6VERKTmRDQ1FWQ2ZxYllDM1FpRUprX0ozSHFXaTZSTENlc1gtSEtZYnc4YThpNkRYS0hUUDJ2Q2lHRkFWT0dLUVZiOUh0ekwyWkVfU3p0OTI3YUlMUW8?oc=5",
       "source": "تلفزيون سوريا",
       "source_home": "https://www.syria.tv",
@@ -677,7 +567,7 @@
     },
     {
       "title": "حين تُستبدل المحاكم باللجان",
-      "description": "حين تُستبدل المحاكم باللجان | تلفزيون سوريا تلفزيون سوريا. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "حين تُستبدل المحاكم باللجان. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxQRkk5cDNKMmh5Y3lCdUJpTDRfUWw2cFFEVXhuVEJfUU52Y3JoRndua0VmaFlmU25MTm9xMVlSRkR3Yk9ZM2JZQ2FOVEhEcnM2a01jQi05UG4xQ0lIZlB4ZUhnVnhEcFlNRk5sYTlDQ29VWWdpSWhfQUxZdjJfMERaSmgtV2pTUG5nMEZqc3prd2VJVldjNlZ4NTE2Qy1OMjh5UE5oN3Atb2FVV3JjQXRzOFVXT2VfZTI3OWp5YnVvSEgzOTJrTUtweXV2alAxLVE0WktwY1JEUUxxa3VDN1FhMGpWWDZPRjhvRi15Y2FHa1NWTjVTcC1hUl9zMnbSAYICQVVfeXFMTmZ0TU9sQnBFZVp6STJrV3dJbzcteU1oblc1NjBNWVE5djlUMlhtS2dVOU5COVF6dUlJak82UkFLR1NQUmE4ME8yZ1pxU3ppSjVDU3puUVlLbXpvTWFOYzNONlBJR3pXMVVUT2xtelJxMmthVW54YjQyT3VXbGRIT3dPNWw3X3U1ZUhHX0xxdWJRM2U4eFZGU25SNno5WjlVS0dBYU1fMGFNWTloWkcxVS1xdDhrOFp4Zzk2Z2RDNUFRNDItY1hQYndMeVlMZkNKSHdrY2RKVGltQnpNazllSWQwVVpaUGhsd2prZy1RclVjWFQxMXFzd3pxaDdrdFJPcnNB?oc=5",
       "source": "تلفزيون سوريا",
       "source_home": "https://www.syria.tv",
@@ -687,7 +577,7 @@
     },
     {
       "title": "عندما أعدم صدّام من خالفوا إشارة المرور",
-      "description": "عندما أعدم صدّام من خالفوا إشارة المرور | تلفزيون سوريا تلفزيون سوريا. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "عندما أعدم صدّام من خالفوا إشارة المرور. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://news.google.com/rss/articles/CBMiyAJBVV95cUxPWmZWdm5TRVo0SkJPNmhrR3czdy1IY1g1bGp2ZFpQWndYNmczTXdGZVFRZmR3b3U3UGQ5S2pMVVg4LXRkLWIyQkRrYzlRMF84QU51RDVLUDR5Ynd0WHRaQ0Y0LXJLV001WGo2TFJnLXdtaWRZaDZCNWF2cHhpakprVW9iVWtDcDAyNmRwY1duN1l6QUFuMFdCNkdPLTVzTE5PNzlLV0ZnNHFFN1RCX3hMdWxJcUxxSFlDdXhTMF82U21ua0YtbUdVbTdIM1duZzBrMG9xM2Z0LW40MkpRZWVUMk8yY1loaGhfTkZlQlNDNjVYME96dVNMb0c2dHpnR0dXNlUxVm9ZdUE5TE0telZmSEhwYlVHcU1rXzdmbkZOOUJmUEJKTkpFRlpwc1p0Y3FaNDB5ckFMNkJaVlVrcWlqZXZ6UnQ1N25X0gHOAkFVX3lxTE5tN2FGZ3FlQmJ4bURHOVM5T21na19XdXlvQUdndHF3Qm9qM2Z1NUZrZXNnXzV6b1hRRGFvaVhhS1dTdUY1bkF5OHg3LXVaMllpWC1acXE5a3paang0WHNwcGxNYnEtdFVFZkc3YUgyZV8xcGdzaVo3ZXVWTEZjcmxLM0s5d05yNnhUdm1BcVYxenlpdlhpbDM3YzNjMVM4RDM3Ri1BeVhZdl9vb3I3MEpVeFlLSGFRamgtRE0tYjhEVzJFdzdtMm43T0duY0M4VmwtZUxIV1pDS2JaUE1zZ1ByempKMXN4RHM1b1Q5MTVvampNYkNhaVBzZHpQanFzTGJZR0J4YzlrUDJEdWdsMUE1MlRjMHdSamxhV0duYmh6b2RCYTVHS2l6TGYyaEJZTTB6cUJsRmJSdjBPNFZCeWJLUjBZZGtPd1d5cUVZVUE?oc=5",
       "source": "تلفزيون سوريا",
       "source_home": "https://www.syria.tv",
@@ -697,7 +587,7 @@
     },
     {
       "title": "مذكرة تفاهم لدراسة تطوير \"مدينة الابتكار والتكنولوجيا\" في حسياء الصناعية بحمص",
-      "description": "مذكرة تفاهم لدراسة تطوير \"مدينة الابتكار والتكنولوجيا\" في حسياء الصناعية بحمص | تلفزيون سوريا تلفزيون سوريا. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "مذكرة تفاهم لدراسة تطوير \"مدينة الابتكار والتكنولوجيا\" في حسياء الصناعية بحمص. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://news.google.com/rss/articles/CBMizgRBVV95cUxPX2NKSjd2N2xHVUpJSGhWUFhvRXlEakg1R0RaY2Rhem92LXhfMzd5OWhxZ1VIODc0NGlCRm5TVTlJSC1CY2VQd3JraFNRS1R3VU9Vb3JDSFhLM1pDaHJZZHVnTXJWUURueEN6VV9CN0JMSWM5QjlWeWIycjFST0Jla2d4MjZkUkZfXzI5RGJXVGUxaU4xcHNiVFdsV29wX2x4d1R2ZFBVUTFCYVpCdlJnRWhFWWpSdHF4ajJoYmVfRjlQYkdzcFhZSnhXQjFSUHd0dWNLWS1jMEU5cUh2S0hGU2swckw4MUhLUGU4Y2VjeFZNWXhieXQyRXNiVG9wMTBsNnZuX05MTDkxREQwQkxFaDNRc0xEZy1iUjd3bzRYaW9GN2hZSjF1V1lhUHZhYkpLZEx3MXVjOVlYV0lrQzNIUzd3YTFvYWxYWTVIWlhDN0dtZXBEQXctQkVPUWJhaERqWUFuOXBBZlRTbjltODNZYmx4cDZlems2bFRMWERTZ3J2aDdaUDVHYlR5ZVV2cVQ1MjZnR0h0UncxNDhmTlo3WVZLdHczVl95MWtEUmM1NFRqcUNMUzdOYTN2aGd2NGdMbGRTT3JBTnQtZFJXVUpzajhLNmg1Zm9xd3ExOG13NEZfWXFNcnRFVHBzZlgwOWZJcmJDc0hBTWFvaEJDY1k4UlFPejFxN0hNQnExM2xRcXd3SUN2TXhIOVNScmpDaXU0eGZTYU1xeTUwdC1ra2l1c3lReHJSODNDRnNaMUpEWDNPbEt4Nk1hQ19qZjJtZ9IB0wRBVV95cUxQSXlpbGFoUFVibHAwZFVxYldUOGVJQ1pIN29CXy1Fdy04MEhsWUM1LUVTN1AwYkJkUkd3MEhKVWhqQTRYYVpYNk9sVGduR3A1dWZwWnZXQkQ1MUZLUmFZV0hhVHlRQkVZQ3JLYTZNUU45a0pTYXFoZ0k2QjFPWUxhaTNyVUhjX2ctNnYySy1TR3hqZUxDR3BoQUVXZDVSUjdtNzhlaF83T0c5NUtlZUFyQ2J5Y0R4UFN6bHRNMXZFQi1wV05kMnhxNF8ybTYyYUx1UXVDLXZjcW9RMWZ0dV81bGNHSmgtTmZOLVp2dGV5WTl5VnFGSGlqVjFRbFF1VWkwX3U2cnpzZXZtRVctMHo4SmdqVlpKd2pVVVlubUw3X1hjN203bzc3dEVWNUFwVGVkMGVpRl8xVmtZRFZHV2JERzV5azlxcTA4WXN0YzhUM3NsaDdBd1BJZmNKR0pIS1lHcVFVSnRUUktfQWZNUFNnelQ3SlNBRUhrczBZWkNTM3htbW1HQlIxekt5blFFNnJuYUVxWTZvTURmZllKXzdZMW0yZHNTejlia3p3X0JQV3dWYzdnanh2SEZrcWVIa2Z0Vm52RFFoV1RWWl9FUWJ5N3huZnlHSTAtVXdmWXFFcWJ0SjAxeWJlc2cwTkRPSzQtMkhCRkhJVmlwY1VkNDdBRlNqRTFQR0QzWXJPTXZxNVdXWjB3ZEotMF93MVZoN2lyNVBTVFJGSHc4MHNqSkUwbDFSc056VWNmX3MzUjQ5Q2pHTHdBcjYwa2FBa1ZmVGZBaVdV?oc=5",
       "source": "تلفزيون سوريا",
       "source_home": "https://www.syria.tv",
@@ -719,7 +609,7 @@
     },
     {
       "title": "الآثار والمتاحف توضح نتائج الكشف الفني والأثري على قصر الزهراوي في حمص",
-      "description": "الآثار والمتاحف توضح نتائج الكشف الفني والأثري على قصر الزهراوي في حمص | تلفزيون سوريا تلفزيون سوريا. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "الآثار والمتاحف توضح نتائج الكشف الفني والأثري على قصر الزهراوي في حمص. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://news.google.com/rss/articles/CBMinwRBVV95cUxQTklSb194anBVX09fS1ZBc2hSLXktUU1lYkdfWmtqSllqb1JaYmpEeGlzYWpNekpWaVZ2cWQzeGJYS3BBajV4VUN0NmxMb2J3MUxmQXZWcDNnMTFGdWJrQkpRTVlVUVg4Zk9xUVo1UHJ6VTlzTC0tR2tCanNvRlQxMG5OR1MxMjlTZ3I1MEpQblE3TWpaTFJ1UkVpbXMxYnpTM0pUT21TcUcxVEpGM19feWpyRFE5Ukt0TzhtcmxHWWxRV2VYeGJRNnNDRDd2dEs4NEdjRFI1V2ZYdVRBMk14NW1mb3ZDTXYyZk0xY2ZhN1NCSXF3a3dYYjRvaGN0aDJURXJUQWdndzd1dWNCdTVGU2RWcWFiX2tOQlcteW1JV1ZoZFdJNGZDTEZ5NEgxWEkwQzFGRGF1SWtVVU1XaUNUMTNSTFdDaWVydnBnVV9NLU02bFlHeEg0SmN6dzdSQW83VUxjRXdNRktUMkJFNDhIaXR5NnFBaGI3Mm4wMGJWUmxHb1FGVjdsUGdvbTQzeEdKSzhZdGVSMFZGbFZjMGd4bXMyWEpIQ0c1Mk0wMXA5MER6eHN3cndWVDZ5V0RVSXBhMjJXVWRCdnRqaGVsZkJNOGFld0gySkRqcXdIYkFEazhJMHFYdXdXRlpYaExKUmdXSnVJcnZreEdOelI4ZGc2QmhQLW8wWVlFdHBWcWJDWnY1UnlwblJxZTFfUFFuRWfSAaQEQVVfeXFMUFotemtSS29Ob0pLUWNFbE9QTmQ4dElEUzlGRndoaDFya29yN0QzUmxaSmJraWJrc1BNQ0VXdU5HWi1hZnpnRDN4T3d5Y1AzYXlkcE84TlZzNUZXa2wxQXB1TjM3MVdTNW9NaE5lMXloMGJnRjluelJvWG5yNTZxOW5YM09ZVXFzeGpubnZwd1BvaGpTVXIzUG5ZeG1vdUdyWW1Ha1FZMkRHVEc1b3NldXoyZFJiYThmbG13Y3VhY0l3N19GeURDNVNNZGJpREZwZDF0LS10QlFCdTRnRUJjbXNlbUtxNVZ0aXo4eEl5N21lbkJzVVpYWnk0Rm14V0FRN3RXemVkUDM2N3NMNl93QWQyLUFiWHNMaTFoYmxFUGoyQndnaTJHZ2tzTmh0eXpOR0xxUEF0WG1jNm5RQ0xPVFlfVDhHczJHYjV6Q09uQ0kxN0xUQjJfNEE2UDRXSDZtNmcyZW1kTHIzdzFjcVVPak1SbTR0YmxzOG44NUR3enZ6dFU3aExMTHhhdHQ3MXpxMy1oYUxaUU0wM2d6N0xoTVdUU0lZV2RibURXb0J1ZUVrRFhhTjdHUGVIbWFqNFdaMk9WSE9wQjZYRVVUX1MzWlpacnh3YW5RRnVjb3FNRVpLZDJ3TGNzSjNzMkpVSmxHU1BZUkZVSlFCSmRGNVJBZmtRZk1oak1GWjRsTDZBWDE4Zk5kdm5feTJJd2RpZnpWUEFzMVc?oc=5",
       "source": "تلفزيون سوريا",
       "source_home": "https://www.syria.tv",
@@ -765,22 +655,12 @@
     },
     {
       "title": "شقيق السورية بثينة عويضة يروي تفاصيل انقطاع الاتصال بها قبل تأكيد وفاتها بالرياض",
-      "description": "شقيق السورية بثينة عويضة يروي تفاصيل انقطاع الاتصال بها قبل تأكيد وفاتها بالرياض | تلفزيون سوريا تلفزيون سوريا. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "شقيق السورية بثينة عويضة يروي تفاصيل انقطاع الاتصال بها قبل تأكيد وفاتها بالرياض. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://news.google.com/rss/articles/CBMi6ARBVV95cUxPYjJrMEpJdWpMa3puZThJdE9qWVc2SUhPVkUwQTA3RTU2M1JWZmJsU0tKbWtOSS1MRUFKclNQUHl5UzBvNElUZnFpck1rYTdDY1AtUC1nWm5lYmRibTl3R3c2VjFkWVExU3pfRWVNUHFjdjYxRDN1azFmckZWTWlVYkpMMDJ2MEFnVy1vR0dBLWs1UGQ0QVd3NnFwSHVQbnNTLUhPRXZMQXRWb1lyT2RNSEF3dnpDZHpoMkhPVGc2VXhRbGlQQ1JfTjcwdEdueHBrVGVsMVBqYzFYWFR0VzNsYVZ4N2NRSWhvd0dsUmwyM1VxS0ZYaENleEZzV0c4LVdmNlk1akxFN0s4MGFWakJ0dlA2bDY5MUhxVkRfeEFrQzJKQ3A1ZHFDNmVPczJsbGNLUk5TbXd2Nmx2THV1NXAtSVpWNGVzdUExcEFYV3ZLVlBWbGpVSWFpazRoZG5wTHVyRmI3NHFKR1ZXMVVIQkF6Q1d1MnpPdllHc0VXcXpWQlNtZGFfNW5FYks0Ny01QXEwT2ZDcHZTNHZKenVoeGdpeUZSOUV1OTFJVHQ4YVFQMmRUYWk3ZTZfMHN2NGhTTGNZZ1pxZzFxdGcwRHduOFI1Q0RfWXR3ZkwwcXBBWV85RjZsZHJZZUZibXNzZktyQUh5TDdJV1J5RjZoNVhYZFgxQmZIc2d6MzRRUGEwY2FUSlMycllWWkkwQ0NNcGcwRWR5MlhYLWtFbk1PTmNZdUpXa0dpcW5MRFJESUQ3bTFhallaZ0pqMzloaTFra2Q0aV9Ra0VzOVV2aC1IZ2ZfVFFsSzd0Y1ZZb1BS0gHuBEFVX3lxTE92aXhNTlVEWmRxbkJRY05LZ21DaGhOLWZmMDluUVZCb3A2eXZOUGhfQ0dSZXBpRTAtX3VqTk5rdk83cnN3dXVmQVNkTk1nUU1YTlRwQzZVYTJlLV9WVXFpNzVhX09kaXNhYVJDaHFma2NIQ2R6N3RpeGluOF9ycGtIOWVsbXZOeXE0VkNrMW1iSGVrenQ1bkxXMW9BN2JUZjVzdktFWGpqNkctSTYyUGNhcHM3SU1OZkZKaGdMcW1tbENKSldkNWRFOHF1NjZZemx5cExQQVpEWEpKbzlNMFAyZkpPZE0zNS1KYW9IRV9mR0gzOHU5Y1V3dWVjUzBEdmExbG5jYk90dzlPQldrX3oyaXp2VDJXSGJid2h4WWwxU0p2c1ZrZndiRi1FU0Z2VkhtaTI3YnlPbkNOOUdlSEtiZk5zQXFac3phM1ptUHotSjN0NzNhLWVoSDBZU2wwa2RqZFZiVzRtdjUtS190LVo0ZF9GMVFPZk5OMGlhLW5aY3FpcDF2LUhFQ2hVTVYwdWxOZHFQVXVPOWhfVUdYdzVFdkJKWUNIVWstZU5ONl9oc0dwRVEtcVJ3d0x0WkYtWFV6Njg4dTVENDBLRnZLRlQ3alVZWkRjT0NOTVRPUGRKWDBhUmV2eWs0Mjh3dXRvZk5TNENTVnprV0p2UDVfeU9lLWhyLV9Nb1NkcS15ZDlMcDlRWjNvQ3AwODJpRm9oMFR1NW1DZUNfYzlEZ3NiRmFSWjJoXzBUaUpVV3FDQ3JfUW1PZVc4WjBxX3g1TGpsLWJaejZoczhoVjE5WkFieHVOSTJ6bEVFaUVPQlJmdGc?oc=5",
       "source": "تلفزيون سوريا",
       "source_home": "https://www.syria.tv",
       "feed": "تلفزيون سوريا",
       "published_at": "2026-10-11T20:54:46+00:00",
-      "province": "أخبار عامة"
-    },
-    {
-      "title": "اتفاق سوري- سعودي لتوريد المشتقات النفطية",
-      "description": "أعلنت الشركة السورية للبترول اليوم، الأحد 11 من تشرين الأول، توقيع اتفاق لتوريد مشتقات نفطية من شركة “أرامكو” السعودية. وقالت […]",
-      "url": "https://www.enabbaladi.net/828879/%d8%a7%d8%aa%d9%81%d8%a7%d9%82-%d8%b3%d9%88%d8%b1%d9%8a-%d8%b3%d8%b9%d9%88%d8%af%d9%8a-%d9%84%d8%aa%d9%88%d8%b1%d9%8a%d8%af-%d8%a7%d9%84%d9%85%d8%b4%d8%aa%d9%82%d8%a7%d8%aa-%d8%a7%d9%84%d9%86%d9%81/",
-      "source": "عنب بلدي RSS",
-      "source_home": "",
-      "feed": "عنب بلدي RSS",
-      "published_at": "2026-10-11T20:51:45+00:00",
       "province": "أخبار عامة"
     },
     {
@@ -856,7 +736,7 @@
     },
     {
       "title": "دوّار الحفيان في حمص.. كيف تحوّل مشروع تجميلي إلى قضية جدل ومساءلة؟",
-      "description": "دوّار الحفيان في حمص.. كيف تحوّل مشروع تجميلي إلى قضية جدل ومساءلة؟ | تلفزيون سوريا تلفزيون سوريا. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "دوّار الحفيان في حمص.. كيف تحوّل مشروع تجميلي إلى قضية جدل ومساءلة؟. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://news.google.com/rss/articles/CBMi9wNBVV95cUxOaUN5QTRBeXh0ajg3RzNIMXNEdDZjWFp0cWk4X3Z0dnlsMmFrZXhLX2ZMMGhMdFU0QWJxbHowQl9TVjlRZWkzeFprYnZnLUtSWVhIRG0wVm45UDZ5cUlOQ21vcl9IVzltRmo5QjQySG52cXh3alkwY2NXcGo5Y2s3b3VHNTFrSzk3WFJ2cnE2R1dNSXVkamlPWUZtNVRUTVFuRzRmUGRBaVo5dnIyeURaZ0M0bGtYOFVtQ25ySHpteE9FR21ab3NqNUdoY3JPZDEwakhncEVGWWVJUVdPVFJ2aU5kYlJPaV9GZ2hkQVNFRHhlaGt1TUd5QUhCZjRLUko4d2J2ZklFMXFVdk5SdEJJV2R5Qk1yanBkM05weU8yMzdnYXF4cWcwcElFa1htdzJUWU5XclZPVjZlRlJGcEJqaEkwOTN2SVhxWm8wcDZXNjNZNlZvd2p6SUp0MUlHdDNWdGxJMnBJdnlwdk8tZmN0TWJpWEhCbXU0UmZvQ3pyeDhzVFRHTmVHMUs1dWFFZnNDdW83QzdyaF8xRXBXV3d3VmFQUzI0WFVMejM4UUJkRWNwQURpYlhjTnNfMmdMYTRGQV83cDE3ZFhpVFRqOGgzcEpZaWFhY0hkUTNhcDM0WkhYeXptazYzUGZRRUpPZ01KbVVkdTdMc9IB_ANBVV95cUxOQ3c0WnlDRWVCRFRXYlEzSnRhekY3eW5vNkxPZTZJUTRzTjBtVjJhZk5pcFlUb2VUdzd3c3RKMUN4MmJoTEVYa0JoY0JqTE01TC14T2ctNWg2NTF0YVo3ZHBHN20zUGtXTkhpbUduWGZYZ29tS1BsLUNEQV9KYXJIcGZpTlRuU2hJMkRVck9JX0c3c0lPYmhrSTZLWXlYRXZKM1otSnpCTUdkb2RoNnJ0MEVJUDlSWUNNQnZtRml0dGpFLWZ5NmVJQ1czNUtFMFowT2d2VE5IYk1IQVFCSUtQbnp3OWdBelBOVG5QVklGZm1BbDRldk5TeXNkY3VIRm1FdmRoMF9heERONHc3RzgtbWJZVGZMZ2ZUNGpKa3lldlZRRkNiSnNUNl9iek1PSEgtS0ZNbzJBdmkxeWdFTE5FcXAycGVub1BSak12WDJBdUlhc2VqS0tBZDUyd3YtY3NpRDZGaDZyLS1xc3ZxOEt1bDd3cXlHUlJYd0xiSm1FZmNxN3VOcXhCZnFGMW5CdjJpaVlIX2t4WjJMNE55WFZSa0xVX05POXd0dzdiakRvWVVmQ0FPTTFLbXJQSWpqM2R5NklpcTlWOGdUX1E3dF9kbHZoT0ZtVTFhalNYTVhjY1A5blZsc09iWEs2SzcyYmZmSG9vU1FFcWFnUzFv?oc=5",
       "source": "تلفزيون سوريا",
       "source_home": "https://www.syria.tv",
@@ -878,7 +758,7 @@
     },
     {
       "title": "بدء مشروع لصيانة الأجزاء المتهالكة من طريق دير الزور الميادين الجديد",
-      "description": "بدء مشروع لصيانة الأجزاء المتهالكة من طريق دير الزور الميادين الجديد سانا. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "بدء مشروع لصيانة الأجزاء المتهالكة من طريق دير الزور الميادين الجديد. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://sana.sy/video/2603769/",
       "source": "سانا",
       "source_home": "https://sana.sy",
@@ -901,7 +781,7 @@
     },
     {
       "title": "“مصطفى” لـ “الوطن”: 55 مليون متر مكعب من الأنقاض في سوريا وتكلفة ترحيل المتر دولارين",
-      "description": "“مصطفى” لـ “الوطن”: 55 مليون متر مكعب من الأنقاض في سوريا وتكلفة ترحيل المتر دولارين صحيفة الوطن السورية. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "“مصطفى” لـ “الوطن”: 55 مليون متر مكعب من الأنقاض في سوريا وتكلفة ترحيل المتر دولارين. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://news.google.com/rss/articles/CBMitAJBVV95cUxPZUdTOVV0QmN1MWI1VkgxeHUwbjNiWUljMmhTVExmWkE2N0hiQnA2LUVxMTFsV0UycENuZVNsRkxyNVAyeGtDRmJNRjFzSGZBSmRfeWxoSnhpWnM2QW9jdlUxZ2dzOTRqZEttdkJSS2dpYzFmbW5wQldIVUR0eGF6OGdWT0lXbFRkWGlNUnpEai15MkJSelhUVnhQbGlmdENjc2pTeTZ6MHZXaFN1dF9pVF9nd2dBNXdZa0JfeWp1bmp2amZFN2lzM1psODUzYXZOMlhCOGhILV9vTWtPdHRYbThJLVB5WkJBRTNlV1ZjMHR5TkJ1Vkg5NkxpcF9GdDN3OFBEV2RTaTVUYnB2WnZGSzdlU29UX1lhSzBFU3Fpc1dJWFlRUnZCUWJ0WTNVT1JjNlMtRQ?oc=5",
       "source": "صحيفة الوطن السورية",
       "source_home": "https://alwatan.sy",
@@ -956,16 +836,6 @@
       "local_image_url": "images/news/4a75475173160134a34f4d20.webp"
     },
     {
-      "title": "حلب.. شكاوى السكن الجامعي تتجدد وسط محدودية القدرة الاستيعابية",
-      "description": "تتواصل شكاوى الطلاب في المدينة الجامعية بحلب، بعد الاحتجاجات التي شهدتها خلال الأيام الماضية على آلية التسجيل وتوزيع الغرف. وتركزت […]",
-      "url": "https://www.enabbaladi.net/828835/%d8%ad%d9%84%d8%a8-%d8%b4%d9%83%d8%a7%d9%88%d9%89-%d8%a7%d9%84%d8%b3%d9%83%d9%86-%d8%a7%d9%84%d8%ac%d8%a7%d9%85%d8%b9%d9%8a-%d8%aa%d8%aa%d8%ac%d8%af%d8%af-%d9%88%d8%b3%d8%b7-%d9%85%d8%ad%d8%af%d9%88/",
-      "source": "عنب بلدي RSS",
-      "source_home": "",
-      "feed": "عنب بلدي RSS",
-      "published_at": "2026-10-11T16:24:22+00:00",
-      "province": "حلب"
-    },
-    {
       "title": "مدارس التكنولوجيا المتقدمة في سوريا: مخابر وتجهيزات حديثة لاستقبال ‏أول دفعة طلاب",
       "description": "بين أجهزة التحكم الصناعي والروبوتات ومخابر الهيدروليك والأتمتة، تستعد ‏مدارس المسار الوطني للتكنولوجيا المتقدمة في سوريا لاستقبال أول دفعة من ‏الطلاب، في خطوة تستهدف إتاحة فرص جديدة أمام الطلبة لاكتساب ‏مهارات رقمية وصناعية تواكب التطورات التكنولوجية ومتطلبات سوق ‏العمل.‏",
       "url": "https://sana.sy/reports/2603644/",
@@ -1003,7 +873,7 @@
     },
     {
       "title": "مباحثات نقابية سورية – تركية في دمشق لتطوير آليات العمل المشترك",
-      "description": "مباحثات نقابية سورية – تركية في دمشق لتطوير آليات العمل المشترك سانا. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "مباحثات نقابية سورية – تركية في دمشق لتطوير آليات العمل المشترك. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://sana.sy/video/2603629/",
       "source": "سانا",
       "source_home": "https://sana.sy",
@@ -1014,7 +884,7 @@
     },
     {
       "title": "المالية السورية تنفي صحة الأرقام المتداولة بشأن أصول الصندوق السيادي والضرائب - الجزيرة نت",
-      "description": "المالية السورية تنفي صحة الأرقام المتداولة بشأن أصول الصندوق السيادي والضرائب الجزيرة نت. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "المالية السورية تنفي صحة الأرقام المتداولة بشأن أصول الصندوق السيادي والضرائب - الجزيرة نت. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://www.aljazeera.net/ebusiness/2026/10/11/المالية-السورية-تنفي-صحة-الأرقام",
       "source": "الجزيرة نت",
       "source_home": "https://www.aljazeera.net",
@@ -1035,16 +905,6 @@
       "local_image_url": "images/news/34e6934ded21ce7747108151.webp"
     },
     {
-      "title": "لأول مرة منذ 16 عامًا.. “بعد أمس” يجمع مكسيم خليل وسلافة معمار",
-      "description": "يجمع مسلسل “بعد أمس” الفنانين السوريين مكسيم خليل وسلافة معمار، بعد أكثر من 16 عامًا على آخر عمل مشترك لهما. […]",
-      "url": "https://www.enabbaladi.net/828650/%d9%84%d8%a3%d9%88%d9%84-%d9%85%d8%b1%d8%a9-%d9%85%d9%86%d8%b0-16-%d8%b9%d8%a7%d9%85%d9%8b%d8%a7-%d8%a8%d8%b9%d8%af-%d8%a3%d9%85%d8%b3-%d9%8a%d8%ac%d9%85%d8%b9-%d9%85%d9%83%d8%b3%d9%8a%d9%85/",
-      "source": "عنب بلدي RSS",
-      "source_home": "",
-      "feed": "عنب بلدي RSS",
-      "published_at": "2026-10-11T15:18:17+00:00",
-      "province": "أخبار عامة"
-    },
-    {
       "title": "سوق الهال في دمشق .. من أين تصل المنتجات للسوق، وما الذي يحدد سعرها؟",
       "description": "من أين تصل المنتجات للسوق، وما الذي يحدد سعرها؟.. سوق الهال في دمشق قصة عمرها أكثر من 30 عاماً لمركز رئيسي للمنتجات الزراعية من المحافظات.",
       "url": "https://sana.sy/infographic/2603606/",
@@ -1058,7 +918,7 @@
     },
     {
       "title": "بينهم أردني ومصرية وسورية.. الكشف عن هويات ضحايا اعتداء مطار الرياض - الجزيرة نت",
-      "description": "بينهم أردني ومصرية وسورية.. الكشف عن هويات ضحايا اعتداء مطار الرياض الجزيرة نت. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "بينهم أردني ومصرية وسورية.. الكشف عن هويات ضحايا اعتداء مطار الرياض - الجزيرة نت. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://www.aljazeera.net/news/2026/10/11/بينهم-أردني-ومصرية-وسورية-الكشف-عن",
       "source": "الجزيرة نت",
       "source_home": "https://www.aljazeera.net",
@@ -1068,7 +928,7 @@
     },
     {
       "title": "سوريا و\"ميتا\" تبحثان استئناف الخدمات التجارية لفيسبوك وإنستغرام وواتساب - الجزيرة نت",
-      "description": "سوريا و\"ميتا\" تبحثان استئناف الخدمات التجارية لفيسبوك وإنستغرام وواتساب الجزيرة نت. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "سوريا و\"ميتا\" تبحثان استئناف الخدمات التجارية لفيسبوك وإنستغرام وواتساب - الجزيرة نت. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://news.google.com/rss/articles/CBMiygJBVV95cUxNaEVUMW9Fb2FBTm9HR01RN1NqSDBUckhlUnpxeWNTcmlIWjZpNkV3eW9EeHllMEVMQWdiMTlfZVhQQVdEWUNNVXRpVWlock1pSHBQVGVMU2g3TDNSMEtNODRDNl85UW1ubUNzMGN1Rm5PYkNvRG93TVlWTmxGT2QwVDVPRndVSTlkRmI1NUd6UVFMWG5IeVowdXByaFRGOUZtang0d0I1ajl1RXlfYi16ZUE5Snp6M2JNZnlMQnlEVGNzZmZBN0M0Y202WGF3NFZXMTFTWXdRa1RFTmwyMjJja2ZnaXZsNk1TWHhlVFM5ZWZvakR5WHZFVEZucEpCR2tTODRDbDJCV2Q2RFNYNk1WbzFUb3l4ZHViRUFqV0NRdVRXaGR6MllHZlJtbXMwSzhqTVFIOFVEdnV4SWNmZmJEZmMzNzVFX3dEZ0HSAc8CQVVfeXFMT2p6OTRHZXNtZ05rckRTSTVKbHVuR0JwVzkwNm5tVVlIT2pBY1ByRFk1NG5GekhPVHhIaEhJR3lzQllQNjhkS3VTQzNNeXRGbnhPbnRQRUJOS3hMa3B5cU54UW43aHRST3c2ZDFLWHFNem9tbUY4MVZlQUk2QmZHelJSN0RIZXVVV0poNjlCQXFfTGlGSHh5YVJGcG1jeWUwUDROSVZvYmVOWkJsWXd1aFB6RXlzN1NMLWI3NF9mSm1kRkNsTEx6VjB6azJHVk92S1FVVEJlRjlFRFozMmtfUWNlRFpEVmNBc1Rab2I2WlRsUk9xVkNydGpvZzl2YlF2MzJhMklMYy1QX2V5VWF0bzFkNzRxVkdZUzF0a0UzNHctMnotYloxaFhLUVJ3bmE0bFRLSmN6NEJ5dUtpWEExVDFpMUNKOXhZM0h3ZWg4ZHM?oc=5",
       "source": "الجزيرة نت",
       "source_home": "https://www.aljazeera.net",
@@ -1078,7 +938,7 @@
     },
     {
       "title": "الليرة السورية تهوي مجدداً..سعر الصرف تحت ضغوط تراجع الإنتاج وطفرة الاستيراد - الجزيرة نت",
-      "description": "الليرة السورية تهوي مجدداً..سعر الصرف تحت ضغوط تراجع الإنتاج وطفرة الاستيراد الجزيرة نت. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "description": "الليرة السورية تهوي مجدداً..سعر الصرف تحت ضغوط تراجع الإنتاج وطفرة الاستيراد - الجزيرة نت. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://news.google.com/rss/articles/CBMiywJBVV95cUxQeWl5Skx2cGlhbDUtTDJITE5JWkN2YjRiZ2JwQjNFeU90LVZDY2QxaXhKUjJXclJCMXhnVENwNlNtQ0JycVdncW5oXzBqZGFHZi1lQ3VCUlhOQW9tUjhmQ3JrbVVEOTlreUt2WmhZZDZiYV9FNV9ILVRfcElTLXFid2p1clU1UDJZaTFKQy1mNjFMekMzOGlCcVVPemFiTEFtNGVFdEFqcGxwWWpfQzhTcDFBOXp0VkJRa3hnYmF1eXlDenZnSnJSby1XMnVBblRwa3J1Mi04V3c4M3F0cHE2T25IRUY4WXJSU0hpSTFtNDJreXpBZlB0eEZuaXYtU2FPdXR4QWhKYUtydUZLSm5KdTJqQ2h2M1FzSEQ3RDRWUzQwbGNXc1VkbnlaRG5yNnlQSnhSOTJQM3hLRERIYU55QWFKdlhQRkdnRnI40gHQAkFVX3lxTE9sZEQ2aU85RWZ2Y3duX3RNeExmN0NPS0I0M29SSnFMN1NfdnI2dG1pQ0FnTDQtYWpCX01SMXo0VHJmcktKQzNDZEtlNU55eHJ4SDhEbXc2eGRiTmdSVmdRUy1Ja1VuZHlZZjhwMHdjS2pfSVZlTFZKdU9RdWdNQWo3cC1QRnRpeXd5amVNZmVjR2ZhLTg0Q2JxamRjTWRReXk4d3dVQV9vMzlWUzdrNFQ2Y29zNy1STFQydjdGMHdRN0RRZ3g1a3kzaWVkLTg4RmVPMS1XUWJ5S0JocGxXelhWV18zWHpxblFpSjRyYURlYnFldWVPQUhRUzlKRWg5eEIxdEgwU1Y4MW5hVUYyN3pSTmhGUGthR1p0eTdXTWQ1YU9RdEVkcnNHZDBGa2J3cGZscUtzbkxBbHZKbThHWXRRc2VlY0RsaEhMS3JYRkVXTA?oc=5",
       "source": "الجزيرة نت",
       "source_home": "https://www.aljazeera.net",
