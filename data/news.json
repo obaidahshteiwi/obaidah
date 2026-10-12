@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-12T18:42:17+00:00",
+  "updated_at": "2026-10-12T18:47:44+00:00",
   "items": [
     {
       "title": "الرقة.. مبادرات أهلية وخطة رسمية لترميم 215 مدرسة",
@@ -100,6 +100,16 @@
       "province": "أخبار عامة",
       "image_url": "https://cdn.sananews.sy/2026/10/DSC01023-1024x683.jpg",
       "local_image_url": "images/news/95df1e08409fb8be58cbc235.webp"
+    },
+    {
+      "title": "الرئيس بارزاني ومظلوم عبدي يبحثان مستقبل الكورد في سوريا ومسار الحوار لحل الخلافات - Rudaw",
+      "description": "الرئيس بارزاني ومظلوم عبدي يبحثان مستقبل الكورد في سوريا ومسار الحوار لحل الخلافات Rudaw. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1wVlpWSHlNSktmakdJQXVuUG5ETWV1NlR1aXdqNjRhRDZSYzRqcEJpbll3U000dUJuMm1nUW5NSHdEYTZFNUFLcWZMUDF3X0Q4TXoyaEV6NXY1bE5oUEJpQ3hB?oc=5",
+      "source": "Rudaw",
+      "source_home": "http://rudaw.net",
+      "feed": "روداو عربي",
+      "published_at": "2026-10-12T15:47:15+00:00",
+      "province": "أخبار عامة"
     },
     {
       "title": "منتخب سوريا للريشة الطائرة يكثف استعداداته لبطولة غرب آسيا في البحرين",
@@ -1099,18 +1109,6 @@
       "province": "أخبار عامة",
       "image_url": "https://alwatan.sy/wp-content/uploads/2026/10/%D8%B3%D9%88%D8%B1%D9%8A%D8%A7-%D9%88%D9%82%D8%B7%D8%B1.jpg",
       "local_image_url": "images/news/c428424d8327a39dd94740c1.webp"
-    },
-    {
-      "title": "بعد اتفاق الديزل مع واشنطن.. بريطانيا تتوعد روسيا بمزيد من العقوبات",
-      "description": "دعا بيرنهام روسيا إلى الموافقة على وقف لإطلاق النار يشمل منشآت الطاقة والبنية التحتية الأوكرانية وحركة التجارة البحرية في البحر الأسود",
-      "url": "https://www.syria.tv/%D8%A8%D8%B9%D8%AF-%D8%A7%D8%AA%D9%81%D8%A7%D9%82-%D8%A7%D9%84%D8%AF%D9%8A%D8%B2%D9%84-%D9%85%D8%B9-%D9%88%D8%A7%D8%B4%D9%86%D8%B7%D9%86-%D8%A8%D8%B1%D9%8A%D8%B7%D8%A7%D9%86%D9%8A%D8%A7-%D8%AA%D8%AA%D9%88%D8%B9%D8%AF-%D8%B1%D9%88%D8%B3%D9%8A%D8%A7-%D8%A8%D9%85%D8%B2%D9%8A%D8%AF-%D9%85%D9%86-%D8%A7%D9%84%D8%B9%D9%82%D9%88%D8%A8%D8%A7%D8%AA",
-      "source": "تلفزيون سوريا",
-      "source_home": "https://www.syria.tv",
-      "feed": "تلفزيون سوريا",
-      "published_at": "2026-10-11T14:28:28+00:00",
-      "province": "أخبار عامة",
-      "image_url": "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/1%20jpeg%20-%20Copy_40.jpg?itok=Yru6d9Ks",
-      "local_image_url": "images/news/3d2e7e2bb8f612bf5bd41f09.webp"
     }
   ]
 }
