@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-12T15:28:55+00:00",
+  "updated_at": "2026-10-12T15:39:27+00:00",
   "items": [
     {
       "title": "السلطات اللبنانية تضبط مجدداً مواد متفجرة مهرّبة من سوريا - الشرق الأوسط",
@@ -323,6 +323,16 @@
       "source_home": "http://rudaw.net",
       "feed": "روداو عربي",
       "published_at": "2026-10-12T09:40:49+00:00",
+      "province": "أخبار عامة"
+    },
+    {
+      "title": "لبنان يضبط مجددا مواد متفجرة مهرّبة من سوريا - France 24",
+      "description": "لبنان يضبط مجددا مواد متفجرة مهرّبة من سوريا France 24. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "url": "https://news.google.com/rss/articles/CBMi8wVBVV95cUxQODJWdy1kYnF6aERic19XTHZZV1paWGk4STJxSk9STi1yWHA1eTJraUxIMUVhR3B0cF8xZzFJUUtoMWpfTHRwY2lja09JQ25mdEZWQXdKMl9jaTg1WmRlV3ZSQVhleEYwZFEyVzNhTXFsaThfQ0RQcmJsamlRZlJJbHkya2szWGZKTG5pYnNFZ29MWjhiX09YVmIzT0RtbUkyR0FuSURKSEZkenAySGIxYU0xTHFaX1FFVWFYajFfVjFBZkU5YzRnNkYtQlFVWW82TGxJZlRoVHZScVVRcGtxWFgwTzJzdnFHcUtoaFlzQ3J2RlY3ZEJ2ZHVndjZSSWJCRTVuS3Y4X05SczZGa3hFTUNCUS1aM0RhYWF5dEJ5eEdLR1dwcGxOS1RlUFZSNndTb2pjaVNkLTdzLXRqV2ZyUGc1aTEwQ0ltQnJENGtVYlBfMkQ4MEFjWTBkdlVGUGwwREZ0YnIzQW1xR1NlZV8tUzFSWUNxWmNoT2thWmcyMmJjdlowUm0zbFJLWDdKZWFPa3ZwU0h5Z05hOVhUbFRFTTBxcGxaNUJjVlhNbG9vT3VTQmJVX3VlRjhxZC1tLXlUdFh0VXhKdGRpR3FoUWlGa0N4MUF6QlFWSWJGUWNMejZUcmpkNW9TVERrSjlHQTNyNTRHdjVEcjFrd1ZXTnZnR3I3MHUyVmJ6OURWa0liTWh1elkxRTRILWZ4TlQtTlBzemc1NldSdm5lQXV1OU0wNnBGcUtqWjNuSDY5ZDZ1dDJKR2F0QWJ2Skpsaks5OWJIUjdzbVhBbWU0TTVVa18yTXRHc0l1bGcwVGRPX1RTVUxNZ0dhRkU5NGNwU2xRb1RYWHhza3BXWUtEQk1RSVZrTW9FZHFEaDBXZTY5SnZ3VjNWZmZMLUZmTjJFYzZFNkF0WkdITV9YRVhjNHFhNkxyVFN2ZXNOenVFVFJ2S21pVUZ2VUFLb2czdkw2MWlRVkNUcm9rS21IdmFXRUd6cVJnOHkzdw?oc=5",
+      "source": "France 24",
+      "source_home": "https://www.france24.com",
+      "feed": "فرانس 24 عربي",
+      "published_at": "2026-10-12T09:29:38+00:00",
       "province": "أخبار عامة"
     },
     {
@@ -1095,18 +1105,6 @@
       "feed": "عنب بلدي RSS",
       "published_at": "2026-10-11T13:45:49+00:00",
       "province": "الرقة"
-    },
-    {
-      "title": "الشيباني يبحث مع ‏صدام حفتر تعزيز التعاون ومتابعة أوضاع السوريين المفقودين في ليبيا",
-      "description": "التقى وزير الخارجية والمغتربين أسعد حسن الشيباني اليوم الأحد نائب قائد الجيش ‏الفريق أول ‏ركن صدام خليفة حفتر في مدينة بنغازي الليبية، برفقة رئيس جهاز ‏الاستخبارات ‏العامة اللواء عبد القادر طحان.‏",
-      "url": "https://sana.sy/politics/2603551/",
-      "source": "سانا",
-      "source_home": "https://sana.sy",
-      "feed": "سانا",
-      "published_at": "2026-10-11T13:39:00+00:00",
-      "province": "أخبار عامة",
-      "image_url": "https://cdn.sananews.sy/2026/10/photo_5_2026-10-11_16-24-56.jpg",
-      "local_image_url": "images/news/6369f26cc328fcfe21dc32d2.webp"
     }
   ]
 }
