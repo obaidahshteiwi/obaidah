@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-12T08:52:04+00:00",
+  "updated_at": "2026-10-12T08:57:14+00:00",
   "items": [
     {
       "title": "استعداداً لبطولة غرب آسيا.. معسكر تحضيري لمنتخب سوريا للريشة الطائرة",
@@ -11,6 +11,16 @@
       "published_at": "2026-10-12T08:41:51+00:00",
       "province": "أخبار عامة",
       "image_url": "https://cdn.sananews.sy/2026/10/صورة-منتخب-الريشة-الطائرة.jpg"
+    },
+    {
+      "title": "“الآثار والمتاحف” توضح طبيعة أعمال ترميم قصر “الزهراوي” بحمص",
+      "description": "أعلنت المديرية العامة للآثار والمتاحف أن الكشف الميداني الذي أجراه فريق فني وأثري على قصر “الزهراوي” في مدينة حمص لم […]",
+      "url": "https://www.enabbaladi.net/828893/%d8%a7%d9%84%d8%a2%d8%ab%d8%a7%d8%b1-%d9%88%d8%a7%d9%84%d9%85%d8%aa%d8%a7%d8%ad%d9%81-%d8%aa%d9%88%d8%b6%d8%ad-%d8%b7%d8%a8%d9%8a%d8%b9%d8%a9-%d8%a3%d8%b9%d9%85%d8%a7%d9%84-%d8%aa%d8%b1%d9%85/",
+      "source": "عنب بلدي RSS",
+      "source_home": "",
+      "feed": "عنب بلدي RSS",
+      "published_at": "2026-10-12T08:23:34+00:00",
+      "province": "حمص"
     },
     {
       "title": "سوريا والسعودية.. شراكة استراتيجية تدعم التعافي وتفتح ‏مسارات الإعمار والاستثمار",
@@ -67,6 +77,16 @@
       "source_home": "https://www.alhadath.net",
       "feed": "الحدث",
       "published_at": "2026-10-12T07:08:00+00:00",
+      "province": "أخبار عامة"
+    },
+    {
+      "title": "وفاة الشاعرة والرسامة السورية فاطمة السوادي",
+      "description": "نعت وزارة الثقافة السورية الشاعرة والرسامة فاطمة السوادي، التي توفيت في مدينة اسطنبول التركية بعد معاناة مع مرض السرطان. وأعلنت […]",
+      "url": "https://www.enabbaladi.net/828886/%d9%88%d9%81%d8%a7%d8%a9-%d8%a7%d9%84%d8%b4%d8%a7%d8%b9%d8%b1%d8%a9-%d9%88%d8%a7%d9%84%d8%b1%d8%b3%d8%a7%d9%85%d8%a9-%d8%a7%d9%84%d8%b3%d9%88%d8%b1%d9%8a%d8%a9-%d9%81%d8%a7%d8%b7%d9%85%d8%a9-%d8%a7/",
+      "source": "عنب بلدي RSS",
+      "source_home": "",
+      "feed": "عنب بلدي RSS",
+      "published_at": "2026-10-12T06:40:26+00:00",
       "province": "أخبار عامة"
     },
     {
@@ -1081,28 +1101,6 @@
       "province": "أخبار عامة",
       "image_url": "https://cdn.sananews.sy/2026/10/WSS3975-1024x683.jpg",
       "local_image_url": "images/news/4aa960755c76d816cd399e29.webp"
-    },
-    {
-      "title": "أيهما الأنسب للمرحلة المقبلة .. المصارف التخصصية أم الشمولية؟",
-      "description": "‌‏مع إعادة هيكلة القطاع المصرفي السوري، يعود الجدل حول مستقبل المصارف المتخصصة، الزراعي والصناعي والتوفير، ومدى قدرتها على مواكبة التحولات الاقتصادية والمصرفية. وبين التمسك بدورها التنموي والتوجه نحو المصارف الشاملة، تبرز الحاجة إلى نموذج يوازن بين الكفاءة المصرفية ومتطلبات التنمية، من دون التفريط بتمويل القطاعات الإنتاجية والشرائح المحدودة الدخل. ‌‏التخصص لا يكفي ‌‏وفي تصريح لـ«الوطن»، […]",
-      "url": "https://alwatan.sy/%d8%a3%d9%8a%d9%87%d9%85%d8%a7-%d8%a7%d9%84%d8%a3%d9%86%d8%b3%d8%a8-%d9%84%d9%84%d9%85%d8%b1%d8%ad%d9%84%d8%a9-%d8%a7%d9%84%d9%85%d9%82%d8%a8%d9%84%d8%a9-%d8%a7%d9%84%d9%85%d8%b5%d8%a7%d8%b1%d9%81/",
-      "source": "صحيفة الوطن السورية",
-      "source_home": "https://alwatan.sy",
-      "feed": "الوطن",
-      "published_at": "2026-10-11T07:23:55+00:00",
-      "province": "أخبار عامة",
-      "image_url": "https://alwatan.sy/wp-content/uploads/2026/01/%D9%85%D8%B5%D8%B1%D9%81-%D8%B3%D9%88%D8%B1%D9%8A%D8%A7-%D8%A7%D9%84%D9%85%D8%B1%D9%83%D8%B2%D9%8A.jpg",
-      "local_image_url": "images/news/209da7aaaaabd249a8466760.webp"
-    },
-    {
-      "title": "755 إنذارًا من مصرف سوريا.. حملة رقابية على مزاولي الصرافة - العربية",
-      "description": "755 إنذارًا من مصرف سوريا.. حملة رقابية على مزاولي الصرافة العربية. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
-      "url": "https://news.google.com/rss/articles/CBMi2ANBVV95cUxNRDhKMGpzdkUxUmh4ZEJUeHJ6eEZzVTlhRFVUVUVQY0JrajYwdDNfcVRlcHFDeEVfRHpIclp6OHZZS19EOWNNaUQzUWRnUGJUYTg4MFNkZTJ3Ukg3Q1g5SmhXeUQ3bEI1dV9sSXBXZDlVRUlnY1RHSFQ2MFYzcWFJcnlXeUFObUFISXpvOTZLZUZPczM0Q1FDSV92TVc3XzJlLTBuT0V6bVA4SnRUaG01eDA0UGVjQl80MjlMNHRKR0N4WUpKejAzZTM2dTBfUzFEWElEdnZPOUJzdmNqdVFfOEJ2RlFtemZmQlpRVE5QX2NrbXpZRDFfVThsX2hVRUJFNXpPa1ZJNGVqcWd1TEduQ1pxRnVUUFJONm5KZVgzekRpMGhqM1lNRzBfMDd0UkFFQ2psdzlIZ0FrSVlHN2g1S0EzV2ozbmFWNjZKLVV0MlF2ZC1DdjVGNXhHdGxFNnc4YzBLdV81QThkVHNOcVVPeF9EbzdnSzEyaHFWVlRRc09pRTFzS3prNVNQcjJoUVhGLTlRenVROTJZc0N1UmhLM2MxckVjc0h5TFE5bHYxYXJDSlNwZHBGSzVTOEgyUi10dmxUd1lfSVlIaVppQng5by1MOExHSllD0gHeA0FVX3lxTFBFd1hEcmhkaHZDS2k3WHZjeVBTUTlWRTM1Vm8xQUNmOXVDTU1HWHN5bjNvYnM2alNkaEJBYjdraVBaeHZENVZlOUVtMkdMVUpsUDFvWGI2RmlCNG5CY0FrZlhLNmFQczVOUkpiVHVWTTB5cTc4emdvVFRHNlNtb1VTZEMyRXVzWjJrNDVJWlJYaDZqNXhYdmxRMVBReGcteTVRRkdoNUlnY1pzbjU3ejJyeWI0RnlibVBBaWdXUGd1NTVlRXpOelJmb3V0Sk55bkUtM2hwdDVFQldsRGU2NUFKVXkxdk5aNXA3NVRjbDh3eHNISGJSY1JHa3lSSnc2SzBfRHN0al9KVHp4cV84Tm5FOGNfN3RxMVIwd0FEVlNzZUJzMlJqLVJmWnlZcHBrWUpDa2M4TW5US2k2M2FOVTNJVExEZV9lbC04dnhDdllPR05hc25iNnM0S0lhX20tZElHMjZ5Z0pLNE5vd2oweHBtRUVoVWdyaGR3WVhGTkMwcXZxRVZvSTZwM0RGUzIzdzY5REdMUlR5QzdmWDBQazdYRG1KT0hUcUtwUjdSdGt1QjFwWVJUcVdkY3FwV01nbGtJZ2hYMVZLQjdoQ0g5bms0X0h6X0tBdU1BWHpOUmc?oc=5",
-      "source": "العربية",
-      "source_home": "https://www.alarabiya.net",
-      "feed": "العربية",
-      "published_at": "2026-10-11T07:10:00+00:00",
-      "province": "أخبار عامة"
     }
   ]
 }
