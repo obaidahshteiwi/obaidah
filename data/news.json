@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-12T07:07:42+00:00",
+  "updated_at": "2026-10-12T07:12:23+00:00",
   "items": [
     {
       "title": "المفكرة الثقافية في سوريا ليوم الإثنين الـ 12 من تشرين الأول 2026",
@@ -383,6 +383,18 @@
       "province": "أخبار عامة",
       "image_url": "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/1%20jpeg%20-%20Copy_40.jpg?itok=Yru6d9Ks",
       "local_image_url": "images/news/3d2e7e2bb8f612bf5bd41f09.webp"
+    },
+    {
+      "title": "مشاركون في تكسبو 2026 بدمشق يؤكدون ضرورة تعزيز الأمن السيبراني ‏وحماية البيانات",
+      "description": "‏ ‏دمشق-سانا‏ ‏ ‏ أكد مشاركون في الدورة الثانية من معرض “ تكسبو الدولي للتكنولوجيا ‏والابتكار 2026 “، المقام على أرض مدينة المعارض بدمشق، أهمية تعزيز الأمن ‏السيبراني وحماية البيانات في المؤسسات والشركات، في ظل التطور ‏المتسارع للتقنيات الرقمية والذكاء الاصطناعي، وتزايد التهديدات والهجمات ‏الإلكترونية، مشددين على ضرورة تأهيل الكوادر البشرية، ونشر الوعي ‏الرقمي، وتوطين الحلول التقنية المتقدمة.‏",
+      "url": "https://sana.sy/economy/syrian-economy/2602977/",
+      "source": "سانا",
+      "source_home": "https://sana.sy",
+      "feed": "سانا",
+      "published_at": "2026-10-11T14:24:07+00:00",
+      "province": "دمشق",
+      "image_url": "https://cdn.sananews.sy/2026/10/2M0A0068-1-1024x683.jpg",
+      "local_image_url": "images/news/2dde84c6c1e4bdadb8cde29a.webp"
     },
     {
       "title": "قلعة “القدموس”.. صمدت لقرون وضعضعها الزلزال الأخير",
@@ -1095,16 +1107,6 @@
       "province": "أخبار عامة",
       "image_url": "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/images_2.jpg?itok=GBqyuVoj",
       "local_image_url": "images/news/bae35b9f000a1b7b9fed3b8f.webp"
-    },
-    {
-      "title": "عاجل | مندوب سوريا الدائم لدى الأمم المتحدة للجزيرة: قرار مجلس الأمن يعد سابقة ويدعم سيادة سوريا على أراضيها - الجزيرة نت",
-      "description": "عاجل | مندوب سوريا الدائم لدى الأمم المتحدة للجزيرة: قرار مجلس الأمن يعد سابقة ويدعم سيادة سوريا على أراضيها الجزيرة نت",
-      "url": "https://news.google.com/rss/articles/CBMiuwJBVV95cUxPWFlxeTBNTTFsS01idVI2YnFuMTNxaDg0bms4MEYzRWRMbFhjU0R5SW1GUTBITG1Ka0FIYVhZX2s3cWRBak5oMjlYVVhDdVdTbERSZGhvNUcxSjh0RjQ2ay0zRElhNTk2cWszb3hfMXRVN1E3eC10aW91UktySFBZdzI4aFBqYndBSmVyQ1VlQ1MydGdGV1VEaV9JUG9aN09lcnhKWUl3Z3k3bG52OVFrQl9ramJ0X2g0OC1CSGFieHN0dnFUYmppMnV0cElndTR0M1FldkRiTUltVVJ4azlJQ0FIOF9zSVdfdTJLZWxmdEVXSDlia19nVzBPd2lzaGR3YW0zV2hmMmU3X1pzMlhzYndrNi16Y0hPTWNxUTJrcHRXSlB0aHhscXFCckNwSUdLQnJUYmxMTEJfb28?oc=5",
-      "source": "الجزيرة نت",
-      "source_home": "https://www.aljazeera.net",
-      "feed": "الجزيرة",
-      "published_at": "2026-10-10T21:53:26+00:00",
-      "province": "أخبار عامة"
     }
   ]
 }
