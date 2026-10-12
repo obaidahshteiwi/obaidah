@@ -324,6 +324,32 @@ def extract_article_description(article_url: str, article_title: str = "") -> st
         return ""
 
 
+def normalize_existing_description(value: str) -> str:
+    """Remove repeated sentences and duplicated fallback text from previously stored stories."""
+    text = clean_text(str(value or ""))
+    if not text:
+        return ""
+    text = re.sub(r"\.{2,}", ".", text)
+    text = re.sub(r"\s+([.,،؛:!?؟])", r"\1", text)
+    parts = re.split(r"(?<=[.!؟])\s+", text)
+    unique_parts = []
+    seen = set()
+    for part in parts:
+        part = part.strip(" .،؛")
+        if not part:
+            continue
+        key = re.sub(r"[\W_]+", "", part.casefold(), flags=re.UNICODE)
+        if key and key in seen:
+            continue
+        if key:
+            seen.add(key)
+        unique_parts.append(part)
+    result = ". ".join(unique_parts).strip()
+    if result and result[-1] not in ".!?؟":
+        result += "."
+    return result[:700]
+
+
 def minimum_description(item: dict, extracted: str = "") -> str:
     """Keep a useful publisher summary when possible; never pad missing facts with boilerplate."""
     current = clean_text(str(item.get("description", "")))
@@ -1578,7 +1604,10 @@ def main():
                     item_host = (urllib.parse.urlparse(item_url).hostname or "").lower()
                     changed_news = True
 
-        description = clean_text(item.get("description", ""))
+        description = normalize_existing_description(item.get("description", ""))
+        if description != item.get("description", ""):
+            item["description"] = description
+            changed_news = True
         if len(description.split()) < 20 or is_generic_description(description):
             extracted_description = ""
             last_description_attempt = parse_iso_datetime(description_lookup_attempts.get(item_url, ""))
