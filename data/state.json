@@ -2266,5 +2266,26 @@
   "image_lookup_version": 5,
   "news_since": "2026-10-10T14:04:19+00:00",
   "newest_seen_at": "2026-10-12T11:14:28+00:00",
-  "feed_errors": []
+  "feed_errors": [
+    "سانا: HTTPError HTTP 503",
+    "تلفزيون سوريا: HTTPError HTTP 503",
+    "عنب بلدي: HTTPError HTTP 503",
+    "الوطن: HTTPError HTTP 503",
+    "زمان الوصل: HTTPError HTTP 503",
+    "سوريا دايركت: HTTPError HTTP 503",
+    "The Syrian Observer: HTTPError HTTP 503",
+    "أورينت: HTTPError HTTP 503",
+    "رويترز: HTTPError HTTP 503",
+    "بي بي سي عربي: HTTPError HTTP 503",
+    "الجزيرة: HTTPError HTTP 503",
+    "فرانس 24 عربي: HTTPError HTTP 503",
+    "العربية: HTTPError HTTP 503",
+    "الحدث: HTTPError HTTP 503",
+    "الشرق الأوسط: HTTPError HTTP 503",
+    "روداو عربي: HTTPError HTTP 503",
+    "أسوشيتد برس: HTTPError HTTP 503",
+    "وكالة فرانس برس: HTTPError HTTP 503",
+    "الشرق للأخبار: HTTPError HTTP 503",
+    "ميدل إيست آي: HTTPError HTTP 503"
+  ]
 }
