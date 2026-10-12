@@ -1,6 +1,16 @@
 {
-  "updated_at": "2026-10-12T14:11:08+00:00",
+  "updated_at": "2026-10-12T14:16:19+00:00",
   "items": [
+    {
+      "title": "قطاع التمور في دير الزور.. آمال التعافي تصطدم بتكاليف الإنتاج - الجزيرة نت",
+      "description": "قطاع التمور في دير الزور.. آمال التعافي تصطدم بتكاليف الإنتاج الجزيرة نت. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "url": "https://news.google.com/rss/articles/CBMi1AJBVV95cUxOZTBqYmlacDJoXzF4Q1pCSE1MelBiMDREV3l1ZDByY0dtZ0UwN2pIRkJjUWhVT3FaYjZqRTlpeG9UcUtPa3NvWngzTDQxYm1jbFQwblVEcVJKd2JaMVdZc3ZaUHI2SV9SeU8xZUF0ZTF4TFRrdHQ5S3Z3aEtKd0FzaUtFVHNqdUVjZGNqMHpSQVN2Z0Njbm5jTzhQTGNUdlF6Vnczem1GZjhRdEh6NWlJcnQzWUJBcXdnS2loTERsWmgwTWI4Z2psWE5xSDcza3lTQjRnVkw2aWN0WWp3ci1nRjlSa2sxNEFMOFlQM29FQVppMG4zVXhxOFR3ZFBGRnRjRnpEU1FyS0IyTUNSZDlKRUUzeU02bjJCUkVBbHVjcFgwR1Vjc2RVekdIQW9TbGZnb0VwQk92V3c0Mk9JU2l0QmRsMFQ5Z2Z3OTRDSHZFVWpINU4w?oc=5",
+      "source": "الجزيرة نت",
+      "source_home": "https://www.aljazeera.net",
+      "feed": "الجزيرة",
+      "published_at": "2026-10-12T14:03:45+00:00",
+      "province": "دير الزور"
+    },
     {
       "title": "محافظة حماة تبحث مع السفير الأوروبي أولويات إعادة التأهيل ودعم القطاعات الخدمية",
       "description": "بحث مدير العلاقات العامة في محافظة حماة محمد الشريف، اليوم الإثنين، مع وفد الاتحاد الأوروبي برئاسة سفير الاتحاد لدى سوريا ميخائيل أونماخت، واقع المحافظة واحتياجاتها الخدمية والإنسانية، وأولويات دعم جهود التعافي وإعادة التأهيل.",
@@ -535,6 +545,18 @@
       "province": "أخبار عامة",
       "image_url": "https://cdn.sananews.sy/2026/10/IMG_4711-1024x683.jpg",
       "local_image_url": "images/news/7c5671ee2e2b70f5de600f9d.webp"
+    },
+    {
+      "title": "بعد نجاح أجزائه السابقة.. \"ميتافورا\" تبدأ تصوير \"ما اختلفنا\" من سوريا لأول مرة",
+      "description": "أعلنت شركة \"ميتافورا للإنتاج الفني\" بدء تصوير الجزء الرابع من مسلسل \"ما اختلفنا\"، استعداداً للموسم الرمضاني المقبل، في خطوة تحمل أبعاداً إنتاجية..",
+      "url": "https://www.syria.tv/%D8%A8%D8%B9%D8%AF-%D9%86%D8%AC%D8%A7%D8%AD-%D8%A3%D8%AC%D8%B2%D8%A7%D8%A6%D9%87-%D8%A7%D9%84%D8%B3%D8%A7%D8%A8%D9%82%D8%A9-%D9%85%D9%8A%D8%AA%D8%A7%D9%81%D9%88%D8%B1%D8%A7-%D8%AA%D8%A8%D8%AF%D8%A3-%D8%AA%D8%B5%D9%88%D9%8A%D8%B1-%D9%85%D8%A7-%D8%A7%D8%AE%D8%AA%D9%84%D9%81%D9%86%D8%A7-%D9%85%D9%86-%D8%B3%D9%88%D8%B1%D9%8A%D8%A7-%D9%84%D8%A3%D9%88%D9%84-%D9%85%D8%B1%D8%A9",
+      "source": "تلفزيون سوريا",
+      "source_home": "https://www.syria.tv",
+      "feed": "تلفزيون سوريا",
+      "published_at": "2026-10-11T19:24:46+00:00",
+      "province": "أخبار عامة",
+      "image_url": "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/1.png?itok=ZXfDOpnI",
+      "local_image_url": "images/news/dc3173e76ff43631f796fe42.webp"
     },
     {
       "title": "وزير الطوارئ يبحث مع ممثل مفوضية اللاجئين تنفيذ رؤية \"سوريا بلا مخيمات\"",
@@ -1081,26 +1103,6 @@
       "province": "دمشق",
       "image_url": "https://cdn.sananews.sy/2026/10/file_00000000d78081f4a728c1f921f3f3fb-.png",
       "local_image_url": "images/news/a267f7aeafb4a28e533fd5bb.webp"
-    },
-    {
-      "title": "أجور أراضي أملاك الدولة ترهق فلاحي ريف حماة الشرقي",
-      "description": "حماة – عدي الحاج حسين يواجه مزارعو قرى ريف حماة الشرقي أزمة اقتصادية، بعد قرار مديرية أملاك الدولة التابعة لوزارة […]",
-      "url": "https://www.enabbaladi.net/828584/%d8%a3%d8%ac%d9%88%d8%b1-%d8%a3%d8%b1%d8%a7%d8%b6%d9%8a-%d8%a3%d9%85%d9%84%d8%a7%d9%83-%d8%a7%d9%84%d8%af%d9%88%d9%84%d8%a9-%d8%aa%d8%b1%d9%87%d9%82-%d9%81%d9%84%d8%a7%d8%ad%d9%8a-%d8%b1%d9%8a%d9%81/",
-      "source": "عنب بلدي RSS",
-      "source_home": "",
-      "feed": "عنب بلدي RSS",
-      "published_at": "2026-10-11T11:34:08+00:00",
-      "province": "حماة"
-    },
-    {
-      "title": "وزير الخارجية السوري يصل بنغازي في ثاني زيارة رسمية إلى ليبيا - الشرق للأخبار",
-      "description": "وزير الخارجية السوري يصل بنغازي في ثاني زيارة رسمية إلى ليبيا الشرق للأخبار. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
-      "url": "https://asharq.com/politics/199146/وزير-الخارجية-السوري-يصل-بنغازي-في-ثاني-زيارة-رسمية-لليبيا/",
-      "source": "الشرق للأخبار",
-      "source_home": "https://asharq.com",
-      "feed": "الشرق للأخبار",
-      "published_at": "2026-10-11T11:27:17+00:00",
-      "province": "أخبار عامة"
     }
   ]
 }
