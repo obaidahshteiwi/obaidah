@@ -39,6 +39,7 @@ IMAGE_LOOKUP_VERSION = 5
 MAX_DESCRIPTION_LOOKUPS_PER_CYCLE = 3
 REQUEST_TIMEOUT = 12
 WHATSAPP_TRACKING_VERSION = 2
+SITE_URL = "https://syria-mubasher.pages.dev"
 
 FEEDS = [
     ("سانا", "site:sana.sy سوريا"),
@@ -1087,7 +1088,8 @@ def build_message(item: dict) -> str:
         f"{description[:800]}\n\n"
         f"🗺️ المحافظة: {item.get('province') or classify_province(title, description)}\n"
         f"📰 المصدر: {source}\n"
-        f"🔗 {url}"
+        f"🔗 {url}\n\n"
+        f"🌐 موقعنا: {SITE_URL}"
     )[:5000]
 
 
@@ -1102,14 +1104,16 @@ def post_whatsapp(item: dict) -> tuple[str, str, str]:
     if image_url:
         path = urllib.parse.urlparse(image_url).path.lower()
         suffix = next((ext for ext in (".jpg", ".jpeg", ".png", ".webp") if path.endswith(ext)), ".jpg")
-        caption = (
+        caption_body = (
             "🇸🇾 *سوريا مباشر*\n\n"
             f"*{title[:250]}*\n\n"
             f"{clean_text(item.get('description', ''))[:300]}\n\n"
             f"🗺️ المحافظة: {item.get('province') or classify_province(title)}\n"
             f"📰 المصدر: {clean_text(item.get('source') or item.get('feed') or 'المصدر الأصلي')[:80]}\n"
             f"🔗 {item.get('url', '')}"
-        )[:1000]
+        )
+        site_line = f"🌐 موقعنا: {SITE_URL}"
+        caption = caption_body[:1000 - len(site_line) - 2].rstrip() + "\n\n" + site_line
         result, error = green_request("sendFileByUrl", {
             "chatId": chat_id,
             "urlFile": image_url,
