@@ -82,45 +82,7 @@ jobs:
               if ! git rebase origin/main; then
                 echo "Rebase conflict detected; safely merging generated news and delivery state."
                 conflicts="$(git diff --name-only --diff-filter=U)"
-                unexpected="$(printf '%s\n' "$conflicts" | grep -vE '^(data/news.json|data/state.json)              if git push origin HEAD:main; then
-                pushed=true
-                break
-              fi
-              echo "Push attempt $attempt failed; refreshing main and retrying."
-              sleep 3
-            done
-
-            if [[ "$pushed" != "true" ]]; then
-              echo "Could not publish generated news data after three attempts."
-              exit 1
-            fi
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      # A newer code change may arrive while RSS enrichment is running. Deploy
-      # the current main branch, not an older checkout from the start of this job.
-      - name: Refresh files before deployment
-        run: |
-          git fetch origin main
-          git reset --hard origin/main
-
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-        with:
-          enablement: true
-
-      - name: Upload website files
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-
- || true)"
+                unexpected="$(printf '%s\n' "$conflicts" | grep -vE '^(data/news.json|data/state.json)$' || true)"
                 if [[ -n "$unexpected" ]] || ! printf '%s\n' "$conflicts" | grep -qx 'data/news.json' || ! printf '%s\n' "$conflicts" | grep -qx 'data/state.json'; then
                   git rebase --abort || true
                   echo "Unexpected conflict outside the known generated JSON files; stopping safely."
@@ -209,11 +171,10 @@ jobs:
                             else:
                                 combined[map_key] = value
                         merged_state[key] = combined
-                for key in ("newest_seen_at",):
-                    merged_state[key] = max(
-                        (v for v in (remote_state.get(key), generated_state.get(key)) if v),
-                        key=stamp, default=""
-                    )
+                merged_state["newest_seen_at"] = max(
+                    (v for v in (remote_state.get("newest_seen_at"), generated_state.get("newest_seen_at")) if v),
+                    key=stamp, default=""
+                )
                 if remote_state.get("news_since") and generated_state.get("news_since"):
                     merged_state["news_since"] = min(
                         (remote_state["news_since"], generated_state["news_since"]), key=stamp
