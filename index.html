@@ -29,7 +29,7 @@
     .brand small{display:block;color:#bed1c5;font-size:.69rem;font-weight:500;letter-spacing:0}
     .nav-links{display:flex;align-items:center;gap:18px}
     .nav-links a{color:#dbe8df;text-decoration:none;font-size:.9rem}
-    .nav-links a:hover{color:#fff}
+    .nav-links a:hover{color:#fff}.nav-links .join-whatsapp{background:#25d366;color:#082c19;padding:7px 12px;border-radius:999px;font-weight:900}.nav-links .join-whatsapp:hover{background:#45e184;color:#082c19}
     .hero{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,.48fr);gap:30px;align-items:center;padding:48px 0 56px}
     .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.84rem;font-weight:800;color:#f0d695}
     .live-dot{width:8px;height:8px;border-radius:50%;background:#8fd7a6;box-shadow:0 0 0 5px #8fd7a622}
@@ -38,7 +38,7 @@
     .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:11px;margin-top:25px}
     .primary-btn,.soft-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:10px 17px;border-radius:14px;text-decoration:none;font-weight:800;font-size:.9rem}
     .primary-btn{background:#edcf86;color:#1a3025}
-    .soft-btn{border:1px solid #ffffff3d;color:#f4f7f4;background:#ffffff0b}
+    .soft-btn{border:1px solid #ffffff3d;color:#f4f7f4;background:#ffffff0b}.whatsapp-btn{background:#25d366;color:#082c19;box-shadow:0 8px 22px #061a1340}.whatsapp-btn:hover{background:#45e184}
     .hero-side{justify-self:end;max-width:320px;width:100%;border:1px solid #ffffff20;background:linear-gradient(145deg,#ffffff14,#ffffff07);border-radius:26px;padding:22px;box-shadow:0 22px 60px #061a1338;backdrop-filter:blur(10px)}
     .hero-side .syria-symbol{height:124px;display:grid;place-items:center;font-size:5.1rem;filter:drop-shadow(0 10px 14px #04140e65)}
     .hero-side h2{font-size:1.08rem;margin:6px 0 3px}
@@ -126,7 +126,7 @@
           <span class="brand-mark"><svg class="syria-flag" viewBox="0 0 3 2" role="img" aria-label="علم سوريا الأخضر"><rect width="3" height="2" fill="#fff"/><rect width="3" height=".6667" fill="#007a3d"/><rect y="1.3333" width="3" height=".6667" fill="#000"/><g fill="#ce1126"><path d="M.5 .82l.05.14.15 0-.12.09.05.14-.13-.09-.13.09.05-.14-.12-.09.15 0z"/><path d="M1.5 .82l.05.14.15 0-.12.09.05.14-.13-.09-.13.09.05-.14-.12-.09.15 0z"/><path d="M2.5 .82l.05.14.15 0-.12.09.05.14-.13-.09-.13.09.05-.14-.12-.09.15 0z"/></g></svg></span>
           <span>سوريا مباشر<small>أخبار من كل المحافظات</small></span>
         </a>
-        <div class="nav-links"><a href="#latest">آخر الأخبار</a><a href="#governorates">المحافظات</a></div>
+        <div class="nav-links"><a href="#latest">آخر الأخبار</a><a href="#governorates">المحافظات</a><a class="join-whatsapp" href="https://chat.whatsapp.com/Cmop7Ean95FB5Y9Uefj7zq?s=cl&amp;p=a&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener noreferrer">💬 مجموعة واتساب</a></div>
       </nav>
       <section class="hero">
         <div>
@@ -136,6 +136,7 @@
           <div class="hero-actions">
             <a class="primary-btn" href="#latest">تصفّح آخر الأخبار <span aria-hidden="true">←</span></a>
             <a class="soft-btn" href="#governorates">اختر محافظتك</a>
+            <a class="primary-btn whatsapp-btn" href="https://chat.whatsapp.com/Cmop7Ean95FB5Y9Uefj7zq?s=cl&amp;p=a&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener noreferrer">💬 انضم لمجموعة واتساب</a>
           </div>
         </div>
         <aside class="hero-side" aria-label="عن الموقع">
@@ -176,7 +177,7 @@
   <footer class="footer">
     <div class="wrap footer-row">
       <div><div class="footer-brand"><svg class="syria-flag" viewBox="0 0 3 2" role="img" aria-label="علم سوريا الأخضر"><rect width="3" height="2" fill="#fff"/><rect width="3" height=".6667" fill="#007a3d"/><rect y="1.3333" width="3" height=".6667" fill="#000"/><g fill="#ce1126"><path d="M.5 .82l.05.14.15 0-.12.09.05.14-.13-.09-.13.09.05-.14-.12-.09.15 0z"/><path d="M1.5 .82l.05.14.15 0-.12.09.05.14-.13-.09-.13.09.05-.14-.12-.09.15 0z"/><path d="M2.5 .82l.05.14.15 0-.12.09.05.14-.13-.09-.13.09.05-.14-.12-.09.15 0z"/></g></svg> سوريا مباشر</div><p>نقل الخبر مع الرجوع إلى مصدره الأصلي.</p></div>
-      <div><p>يُحدّث النظام مصادر الأخبار دوريًا.</p><p>© <span id="year"></span> سوريا مباشر</p></div>
+      <div><p>🟢 نشر وتحديث تلقائي للأخبار كل 5 دقائق.</p><p><a href="https://chat.whatsapp.com/Cmop7Ean95FB5Y9Uefj7zq?s=cl&amp;p=a&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener noreferrer">انضم إلى مجموعة واتساب</a></p><p>© <span id="year"></span> سوريا مباشر</p></div>
     </div>
   </footer>
 
@@ -298,7 +299,7 @@
         state.items = Array.isArray(data.items) ? data.items : [];
         document.getElementById('updateTime').textContent = data.updated_at ? 'آخر تحديث: ' + formatDate(data.updated_at) : 'بانتظار أول تحديث';
         status.textContent = state.items.length
-          ? 'الأخبار جاهزة. استخدم التصنيفات أو البحث للوصول إلى الخبر الذي تريده.'
+          ? 'الأخبار جاهزة وتتحدّث تلقائيًا كل 5 دقائق. استخدم التصنيفات أو البحث للوصول إلى الخبر الذي تريده.'
           : 'يتم فحص المصادر تلقائيًا؛ لم تصل أخبار بعد.';
         makeProvinceFilters();
         renderNews();
@@ -310,6 +311,8 @@
     }
     makeProvinceFilters();
     loadNews();
+    // Refresh the visible news list periodically without reloading the whole page.
+    setInterval(loadNews, 5 * 60 * 1000);
   </script>
 </body>
 </html>
