@@ -484,7 +484,8 @@ def parse_feed(xml_bytes: bytes, feed_label: str) -> list[dict]:
     for node in list(container):
         if node.tag.rsplit("}", 1)[-1].lower() not in ("item", "entry"):
             continue
-        title = normalize_news_title(item_text(node, "title"))
+        raw_title = clean_text(item_text(node, "title"))
+        title = normalize_news_title(raw_title)
         link = item_text(node, "link")
         if not link:
             for child in list(node):
@@ -518,6 +519,10 @@ def parse_feed(xml_bytes: bytes, feed_label: str) -> list[dict]:
             "published_at": parse_date(pubdate),
             "province": classify_province(title, description),
         }
+        promoted_url = publisher_url_from_title(raw_title, link, source_home)
+        if promoted_url:
+            item["url"] = promoted_url
+            link = promoted_url
         picture = image_from_feed_item(node, link) or extract_markup_image(description_markup, link)
         # Many publishers put the featured photo in content:encoded rather than description.
         if not picture:
@@ -551,6 +556,46 @@ def source_home_for_item(item: dict) -> str:
         if any(name.casefold() in label for name in names):
             return home
     return str(item.get("source_home", "") or "")
+
+
+
+def publisher_url_from_title(title_value: str, current_url: str, source_home: str = "") -> str:
+    """Recover a genuine article URL when a malformed RSS title contains it verbatim."""
+    current_host = (urllib.parse.urlparse(str(current_url or "")).hostname or "").lower()
+    if not current_host.endswith("news.google.com"):
+        return ""
+    match = re.match(r"^(https?://[^\s<>\"']+)", clean_text(str(title_value or "")), flags=re.I)
+    if not match:
+        return ""
+    candidate = match.group(1).rstrip(".,؛،)")
+    parsed = urllib.parse.urlparse(candidate)
+    host = (parsed.hostname or "").lower()
+    if parsed.scheme not in ("http", "https") or not host:
+        return ""
+    blocked = ("google.com", "googleusercontent.com", "gstatic.com", "youtube.com",
+               "facebook.com", "instagram.com", "twitter.com", "x.com", "t.me")
+    if any(host == value or host.endswith("." + value) for value in blocked):
+        return ""
+    source_host = (urllib.parse.urlparse(str(source_home or "")).hostname or "").lower()
+    if source_host:
+        if not (host == source_host or host.endswith("." + source_host) or source_host.endswith("." + host)):
+            return ""
+    else:
+        trusted_domains = (
+            "sana.sy", "syria.tv", "alwatan.sy", "syriadirect.org", "syrianobserver.com",
+            "orient-news.net", "aljazeera.net", "aawsat.com", "france24.com", "bbc.com",
+            "rudaw.net", "alarabiya.net", "alhadath.net", "asharq.com", "apnews.com",
+            "reuters.com", "afp.com", "middleeasteye.net",
+        )
+        if not any(host == domain or host.endswith("." + domain) for domain in trusted_domains):
+            return ""
+    path_parts = [part.lower() for part in parsed.path.strip("/").split("/") if part]
+    if not path_parts or any(part in (
+        "category", "tag", "author", "page", "contact", "about", "search", "governorates"
+    ) for part in path_parts):
+        return ""
+    return urllib.parse.urlunparse(parsed._replace(fragment=""))
+
 
 
 class LinkCollector(HTMLParser):
@@ -1285,6 +1330,14 @@ def main():
             existing_changes = True
             continue
         old_title = str(old_item.get("title", "") or "")
+        old_url = str(old_item.get("url", "") or "")
+        promoted_url = publisher_url_from_title(old_title, old_url, source_home_for_item(old_item))
+        if promoted_url and promoted_url != old_url:
+            old_item["url"] = promoted_url
+            old_item["source_home"] = source_home_for_item(old_item) or urllib.parse.urlunparse(
+                urllib.parse.urlparse(promoted_url)._replace(path="", params="", query="", fragment="")
+            )
+            existing_changes = True
         cleaned_title = normalize_news_title(old_title)
         if cleaned_title and cleaned_title != old_title:
             old_item["title"] = cleaned_title
