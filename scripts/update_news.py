@@ -16,6 +16,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone, timedelta
 from html.parser import HTMLParser
 from pathlib import Path
@@ -33,6 +34,9 @@ MAX_SITE_NEWS = 100
 MAX_HISTORY = 1000
 MAX_IMAGE_LOOKUPS_PER_CYCLE = 8
 MAX_IMAGE_MIRRORS_PER_CYCLE = 4
+MAX_PUBLISHER_LOOKUPS_PER_CYCLE = 4
+MAX_PUBLISHER_LOOKUP_COOLDOWN_HOURS = 12
+MAX_DESCRIPTION_LOOKUP_COOLDOWN_HOURS = 12
 MAX_IMAGE_DOWNLOAD_BYTES = 12_000_000
 IMAGE_STORAGE_VERSION = 1
 IMAGE_LOOKUP_VERSION = 5
@@ -44,9 +48,7 @@ SITE_URL = "https://syria-mubasher.pages.dev"
 FEEDS = [
     ("سانا", "site:sana.sy سوريا"),
     ("تلفزيون سوريا", "site:syria.tv سوريا"),
-    ("عنب بلدي", "site:enabbaladi.net سوريا"),
     ("الوطن", "site:alwatan.sy سوريا"),
-    ("زمان الوصل", "site:zamanalwsl.net سوريا"),
     ("سوريا دايركت", "site:syriadirect.org سوريا"),
     ("The Syrian Observer", "site:syrianobserver.com Syria"),
     ("أورينت", "site:orient-news.net سوريا"),
@@ -64,9 +66,7 @@ FEEDS = [
     ("الشرق للأخبار", "site:asharq.com سوريا"),
     ("ميدل إيست آي", "site:middleeasteye.net Syria"),
 ]
-DIRECT_FEEDS = [
-    ("عنب بلدي RSS", "https://www.enabbaladi.net/feed/"),
-]
+DIRECT_FEEDS = []
 
 PROVINCES = [
     ("ريف دمشق", ("ريف دمشق", "غوطة دمشق", "الغوطة الشرقية", "الغوطة الغربية", "دوما", "داريا", "جرمانا", "يبرود", "النبك", "الزبداني", "حرستا", "القلمون", "Rif Dimashq", "Rural Damascus")),
@@ -97,6 +97,25 @@ SYRIA_TERMS = (
 
 def normalize_news_title(value: str) -> str:
     title = clean_text(str(value or ""))
+    if not title:
+        return ""
+
+    # RSS providers occasionally put the article URL in the title field.
+    # Turn a meaningful publisher slug into readable text; never display opaque Google IDs.
+    if re.match(r"^https?://", title, flags=re.I):
+        candidate = re.match(r"^(https?://[^\s]+)", title, flags=re.I)
+        try:
+            parsed = urllib.parse.urlparse(candidate.group(1) if candidate else title)
+            host = (parsed.hostname or "").lower()
+            slug = urllib.parse.unquote(parsed.path.rstrip("/").rsplit("/", 1)[-1])
+            slug = re.sub(r"\.(?:html?|amp)$", "", slug, flags=re.I)
+            if host.endswith("news.google.com") or not slug or re.fullmatch(r"[A-Za-z0-9_-]{24,}", slug):
+                return ""
+            title = re.sub(r"[-_]+", " ", slug)
+            title = re.sub(r"\s+", " ", title).strip()
+        except (ValueError, AttributeError):
+            return ""
+
     suffix = (
         r"(?:وكالة الأنباء السورية(?:\s*[–—-]\s*سانا)?|الوكالة العربية السورية للأنباء|"
         r"وكالة سانا|سانا|SANA|عنب بلدي|تلفزيون سوريا|صحيفة الوطن السورية|الوطن السورية|"
@@ -128,6 +147,34 @@ def strip_publisher_branding(value: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
+
+EXCLUDED_SOURCE_TERMS = (
+    "عنب بلدي", "enab baladi", "enabbaladi",
+    "زمان الوصل", "zaman al wasl", "zamanalwsl",
+    "syriahr", "المرصد السوري لحقوق الإنسان", "المرصد السوري لحقوق الانسان",
+    "albaath", "البعث",
+    "rozana", "روزنة",
+    "north press", "northpress", "npasyria",
+    "anha", "hawarnews", "هەوار", "هاوار",
+)
+EXCLUDED_SOURCE_DOMAINS = (
+    "enabbaladi.net", "zamanalwsl.net", "syriahr.com",
+    "rozana.fm", "npasyria.com", "hawarnews.com", "albaathmedia.sy",
+)
+
+
+def is_excluded_source(item: dict) -> bool:
+    """Reject publisher/feed sources explicitly excluded from Syria Mubasher."""
+    labels = " ".join(str(item.get(key, "") or "") for key in ("source", "feed", "source_home")).casefold()
+    if any(term.casefold() in labels for term in EXCLUDED_SOURCE_TERMS):
+        return True
+    for key in ("url", "source_home"):
+        host = (urllib.parse.urlparse(str(item.get(key, "") or "")).hostname or "").lower()
+        if any(host == domain or host.endswith("." + domain) for domain in EXCLUDED_SOURCE_DOMAINS):
+            return True
+    return False
+
+
 def is_syria_related(title: str, description: str, article_url: str = "") -> bool:
     combined = strip_publisher_branding(normalize_news_title(title) + " " + str(description or "")).casefold()
     if any(term.casefold() in combined for term in SYRIA_TERMS):
@@ -137,7 +184,7 @@ def is_syria_related(title: str, description: str, article_url: str = "") -> boo
     path = (parsed.path or "").lower()
     # Trust direct articles hosted by known Syrian publishers, while still rejecting unrelated
     # Google News aggregator items whose title/summary has no Syria signal.
-    trusted_domains = ("sana.sy", "enabbaladi.net", "syria.tv", "alwatan.sy", "zamanalwsl.net", "syriadirect.org", "syrianobserver.com", "orient-news.net")
+    trusted_domains = ("sana.sy", "syria.tv", "alwatan.sy", "syriadirect.org", "syrianobserver.com", "orient-news.net")
     if any(host == domain or host.endswith("." + domain) for domain in trusted_domains):
         return True
     return False
@@ -238,6 +285,12 @@ def is_generic_description(value: str) -> bool:
         "وتقدم اللوحة تجربة فنية تتناول الصمود والفقد",
         "مع التركيز على العلاقات المشتركة والمبادرات التي تدعم التبادل المعرفي",
         "يرسمان مستقبل البريد السوري وكالة الأنباء السورية",
+        "لم يوفّر موجز الناشر وصفاً تحريرياً كافياً",
+        "لم يوفر موجز الناشر وصفا تحريريا كافيا",
+        "المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية",
+        "لم يقدّم المصدر تفاصيل كافية في الموجز المتاح",
+        "لم يقدم المصدر تفاصيل كافية في الموجز المتاح",
+        "الوصف غير متوفر من المصدر",
     )
     return any(marker.casefold() in text for marker in markers)
 
@@ -272,6 +325,7 @@ def extract_article_description(article_url: str, article_title: str = "") -> st
 
 
 def minimum_description(item: dict, extracted: str = "") -> str:
+    """Keep a useful publisher summary when possible; never pad missing facts with boilerplate."""
     current = clean_text(str(item.get("description", "")))
     title = normalize_news_title(str(item.get("title", "")))
     extracted = clean_text(extracted)
@@ -279,19 +333,15 @@ def minimum_description(item: dict, extracted: str = "") -> str:
         return extracted[:700]
     if len(current.split()) >= 20 and not is_generic_description(current):
         return current[:700]
+
+    # Retain a real short source snippet, but be transparent when it lacks enough detail.
     base = current if current and not is_generic_description(current) else title
+    base = strip_publisher_branding(base)
     if not base:
         base = title or "خبر من سوريا"
-    extra = (
-        " لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. "
-        "المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط "
-        "لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة."
-    )
-    result = clean_text(base + "." + extra)
-    while len(result.split()) < 20:
-        result = clean_text(result + " افتح الرابط الأصلي للاطلاع على النص الكامل.")
+    suffix = "لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا."
+    result = clean_text(base + ". " + suffix)
     return result[:700]
-
 
 
 def summarize_news_with_ai(item: dict) -> str:
@@ -456,7 +506,7 @@ def parse_feed(xml_bytes: bytes, feed_label: str) -> list[dict]:
                     break
         if not title or not link.startswith(("http://", "https://")):
             continue
-        if not is_syria_related(title, description):
+        if not is_syria_related(title, description, link):
             continue
         item = {
             "title": title[:300],
@@ -479,6 +529,8 @@ def parse_feed(xml_bytes: bytes, feed_label: str) -> list[dict]:
                         break
         if picture:
             item["image_url"] = picture
+        if is_excluded_source(item):
+            continue
         output.append(item)
     return output
 
@@ -1229,13 +1281,18 @@ def main():
         if not isinstance(old_item, dict):
             existing_changes = True
             continue
+        if is_excluded_source(old_item):
+            existing_changes = True
+            continue
         old_title = str(old_item.get("title", "") or "")
         cleaned_title = normalize_news_title(old_title)
         if cleaned_title and cleaned_title != old_title:
             old_item["title"] = cleaned_title
             existing_changes = True
-        # Preserve already published stories; a short or incomplete RSS summary must not erase history.
-        # New incoming entries are filtered before being accepted into the feed.
+        elif not cleaned_title:
+            existing_changes = True
+            continue
+        # Preserve valid published stories; do not keep publisher URLs disguised as headlines.
         normalized_old_items.append(old_item)
     if len(normalized_old_items) != len(old_items):
         old_news["items"] = normalized_old_items
@@ -1244,30 +1301,44 @@ def main():
     candidates = []
     user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
 
+    feed_specs = []
     for feed_label, query in FEEDS:
         feed_url = "https://news.google.com/rss/search?q=" + urllib.parse.quote_plus(query) + "&hl=ar&gl=SY&ceid=SY%3Aar"
-        request = urllib.request.Request(feed_url, headers={"User-Agent": user_agent, "Accept": "application/rss+xml, application/xml, text/xml"})
-        try:
-            with urllib.request.urlopen(request, timeout=REQUEST_TIMEOUT) as response:
-                raw = response.read(2_000_000)
-            candidates.extend(parse_feed(raw, feed_label))
-            time.sleep(0.12)
-        except (urllib.error.URLError, TimeoutError, OSError, ET.ParseError) as exc:
-            status_code = getattr(exc, "code", None)
-            detail = f"{type(exc).__name__} HTTP {status_code}" if status_code else type(exc).__name__
-            errors.append(f"{feed_label}: {detail}")
+        feed_specs.append((feed_label, feed_url))
+    feed_specs.extend(DIRECT_FEEDS)
 
-    for feed_label, feed_url in DIRECT_FEEDS:
-        request = urllib.request.Request(feed_url, headers={"User-Agent": user_agent, "Accept": "application/rss+xml, application/xml, text/xml"})
+    def fetch_one_feed(feed_label: str, feed_url: str):
+        request = urllib.request.Request(
+            feed_url,
+            headers={"User-Agent": user_agent, "Accept": "application/rss+xml, application/xml, text/xml"},
+        )
         try:
             with urllib.request.urlopen(request, timeout=REQUEST_TIMEOUT) as response:
                 raw = response.read(2_000_000)
-            candidates.extend(parse_feed(raw, feed_label))
-            time.sleep(0.12)
+            return feed_label, parse_feed(raw, feed_label), ""
         except (urllib.error.URLError, TimeoutError, OSError, ET.ParseError) as exc:
             status_code = getattr(exc, "code", None)
             detail = f"{type(exc).__name__} HTTP {status_code}" if status_code else type(exc).__name__
-            errors.append(f"{feed_label}: {detail}")
+            return feed_label, [], f"{feed_label}: {detail}"
+
+    # Queries run in parallel, but results are merged in configured source order so
+    # duplicate resolution remains predictable and a slow publisher cannot block all others.
+    feed_results = {}
+    with ThreadPoolExecutor(max_workers=min(8, max(1, len(feed_specs)))) as executor:
+        futures = {executor.submit(fetch_one_feed, label, url): label for label, url in feed_specs}
+        for future in as_completed(futures):
+            label = futures[future]
+            try:
+                _, parsed_items, feed_error = future.result()
+            except Exception as exc:
+                parsed_items, feed_error = [], f"{label}: {type(exc).__name__}"
+            feed_results[label] = (parsed_items, feed_error)
+
+    for feed_label, _feed_url in feed_specs:
+        parsed_items, feed_error = feed_results.get(feed_label, ([], ""))
+        candidates.extend(parsed_items)
+        if feed_error:
+            errors.append(feed_error)
 
     unique = []
     used_urls = set()
@@ -1402,7 +1473,15 @@ def main():
     image_mirrors = 0
     description_lookups = 0
     descriptions_expanded = 0
-    now_iso = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    publisher_resolution_lookups = 0
+    publisher_resolution_attempts = state.get("publisher_resolution_attempts", {})
+    if not isinstance(publisher_resolution_attempts, dict):
+        publisher_resolution_attempts = {}
+    description_lookup_attempts = state.get("description_lookup_attempts", {})
+    if not isinstance(description_lookup_attempts, dict):
+        description_lookup_attempts = {}
+    now = datetime.now(timezone.utc)
+    now_iso = now.isoformat(timespec="seconds")
     image_frequency = {}
     for entry in old_news.get("items", []):
         image_value = entry.get("image_url", "")
@@ -1432,16 +1511,34 @@ def main():
             item["province"] = classify_province(item.get("title", ""), item.get("description", ""))
             changed_news = True
         source_home = source_home_for_item(item)
-        if item_url:
-            resolved_url = resolve_publisher_url(item_url, source_home, item.get("title", ""))
-            if resolved_url and resolved_url != item_url:
-                item["url"] = resolved_url
-                item_url = resolved_url
-                changed_news = True
+        item_host = (urllib.parse.urlparse(item_url).hostname or "").lower()
+        if item_url and item_host.endswith("news.google.com") and publisher_resolution_lookups < MAX_PUBLISHER_LOOKUPS_PER_CYCLE:
+            last_attempt = parse_iso_datetime(publisher_resolution_attempts.get(item_url, ""))
+            cooldown_due = last_attempt is None or now - last_attempt >= timedelta(hours=MAX_PUBLISHER_LOOKUP_COOLDOWN_HOURS)
+            if cooldown_due:
+                publisher_resolution_attempts[item_url] = now_iso
+                publisher_resolution_lookups += 1
+                resolved_url = resolve_publisher_url(item_url, source_home, item.get("title", ""))
+                if resolved_url and resolved_url != item_url:
+                    item["url"] = resolved_url
+                    item_url = resolved_url
+                    item_host = (urllib.parse.urlparse(item_url).hostname or "").lower()
+                    changed_news = True
+
         description = clean_text(item.get("description", ""))
         if len(description.split()) < 20 or is_generic_description(description):
             extracted_description = ""
-            if item_url and description_lookups < MAX_DESCRIPTION_LOOKUPS_PER_CYCLE:
+            last_description_attempt = parse_iso_datetime(description_lookup_attempts.get(item_url, ""))
+            description_cooldown_due = (
+                last_description_attempt is None
+                or now - last_description_attempt >= timedelta(hours=MAX_DESCRIPTION_LOOKUP_COOLDOWN_HOURS)
+            )
+            if (
+                item_url and item_host and not item_host.endswith("news.google.com")
+                and description_lookups < MAX_DESCRIPTION_LOOKUPS_PER_CYCLE
+                and description_cooldown_due
+            ):
+                description_lookup_attempts[item_url] = now_iso
                 description_lookups += 1
                 extracted_description = extract_article_description(item_url, str(item.get("title", "")))
             expanded_description = minimum_description(item, extracted_description)
@@ -1746,6 +1843,8 @@ def main():
         "whatsapp_attempt_counts": whatsapp_attempt_counts,
         "image_lookup_attempts": image_lookup_attempts,
         "image_download_attempts": image_download_attempts,
+        "publisher_resolution_attempts": dict(list(publisher_resolution_attempts.items())[-MAX_HISTORY:]),
+        "description_lookup_attempts": dict(list(description_lookup_attempts.items())[-MAX_HISTORY:]),
         "image_storage_version": IMAGE_STORAGE_VERSION,
         "image_lookup_version": IMAGE_LOOKUP_VERSION,
         "news_since": news_since.isoformat(timespec="seconds") if news_since else state.get("news_since", ""),
@@ -1759,6 +1858,7 @@ def main():
         f"new items: {len(fresh)}; website total: {len(old_news.get('items', []))}; "
         f"RSS items with images: {sum(1 for x in candidates if x.get('image_url'))}; "
         f"image lookups: {image_lookups}; images added: {images_added}; local image mirror attempts: {image_mirrors}; "
+        f"publisher URL lookups: {publisher_resolution_lookups}; "
         f"description lookups: {description_lookups}; descriptions expanded: {descriptions_expanded}; "
         f"WhatsApp instance: {instance_status}; API accepted: {accepted_count}; "
         f"delivered/read confirmed: {delivered_count}; delivery pending: {len(pending)}; "
