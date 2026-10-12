@@ -1,6 +1,28 @@
 {
-  "updated_at": "2026-10-12T17:24:38+00:00",
+  "updated_at": "2026-10-12T17:30:09+00:00",
   "items": [
+    {
+      "title": "https://www.syria.tv/مشاهد-من-حماة",
+      "description": "https://www.syria.tv/مشاهد-من-حماة تلفزيون سوريا. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPSkZtdjNQLWtTbWF3dVBoLXdsM3NvTlRydFFnOGhja0tnWEt0SXh3aGIyTFRQSE9Na0ZiWjBYczNDSlFTSzZRRTZOcWdPTWgtTl9YZ3Zxd29vZHh6bEYzR2FIQW9QX3l4LXoxUGtoQk9OdTRWdlBmRThUdmJ1QUlJRW0tTjV3MnVFcnhoam5xck1KYnc?oc=5",
+      "source": "تلفزيون سوريا",
+      "source_home": "https://www.syria.tv",
+      "feed": "تلفزيون سوريا",
+      "published_at": "2026-10-12T17:25:04+00:00",
+      "province": "حماة"
+    },
+    {
+      "title": "حملة “تعافي 2” في دير الزور.. استشارات طبية وعمليات جراحية لمرضى انتظروا سنوات",
+      "description": "حملة “تعافي 2” في دير الزور.. استشارات طبية وعمليات جراحية لمرضى انتظروا سنوات سانا. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
+      "url": "https://sana.sy/video/2604983/",
+      "source": "سانا",
+      "source_home": "https://sana.sy",
+      "feed": "سانا",
+      "published_at": "2026-10-12T17:23:51+00:00",
+      "province": "دير الزور",
+      "image_url": "https://cdn.sananews.sy/2026/10/photo_2026-10-12_18-08-47.jpg",
+      "local_image_url": "images/news/4320a3510a7cf5d9ef698a80.webp"
+    },
     {
       "title": "بعد 30 يومًا.. سجناء “رومية” يعلقون إضرابهم عن الطعام والدواء",
       "description": "أنهى مئات السجناء في عدد من السجون اللبنانية، بينهم موقوفون سوريون، الاثنين 12 من تشرين الأول، إضرابًا مفتوحًا عن الطعام […]",
@@ -128,7 +150,7 @@
     {
       "title": "قطاع التمور في دير الزور.. آمال التعافي تصطدم بتكاليف الإنتاج - الجزيرة نت",
       "description": "قطاع التمور في دير الزور.. آمال التعافي تصطدم بتكاليف الإنتاج الجزيرة نت. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
-      "url": "https://news.google.com/rss/articles/CBMi1AJBVV95cUxOZTBqYmlacDJoXzF4Q1pCSE1MelBiMDREV3l1ZDByY0dtZ0UwN2pIRkJjUWhVT3FaYjZqRTlpeG9UcUtPa3NvWngzTDQxYm1jbFQwblVEcVJKd2JaMVdZc3ZaUHI2SV9SeU8xZUF0ZTF4TFRrdHQ5S3Z3aEtKd0FzaUtFVHNqdUVjZGNqMHpSQVN2Z0Njbm5jTzhQTGNUdlF6Vnczem1GZjhRdEh6NWlJcnQzWUJBcXdnS2loTERsWmgwTWI4Z2psWE5xSDcza3lTQjRnVkw2aWN0WWp3ci1nRjlSa2sxNEFMOFlQM29FQVppMG4zVXhxOFR3ZFBGRnRjRnpEU1FyS0IyTUNSZDlKRUUzeU02bjJCUkVBbHVjcFgwR1Vjc2RVekdIQW9TbGZnb0VwQk92V3c0Mk9JU2l0QmRsMFQ5Z2Z3OTRDSHZFVWpINU4w?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMi1AJBVV95cUxOZTBqYmlacDJoXzF4Q1pCSE1MelBiMDREV3l1ZDByY0dtZ0UwN2pIRkJjUWhVT3FaYjZqRTlpeG9UcUtPa3NvWngzTDQxYm1jbFQwblVEcVJKd2JaMVdZc3ZaUHI2SV9SeU8xZUF0ZTF4TFRrdHQ5S3Z3aEtKd0FzaUtFVHNqdUVjZGNqMHpSQVN2Z0Njbm5jTzhQTGNUdlF6Vnczem1GZjhRdEh6NWlJcnQzWUJBcXdnS2loTERsWmgwTWI4Z2psWE5xSDcza3lTQjRnVkw2aWN0WWp3ci1nRjlSa2sxNEFMOFlQM29FQVppMG4zVXhxOFR3ZFBGRnRjRnpEU1FyS0IyTUNSZDlKRUUzeU02bjJCUkVBbHVjcFgwR1Vjc2RVekdIQW9TbGZnb0VwQk92V3c0Mk9JU2l0QmRsMFQ5Z2Z3OTRDSHZFVWpINU4w0gHaAkFVX3lxTE96MGNYTEJWOUIwRzRGS21BX0o2MnhPTFp4c1hCU2xTZVRLRl9CQjlwUVpZeV9jV3AtRVZNakcxWjl0d2ZBSGlYZDhRaC1ENGk5NlBGNTFVRF9fSklOeG5STXNzSWZQY1Y2UFRpYjZwSFRIN2tIejNObEhKNC00Z0w5akJhT0lYX1ZOVUFXLWZ2QjBsUmE5Rnk2LTYzU05ic0lQbmNWVURZMDFjMUFMbm16Z1RuUFFFcThrMGJ6V1dLZUNnTDd0bllNSG5rMEZmR0gtY2Z3TXkyOGpCSkZqdjdGX2NsbmxqMXZJNHVCNFhEV3JLemZJcWNjRFBuVmg1U1BTUWUzLVpocFJDaTlfVHYtdUxpTy1uOGhkM0Z6MkxVX09obVN0YXdKWVhEMTktUlVsTjh0WHdDOWtqYURhbDhVaVlWaElXVnJlLUxPNHZQSFNIRnF3U2VNZGc?oc=5",
       "source": "الجزيرة نت",
       "source_home": "https://www.aljazeera.net",
       "feed": "الجزيرة",
@@ -1090,27 +1112,6 @@
       "province": "أخبار عامة",
       "image_url": "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/%D8%B7%D8%A7%D9%84%D8%A8%20%D9%84%D8%AC%D9%88%D8%A1%20%D9%8A%D9%85%D9%84%D8%A3%20%D8%A7%D8%B3%D8%AA%D9%85%D8%A7%D8%B1%D8%A9%20%D8%A8%D8%AC%D9%88%D8%A7%D8%B1%20%D9%84%D8%A7%D9%81%D8%AA%D8%A9%20%D8%A7%D9%84%D9%85%D9%83%D8%AA%D8%A8%20%D8%A7%D9%84%D8%A7%D8%AA%D8%AD%D8%A7%D8%AF%D9%8A%20%D9%84%D9%84%D9%87%D8%AC%D8%B1%D8%A9%20%D9%88%D8%A7%D9%84%D9%84%D8%A7%D8%AC%D8%A6%D9%8A%D9%86%20%D9%81%D9%8A%20%D9%88%D9%84%D8%A7%D9%8A%D8%A9%20%D8%B3%D8%A7%D9%83%D8%B3%D9%88%D9%86%D9%8A%D8%A7%20%D8%A7%D9%84%D8%B3%D9%81%D9%84%D9%89%20%D8%A7%D9%84%D8%A3%D9%84%D9%85%D8%A7%D9%86%D9%8A%D8%A9%20%28%D8%AF%20%D8%A8%20%D8%A3%29.jpeg?itok=KBjfq3_K",
       "local_image_url": "images/news/97cdc6f30416f6c3f03434e0.webp"
-    },
-    {
-      "title": "“الميكرو دراما”.. مسار موازٍ يختبر مستقبل الدراما السورية",
-      "description": "عنب بلدي – أمير حقوق لم تعد “الميكرو دراما” تجربة هامشية في المشهد الدرامي السوري، بعدما اكتسبت حضورًا أوضح خلال […]",
-      "url": "https://www.enabbaladi.net/828635/%d8%a7%d9%84%d9%85%d9%8a%d9%83%d8%b1%d9%88-%d8%af%d8%b1%d8%a7%d9%85%d8%a7-%d9%85%d8%b3%d8%a7%d8%b1-%d9%85%d9%88%d8%a7%d8%b2%d9%8d-%d9%8a%d8%ae%d8%aa%d8%a8%d8%b1-%d9%85%d8%b3%d8%aa%d9%82%d8%a8/",
-      "source": "عنب بلدي RSS",
-      "source_home": "",
-      "feed": "عنب بلدي RSS",
-      "published_at": "2026-10-11T14:10:58+00:00",
-      "province": "أخبار عامة"
-    },
-    {
-      "title": "تحديث 5 آلاف مواصفة لتعزيز نفاذ المنتج السوري إلى الأسواق العالمية",
-      "description": "تحديث 5 آلاف مواصفة لتعزيز نفاذ المنتج السوري إلى الأسواق العالمية سانا. لم يوفّر موجز الناشر وصفاً تحريرياً كافياً يمكن الاعتماد عليه. المعروض هنا هو عنوان الخبر وإحالة مباشرة إلى المادة الأصلية؛ افتح الرابط لقراءة التفاصيل كاملة والتحقق من المعلومات والسياق كما نشرتها الجهة الناشرة.",
-      "url": "https://sana.sy/infographic/2603540/",
-      "source": "سانا",
-      "source_home": "https://sana.sy",
-      "feed": "سانا",
-      "published_at": "2026-10-11T14:04:45+00:00",
-      "province": "أخبار عامة",
-      "image_url": "https://cdn.sananews.sy/2026/10/انفو.jpg"
     }
   ]
 }
