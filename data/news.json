@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-13T15:04:18+00:00",
+  "updated_at": "2026-10-13T15:06:11+00:00",
   "items": [
     {
       "title": "مديرية الرياضة والشباب بإدلب تطلق دورة تأهيلية لمدربي كرة القدم ‏",
@@ -167,7 +167,7 @@
     },
     {
       "title": "في اليوم الدولي للحد من مخاطر الكوارث.. سوريا تركز على نشر الوعي وبناء القدرات ‏",
-      "description": "أكد وزير الطوارئ وإدارة الكوارث رائد الصالح أن الوزارة تعمل على الحد من مخاطر ‏الكوارث ونشر الوعي وبناء القدرات، في إطار مسارين متكاملين يستهدفان تعزيز الاستعداد ‏المسبق والوقاية، ورفع قدرة المجتمع على التعامل مع حالات الطوارئ. ‏",
+      "description": "أكد وزير الطوارئ وإدارة الكوارث رائد الصالح أن الوزارة تعمل على الحد من مخاطر ‏الكوارث ونشر الوعي وبناء القدرات، في إطار مسارين متكاملين يستهدفان تعزيز الاستعداد ‏المسبق والوقاية، ورفع قدرة المجتمع على التعامل مع حالات الطوارئ. ‏.",
       "url": "https://sana.sy/politics/2605471/",
       "source": "سانا",
       "source_home": "https://sana.sy",
@@ -176,6 +176,16 @@
       "province": "أخبار عامة",
       "image_url": "https://cdn.sananews.sy/2026/10/رائد-الصالح.jpg",
       "local_image_url": "images/news/9f424e7ab4a5248271d879ce.webp"
+    },
+    {
+      "title": "توغّل إسرائيلي جديد بريف دمشق الغربي والاحتلال يطلق النار باتجاه المزارعين",
+      "description": "توغّل إسرائيلي جديد بريف دمشق الغربي والاحتلال يطلق النار باتجاه المزارعين صحيفة الوطن السورية.. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
+      "url": "https://news.google.com/rss/articles/CBMivwJBVV95cUxOOTVqTWwyZzhLUjF0LUZrZHVLM2NTcE1jd1RNM2x3dWNHcVpveVNZQmZveExrVVB2YTJ5UU5UczJtdDUxUHpMX2I2eHdzcGRZaDVVSUlleW5KQS1tLXBuQ3lDNVhxd29UY0hzTTZBMm55c29ldThwbXJ0TFBRcXNRZDFlTlVXOEkyQTBVMmVEMHFXNEtuRzNjVkRXazEzWDFyaERXRHpKTEF3aUtnMm1mU3dSSkZ6SGRackpKS2RfXzlidmFodjJna2R3T3RjQ3daTWlkUldjcnBoRkxKb1lvaWNqalAwU0NQOEZveEZEdHlfZEtvcHJFOTlWYnZFTnAtdWcwbDh2MEJOWlpfOTFlOHRadTlqd1otVFRsYzFIc3dBcVI3MkVHcWxPNWdrV1ItMGNzWVhVanB5eVVuYi00?oc=5",
+      "source": "صحيفة الوطن السورية",
+      "source_home": "https://alwatan.sy",
+      "feed": "الوطن",
+      "published_at": "2026-10-13T09:14:22+00:00",
+      "province": "ريف دمشق"
     },
     {
       "title": "بعد تخفيف القيود الأميركية.. ما فرص إعادة بناء الجيش السوري؟ - الشرق للأخبار",
@@ -1120,18 +1130,6 @@
       "province": "أخبار عامة",
       "image_url": "https://alwatan.sy/wp-content/uploads/2026/10/%D9%88%D8%B2%D9%8A%D8%B1-%D8%A7%D9%84%D8%A7%D8%AA%D8%B5%D8%A7%D9%84%D8%A7%D8%AA-%D9%85%D9%8A%D8%AA%D8%A7.jpg",
       "local_image_url": "images/news/ba2346277b15693bc820e2cf.webp"
-    },
-    {
-      "title": "مباحثات نقابية سورية – تركية في دمشق لتطوير آليات العمل المشترك",
-      "description": "مباحثات نقابية سورية – تركية في دمشق لتطوير آليات العمل المشترك. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
-      "url": "https://sana.sy/video/2603629/",
-      "source": "سانا",
-      "source_home": "https://sana.sy",
-      "feed": "سانا",
-      "published_at": "2026-10-11T15:43:35+00:00",
-      "province": "دمشق",
-      "image_url": "https://cdn.sananews.sy/2026/10/غلاف-مباحثات-نقابية.jpg",
-      "local_image_url": "images/news/ad2264b5e2437b5b529d4e66.webp"
     }
   ]
 }
