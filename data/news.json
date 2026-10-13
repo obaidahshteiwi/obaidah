@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-13T14:40:41+00:00",
+  "updated_at": "2026-10-13T14:44:18+00:00",
   "items": [
     {
       "title": "تحرك لإلغاء تجريم «الإخوان» يفتح ملف عودتهم السياسية في سوريا - الشرق الأوسط",
@@ -54,6 +54,16 @@
       "province": "حمص"
     },
     {
+      "title": "مستشار الأمن القومي في العراق لرووداو: 400 سوري نُقلوا مع المعتقلين إلى العراق لم تَثبُت إدانتهم - Rudaw",
+      "description": "مستشار الأمن القومي في العراق لرووداو: 400 سوري نُقلوا مع المعتقلين إلى العراق لم تَثبُت إدانتهم Rudaw.. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5hMWlhU2RWZ3VDaVFKZVVVdTZNVHpDVmdJVzhSMjVNSzNvdUNxTHVDRDJPUUgwY0QwR2tBX0dEZDJnelBvdG1NTGZkV3lwWHRxMm1ORGlSQkRSLUU?oc=5",
+      "source": "Rudaw",
+      "source_home": "http://rudaw.net",
+      "feed": "روداو عربي",
+      "published_at": "2026-10-13T12:15:14+00:00",
+      "province": "أخبار عامة"
+    },
+    {
       "title": "مستشار الخارجية السورية لرووداو: سوريا تحتاج إلى كبح جماح أي نوع من التطرف - Rudaw",
       "description": "مستشار الخارجية السورية لرووداو: سوريا تحتاج إلى كبح جماح أي نوع من التطرف Rudaw. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBJZVdNdThWS081ZW41V25ya1l2ZHdaT2dKNW9qeEl6Ym1Ka2RKeGhIYldLaWYxTlNQWGhPR3Y5ajJUeno1elNmNkdqOXIzRnRZQWNrOW5yTVN6OFRybFRYTUtn?oc=5",
@@ -87,7 +97,7 @@
     },
     {
       "title": "منتخب سوريا لرفع الأثقال يحصد ميداليات متنوعة في البطولة العربية بالجزائر",
-      "description": "شهدت البطولة العربية لرفع الأثقال المقامة في مدينة مستغانم الجزائرية تألقاً لافتاً ‏لمنتخب سوريا بعد أن تقلد ربّاعوه ميداليات متنوعة في منافسات",
+      "description": "شهدت البطولة العربية لرفع الأثقال المقامة في مدينة مستغانم الجزائرية تألقاً لافتاً ‏لمنتخب سوريا بعد أن تقلد ربّاعوه ميداليات متنوعة في منافسات.",
       "url": "https://sana.sy/sport/syrian-sport/2605536/",
       "source": "سانا",
       "source_home": "https://sana.sy",
@@ -1116,18 +1126,6 @@
       "feed": "الجزيرة",
       "published_at": "2026-10-11T14:51:56+00:00",
       "province": "أخبار عامة"
-    },
-    {
-      "title": "بينهم سوريون.. 600 سجين يواصلون إضرابهم عن الطعام في لبنان لليوم الـ29",
-      "description": "يستمر الإضراب وسط مطالبات بحسم ملف العفو العام، في وقت تتزايد فيه المخاوف من تفاقم الأوضاع الصحية داخل السجون مع دخول الاحتجاج أسبوعه الخامس.",
-      "url": "https://www.syria.tv/%D8%A8%D9%8A%D9%86%D9%87%D9%85-%D8%B3%D9%88%D8%B1%D9%8A%D9%88%D9%86-600-%D8%B3%D8%AC%D9%8A%D9%86-%D9%8A%D9%88%D8%A7%D8%B5%D9%84%D9%88%D9%86-%D8%A5%D8%B6%D8%B1%D8%A7%D8%A8%D9%87%D9%85-%D8%B9%D9%86-%D8%A7%D9%84%D8%B7%D8%B9%D8%A7%D9%85-%D9%81%D9%8A-%D9%84%D8%A8%D9%86%D8%A7%D9%86-%D9%84%D9%84%D9%8A%D9%88%D9%85-%D8%A7%D9%84%D9%8029",
-      "source": "تلفزيون سوريا",
-      "source_home": "https://www.syria.tv",
-      "feed": "تلفزيون سوريا",
-      "published_at": "2026-10-11T14:38:49+00:00",
-      "province": "أخبار عامة",
-      "image_url": "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/1%20jpeg%20-%20Copy_43.jpg?itok=zS3iJCHH",
-      "local_image_url": "images/news/e3c3e13f5f26baa83fae041f.webp"
     }
   ]
 }
