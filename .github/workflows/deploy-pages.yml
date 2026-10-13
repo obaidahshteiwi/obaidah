@@ -219,6 +219,52 @@ jobs:
           git fetch origin main
           git reset --hard origin/main
 
+      - name: Generate RSS feed for Make.com
+        run: |
+          python - <<'PY'
+          import json
+          from email.utils import format_datetime
+          from datetime import datetime, timezone
+          from pathlib import Path
+          from xml.etree.ElementTree import Element, SubElement, ElementTree
+
+          data = json.loads(Path("data/news.json").read_text(encoding="utf-8"))
+          rss = Element("rss", {"version": "2.0"})
+          channel = SubElement(rss, "channel")
+          SubElement(channel, "title").text = "سوريا مباشر"
+          SubElement(channel, "link").text = "https://obaidahshteiwi.github.io/syria-mubasher/"
+          SubElement(channel, "description").text = "آخر أخبار سوريا من موقع سوريا مباشر"
+          SubElement(channel, "language").text = "ar"
+          items = data.get("items", [])
+          items = sorted(items, key=lambda x: str(x.get("published_at") or ""), reverse=True)[:100]
+          for story in items:
+              url = str(story.get("url") or "").strip()
+              title = str(story.get("title") or "").strip()
+              if not url or not title:
+                  continue
+              item = SubElement(channel, "item")
+              SubElement(item, "title").text = title
+              SubElement(item, "link").text = url
+              SubElement(item, "guid", {"isPermaLink": "true"}).text = url
+              description = str(story.get("description") or story.get("summary") or title)
+              image_url = str(story.get("image_url") or story.get("local_image_url") or "").strip()
+              if image_url:
+                  description += f'<br/><img src="{image_url}" alt="صورة الخبر"/>'
+                  SubElement(item, "enclosure", {"url": image_url, "type": "image/jpeg"})
+              SubElement(item, "description").text = description
+              published = str(story.get("published_at") or "").strip()
+              if published:
+                  try:
+                      dt = datetime.fromisoformat(published.replace("Z", "+00:00"))
+                      if dt.tzinfo is None:
+                          dt = dt.replace(tzinfo=timezone.utc)
+                      SubElement(item, "pubDate").text = format_datetime(dt)
+                  except ValueError:
+                      pass
+          ElementTree(rss).write("feed.xml", encoding="utf-8", xml_declaration=True)
+          print(f"Generated feed.xml with {len(channel.findall('item'))} items.")
+          PY
+
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
         with:
