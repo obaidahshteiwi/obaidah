@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-13T15:06:11+00:00",
+  "updated_at": "2026-10-13T15:08:07+00:00",
   "items": [
     {
       "title": "مديرية الرياضة والشباب بإدلب تطلق دورة تأهيلية لمدربي كرة القدم ‏",
@@ -179,13 +179,25 @@
     },
     {
       "title": "توغّل إسرائيلي جديد بريف دمشق الغربي والاحتلال يطلق النار باتجاه المزارعين",
-      "description": "توغّل إسرائيلي جديد بريف دمشق الغربي والاحتلال يطلق النار باتجاه المزارعين صحيفة الوطن السورية.. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
+      "description": "توغّل إسرائيلي جديد بريف دمشق الغربي والاحتلال يطلق النار باتجاه المزارعين صحيفة الوطن السورية. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://news.google.com/rss/articles/CBMivwJBVV95cUxOOTVqTWwyZzhLUjF0LUZrZHVLM2NTcE1jd1RNM2x3dWNHcVpveVNZQmZveExrVVB2YTJ5UU5UczJtdDUxUHpMX2I2eHdzcGRZaDVVSUlleW5KQS1tLXBuQ3lDNVhxd29UY0hzTTZBMm55c29ldThwbXJ0TFBRcXNRZDFlTlVXOEkyQTBVMmVEMHFXNEtuRzNjVkRXazEzWDFyaERXRHpKTEF3aUtnMm1mU3dSSkZ6SGRackpKS2RfXzlidmFodjJna2R3T3RjQ3daTWlkUldjcnBoRkxKb1lvaWNqalAwU0NQOEZveEZEdHlfZEtvcHJFOTlWYnZFTnAtdWcwbDh2MEJOWlpfOTFlOHRadTlqd1otVFRsYzFIc3dBcVI3MkVHcWxPNWdrV1ItMGNzWVhVanB5eVVuYi00?oc=5",
       "source": "صحيفة الوطن السورية",
       "source_home": "https://alwatan.sy",
       "feed": "الوطن",
       "published_at": "2026-10-13T09:14:22+00:00",
       "province": "ريف دمشق"
+    },
+    {
+      "title": "الذهب ينخفض 50 ليرة في السوق السورية‌‏ ‏",
+      "description": "‏ انخفض سعر غرام الذهب عيار 21 قيراطاً في السوق السورية، اليوم الثلاثاء، بمقدار ‌‏50 ليرة سورية، مقارنةً بسعره الذي سجله أمس",
+      "url": "https://sana.sy/economy/syrian-economy/2605447/",
+      "source": "سانا",
+      "source_home": "https://sana.sy",
+      "feed": "سانا",
+      "published_at": "2026-10-13T09:03:29+00:00",
+      "province": "أخبار عامة",
+      "image_url": "https://cdn.sananews.sy/2026/10/الذهب-1.jpg",
+      "local_image_url": "images/news/ab089bae656cbb62a09f809f.webp"
     },
     {
       "title": "بعد تخفيف القيود الأميركية.. ما فرص إعادة بناء الجيش السوري؟ - الشرق للأخبار",
@@ -1118,18 +1130,6 @@
       "province": "أخبار عامة",
       "image_url": "https://cdn.sananews.sy/2026/10/DSC09649-1024x683.jpg",
       "local_image_url": "images/news/f15efac4eb36c6a9857a956a.webp"
-    },
-    {
-      "title": "تحرك حكومي لإعادة تفعيل خدمات “ميتا” التجارية في سوريا",
-      "description": "بحث وزير الاتصالات وتقانة المعلومات عبدالسلام هيكل مع الرئيس الإقليمي لشركة «ميتا» في الشرق الأوسط وإفريقيا فارس عقاد، الخطوات اللازمة لعودة الخدمات التجارية لمنصات «فيسبوك» و«إنستاغرام» و«واتساب» إلى سوريا، بما يشمل أدوات الإعلان وخدمات الأعمال، إلى جانب عدد من ملفات التعاون بين الجانبين. كما بحث الجانبان الفرص التي يمكن أن يتيحها مشروع «سيلك لينك» لشركة […].",
-      "url": "https://alwatan.sy/%d8%aa%d8%ad%d8%b1%d9%83-%d8%ad%d9%83%d9%88%d9%85%d9%8a-%d9%84%d8%a5%d8%b9%d8%a7%d8%af%d8%a9-%d8%aa%d9%81%d8%b9%d9%8a%d9%84-%d8%ae%d8%af%d9%85%d8%a7%d8%aa-%d9%85%d9%8a%d8%aa%d8%a7-%d8%a7%d9%84/",
-      "source": "صحيفة الوطن السورية",
-      "source_home": "https://alwatan.sy",
-      "feed": "الوطن",
-      "published_at": "2026-10-11T15:43:59+00:00",
-      "province": "أخبار عامة",
-      "image_url": "https://alwatan.sy/wp-content/uploads/2026/10/%D9%88%D8%B2%D9%8A%D8%B1-%D8%A7%D9%84%D8%A7%D8%AA%D8%B5%D8%A7%D9%84%D8%A7%D8%AA-%D9%85%D9%8A%D8%AA%D8%A7.jpg",
-      "local_image_url": "images/news/ba2346277b15693bc820e2cf.webp"
     }
   ]
 }
