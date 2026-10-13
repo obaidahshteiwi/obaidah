@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-13T15:14:59+00:00",
+  "updated_at": "2026-10-13T15:16:45+00:00",
   "items": [
     {
       "title": "بعد 14 عاماً.. مصرف سوريا المركزي ينفّذ أول اعتماد مستندي لصالح الشركة السورية للبترول",
@@ -191,7 +191,7 @@
     },
     {
       "title": "أستراليا تستعيد 19 من مواطنيها المرتبطين بـ\"داعش\" من مخيمات سوريا - Rudaw",
-      "description": "أستراليا تستعيد 19 من مواطنيها المرتبطين بـ\"داعش\" من مخيمات سوريا Rudaw.. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
+      "description": "أستراليا تستعيد 19 من مواطنيها المرتبطين بـ\"داعش\" من مخيمات سوريا Rudaw. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBUeVlzd192dERuWnAweTFndUMtWXFfVnNtU05XNEpqaGhFbXIxMmtRdjdpYURXdmdTWHBnTnBZR2g1dGtmSzdtTVB0SUpETEltLTlPTjlpMXZPQVh0VXVBXzIxU1Z4UQ?oc=5",
       "source": "Rudaw",
       "source_home": "http://www.rudaw.net",
@@ -252,6 +252,18 @@
       "feed": "الوطن",
       "published_at": "2026-10-13T08:45:07+00:00",
       "province": "أخبار عامة"
+    },
+    {
+      "title": "استعدادات فلاحي ريف الرقة الشمالي لموسم الزراعة الشتوية",
+      "description": "استعدادات فلاحي ريف الرقة الشمالي لموسم الزراعة الشتوية سانا.. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
+      "url": "https://sana.sy/video/2605433/",
+      "source": "سانا",
+      "source_home": "https://sana.sy",
+      "feed": "سانا",
+      "published_at": "2026-10-13T08:41:45+00:00",
+      "province": "الرقة",
+      "image_url": "https://cdn.sananews.sy/2026/10/صورة-فلاحو-الرقة.jpg",
+      "local_image_url": "images/news/da11777f33f7b5dff5f83682.webp"
     },
     {
       "title": "أصداء الأندلس في دمشق… الفلامنكو يمتزج بالمواويل الشرقية على مسرح الأوبرا",
@@ -1114,18 +1126,6 @@
       "feed": "تلفزيون سوريا",
       "published_at": "2026-10-11T16:38:48+00:00",
       "province": "أخبار عامة"
-    },
-    {
-      "title": "صدام حفتر يؤكد للشيباني استعداد «القيادة العامة» لدعم الشعب السوري - الشرق الأوسط",
-      "description": "في أول زيارة له إلى بنغازي، بحث وزير الخارجية السوري أسعد الشيباني مع صدام حفتر، نائب القائد العام لـ«الجيش الوطني» الليبي، عدداً من الملفات الأمنية.",
-      "url": "https://aawsat.com/%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A/%D8%B4%D9%85%D8%A7%D9%84-%D8%A7%D9%81%D8%B1%D9%8A%D9%82%D9%8A%D8%A7/5328402-%D8%B5%D8%AF%D8%A7%D9%85-%D8%AD%D9%81%D8%AA%D8%B1-%D9%8A%D8%A4%D9%83%D8%AF-%D9%84%D9%84%D8%B4%D9%8A%D8%A8%D8%A7%D9%86%D9%8A-%D8%A7%D8%B3%D8%AA%D8%B9%D8%AF%D8%A7%D8%AF-%D8%A7%D9%84%D9%82%D9%8A%D8%A7%D8%AF%D8%A9-%D8%A7%D9%84%D8%B9%D8%A7%D9%85%D8%A9-%D9%84%D8%AF%D8%B9%D9%85-%D8%A7%D9%84%D8%B4%D8%B9%D8%A8-%D8%A7%D9%84%D8%B3%D9%88%D8%B1%D9%8A",
-      "source": "الشرق الأوسط",
-      "source_home": "https://aawsat.com",
-      "feed": "الشرق الأوسط",
-      "published_at": "2026-10-11T16:35:26+00:00",
-      "province": "أخبار عامة",
-      "image_url": "https://static.srpcdigital.com/styles/1200x600/public/2026-10/1822094.jpeg.webp?VersionId=0NqQh3hw.E225.zvD09LqvAp8puNeh9e",
-      "local_image_url": "images/news/93fa2902135b1bf9db42bbae.webp"
     }
   ]
 }
