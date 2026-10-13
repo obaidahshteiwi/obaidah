@@ -43,7 +43,7 @@ IMAGE_LOOKUP_VERSION = 5
 MAX_DESCRIPTION_LOOKUPS_PER_CYCLE = 3
 REQUEST_TIMEOUT = 12
 WHATSAPP_TRACKING_VERSION = 2
-SITE_URL = "https://syria-mubasher.pages.dev"
+SITE_URL = "https://obaidahshteiwi.github.io/syria-mubasher/"
 
 FEEDS = [
     ("سانا", "site:sana.sy سوريا"),
@@ -959,11 +959,16 @@ def mirror_image_locally(image_url: str, article_url: str = "") -> str:
     parsed = urllib.parse.urlparse(value)
     if parsed.scheme not in ("http", "https") or not parsed.netloc:
         return ""
+
+    # Encode Arabic and other non-ASCII characters before urllib builds HTTP requests.
+    url_safe = ":/?&=#%[]@!$'()*+,;~._-"
+    value = urllib.parse.quote(value, safe=url_safe)
+    parsed = urllib.parse.urlparse(value)
     article_host = (urllib.parse.urlparse(article_url).hostname or "").lower()
     referer = article_url if article_url.startswith(("http://", "https://")) and not article_host.endswith("news.google.com") else "https://" + parsed.netloc + "/"
-    # Percent-encode non-ASCII characters (including Arabic filenames) before
-    # urllib builds the HTTP request; otherwise UnicodeEncodeError skips images.
-    value = urllib.parse.quote(value, safe=":/?&=#%+;,@!
+    referer = urllib.parse.quote(referer, safe=url_safe)
+    request = urllib.request.Request(value, headers={
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
         "Accept": "image/avif,image/webp,image/apng,image/*,*/*;q=0.8",
         "Referer": referer,
     })
@@ -1006,8 +1011,6 @@ def mirror_image_locally(image_url: str, article_url: str = "") -> str:
     except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, OSError, ValueError, UnidentifiedImageError) as exc:
         print(f"Image mirror failed for {urllib.parse.urlparse(value).hostname or 'unknown host'}: {type(exc).__name__}.")
         return ""
-
-
 def extract_article_image(article_url: str, source_home: str = "", article_title: str = "") -> str:
     if not article_url.startswith(("https://", "http://")):
         return ""
@@ -1113,7 +1116,7 @@ def green_api_config():
     base = (os.getenv("GREEN_API_URL", "") or file_settings.get("api_url", "")).strip().rstrip("/")
     instance = (os.getenv("GREEN_API_INSTANCE", "") or file_settings.get("instance_id", "")).strip()
     token = (os.getenv("GREEN_API_TOKEN", "") or file_settings.get("api_token", "")).strip()
-    chat_id = (os.getenv("WHATSAPP_GROUP_ID", "") or file_settings.get("group_id", "")).strip()
+    chat_id = (file_settings.get("group_id", "") or os.getenv("WHATSAPP_GROUP_ID", "")).strip()
     if base and not base.startswith(("https://", "http://")):
         base = "https://" + base
     if instance and not instance.startswith("waInstance"):
@@ -1261,7 +1264,10 @@ def evolution_config():
     base = os.getenv("EVOLUTION_API_URL", "").strip().rstrip("/")
     api_key = os.getenv("EVOLUTION_API_KEY", "").strip()
     instance = os.getenv("EVOLUTION_INSTANCE", "").strip()
-    group_id = os.getenv("WHATSAPP_GROUP_ID", "").strip()
+    file_settings = load_json(WHATSAPP_SETTINGS_FILE, {})
+    if not isinstance(file_settings, dict):
+        file_settings = {}
+    group_id = (file_settings.get("group_id", "") or os.getenv("WHATSAPP_GROUP_ID", "")).strip()
     channel_id = os.getenv("WHATSAPP_CHANNEL_ID", "").strip()
     if base and not base.startswith(("https://", "http://")):
         base = "https://" + base
@@ -1827,6 +1833,24 @@ def main():
             else:
                 if not group_error:
                     print("WhatsApp group check: valid.")
+                # If the configured destination changed, discard history queued for the previous group.
+                # Keep only this run's genuinely fresh stories so the new group does not receive an old backlog.
+                previous_targets = {
+                    str(record.get("chat_id", ""))
+                    for record in pending.values()
+                    if isinstance(record, dict) and record.get("chat_id")
+                }
+                if previous_targets and any(target != chat_id for target in previous_targets):
+                    fresh_urls = {str(item.get("url", "") or "") for item in fresh if item.get("url")}
+                    old_queue_count = len(whatsapp_queue)
+                    whatsapp_queue = [url for url in whatsapp_queue if url in fresh_urls]
+                    pending = {}
+                    whatsapp_attempt_counts = {}
+                    wa_sent_urls.clear()
+                    wa_sent_urls_list = []
+                    queued_set = set(whatsapp_queue)
+                    queued_items = [item for item in old_news.get("items", []) if str(item.get("url", "") or "") in queued_set]
+                    print(f"WhatsApp destination changed; dropped {old_queue_count - len(whatsapp_queue)} old queued stories and retained {len(whatsapp_queue)} fresh story/stories.")
                 # Verify queue IDs on later runs instead of falsely equating API acceptance with delivery.
                 for item_url, record in list(pending.items()):
                     message_id = str(record.get("id_message", ""))
