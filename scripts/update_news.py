@@ -1713,7 +1713,8 @@ def main():
         if current_url and current_url not in queued_urls and current_url not in wa_sent_urls:
             whatsapp_queue.append(current_url)
             queued_urls.add(current_url)
-    queued_items = [item for item in old_news.get("items", []) if str(item.get("url", "") or "") in set(whatsapp_queue)]
+    whatsapp_items_by_url = {str(item.get("url", "") or ""): item for item in old_news.get("items", []) + whatsapp_fresh if isinstance(item, dict) and item.get("url")}
+    queued_items = [whatsapp_items_by_url[url] for url in whatsapp_queue if url in whatsapp_items_by_url]
 
     evolution_base, evolution_key, evolution_instance, evolution_destinations = evolution_config()
     evolution_configured = bool(evolution_base and evolution_key and evolution_instance and all(chat for _, chat in evolution_destinations))
