@@ -1,5 +1,5 @@
 name: Syria Mubasher - RSS and Website
-# Collect and publish news every five minutes. A single scheduled workflow avoids duplicate dispatch loops.
+# Collect and publish news every five minutes using the explicit */5 cron. Keep this workflow as the single publisher.
 # Manual publication updates to the site also trigger a fresh Pages deployment.
 
 on:
