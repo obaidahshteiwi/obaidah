@@ -1364,25 +1364,36 @@ def main():
                 raw = response.read(2_000_000)
             return feed_label, parse_feed(raw, feed_label), ""
         except (urllib.error.URLError, TimeoutError, OSError, ET.ParseError) as exc:
-            status_code = getattr(exc, "code", None)
-            detail = f"{type(exc).__name__} HTTP {status_code}" if status_code else type(exc).__name__
-            return feed_label, [], f"{feed_label}: {detail}"
+            if isinstance(exc, urllib.error.HTTPError):
+                detail = f"HTTP {exc.code}"
+            elif isinstance(exc, ET.ParseError):
+                position = getattr(exc, "position", None)
+                detail = f"XML parse error at {position[0]}:{position[1]}" if position else "XML parse error"
+            else:
+                detail = type(exc).__name__
+            host = urllib.parse.urlparse(feed_url).hostname or "unknown host"
+            return feed_label, [], f"{feed_label} ({host}): {detail}"
 
     # Queries run in parallel, but results are merged in configured source order so
     # duplicate resolution remains predictable and a slow publisher cannot block all others.
     feed_results = {}
     with ThreadPoolExecutor(max_workers=min(8, max(1, len(feed_specs)))) as executor:
-        futures = {executor.submit(fetch_one_feed, label, url): label for label, url in feed_specs}
+        futures = {
+            executor.submit(fetch_one_feed, label, url): (label, url)
+            for label, url in feed_specs
+        }
         for future in as_completed(futures):
-            label = futures[future]
+            feed_key = futures[future]
+            label, url = feed_key
             try:
                 _, parsed_items, feed_error = future.result()
             except Exception as exc:
-                parsed_items, feed_error = [], f"{label}: {type(exc).__name__}"
-            feed_results[label] = (parsed_items, feed_error)
+                host = urllib.parse.urlparse(url).hostname or "unknown host"
+                parsed_items, feed_error = [], f"{label} ({host}): {type(exc).__name__}"
+            feed_results[feed_key] = (parsed_items, feed_error)
 
-    for feed_label, _feed_url in feed_specs:
-        parsed_items, feed_error = feed_results.get(feed_label, ([], ""))
+    for feed_label, feed_url in feed_specs:
+        parsed_items, feed_error = feed_results.get((feed_label, feed_url), ([], ""))
         candidates.extend(parsed_items)
         if feed_error:
             errors.append(feed_error)
