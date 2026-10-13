@@ -1064,7 +1064,7 @@ def whatsapp_settings():
     if not isinstance(settings, dict):
         settings = {}
     return {
-        "enabled": bool(settings.get("enabled", True)),
+        "enabled": False,  # WhatsApp publishing permanently disabled; website-only mode.
         "send_images": bool(settings.get("send_images", True)),
         "link_preview": bool(settings.get("link_preview", True)),
     }
