@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-13T15:23:48+00:00",
+  "updated_at": "2026-10-13T15:27:30+00:00",
   "items": [
     {
       "title": "بعد 14 عاماً.. مصرف سوريا المركزي ينفّذ أول اعتماد مستندي لصالح الشركة السورية للبترول",
@@ -310,6 +310,16 @@
       "province": "أخبار عامة",
       "image_url": "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/%D8%A7%D9%84%D9%84%D9%8A%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%D9%8A%D8%A9%2022222.png?itok=_t-O4NL_",
       "local_image_url": "images/news/28e79cbe2a7bd7817bdee18b.webp"
+    },
+    {
+      "title": "مرسوم جديد في سوريا يعدّل التعريفة الجمركية ورسوم عدد من السلع - الحدث",
+      "description": "مرسوم جديد في سوريا يعدّل التعريفة الجمركية ورسوم عدد من السلع الحدث.. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
+      "url": "https://news.google.com/rss/articles/CBMi6wJBVV95cUxNam15cmJiN1RjQ0VZYUNidEVHTXpyYXY3bEE2ZnJneklFTklIRXRCSmRHNWItZmJWRlY3bkh3bXR1SkoxaU42clNjMDVmRkhQREdnVTdfQTNCdHkxYlgwMzlpQzNjcTBCWlZtejExaUEwcmloOU9hYzBYeENrYXRXLW1UM2FXNEpTUHJSTi10UjNsZjRIa1ZNYkZaX3FuUUNqVVFHc2NSaEh0aUpqTmFDZk83bGVEVE9oQ2ZPQUhob0lmbml2SUZpNzhPYXhnMC1ON2lWd1NCSVd6dnQtTENLRTMwQloxdi0zVjhZWnNoeUlhOFJOaGY3YldpdzBNSUpQZ003YzFud1UzWmlXSng1eVZJREU2SDctWkpfbHFSazFBM2tPOWx2VXlvNHJaU3U4MXhSbm5vdjZSdzJDbDFLcU5SLURlb0YwSGVhQVY3aGFMZ0h3T2FtTUI5UkRQUjluVGFTSUwyWlRzU1nSAfwCQVVfeXFMTnhuRXlmd0ZaelZGZmRqZlZmaTVvMWRvbzJKaGIzRlRDRUNRbGdIYmNKOTh5X21NNnN5eVVYczlMakd1RVhDd0Fad185eHFuUHBYRXZ6SjJRWXNPTUxKbUZ4c05CdXlwaV9sOWV5UDhWaGlTd1lkVWxlbkZuSEgxTkZRUWU5cmFaelhvTTE4MnMzUUp4MU1BX0hoOGR2aDZKSE5yMGw2TXZQU3F1U1J5X0FGeHRYb3AxZzdfMDJsclp4QmNRd0VrTEZRWENZR2s4TGxBS2R5WVVONHRzV29YQi14dW5sNElSelRaUkpnSjhfdGpkYlRORWl3T3p6RjE4TGxnZ0ZDQ3VvY3Zla0k3Z193aXQyYUZpOVZtWmRpNE9LcXdNZnhfZ2E4VmdvR1BIQlY1UXlOUXlab0ZhTVBnR2FJNU13REdESXlfZkZvTDBteVNEMlFaUWRVYzdXQ1A0R0h3ZHVuS1FHeGUyUVhzVVhEbXpKc2xkZjBaTHg?oc=5",
+      "source": "الحدث",
+      "source_home": "https://www.alhadath.net",
+      "feed": "الحدث",
+      "published_at": "2026-10-13T07:08:00+00:00",
+      "province": "أخبار عامة"
     },
     {
       "title": "أصداء الأندلس في دمشق… الفلامنكو يمتزج بالمواويل الشرقية على مسرح الأوبرا",
@@ -1116,18 +1126,6 @@
       "feed": "تلفزيون سوريا",
       "published_at": "2026-10-11T19:14:22+00:00",
       "province": "حمص"
-    },
-    {
-      "title": "هيئة الاستثمار السورية تبحث فرص الاستثمار مع وفد من مجتمع الأعمال الأمريكي",
-      "description": "بحث مدير هيئة الاستثمار السورية أحمد رواد رمضان مع وفد من مجتمع الأعمال الأمريكي، سبل تعزيز التعاون الاقتصادي واستكشاف الفرص الاستثمارية المتاحة في السوق السورية.",
-      "url": "https://sana.sy/economy/syrian-economy/2603826/",
-      "source": "سانا",
-      "source_home": "https://sana.sy",
-      "feed": "سانا",
-      "published_at": "2026-10-11T18:35:44+00:00",
-      "province": "أخبار عامة",
-      "image_url": "https://cdn.sananews.sy/2026/10/photo_1_2026-10-11_21-24-03-1024x683.jpg",
-      "local_image_url": "images/news/ee7093e147d39fb580dd325d.webp"
     }
   ]
 }
