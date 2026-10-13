@@ -39,7 +39,7 @@ MAX_PUBLISHER_LOOKUPS_PER_CYCLE = 4
 MAX_PUBLISHER_LOOKUP_COOLDOWN_HOURS = 12
 MAX_DESCRIPTION_LOOKUP_COOLDOWN_HOURS = 12
 MAX_IMAGE_DOWNLOAD_BYTES = 12_000_000
-IMAGE_STORAGE_VERSION = 1
+IMAGE_STORAGE_VERSION = 2
 IMAGE_LOOKUP_VERSION = 5
 MAX_DESCRIPTION_LOOKUPS_PER_CYCLE = 3
 REQUEST_TIMEOUT = 12
@@ -70,7 +70,6 @@ FEEDS = [
 DIRECT_FEEDS = [
     # Native publisher feeds preserve canonical article URLs and often expose
     # media thumbnails that are absent from Google News search RSS.
-    ("سانا", "https://sana.sy/feed/"),
     ("سوريا دايركت", "https://syriadirect.org/feed"),
     ("The Syrian Observer", "https://syrianobserver.com/feed"),
 ]
