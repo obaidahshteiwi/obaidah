@@ -1,6 +1,6 @@
 {
   "_warning": "Temporary test configuration. Keep api_token empty in public repositories; environment secrets take precedence.",
-  "enabled": true,
+  "enabled": false,
   "send_images": true,
   "link_preview": true,
   "api_url": "https://7107.api.greenapi.com",
