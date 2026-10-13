@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-13T13:44:43+00:00",
+  "updated_at": "2026-10-13T13:49:45+00:00",
   "items": [
     {
       "title": "مدينة دمشق في الصباح",
@@ -43,13 +43,25 @@
     },
     {
       "title": "مستشار الخارجية السورية لرووداو: سوريا تحتاج إلى كبح جماح أي نوع من التطرف - Rudaw",
-      "description": "مستشار الخارجية السورية لرووداو: سوريا تحتاج إلى كبح جماح أي نوع من التطرف Rudaw.. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
+      "description": "مستشار الخارجية السورية لرووداو: سوريا تحتاج إلى كبح جماح أي نوع من التطرف Rudaw. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBJZVdNdThWS081ZW41V25ya1l2ZHdaT2dKNW9qeEl6Ym1Ka2RKeGhIYldLaWYxTlNQWGhPR3Y5ajJUeno1elNmNkdqOXIzRnRZQWNrOW5yTVN6OFRybFRYTUtn?oc=5",
       "source": "Rudaw",
       "source_home": "http://rudaw.net",
       "feed": "روداو عربي",
       "published_at": "2026-10-13T12:10:31+00:00",
       "province": "أخبار عامة"
+    },
+    {
+      "title": "مباحثات سورية مع مجموعة البنك الدولي لدعم التعافي الاقتصادي",
+      "description": "بحث وزير المالية محمد يسر برنية، وحاكم مصرف سوريا المركزي صفوت رسلان، ‏في اجتماع مشترك، مع رئيس مجموعة البنك الدولي أجاي بانغا، مستجدات التمويل ‏المقدم لسوريا، وتطورات المشاريع التي يعمل البنك على تنفيذها، وسبل تعزيز التعاون ‏لدعم التعافي الاقتصادي.‏",
+      "url": "https://sana.sy/syria-and-the-world/2605561/",
+      "source": "سانا",
+      "source_home": "https://sana.sy",
+      "feed": "سانا",
+      "published_at": "2026-10-13T11:40:47+00:00",
+      "province": "أخبار عامة",
+      "image_url": "https://cdn.sananews.sy/2026/10/IMG_8814-Copy-1024x683.jpg",
+      "local_image_url": "images/news/66875859dd5ff3d1f9b6125a.webp"
     },
     {
       "title": "بعد تخفيف القيود الأميركية.. ما فرص إعادة بناء الجيش السوري؟ - الشرق للأخبار",
@@ -70,7 +82,8 @@
       "feed": "سانا",
       "published_at": "2026-10-13T01:59:31+00:00",
       "province": "دمشق",
-      "image_url": "https://cdn.sananews.sy/2026/10/صورة-225.jpg"
+      "image_url": "https://cdn.sananews.sy/2026/10/صورة-225.jpg",
+      "local_image_url": "images/news/6588e632559ffd5656e47348.webp"
     },
     {
       "title": "150 نموذجاً من ابتكارات الأطفال الهندسية في معرض \"يراعكم\" باللاذقية",
@@ -81,7 +94,8 @@
       "feed": "سانا",
       "published_at": "2026-10-13T01:54:56+00:00",
       "province": "اللاذقية",
-      "image_url": "https://cdn.sananews.sy/2026/10/صورة-11.jpg"
+      "image_url": "https://cdn.sananews.sy/2026/10/صورة-11.jpg",
+      "local_image_url": "images/news/a5d9e96666276b9207dfe778.webp"
     },
     {
       "title": "ملتقى اليافعين في درعا.. لقاء للتواصل وصناعة الأفكار",
@@ -102,7 +116,8 @@
       "feed": "سانا",
       "published_at": "2026-10-12T19:13:31+00:00",
       "province": "أخبار عامة",
-      "image_url": "https://cdn.sananews.sy/2026/10/الحجر-البازلتي.png"
+      "image_url": "https://cdn.sananews.sy/2026/10/الحجر-البازلتي.png",
+      "local_image_url": "images/news/3f1de7ebdceb335e86a6dd51.webp"
     },
     {
       "title": "الاحتلال الإسرائيلي يعتقل شاباً خلال توغله في قرية بريقة القديمة بريف القنيطرة",
