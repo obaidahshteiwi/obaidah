@@ -1,9 +1,19 @@
 {
-  "updated_at": "2026-10-13T13:19:24+00:00",
+  "updated_at": "2026-10-13T13:31:56+00:00",
   "items": [
     {
+      "title": "مدينة دمشق في الصباح",
+      "description": "https://www.syria.tv/مدينة-دمشق-في-الصباح تلفزيون سوريا.. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
+      "url": "https://www.syria.tv/مدينة-دمشق-في-الصباح",
+      "source": "تلفزيون سوريا",
+      "source_home": "https://www.syria.tv",
+      "feed": "تلفزيون سوريا",
+      "published_at": "2026-10-13T13:24:47+00:00",
+      "province": "دمشق"
+    },
+    {
       "title": "إرث الاستملاك في سوريا.. تجاذبات حفظ الملكية وإعادة الإعمار - الجزيرة نت",
-      "description": "إرث الاستملاك في سوريا. تجاذبات حفظ الملكية وإعادة الإعمار الجزيرة نت.. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
+      "description": "إرث الاستملاك في سوريا. تجاذبات حفظ الملكية وإعادة الإعمار الجزيرة نت. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://news.google.com/rss/articles/CBMiwwJBVV95cUxNc3hZLU81VG5YandIUzEzYUtoNUdhTFY5OUlxUnoyY2xDUmVHaHpydFlObnBDNHpPQ28wTDZOOWhXMU53aV9fd3N2UHI2ajhSY0MyZkpzQXBGUEpsQmpOVTRka2I0WGtTN0g2WU92S1Z2ZGJuTzIzQ0NjU2UtMlo0ZmJhRGtxd056UHRiV1BnekhDNVlqWHQyLTNpRExGWG9kbVJCbV9KVC1tM3lGT05RbTFMX2NKczRISHJKRFpWdUlhQXdXd1ZncF9ycXplMDZBcDZkdUhxWmNiaGo3YmJXcHo1cnBoSy1HZEhfUzY1eXVieFNiVkVsUS1DTlBmWE12ZExOOW9HcktqNzJfWmNYRWFqa2piS3lyeHd1Qk5UWXhyb0kzSDBEZ1FtdGlYNVZ3YmlfNGxBOEhlYWNvWnM4a3pvRdIByAJBVV95cUxNbTlyQm1oTlBhWjd6YUk0ekNKMmFjbG0yLXN4OUlxQ2JfZnpFNlllc3ZUUjhVZGlxWEwtdFlEaXYtMTN1Qkx5UlZRS1hudWxyM0h1TVB6MTNEUVl4MzNXMXRydUs1NGhyQlA1b2gzT3YxcWNwdE8zck1yM1lSSVpJN21uV0pQaWRsSlBOV295WGNqaW5CR1pPMWJCMGRib2hNaXJJeDh0RGR3V1hpLUJLeHR4NmxsR2hBYTRSUE5ONTlPS2hkRmtQaU5laHZCYUZZTWN1UjhtWGRPd2swREpPV1RnT25uZmtwWFo4a25GdTFwcTl0TDlKdVpEWk9jeExhbVhJcGVnbFFWd2J3RzhmMzV5U3FialRteVVpdGlBczNQODJsS1J6UlU2Y1NHSjZWczlzTUxwYWlVLTlSSTBtWVVSWkppZ1FK?oc=5",
       "source": "الجزيرة نت",
       "source_home": "https://www.aljazeera.net",
@@ -852,7 +862,8 @@
       "feed": "سانا",
       "published_at": "2026-10-11T17:44:04+00:00",
       "province": "أخبار عامة",
-      "image_url": "https://cdn.sananews.sy/2026/10/مكالمة_هاتفية_خاصة_للموقع_بدون_اسماء-3-860x482-1.png"
+      "image_url": "https://cdn.sananews.sy/2026/10/مكالمة_هاتفية_خاصة_للموقع_بدون_اسماء-3-860x482-1.png",
+      "local_image_url": "images/news/738522ad7a4743b930d60d63.webp"
     },
     {
       "title": "“مصطفى” لـ “الوطن”: 55 مليون متر مكعب من الأنقاض في سوريا وتكلفة ترحيل المتر دولارين",
@@ -955,7 +966,8 @@
       "feed": "سانا",
       "published_at": "2026-10-11T15:43:35+00:00",
       "province": "دمشق",
-      "image_url": "https://cdn.sananews.sy/2026/10/غلاف-مباحثات-نقابية.jpg"
+      "image_url": "https://cdn.sananews.sy/2026/10/غلاف-مباحثات-نقابية.jpg",
+      "local_image_url": "images/news/ad2264b5e2437b5b529d4e66.webp"
     },
     {
       "title": "المالية السورية تنفي صحة الأرقام المتداولة بشأن أصول الصندوق السيادي والضرائب - الجزيرة نت",
