@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-13T13:42:13+00:00",
+  "updated_at": "2026-10-13T13:44:43+00:00",
   "items": [
     {
       "title": "مدينة دمشق في الصباح",
@@ -33,13 +33,23 @@
     },
     {
       "title": "مدينة حمص",
-      "description": "https://www.syria.tv/مدينة-حمص تلفزيون سوريا.. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
+      "description": "https://www.syria.tv/مدينة-حمص تلفزيون سوريا. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
       "url": "https://www.syria.tv/مدينة-حمص",
       "source": "تلفزيون سوريا",
       "source_home": "https://www.syria.tv",
       "feed": "تلفزيون سوريا",
       "published_at": "2026-10-13T13:04:31+00:00",
       "province": "حمص"
+    },
+    {
+      "title": "مستشار الخارجية السورية لرووداو: سوريا تحتاج إلى كبح جماح أي نوع من التطرف - Rudaw",
+      "description": "مستشار الخارجية السورية لرووداو: سوريا تحتاج إلى كبح جماح أي نوع من التطرف Rudaw.. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBJZVdNdThWS081ZW41V25ya1l2ZHdaT2dKNW9qeEl6Ym1Ka2RKeGhIYldLaWYxTlNQWGhPR3Y5ajJUeno1elNmNkdqOXIzRnRZQWNrOW5yTVN6OFRybFRYTUtn?oc=5",
+      "source": "Rudaw",
+      "source_home": "http://rudaw.net",
+      "feed": "روداو عربي",
+      "published_at": "2026-10-13T12:10:31+00:00",
+      "province": "أخبار عامة"
     },
     {
       "title": "بعد تخفيف القيود الأميركية.. ما فرص إعادة بناء الجيش السوري؟ - الشرق للأخبار",

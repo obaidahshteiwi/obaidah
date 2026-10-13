@@ -310,7 +310,8 @@
     "https://news.google.com/rss/articles/CBMiwwJBVV95cUxNc3hZLU81VG5YandIUzEzYUtoNUdhTFY5OUlxUnoyY2xDUmVHaHpydFlObnBDNHpPQ28wTDZOOWhXMU53aV9fd3N2UHI2ajhSY0MyZkpzQXBGUEpsQmpOVTRka2I0WGtTN0g2WU92S1Z2ZGJuTzIzQ0NjU2UtMlo0ZmJhRGtxd056UHRiV1BnekhDNVlqWHQyLTNpRExGWG9kbVJCbV9KVC1tM3lGT05RbTFMX2NKczRISHJKRFpWdUlhQXdXd1ZncF9ycXplMDZBcDZkdUhxWmNiaGo3YmJXcHo1cnBoSy1HZEhfUzY1eXVieFNiVkVsUS1DTlBmWE12ZExOOW9HcktqNzJfWmNYRWFqa2piS3lyeHd1Qk5UWXhyb0kzSDBEZ1FtdGlYNVZ3YmlfNGxBOEhlYWNvWnM4a3pvRdIByAJBVV95cUxNbTlyQm1oTlBhWjd6YUk0ekNKMmFjbG0yLXN4OUlxQ2JfZnpFNlllc3ZUUjhVZGlxWEwtdFlEaXYtMTN1Qkx5UlZRS1hudWxyM0h1TVB6MTNEUVl4MzNXMXRydUs1NGhyQlA1b2gzT3YxcWNwdE8zck1yM1lSSVpJN21uV0pQaWRsSlBOV295WGNqaW5CR1pPMWJCMGRib2hNaXJJeDh0RGR3V1hpLUJLeHR4NmxsR2hBYTRSUE5ONTlPS2hkRmtQaU5laHZCYUZZTWN1UjhtWGRPd2swREpPV1RnT25uZmtwWFo4a25GdTFwcTl0TDlKdVpEWk9jeExhbVhJcGVnbFFWd2J3RzhmMzV5U3FialRteVVpdGlBczNQODJsS1J6UlU2Y1NHSjZWczlzTUxwYWlVLTlSSTBtWVVSWkppZ1FK?oc=5",
     "https://www.syria.tv/مدينة-دمشق-في-الصباح",
     "https://www.syria.tv/سوق-في-مدينة-حماة",
-    "https://www.syria.tv/مدينة-حمص"
+    "https://www.syria.tv/مدينة-حمص",
+    "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBJZVdNdThWS081ZW41V25ya1l2ZHdaT2dKNW9qeEl6Ym1Ka2RKeGhIYldLaWYxTlNQWGhPR3Y5ajJUeno1elNmNkdqOXIzRnRZQWNrOW5yTVN6OFRybFRYTUtn?oc=5"
   ],
   "published_titles": [
     "بمشاركةباحثينسوريينالمؤتمرالعربيللعلومفيألمانيايبحثتعزيزالشراكات",
@@ -621,24 +622,26 @@
     "إرثالاستملاكفيسورياتجاذباتحفظالملكيةوإعادةالإعمارالجزيرةنت",
     "مدينةدمشقفيالصباح",
     "سوقفيمدينةحماة",
-    "مدينةحمص"
+    "مدينةحمص",
+    "مستشارالخارجيةالسوريةلرووداوسورياتحتاجإلىكبحجماحأينوعمنالتطرفrudaw"
   ],
   "whatsapp_sent_urls": [
     "https://www.syria.tv/مدينة-دمشق-في-الصباح",
-    "https://www.syria.tv/سوق-في-مدينة-حماة"
-  ],
-  "whatsapp_queue": [
+    "https://www.syria.tv/سوق-في-مدينة-حماة",
     "https://www.syria.tv/مدينة-حمص"
   ],
+  "whatsapp_queue": [
+    "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBJZVdNdThWS081ZW41V25ya1l2ZHdaT2dKNW9qeEl6Ym1Ka2RKeGhIYldLaWYxTlNQWGhPR3Y5ajJUeno1elNmNkdqOXIzRnRZQWNrOW5yTVN6OFRybFRYTUtn?oc=5"
+  ],
   "whatsapp_pending": {
-    "https://www.syria.tv/مدينة-حمص": {
-      "id_message": "3EB07D447E42645F4F25EC",
+    "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBJZVdNdThWS081ZW41V25ya1l2ZHdaT2dKNW9qeEl6Ym1Ka2RKeGhIYldLaWYxTlNQWGhPR3Y5ajJUeno1elNmNkdqOXIzRnRZQWNrOW5yTVN6OFRybFRYTUtn?oc=5": {
+      "id_message": "3EB068DDED91CE3537C32F",
       "chat_id": "120363413362085519@g.us",
-      "title": "مدينة حمص",
+      "title": "مستشار الخارجية السورية لرووداو: سوريا تحتاج إلى كبح جماح أي نوع من التطرف - Rudaw",
       "kind": "text",
       "attempts": 1,
       "status": "pending",
-      "queued_at": "2026-10-13T13:42:15+00:00"
+      "queued_at": "2026-10-13T13:44:46+00:00"
     }
   },
   "evolution_sent": {},
@@ -647,7 +650,8 @@
   "whatsapp_attempt_counts": {
     "https://www.syria.tv/مدينة-دمشق-في-الصباح": 1,
     "https://www.syria.tv/سوق-في-مدينة-حماة": 1,
-    "https://www.syria.tv/مدينة-حمص": 1
+    "https://www.syria.tv/مدينة-حمص": 1,
+    "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBJZVdNdThWS081ZW41V25ya1l2ZHdaT2dKNW9qeEl6Ym1Ka2RKeGhIYldLaWYxTlNQWGhPR3Y5ajJUeno1elNmNkdqOXIzRnRZQWNrOW5yTVN6OFRybFRYTUtn?oc=5": 1
   },
   "image_lookup_attempts": {
     "https://www.enabbaladi.net/828525/%d8%a7%d9%84%d8%a3%d9%85%d9%85-%d8%a7%d9%84%d9%85%d8%aa%d8%ad%d8%af%d8%a9-%d8%aa%d9%88%d8%ab%d9%82-%d8%a7%d9%86%d8%aa%d9%87%d8%a7%d9%83%d8%a7%d8%aa-%d8%a5%d8%b3%d8%b1%d8%a7%d8%a6%d9%8a%d9%84-%d9%81/": "2026-10-11T09:03:52+00:00",
@@ -1071,7 +1075,8 @@
     "https://news.google.com/rss/articles/CBMi2ANBVV95cUxQekZlSXM2d0xTb2FmenVpUmxSNXA1a2hUbzE0VlROSjB6U0VwRi15UFloNG5GOE01R3pacU9Ya3hSdXBXdGxtRUNpOVBKeVRZNGZwQV95QTExb1VfbHpYR3RNZDhCX09iRW1ONEJWREh4djJINFdkWUxSNTJHc3ZRYmZmcThHT2p5UnhFakNFaGlVQ21NUXN2RWl6SzNRZ0ZfZ3dMWmNnVUJlWW9pVW5WSzRTdHhWZk1rVm1fUlIyZU91VS1NY2t1TnpyUWJFeE5KMkxCdVJLWlJPMmhuSElpTkdoYnNUS0VvN01UMTBjX0VXcnFKendWQkhDcldrZEVKeXRyM3NZamYxSDZBN2VtTXJhRWhTT1doR2g4c2FPZ3NTUTBkMVkzVFpvRE13UnpMRkN2M0twcGdPelV2QUNYc2Y1N3hfanBKemF1RjhPRzBBYnB0Q3ZFWG4zcWdhbjVzem94aVpEVEVYQVM4cXJPeFJ1V0RaY1JORkhrTTdOSGx1YVVoNkdfbl9tN1FzaUdXemdtMF9EV0JnQ05zZURnc0plYkFpa0pLSVJKYXFlSUp5MnZzU3lCTG9YUWJtM3VHOWFuWE5DNURlc2xyQXpjSXFFWHdKOGdX?oc=5": "2026-10-13T09:07:36+00:00",
     "https://news.google.com/rss/articles/CBMiwwJBVV95cUxNc3hZLU81VG5YandIUzEzYUtoNUdhTFY5OUlxUnoyY2xDUmVHaHpydFlObnBDNHpPQ28wTDZOOWhXMU53aV9fd3N2UHI2ajhSY0MyZkpzQXBGUEpsQmpOVTRka2I0WGtTN0g2WU92S1Z2ZGJuTzIzQ0NjU2UtMlo0ZmJhRGtxd056UHRiV1BnekhDNVlqWHQyLTNpRExGWG9kbVJCbV9KVC1tM3lGT05RbTFMX2NKczRISHJKRFpWdUlhQXdXd1ZncF9ycXplMDZBcDZkdUhxWmNiaGo3YmJXcHo1cnBoSy1HZEhfUzY1eXVieFNiVkVsUS1DTlBmWE12ZExOOW9HcktqNzJfWmNYRWFqa2piS3lyeHd1Qk5UWXhyb0kzSDBEZ1FtdGlYNVZ3YmlfNGxBOEhlYWNvWnM4a3pvRdIByAJBVV95cUxNbTlyQm1oTlBhWjd6YUk0ekNKMmFjbG0yLXN4OUlxQ2JfZnpFNlllc3ZUUjhVZGlxWEwtdFlEaXYtMTN1Qkx5UlZRS1hudWxyM0h1TVB6MTNEUVl4MzNXMXRydUs1NGhyQlA1b2gzT3YxcWNwdE8zck1yM1lSSVpJN21uV0pQaWRsSlBOV295WGNqaW5CR1pPMWJCMGRib2hNaXJJeDh0RGR3V1hpLUJLeHR4NmxsR2hBYTRSUE5ONTlPS2hkRmtQaU5laHZCYUZZTWN1UjhtWGRPd2swREpPV1RnT25uZmtwWFo4a25GdTFwcTl0TDlKdVpEWk9jeExhbVhJcGVnbFFWd2J3RzhmMzV5U3FialRteVVpdGlBczNQODJsS1J6UlU2Y1NHSjZWczlzTUxwYWlVLTlSSTBtWVVSWkppZ1FK?oc=5": "2026-10-13T13:19:17+00:00",
     "https://news.google.com/rss/articles/CBMiygJBVV95cUxNaEVUMW9Fb2FBTm9HR01RN1NqSDBUckhlUnpxeWNTcmlIWjZpNkV3eW9EeHllMEVMQWdiMTlfZVhQQVdEWUNNVXRpVWlock1pSHBQVGVMU2g3TDNSMEtNODRDNl85UW1ubUNzMGN1Rm5PYkNvRG93TVlWTmxGT2QwVDVPRndVSTlkRmI1NUd6UVFMWG5IeVowdXByaFRGOUZtang0d0I1ajl1RXlfYi16ZUE5Snp6M2JNZnlMQnlEVGNzZmZBN0M0Y202WGF3NFZXMTFTWXdRa1RFTmwyMjJja2ZnaXZsNk1TWHhlVFM5ZWZvakR5WHZFVEZucEpCR2tTODRDbDJCV2Q2RFNYNk1WbzFUb3l4ZHViRUFqV0NRdVRXaGR6MllHZlJtbXMwSzhqTVFIOFVEdnV4SWNmZmJEZmMzNzVFX3dEZ0HSAc8CQVVfeXFMT2p6OTRHZXNtZ05rckRTSTVKbHVuR0JwVzkwNm5tVVlIT2pBY1ByRFk1NG5GekhPVHhIaEhJR3lzQllQNjhkS3VTQzNNeXRGbnhPbnRQRUJOS3hMa3B5cU54UW43aHRST3c2ZDFLWHFNem9tbUY4MVZlQUk2QmZHelJSN0RIZXVVV0poNjlCQXFfTGlGSHh5YVJGcG1jeWUwUDROSVZvYmVOWkJsWXd1aFB6RXlzN1NMLWI3NF9mSm1kRkNsTEx6VjB6azJHVk92S1FVVEJlRjlFRFozMmtfUWNlRFpEVmNBc1Rab2I2WlRsUk9xVkNydGpvZzl2YlF2MzJhMklMYy1QX2V5VWF0bzFkNzRxVkdZUzF0a0UzNHctMnotYloxaFhLUVJ3bmE0bFRLSmN6NEJ5dUtpWEExVDFpMUNKOXhZM0h3ZWg4ZHM?oc=5": "2026-10-13T13:42:10+00:00",
-    "https://news.google.com/rss/articles/CBMiywJBVV95cUxQeWl5Skx2cGlhbDUtTDJITE5JWkN2YjRiZ2JwQjNFeU90LVZDY2QxaXhKUjJXclJCMXhnVENwNlNtQ0JycVdncW5oXzBqZGFHZi1lQ3VCUlhOQW9tUjhmQ3JrbVVEOTlreUt2WmhZZDZiYV9FNV9ILVRfcElTLXFid2p1clU1UDJZaTFKQy1mNjFMekMzOGlCcVVPemFiTEFtNGVFdEFqcGxwWWpfQzhTcDFBOXp0VkJRa3hnYmF1eXlDenZnSnJSby1XMnVBblRwa3J1Mi04V3c4M3F0cHE2T25IRUY4WXJSU0hpSTFtNDJreXpBZlB0eEZuaXYtU2FPdXR4QWhKYUtydUZLSm5KdTJqQ2h2M1FzSEQ3RDRWUzQwbGNXc1VkbnlaRG5yNnlQSnhSOTJQM3hLRERIYU55QWFKdlhQRkdnRnI40gHQAkFVX3lxTE9sZEQ2aU85RWZ2Y3duX3RNeExmN0NPS0I0M29SSnFMN1NfdnI2dG1pQ0FnTDQtYWpCX01SMXo0VHJmcktKQzNDZEtlNU55eHJ4SDhEbXc2eGRiTmdSVmdRUy1Ja1VuZHlZZjhwMHdjS2pfSVZlTFZKdU9RdWdNQWo3cC1QRnRpeXd5amVNZmVjR2ZhLTg0Q2JxamRjTWRReXk4d3dVQV9vMzlWUzdrNFQ2Y29zNy1STFQydjdGMHdRN0RRZ3g1a3kzaWVkLTg4RmVPMS1XUWJ5S0JocGxXelhWV18zWHpxblFpSjRyYURlYnFldWVPQUhRUzlKRWg5eEIxdEgwU1Y4MW5hVUYyN3pSTmhGUGthR1p0eTdXTWQ1YU9RdEVkcnNHZDBGa2J3cGZscUtzbkxBbHZKbThHWXRRc2VlY0RsaEhMS3JYRkVXTA?oc=5": "2026-10-13T13:42:10+00:00"
+    "https://news.google.com/rss/articles/CBMiywJBVV95cUxQeWl5Skx2cGlhbDUtTDJITE5JWkN2YjRiZ2JwQjNFeU90LVZDY2QxaXhKUjJXclJCMXhnVENwNlNtQ0JycVdncW5oXzBqZGFHZi1lQ3VCUlhOQW9tUjhmQ3JrbVVEOTlreUt2WmhZZDZiYV9FNV9ILVRfcElTLXFid2p1clU1UDJZaTFKQy1mNjFMekMzOGlCcVVPemFiTEFtNGVFdEFqcGxwWWpfQzhTcDFBOXp0VkJRa3hnYmF1eXlDenZnSnJSby1XMnVBblRwa3J1Mi04V3c4M3F0cHE2T25IRUY4WXJSU0hpSTFtNDJreXpBZlB0eEZuaXYtU2FPdXR4QWhKYUtydUZLSm5KdTJqQ2h2M1FzSEQ3RDRWUzQwbGNXc1VkbnlaRG5yNnlQSnhSOTJQM3hLRERIYU55QWFKdlhQRkdnRnI40gHQAkFVX3lxTE9sZEQ2aU85RWZ2Y3duX3RNeExmN0NPS0I0M29SSnFMN1NfdnI2dG1pQ0FnTDQtYWpCX01SMXo0VHJmcktKQzNDZEtlNU55eHJ4SDhEbXc2eGRiTmdSVmdRUy1Ja1VuZHlZZjhwMHdjS2pfSVZlTFZKdU9RdWdNQWo3cC1QRnRpeXd5amVNZmVjR2ZhLTg0Q2JxamRjTWRReXk4d3dVQV9vMzlWUzdrNFQ2Y29zNy1STFQydjdGMHdRN0RRZ3g1a3kzaWVkLTg4RmVPMS1XUWJ5S0JocGxXelhWV18zWHpxblFpSjRyYURlYnFldWVPQUhRUzlKRWg5eEIxdEgwU1Y4MW5hVUYyN3pSTmhGUGthR1p0eTdXTWQ1YU9RdEVkcnNHZDBGa2J3cGZscUtzbkxBbHZKbThHWXRRc2VlY0RsaEhMS3JYRkVXTA?oc=5": "2026-10-13T13:42:10+00:00",
+    "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBJZVdNdThWS081ZW41V25ya1l2ZHdaT2dKNW9qeEl6Ym1Ka2RKeGhIYldLaWYxTlNQWGhPR3Y5ajJUeno1elNmNkdqOXIzRnRZQWNrOW5yTVN6OFRybFRYTUtn?oc=5": "2026-10-13T13:44:40+00:00"
   },
   "description_lookup_attempts": {
     "https://sana.sy/governorates/alqunaytrah/2605086/": "2026-10-12T19:01:14+00:00",
@@ -1092,7 +1097,6 @@
   "news_since": "2026-10-10T14:04:19+00:00",
   "newest_seen_at": "2026-10-13T13:24:47+00:00",
   "feed_errors": [
-    "سانا: ParseError HTTP 8",
-    "سانا: ParseError HTTP 8"
+    "سانا (sana.sy): XML parse error at 8:45"
   ]
 }
