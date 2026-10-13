@@ -28,11 +28,12 @@ DATA = ROOT / "data"
 NEWS_FILE = DATA / "news.json"
 STATE_FILE = DATA / "state.json"
 WHATSAPP_SETTINGS_FILE = ROOT / "config" / "whatsapp.json"
-MAX_NEW_PER_CYCLE = 1
+MAX_SITE_NEW_PER_CYCLE = 1
+MAX_WHATSAPP_NEW_PER_CYCLE = 3
 MAX_PENDING_STATUS_CHECKS_PER_CYCLE = 5
 TITLE_SIMILARITY_THRESHOLD = 0.90
 # Pin delivery to the explicitly requested current WhatsApp group, ignoring stale secret/config targets.
-WHATSAPP_GROUP_ID = "120363430208733932@g.us"
+WHATSAPP_GROUP_ID = "120363413362085519@g.us"
 MAX_SITE_NEWS = 100
 MAX_HISTORY = 1000
 MAX_IMAGE_LOOKUPS_PER_CYCLE = 8
@@ -1468,29 +1469,39 @@ def main():
     published_dates = [value for value in published_dates if value is not None]
     latest_feed_date = max(published_dates) if published_dates else previous_seen_dt
     newest_seen_dt = max([value for value in (previous_seen_dt, latest_feed_date) if value is not None], default=None)
-    fresh = []
+    # Collect up to three genuinely new stories for WhatsApp, while adding only one
+    # new story to the website per cycle. Never re-queue items already sent or queued.
+    fresh_candidates = []
     old_titles = {canonical_title(item.get("title", "")) for item in old_items}
-    # Persist headline history so a story is not republished when a feed changes its URL.
     published_titles_list = list(state.get("published_titles", []))
     if not published_titles_list:
         published_titles_list = [canonical_title(item.get("title", "")) for item in old_items]
     published_titles = {title for title in published_titles_list if title}
+    existing_whatsapp_queue = state.get("whatsapp_queue", [])
+    if not isinstance(existing_whatsapp_queue, list):
+        existing_whatsapp_queue = []
+    whatsapp_seen_urls = set(wa_sent_urls) | {
+        str(url) for url in existing_whatsapp_queue if isinstance(url, str) and url
+    }
     for item in unique:
         item_dt = parse_iso_datetime(item.get("published_at", ""))
         if item_dt is None or item_dt < cutoff_dt:
             continue
         item_title = canonical_title(item.get("title", ""))
-        if item["url"] in published_urls or item_title in published_titles or item_title in old_titles:
+        if item["url"] in published_urls or item["url"] in whatsapp_seen_urls or item_title in published_titles or item_title in old_titles:
             continue
         if any(titles_are_duplicates(item.get("title", ""), previous.get("title", "")) for previous in old_items):
             continue
         if any(titles_are_duplicates(item.get("title", ""), previous_title) for previous_title in published_titles_list[-MAX_HISTORY:]):
             continue
-        if any(titles_are_duplicates(item.get("title", ""), previous.get("title", "")) for previous in fresh):
+        if any(titles_are_duplicates(item.get("title", ""), previous.get("title", "")) for previous in fresh_candidates):
             continue
-        fresh.append(item)
-        if len(fresh) >= MAX_NEW_PER_CYCLE:
+        fresh_candidates.append(item)
+        if len(fresh_candidates) >= MAX_WHATSAPP_NEW_PER_CYCLE:
             break
+
+    whatsapp_fresh = fresh_candidates[:MAX_WHATSAPP_NEW_PER_CYCLE]
+    fresh = whatsapp_fresh[:MAX_SITE_NEW_PER_CYCLE]
 
     changed_news = existing_changes
     if fresh:
@@ -1695,7 +1706,7 @@ def main():
         whatsapp_queue = []
     whatsapp_queue = list(dict.fromkeys(str(url) for url in whatsapp_queue if isinstance(url, str) and url))
     queued_urls = set(whatsapp_queue)
-    for fresh_item in fresh:
+    for fresh_item in whatsapp_fresh:
         fresh_title = canonical_title(str(fresh_item.get("title", "")))
         current_item = next((entry for entry in old_news.get("items", []) if canonical_title(str(entry.get("title", ""))) == fresh_title), None)
         current_url = str((current_item or fresh_item).get("url", "") or "")
@@ -1752,7 +1763,7 @@ def main():
                     all_destinations_sent = False
                 if attempted:
                     stories_attempted += 1
-                if stories_attempted >= MAX_NEW_PER_CYCLE:
+                if stories_attempted >= MAX_WHATSAPP_NEW_PER_CYCLE:
                     break
             pending = {}
             quota_blocked = False
@@ -1812,7 +1823,7 @@ def main():
                     if isinstance(record, dict) and record.get("chat_id")
                 }
                 if previous_targets and any(target != chat_id for target in previous_targets):
-                    fresh_urls = {str(item.get("url", "") or "") for item in fresh if item.get("url")}
+                    fresh_urls = {str(item.get("url", "") or "") for item in whatsapp_fresh if item.get("url")}
                     old_queue_count = len(whatsapp_queue)
                     whatsapp_queue = [url for url in whatsapp_queue if url in fresh_urls]
                     pending = {}
@@ -1913,7 +1924,7 @@ def main():
                             quota_blocked = True
                             print("Green-API plan limit reached (HTTP 466); stopping this cycle and pausing scheduled WhatsApp retries.")
                             break
-                    if attempts_this_run >= MAX_NEW_PER_CYCLE:
+                    if attempts_this_run >= MAX_WHATSAPP_NEW_PER_CYCLE:
                         break
         elif configured:
             print(f"WhatsApp sending skipped because Green-API instance state is {instance_status!r}; no message marked as delivered.")
@@ -1945,7 +1956,7 @@ def main():
     STATE_FILE.write_text(json.dumps(state_out, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(
         f"Sources checked: {len(FEEDS) + len(DIRECT_FEEDS)}; accepted feed entries: {len(candidates)}; "
-        f"new items: {len(fresh)}; website total: {len(old_news.get('items', []))}; "
+        f"new items: {len(fresh)}; WhatsApp new candidates: {len(whatsapp_fresh)}; website total: {len(old_news.get('items', []))}; "
         f"RSS items with images: {sum(1 for x in candidates if x.get('image_url'))}; "
         f"image lookups: {image_lookups}; images added: {images_added}; local image mirror attempts: {image_mirrors}; "
         f"publisher URL lookups: {publisher_resolution_lookups}; "
