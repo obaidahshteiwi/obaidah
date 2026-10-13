@@ -1307,6 +1307,9 @@ def main():
     DATA.mkdir(parents=True, exist_ok=True)
     old_news = load_json(NEWS_FILE, {"updated_at": "", "items": []})
     state = load_json(STATE_FILE, {"published_urls": [], "whatsapp_sent_urls": [], "feed_errors": []})
+    whatsapp_attempt_counts = state.get("whatsapp_attempt_counts", {})
+    if not isinstance(whatsapp_attempt_counts, dict):
+        whatsapp_attempt_counts = {}
     published_urls_list = list(state.get("published_urls", []))
     wa_sent_urls_list = list(state.get("whatsapp_sent_urls", []))
     # Earlier script versions treated queue acceptance as successful delivery. Re-check those URLs once.
