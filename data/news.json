@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-13T14:48:02+00:00",
+  "updated_at": "2026-10-13T14:51:39+00:00",
   "items": [
     {
       "title": "تحرك لإلغاء تجريم «الإخوان» يفتح ملف عودتهم السياسية في سوريا - الشرق الأوسط",
@@ -15,7 +15,7 @@
     },
     {
       "title": "المفقودون في سوريا.. ما خيارات أسرهم القانونية وكيف يُحكم بوفاتهم؟",
-      "description": "خلفت جرائم النظام البائد خلال سنوات الثورة في سوريا عشرات الآلاف من المفقودين، وتطرح ‏حالاتهم وأسرهم ملفات قانونية تتعلق بإثبات الفقدان وإدارة الحقوق والأموال والنفقة، وصولاً ‏إلى تحديد المصير وفق أحكام القانون.‏",
+      "description": "خلفت جرائم النظام البائد خلال سنوات الثورة في سوريا عشرات الآلاف من المفقودين، وتطرح ‏حالاتهم وأسرهم ملفات قانونية تتعلق بإثبات الفقدان وإدارة الحقوق والأموال والنفقة، وصولاً ‏إلى تحديد المصير وفق أحكام القانون.‏.",
       "url": "https://sana.sy/reports/2605676/",
       "source": "سانا",
       "source_home": "https://sana.sy",
@@ -118,6 +118,18 @@
       "province": "أخبار عامة",
       "image_url": "https://cdn.sananews.sy/2026/10/سوريا-أثقال.jpg",
       "local_image_url": "images/news/78ecbcf29d33fb81bd781a24.webp"
+    },
+    {
+      "title": "بطولة أندية الجمهورية للمبارزة تحت 15 سنة تنطلق بعد غد في دمشق",
+      "description": "تنطلق بعد غد الخميس، في مدينة الياسمين الرياضية بدمشق منافسات بطولة أندية ‏الجمهورية للمبارزة لفئة تحت 15 سنة، بمشاركة 9 أندية ونحو 80 لاعباً ولاعبة.‏",
+      "url": "https://sana.sy/sport/syrian-sport/2605513/",
+      "source": "سانا",
+      "source_home": "https://sana.sy",
+      "feed": "سانا",
+      "published_at": "2026-10-13T10:40:49+00:00",
+      "province": "دمشق",
+      "image_url": "https://cdn.sananews.sy/2026/10/الاتحاد-السوري-للمبارزة.jpg",
+      "local_image_url": "images/news/35b3b24d563b1f08e866ffa9.webp"
     },
     {
       "title": "بعد تخفيف القيود الأميركية.. ما فرص إعادة بناء الجيش السوري؟ - الشرق للأخبار",
@@ -1117,16 +1129,6 @@
       "source_home": "https://www.aljazeera.net",
       "feed": "الجزيرة",
       "published_at": "2026-10-11T14:55:52+00:00",
-      "province": "أخبار عامة"
-    },
-    {
-      "title": "سوريا و\"ميتا\" تبحثان استئناف الخدمات التجارية لفيسبوك وإنستغرام وواتساب - الجزيرة نت",
-      "description": "سوريا و\"ميتا\" تبحثان استئناف الخدمات التجارية لفيسبوك وإنستغرام وواتساب - الجزيرة نت. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
-      "url": "https://news.google.com/rss/articles/CBMiygJBVV95cUxNaEVUMW9Fb2FBTm9HR01RN1NqSDBUckhlUnpxeWNTcmlIWjZpNkV3eW9EeHllMEVMQWdiMTlfZVhQQVdEWUNNVXRpVWlock1pSHBQVGVMU2g3TDNSMEtNODRDNl85UW1ubUNzMGN1Rm5PYkNvRG93TVlWTmxGT2QwVDVPRndVSTlkRmI1NUd6UVFMWG5IeVowdXByaFRGOUZtang0d0I1ajl1RXlfYi16ZUE5Snp6M2JNZnlMQnlEVGNzZmZBN0M0Y202WGF3NFZXMTFTWXdRa1RFTmwyMjJja2ZnaXZsNk1TWHhlVFM5ZWZvakR5WHZFVEZucEpCR2tTODRDbDJCV2Q2RFNYNk1WbzFUb3l4ZHViRUFqV0NRdVRXaGR6MllHZlJtbXMwSzhqTVFIOFVEdnV4SWNmZmJEZmMzNzVFX3dEZ0HSAc8CQVVfeXFMT2p6OTRHZXNtZ05rckRTSTVKbHVuR0JwVzkwNm5tVVlIT2pBY1ByRFk1NG5GekhPVHhIaEhJR3lzQllQNjhkS3VTQzNNeXRGbnhPbnRQRUJOS3hMa3B5cU54UW43aHRST3c2ZDFLWHFNem9tbUY4MVZlQUk2QmZHelJSN0RIZXVVV0poNjlCQXFfTGlGSHh5YVJGcG1jeWUwUDROSVZvYmVOWkJsWXd1aFB6RXlzN1NMLWI3NF9mSm1kRkNsTEx6VjB6azJHVk92S1FVVEJlRjlFRFozMmtfUWNlRFpEVmNBc1Rab2I2WlRsUk9xVkNydGpvZzl2YlF2MzJhMklMYy1QX2V5VWF0bzFkNzRxVkdZUzF0a0UzNHctMnotYloxaFhLUVJ3bmE0bFRLSmN6NEJ5dUtpWEExVDFpMUNKOXhZM0h3ZWg4ZHM?oc=5",
-      "source": "الجزيرة نت",
-      "source_home": "https://www.aljazeera.net",
-      "feed": "الجزيرة",
-      "published_at": "2026-10-11T14:54:38+00:00",
       "province": "أخبار عامة"
     }
   ]
