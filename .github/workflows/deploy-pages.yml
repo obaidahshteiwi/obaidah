@@ -1,5 +1,5 @@
 name: Syria Mubasher - RSS and Website
-# Collect and publish news every five minutes using the explicit */5 cron. Keep this workflow as the single publisher.
+# Run at a five-minute cadence offset from the top of the hour to avoid peak-minute scheduling pressure.
 # Manual publication updates to the site also trigger a fresh Pages deployment.
 
 on:
@@ -10,7 +10,7 @@ on:
       - "data/state.json"
       - "images/**"
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "1-59/5 * * * *"
   workflow_dispatch:
     inputs:
       continue_loop:
