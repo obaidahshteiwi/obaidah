@@ -248,7 +248,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           REPOSITORY: ${{ github.repository }}
         run: |
-          sleep 180
+          sleep 260
           curl --fail-with-body --silent --show-error --retry 3 --retry-delay 2 \
             -X POST \
             -H "Accept: application/vnd.github+json" \
