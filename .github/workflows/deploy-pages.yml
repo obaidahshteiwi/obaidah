@@ -10,7 +10,7 @@ on:
       - "data/state.json"
       - "images/**"
   schedule:
-    - cron: "2-57/5 * * * *"
+    - cron: "17 * * * *"
   workflow_dispatch:
     inputs:
       continue_loop:
