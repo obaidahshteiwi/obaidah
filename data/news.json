@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-10-13T15:13:24+00:00",
+  "updated_at": "2026-10-13T15:14:59+00:00",
   "items": [
     {
       "title": "بعد 14 عاماً.. مصرف سوريا المركزي ينفّذ أول اعتماد مستندي لصالح الشركة السورية للبترول",
-      "description": "بعد 14 عاماً.. نفّذ مصرف سوريا المركزي أول اعتماد مستندي لصالح الشركة السورية للبترول لتوريد منتجات نفطية من شركة أرامكو السعودية بالتنسيق مع أحد المصارف الأمريكية الكبرى.",
+      "description": "بعد 14 عاماً. نفّذ مصرف سوريا المركزي أول اعتماد مستندي لصالح الشركة السورية للبترول لتوريد منتجات نفطية من شركة أرامكو السعودية بالتنسيق مع أحد المصارف الأمريكية الكبرى.",
       "url": "https://sana.sy/infographic/2605751/",
       "source": "سانا",
       "source_home": "https://sana.sy",
@@ -188,6 +188,16 @@
       "province": "أخبار عامة",
       "image_url": "https://cdn.sananews.sy/2026/10/رائد-الصالح.jpg",
       "local_image_url": "images/news/9f424e7ab4a5248271d879ce.webp"
+    },
+    {
+      "title": "أستراليا تستعيد 19 من مواطنيها المرتبطين بـ\"داعش\" من مخيمات سوريا - Rudaw",
+      "description": "أستراليا تستعيد 19 من مواطنيها المرتبطين بـ\"داعش\" من مخيمات سوريا Rudaw.. لا تتوفر تفاصيل كافية في موجز المصدر؛ افتح الرابط الأصلي لقراءة الخبر كاملًا.",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBUeVlzd192dERuWnAweTFndUMtWXFfVnNtU05XNEpqaGhFbXIxMmtRdjdpYURXdmdTWHBnTnBZR2g1dGtmSzdtTVB0SUpETEltLTlPTjlpMXZPQVh0VXVBXzIxU1Z4UQ?oc=5",
+      "source": "Rudaw",
+      "source_home": "http://www.rudaw.net",
+      "feed": "روداو عربي",
+      "published_at": "2026-10-13T09:25:12+00:00",
+      "province": "أخبار عامة"
     },
     {
       "title": "توغّل إسرائيلي جديد بريف دمشق الغربي والاحتلال يطلق النار باتجاه المزارعين",
@@ -1116,18 +1126,6 @@
       "province": "أخبار عامة",
       "image_url": "https://static.srpcdigital.com/styles/1200x600/public/2026-10/1822094.jpeg.webp?VersionId=0NqQh3hw.E225.zvD09LqvAp8puNeh9e",
       "local_image_url": "images/news/93fa2902135b1bf9db42bbae.webp"
-    },
-    {
-      "title": "مطار الرياض يفجّر مواجهة جديدة.. إلى أين تتجه الحرب بين السعودية والحوثيين؟",
-      "description": "أثار الهجوم موجة إدانات عربية ودولية، بالتزامن مع تعهد التحالف بقيادة السعودية بالرد، وإعلان واشنطن أنها تدرس احتمال المشاركة في العمليات العسكرية ضد الحوثيين.",
-      "url": "https://www.syria.tv/%D9%85%D8%B7%D8%A7%D8%B1-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-%D9%8A%D9%81%D8%AC%D9%91%D8%B1-%D9%85%D9%88%D8%A7%D8%AC%D9%87%D8%A9-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D8%A5%D9%84%D9%89-%D8%A3%D9%8A%D9%86-%D8%AA%D8%AA%D8%AC%D9%87-%D8%A7%D9%84%D8%AD%D8%B1%D8%A8-%D8%A8%D9%8A%D9%86-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D8%AD%D9%88%D8%AB%D9%8A%D9%8A%D9%86%D8%9F",
-      "source": "تلفزيون سوريا",
-      "source_home": "https://www.syria.tv",
-      "feed": "تلفزيون سوريا",
-      "published_at": "2026-10-11T16:29:13+00:00",
-      "province": "أخبار عامة",
-      "image_url": "https://www.syria.tv/sites/default/files/styles/detailed_thumb_/public/2026-10/%D8%A7%D8%B3%D8%AA%D9%87%D8%AF%D8%A7%D9%81%20%D8%A7%D9%84%D9%85%D8%B7%D8%A7%D8%B1.jpg.jpeg?itok=HLtBJM1H",
-      "local_image_url": "images/news/005627f911e95ff08ea48f0f.webp"
     }
   ]
 }
