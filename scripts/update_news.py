@@ -67,7 +67,13 @@ FEEDS = [
     ("الشرق للأخبار", "site:asharq.com سوريا"),
     ("ميدل إيست آي", "site:middleeasteye.net Syria"),
 ]
-DIRECT_FEEDS = []
+DIRECT_FEEDS = [
+    # Native publisher feeds preserve canonical article URLs and often expose
+    # media thumbnails that are absent from Google News search RSS.
+    ("سانا", "https://sana.sy/feed/"),
+    ("سوريا دايركت", "https://syriadirect.org/feed"),
+    ("The Syrian Observer", "https://syrianobserver.com/feed"),
+]
 
 PROVINCES = [
     ("ريف دمشق", ("ريف دمشق", "غوطة دمشق", "الغوطة الشرقية", "الغوطة الغربية", "دوما", "داريا", "جرمانا", "يبرود", "النبك", "الزبداني", "حرستا", "القلمون", "Rif Dimashq", "Rural Damascus")),
