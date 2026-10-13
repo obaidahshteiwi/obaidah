@@ -80,8 +80,6 @@
     .nav-links{display:flex;align-items:center;gap:20px}
     .nav-links a{color:#dbe9df;text-decoration:none;font-size:.88rem;transition:color .18s}
     .nav-links a:hover{color:#fff}
-    .nav-links .join-whatsapp{background:#25d366;color:#08341d;padding:8px 14px;border-radius:999px;font-weight:900;box-shadow:0 6px 18px #04180e20}
-    .nav-links .join-whatsapp:hover{background:#49e27f;color:#062b17}
     .menu-toggle{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;flex:0 0 46px;width:46px;height:46px;border:1px solid #ffffff35;border-radius:15px;background:#ffffff12;cursor:pointer;transition:background .2s,transform .2s}
     .menu-toggle:hover{background:#ffffff22;transform:translateY(-1px)}
     .menu-toggle span{display:block;width:19px;height:2px;border-radius:9px;background:#fff;transition:transform .22s,opacity .22s}
@@ -99,8 +97,6 @@
     .primary-btn:hover{background:#f3d993;transform:translateY(-2px);box-shadow:0 12px 26px #061a1335}
     .soft-btn{border:1px solid #ffffff3d;color:#f4f7f4;background:#ffffff0b}
     .soft-btn:hover{background:#ffffff17;transform:translateY(-2px)}
-    .whatsapp-btn{background:#25d366;color:#082c19;box-shadow:0 8px 22px #061a1340}
-    .whatsapp-btn:hover{background:#45e184}
     .hero-side{justify-self:end;max-width:350px;width:100%;border:1px solid #ffffff24;background:linear-gradient(145deg,#ffffff18,#ffffff07);border-radius:30px;padding:25px;box-shadow:0 24px 70px #061a1338;backdrop-filter:blur(12px)}
     .hero-side .syria-symbol{height:132px;display:grid;place-items:center;font-size:5.1rem;filter:drop-shadow(0 10px 14px #04140e65)}
     .hero-side h2{font-size:1.1rem;margin:10px 0 4px}
@@ -220,8 +216,6 @@
     .drawer-link:hover,.drawer-link:focus-visible{background:#ffffff12;border-color:#ffffff20;transform:translateX(-2px)}
     .drawer-link .drawer-icon{display:grid;place-items:center;flex:0 0 32px;width:32px;height:32px;border-radius:10px;background:#ffffff12;color:#f0d695;font-size:1.05rem}
     .drawer-link .drawer-arrow{margin-right:auto;color:#a9c5b4;font-size:1rem}
-    .drawer-link.whatsapp-link{background:#25d366;color:#07331c;border-color:#25d366}
-    .drawer-link.whatsapp-link .drawer-icon{background:#0a42251b;color:#07331c}
     .drawer-note{display:flex;align-items:center;gap:12px;margin-top:auto;padding:15px;border:1px solid #ffffff1b;border-radius:16px;background:#071c142e}
     .drawer-note .live-dot{flex:0 0 8px}
     .drawer-note strong,.drawer-note small{display:block}
@@ -258,7 +252,6 @@
       .hero p{font-size:.92rem;line-height:1.95}
       .hero-actions{margin-top:22px;gap:9px}
       .primary-btn,.soft-btn{min-height:44px;padding:10px 13px;font-size:.83rem}
-      .hero-actions .whatsapp-btn{width:100%}
       main{padding:27px 0 46px}
       .toolbar{align-items:flex-start;flex-direction:column;gap:12px}
       .section-title{font-size:1.5rem}
@@ -311,7 +304,6 @@
       <a class="drawer-link" href="#top"><span class="drawer-icon" aria-hidden="true">⌂</span><span>الرئيسية</span><span class="drawer-arrow" aria-hidden="true">←</span></a>
       <a class="drawer-link" href="#latest"><span class="drawer-icon" aria-hidden="true">▤</span><span>آخر الأخبار</span><span class="drawer-arrow" aria-hidden="true">←</span></a>
       <a class="drawer-link" href="#governorates"><span class="drawer-icon" aria-hidden="true">⌖</span><span>المحافظات السورية</span><span class="drawer-arrow" aria-hidden="true">←</span></a>
-      <a class="drawer-link whatsapp-link" href="https://chat.whatsapp.com/Cmop7Ean95FB5Y9Uefj7zq?s=cl&amp;p=a&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener noreferrer"><span class="drawer-icon" aria-hidden="true">◉</span><span>انضم إلى مجموعة واتساب</span><span class="drawer-arrow" aria-hidden="true">↗</span></a>
     </nav>
     <div class="drawer-note"><span class="live-dot" aria-hidden="true"></span><div><strong>تحديث الأخبار تلقائيًا</strong><small>النظام يفحص المصادر كل 5 دقائق</small></div></div>
     <div class="drawer-foot">© سوريا مباشر — الخبر من مصدره</div>
@@ -323,7 +315,7 @@
           <span class="brand-mark"><svg class="syria-flag" viewBox="0 0 3 2" role="img" aria-label="علم سوريا الأخضر"><rect width="3" height="2" fill="#fff"/><rect width="3" height=".6667" fill="#007a3d"/><rect y="1.3333" width="3" height=".6667" fill="#000"/><g fill="#ce1126"><path d="M.5 .82l.05.14.15 0-.12.09.05.14-.13-.09-.13.09.05-.14-.12-.09.15 0z"/><path d="M1.5 .82l.05.14.15 0-.12.09.05.14-.13-.09-.13.09.05-.14-.12-.09.15 0z"/><path d="M2.5 .82l.05.14.15 0-.12.09.05.14-.13-.09-.13.09.05-.14-.12-.09.15 0z"/></g></svg></span>
           <span>سوريا مباشر<small>أخبار من كل المحافظات</small></span>
         </a>
-        <div class="nav-links"><a href="#latest">آخر الأخبار</a><a href="#governorates">المحافظات</a><a class="join-whatsapp" href="https://chat.whatsapp.com/Cmop7Ean95FB5Y9Uefj7zq?s=cl&amp;p=a&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener noreferrer">💬 مجموعة واتساب</a></div>
+        <div class="nav-links"><a href="#latest">آخر الأخبار</a><a href="#governorates">المحافظات</a></div>
         <button class="menu-toggle" id="menuToggle" type="button" aria-label="فتح القائمة الجانبية" aria-controls="siteSidebar" aria-expanded="false"><span></span><span></span><span></span></button>
       </nav>
       <section class="breaking-strip" id="breakingStrip" aria-label="آخر الأخبار">
@@ -339,7 +331,6 @@
           <div class="hero-actions">
             <a class="primary-btn" href="#latest">تصفّح آخر الأخبار <span aria-hidden="true">←</span></a>
             <a class="soft-btn" href="#governorates">اختر محافظتك</a>
-            <a class="primary-btn whatsapp-btn" href="https://chat.whatsapp.com/Cmop7Ean95FB5Y9Uefj7zq?s=cl&amp;p=a&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener noreferrer">💬 انضم لمجموعة واتساب</a>
           </div>
         </div>
         <aside class="hero-side" aria-label="عن الموقع">
@@ -386,7 +377,7 @@
   <footer class="footer">
     <div class="wrap footer-row">
       <div><div class="footer-brand"><svg class="syria-flag" viewBox="0 0 3 2" role="img" aria-label="علم سوريا الأخضر"><rect width="3" height="2" fill="#fff"/><rect width="3" height=".6667" fill="#007a3d"/><rect y="1.3333" width="3" height=".6667" fill="#000"/><g fill="#ce1126"><path d="M.5 .82l.05.14.15 0-.12.09.05.14-.13-.09-.13.09.05-.14-.12-.09.15 0z"/><path d="M1.5 .82l.05.14.15 0-.12.09.05.14-.13-.09-.13.09.05-.14-.12-.09.15 0z"/><path d="M2.5 .82l.05.14.15 0-.12.09.05.14-.13-.09-.13.09.05-.14-.12-.09.15 0z"/></g></svg> سوريا مباشر</div><p>نقل الخبر مع الرجوع إلى مصدره الأصلي.</p></div>
-      <div><p>🟢 نشر وتحديث تلقائي للأخبار كل 5 دقائق.</p><p><a href="https://chat.whatsapp.com/Cmop7Ean95FB5Y9Uefj7zq?s=cl&amp;p=a&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener noreferrer">انضم إلى مجموعة واتساب</a></p><p>© <span id="year"></span> سوريا مباشر</p></div>
+      <div><p>🟢 نشر وتحديث تلقائي للأخبار كل 5 دقائق.</p><p>© <span id="year"></span> سوريا مباشر</p></div>
     </div>
   </footer>
 
