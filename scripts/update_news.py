@@ -46,7 +46,7 @@ IMAGE_LOOKUP_VERSION = 5
 MAX_DESCRIPTION_LOOKUPS_PER_CYCLE = 3
 REQUEST_TIMEOUT = 12
 WHATSAPP_TRACKING_VERSION = 2
-SITE_URL = "https://obaidahshteiwi.github.io/syria-mubasher/"
+SITE_URL = "https://syria-mubasher.pages.dev/"
 
 FEEDS = [
     ("سانا", "site:sana.sy سوريا"),
