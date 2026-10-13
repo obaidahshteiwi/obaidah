@@ -1832,7 +1832,8 @@ def main():
                     wa_sent_urls.clear()
                     wa_sent_urls_list = []
                     queued_set = set(whatsapp_queue)
-                    queued_items = [item for item in old_news.get("items", []) if str(item.get("url", "") or "") in queued_set]
+                    whatsapp_items_by_url = {str(item.get("url", "") or ""): item for item in old_news.get("items", []) + whatsapp_fresh if isinstance(item, dict) and item.get("url")}
+                    queued_items = [whatsapp_items_by_url[url] for url in whatsapp_queue if url in whatsapp_items_by_url]
                     print(f"WhatsApp destination changed; dropped {old_queue_count - len(whatsapp_queue)} old queued stories and retained {len(whatsapp_queue)} fresh story/stories.")
                 # Check only a few messages per cycle so the pending queue cannot stall updates.
                 def pending_check_time(entry):
