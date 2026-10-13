@@ -31,6 +31,8 @@ WHATSAPP_SETTINGS_FILE = ROOT / "config" / "whatsapp.json"
 MAX_NEW_PER_CYCLE = 1
 MAX_PENDING_STATUS_CHECKS_PER_CYCLE = 5
 TITLE_SIMILARITY_THRESHOLD = 0.90
+# Pin delivery to the explicitly requested current WhatsApp group, ignoring stale secret/config targets.
+WHATSAPP_GROUP_ID = "120363413362085519"
 MAX_SITE_NEWS = 100
 MAX_HISTORY = 1000
 MAX_IMAGE_LOOKUPS_PER_CYCLE = 8
@@ -1077,7 +1079,7 @@ def green_api_config():
     instance = (os.getenv("GREEN_API_INSTANCE", "") or file_settings.get("instance_id", "")).strip()
     token = (os.getenv("GREEN_API_TOKEN", "") or file_settings.get("api_token", "")).strip()
     # Prefer the repository config destination so a stale GitHub Secret cannot redirect messages to an old group.
-    chat_id = (file_settings.get("group_id", "") or os.getenv("WHATSAPP_GROUP_ID", "")).strip()
+    chat_id = WHATSAPP_GROUP_ID
     if base and not base.startswith(("https://", "http://")):
         base = "https://" + base
     if instance and not instance.startswith("waInstance"):
@@ -1229,7 +1231,7 @@ def evolution_config():
     if not isinstance(file_settings, dict):
         file_settings = {}
     # Prefer the repository config destination so a stale GitHub Secret cannot redirect messages to an old group.
-    group_id = (file_settings.get("group_id", "") or os.getenv("WHATSAPP_GROUP_ID", "")).strip()
+    group_id = WHATSAPP_GROUP_ID
     channel_id = os.getenv("WHATSAPP_CHANNEL_ID", "").strip()
     if base and not base.startswith(("https://", "http://")):
         base = "https://" + base
@@ -1762,6 +1764,8 @@ def main():
         base, instance, token, chat_id = green_api_config()
         settings = whatsapp_settings()
         configured = settings["enabled"] and all((base, instance, token, chat_id))
+        if configured:
+            print(f"WhatsApp destination pinned to: {chat_id}")
         quota_blocked = bool(state.get("whatsapp_quota_blocked", False))
         manual_retry = os.getenv("GITHUB_EVENT_NAME", "") == "workflow_dispatch"
         if manual_retry:
