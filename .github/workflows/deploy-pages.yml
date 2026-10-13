@@ -48,17 +48,8 @@ jobs:
       - name: Install image processing library
         run: python -m pip install --disable-pip-version-check --quiet Pillow
 
-      - name: Fetch RSS news and post to WhatsApp when configured
+      - name: Fetch RSS news for website only
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.event_name == 'push'
-        env:
-          GREEN_API_URL: ${{ secrets.GREEN_API_URL }}
-          GREEN_API_INSTANCE: ${{ secrets.GREEN_API_INSTANCE }}
-          GREEN_API_TOKEN: ${{ secrets.GREEN_API_TOKEN }}
-          WHATSAPP_GROUP_ID: "120363430208733932@g.us"
-          EVOLUTION_API_URL: ${{ secrets.EVOLUTION_API_URL }}
-          EVOLUTION_API_KEY: ${{ secrets.EVOLUTION_API_KEY }}
-          EVOLUTION_INSTANCE: ${{ secrets.EVOLUTION_INSTANCE }}
-          WHATSAPP_CHANNEL_ID: ${{ secrets.WHATSAPP_CHANNEL_ID }}
         run: python scripts/update_news.py
 
       - name: Commit updated news data
