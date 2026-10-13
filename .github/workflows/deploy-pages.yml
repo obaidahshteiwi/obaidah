@@ -1,6 +1,6 @@
 name: Syria Mubasher - RSS and Website
-# Run at a five-minute cadence offset from the top of the hour to avoid peak-minute scheduling pressure.
-# Manual publication updates to the site also trigger a fresh Pages deployment.
+# Keep the update loop alive through chained workflow_dispatch runs; the hourly schedule is a recovery trigger.
+# Code changes also start the loop; generated data-only commits are ignored below.
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
       - "data/state.json"
       - "images/**"
   schedule:
-    - cron: "2-59/5 * * * *"
+    - cron: "17 * * * *"
   workflow_dispatch:
     inputs:
       continue_loop:
@@ -34,7 +34,7 @@ concurrency:
 jobs:
   update-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -56,7 +56,7 @@ jobs:
         run: python -m pip install --disable-pip-version-check --quiet Pillow
 
       - name: Fetch RSS news and post to WhatsApp when configured
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.event_name == 'push'
         env:
           GREEN_API_URL: ${{ secrets.GREEN_API_URL }}
           GREEN_API_INSTANCE: ${{ secrets.GREEN_API_INSTANCE }}
@@ -239,4 +239,21 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # Keep the five-minute news loop alive even when GitHub delays scheduled events.
+      # A push to code starts the chain; data-only commits are excluded by paths-ignore.
+      - name: Continue automatic five-minute updates
+        if: success() && (github.event_name == 'push' || github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.continue_loop))
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          sleep 180
+          curl --fail-with-body --silent --show-error --retry 3 --retry-delay 2 \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${REPOSITORY}/actions/workflows/deploy-pages.yml/dispatches" \
+            -d '{"ref":"main","inputs":{"continue_loop":true}}'
 
