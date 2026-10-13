@@ -319,7 +319,8 @@
     "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5hMWlhU2RWZ3VDaVFKZVVVdTZNVHpDVmdJVzhSMjVNSzNvdUNxTHVDRDJPUUgwY0QwR2tBX0dEZDJnelBvdG1NTGZkV3lwWHRxMm1ORGlSQkRSLUU?oc=5",
     "https://news.google.com/rss/articles/CBMiR0FVX3lxTE8zRy1UVVQxNmN2TXFaTkVXcFUyenR1aFRVcFI5c1MwNUNLOFhUOEpwOXBqWXd3QW5TQVN2QWl4R2E1cXVqcE5z?oc=5",
     "https://news.google.com/rss/articles/CBMiVkFVX3lxTE4tdF9MZ1RraGtTaUhENFREb19EUV9PNk1INnJaTWpQOFRRYVpTTmJYRjZXaXpZX0JEVEZ4NGxkdHEwNTNnei13dTFBbkNmUzJINy0tQnRR?oc=5",
-    "https://news.google.com/rss/articles/CBMivgJBVV95cUxNdG1oWjQwZm8wNTRCX2pxaWNjWlZCZUlvcHQ5MUtZVjdNa0NiNzdvTmw5d2VzS1lRZG41UkxwTnZLQWpwVS1tWnlvWnRrRkpvY1gwOVkyLUNTeUMtNWxiUlZvdklvbG54bVdrbWZmdXY2aVBRdVJqMUtDbG1vRlFqaW8xWFh4ZmxtbWF0Y2ZtdEg2WndmVF9HVzN3bnlUbVdBQUFCeTlrNmNaYkZ0UUVseXN6YUFVYWV4WlotTHZxZ05SQkprczFWd0lRT1BWQjFwa3VCYVNQTFV4M3dIYTFBdmRlRFFZOXVUUzgxSWNMc0paNkJ2aTlNREN0ZkUxSkszVTNyVWpWXy1MRE9wX3JFTlE3djJUUlpLRlhZQzFmVG10VGpQU1hIdF9QZDJjMDVHcFJPa2hUTU5ZeVNqdGc?oc=5"
+    "https://news.google.com/rss/articles/CBMivgJBVV95cUxNdG1oWjQwZm8wNTRCX2pxaWNjWlZCZUlvcHQ5MUtZVjdNa0NiNzdvTmw5d2VzS1lRZG41UkxwTnZLQWpwVS1tWnlvWnRrRkpvY1gwOVkyLUNTeUMtNWxiUlZvdklvbG54bVdrbWZmdXY2aVBRdVJqMUtDbG1vRlFqaW8xWFh4ZmxtbWF0Y2ZtdEg2WndmVF9HVzN3bnlUbVdBQUFCeTlrNmNaYkZ0UUVseXN6YUFVYWV4WlotTHZxZ05SQkprczFWd0lRT1BWQjFwa3VCYVNQTFV4M3dIYTFBdmRlRFFZOXVUUzgxSWNMc0paNkJ2aTlNREN0ZkUxSkszVTNyVWpWXy1MRE9wX3JFTlE3djJUUlpLRlhZQzFmVG10VGpQU1hIdF9QZDJjMDVHcFJPa2hUTU5ZeVNqdGc?oc=5",
+    "https://news.google.com/rss/articles/CBMiVkFVX3lxTE83X1FlNXVlUGx0X1EwNnBhcEtJR28wYVhoZFUyRExOeUZBRTlNZ25MdXBMQWRONWlOX2xQRUxhWm1jWUZWYmZEaVRPOGtVVFpHOHZ3VnpR?oc=5"
   ],
   "published_titles": [
     "بمشاركةباحثينسوريينالمؤتمرالعربيللعلومفيألمانيايبحثتعزيزالشراكات",
@@ -639,23 +640,25 @@
     "مستشارالأمنالقوميفيالعراقلرووداو400سورينُقلوامعالمعتقلينإلىالعراقلمتَثبُتإدانتهمrudaw",
     "المفقودونفيسورياماخياراتأسرهمالقانونيةوكيفيُحكمبوفاتهم؟",
     "بطولةأنديةالجمهوريةللمبارزةتحت15سنةتنطلقبعدغدفيدمشق",
-    "سورياوالبنكالدوليمتابعةالتمويلوفرصتوسيعالمشاريعالتنموية"
+    "سورياوالبنكالدوليمتابعةالتمويلوفرصتوسيعالمشاريعالتنموية",
+    "مديريةالرياضةوالشباببإدلبتطلقدورةتأهيليةلمدربيكرةالقدم"
   ],
   "whatsapp_sent_urls": [
-    "https://sana.sy/sport/syrian-sport/2605513/"
-  ],
-  "whatsapp_queue": [
+    "https://sana.sy/sport/syrian-sport/2605513/",
     "https://alwatan.sy/%d8%b3%d9%88%d8%b1%d9%8a%d8%a7-%d9%88%d8%a7%d9%84%d8%a8%d9%86%d9%83-%d8%a7%d9%84%d8%af%d9%88%d9%84%d9%8a-%d9%85%d8%aa%d8%a7%d8%a8%d8%b9%d8%a9-%d8%a7%d9%84%d8%aa%d9%85%d9%88%d9%8a%d9%84-%d9%88%d9%81/"
   ],
+  "whatsapp_queue": [
+    "https://sana.sy/sport/syrian-sport/2605720/"
+  ],
   "whatsapp_pending": {
-    "https://alwatan.sy/%d8%b3%d9%88%d8%b1%d9%8a%d8%a7-%d9%88%d8%a7%d9%84%d8%a8%d9%86%d9%83-%d8%a7%d9%84%d8%af%d9%88%d9%84%d9%8a-%d9%85%d8%aa%d8%a7%d8%a8%d8%b9%d8%a9-%d8%a7%d9%84%d8%aa%d9%85%d9%88%d9%8a%d9%84-%d9%88%d9%81/": {
-      "id_message": "3EB082B811FB5D135D1A00",
+    "https://sana.sy/sport/syrian-sport/2605720/": {
+      "id_message": "3EB0964171AF538CFA1E1A",
       "chat_id": "120363430208733932@g.us",
-      "title": "سوريا والبنك الدولي.. متابعة التمويل وفرص توسيع المشاريع التنموية",
+      "title": "مديرية الرياضة والشباب بإدلب تطلق دورة تأهيلية لمدربي كرة القدم ‏",
       "kind": "image",
       "attempts": 1,
       "status": "pending",
-      "queued_at": "2026-10-13T14:55:14+00:00"
+      "queued_at": "2026-10-13T14:58:56+00:00"
     }
   },
   "evolution_sent": {},
@@ -663,7 +666,8 @@
   "whatsapp_quota_blocked": false,
   "whatsapp_attempt_counts": {
     "https://sana.sy/sport/syrian-sport/2605513/": 1,
-    "https://alwatan.sy/%d8%b3%d9%88%d8%b1%d9%8a%d8%a7-%d9%88%d8%a7%d9%84%d8%a8%d9%86%d9%83-%d8%a7%d9%84%d8%af%d9%88%d9%84%d9%8a-%d9%85%d8%aa%d8%a7%d8%a8%d8%b9%d8%a9-%d8%a7%d9%84%d8%aa%d9%85%d9%88%d9%8a%d9%84-%d9%88%d9%81/": 1
+    "https://alwatan.sy/%d8%b3%d9%88%d8%b1%d9%8a%d8%a7-%d9%88%d8%a7%d9%84%d8%a8%d9%86%d9%83-%d8%a7%d9%84%d8%af%d9%88%d9%84%d9%8a-%d9%85%d8%aa%d8%a7%d8%a8%d8%b9%d8%a9-%d8%a7%d9%84%d8%aa%d9%85%d9%88%d9%8a%d9%84-%d9%88%d9%81/": 1,
+    "https://sana.sy/sport/syrian-sport/2605720/": 1
   },
   "image_lookup_attempts": {
     "https://www.enabbaladi.net/828525/%d8%a7%d9%84%d8%a3%d9%85%d9%85-%d8%a7%d9%84%d9%85%d8%aa%d8%ad%d8%af%d8%a9-%d8%aa%d9%88%d8%ab%d9%82-%d8%a7%d9%86%d8%aa%d9%87%d8%a7%d9%83%d8%a7%d8%aa-%d8%a5%d8%b3%d8%b1%d8%a7%d8%a6%d9%8a%d9%84-%d9%81/": "2026-10-11T09:03:52+00:00",
@@ -886,7 +890,8 @@
     "https://sana.sy/sport/syrian-sport/2605536/": "2026-10-13T14:40:34+00:00",
     "https://sana.sy/reports/2605676/": "2026-10-13T14:47:54+00:00",
     "https://sana.sy/sport/syrian-sport/2605513/": "2026-10-13T14:51:32+00:00",
-    "https://alwatan.sy/%d8%b3%d9%88%d8%b1%d9%8a%d8%a7-%d9%88%d8%a7%d9%84%d8%a8%d9%86%d9%83-%d8%a7%d9%84%d8%af%d9%88%d9%84%d9%8a-%d9%85%d8%aa%d8%a7%d8%a8%d8%b9%d8%a9-%d8%a7%d9%84%d8%aa%d9%85%d9%88%d9%8a%d9%84-%d9%88%d9%81/": "2026-10-13T14:55:08+00:00"
+    "https://alwatan.sy/%d8%b3%d9%88%d8%b1%d9%8a%d8%a7-%d9%88%d8%a7%d9%84%d8%a8%d9%86%d9%83-%d8%a7%d9%84%d8%af%d9%88%d9%84%d9%8a-%d9%85%d8%aa%d8%a7%d8%a8%d8%b9%d8%a9-%d8%a7%d9%84%d8%aa%d9%85%d9%88%d9%8a%d9%84-%d9%88%d9%81/": "2026-10-13T14:55:08+00:00",
+    "https://sana.sy/sport/syrian-sport/2605720/": "2026-10-13T14:58:45+00:00"
   },
   "image_download_attempts": {
     "https://cdn.sananews.sy/2026/10/IMG_8814-Copy-1024x683.jpg": "2026-10-13T13:49:36+00:00",
@@ -902,7 +907,8 @@
     "https://cdn.sananews.sy/2026/10/سوريا-أثقال.jpg": "2026-10-13T14:40:34+00:00",
     "https://cdn.sananews.sy/2026/10/photo_2026-10-13_17-13-01.jpg": "2026-10-13T14:47:54+00:00",
     "https://cdn.sananews.sy/2026/10/الاتحاد-السوري-للمبارزة.jpg": "2026-10-13T14:51:32+00:00",
-    "https://alwatan.sy/wp-content/uploads/2026/10/%D8%B3%D9%88%D8%B1%D9%8A%D8%A7-%D9%88%D8%A7%D9%84%D8%A8%D9%86%D9%83-%D8%A7%D9%84%D8%AF%D9%88%D9%84%D9%8A.jpg": "2026-10-13T14:55:08+00:00"
+    "https://alwatan.sy/wp-content/uploads/2026/10/%D8%B3%D9%88%D8%B1%D9%8A%D8%A7-%D9%88%D8%A7%D9%84%D8%A8%D9%86%D9%83-%D8%A7%D9%84%D8%AF%D9%88%D9%84%D9%8A.jpg": "2026-10-13T14:55:08+00:00",
+    "https://cdn.sananews.sy/2026/10/IMG_3691-1024x683.jpg": "2026-10-13T14:58:45+00:00"
   },
   "publisher_resolution_attempts": {
     "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5mak1yZmVBRGxEX24zSEcyZjNxLS1QZ1ZQODNiLWVGZXhWNmYySE9wN1VWSjZfSlhWc0Jid1VjbTNaZmNCYVctZkJIdVZUTUh3YzBqYmlYMTJMRGFlWHc?oc=5": "2026-10-13T09:07:36+00:00",
@@ -945,7 +951,8 @@
     "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5hMWlhU2RWZ3VDaVFKZVVVdTZNVHpDVmdJVzhSMjVNSzNvdUNxTHVDRDJPUUgwY0QwR2tBX0dEZDJnelBvdG1NTGZkV3lwWHRxMm1ORGlSQkRSLUU?oc=5": "2026-10-13T14:44:14+00:00",
     "https://news.google.com/rss/articles/CBMiR0FVX3lxTE8zRy1UVVQxNmN2TXFaTkVXcFUyenR1aFRVcFI5c1MwNUNLOFhUOEpwOXBqWXd3QW5TQVN2QWl4R2E1cXVqcE5z?oc=5": "2026-10-13T14:47:54+00:00",
     "https://news.google.com/rss/articles/CBMiVkFVX3lxTE4tdF9MZ1RraGtTaUhENFREb19EUV9PNk1INnJaTWpQOFRRYVpTTmJYRjZXaXpZX0JEVEZ4NGxkdHEwNTNnei13dTFBbkNmUzJINy0tQnRR?oc=5": "2026-10-13T14:51:32+00:00",
-    "https://news.google.com/rss/articles/CBMivgJBVV95cUxNdG1oWjQwZm8wNTRCX2pxaWNjWlZCZUlvcHQ5MUtZVjdNa0NiNzdvTmw5d2VzS1lRZG41UkxwTnZLQWpwVS1tWnlvWnRrRkpvY1gwOVkyLUNTeUMtNWxiUlZvdklvbG54bVdrbWZmdXY2aVBRdVJqMUtDbG1vRlFqaW8xWFh4ZmxtbWF0Y2ZtdEg2WndmVF9HVzN3bnlUbVdBQUFCeTlrNmNaYkZ0UUVseXN6YUFVYWV4WlotTHZxZ05SQkprczFWd0lRT1BWQjFwa3VCYVNQTFV4M3dIYTFBdmRlRFFZOXVUUzgxSWNMc0paNkJ2aTlNREN0ZkUxSkszVTNyVWpWXy1MRE9wX3JFTlE3djJUUlpLRlhZQzFmVG10VGpQU1hIdF9QZDJjMDVHcFJPa2hUTU5ZeVNqdGc?oc=5": "2026-10-13T14:55:08+00:00"
+    "https://news.google.com/rss/articles/CBMivgJBVV95cUxNdG1oWjQwZm8wNTRCX2pxaWNjWlZCZUlvcHQ5MUtZVjdNa0NiNzdvTmw5d2VzS1lRZG41UkxwTnZLQWpwVS1tWnlvWnRrRkpvY1gwOVkyLUNTeUMtNWxiUlZvdklvbG54bVdrbWZmdXY2aVBRdVJqMUtDbG1vRlFqaW8xWFh4ZmxtbWF0Y2ZtdEg2WndmVF9HVzN3bnlUbVdBQUFCeTlrNmNaYkZ0UUVseXN6YUFVYWV4WlotTHZxZ05SQkprczFWd0lRT1BWQjFwa3VCYVNQTFV4M3dIYTFBdmRlRFFZOXVUUzgxSWNMc0paNkJ2aTlNREN0ZkUxSkszVTNyVWpWXy1MRE9wX3JFTlE3djJUUlpLRlhZQzFmVG10VGpQU1hIdF9QZDJjMDVHcFJPa2hUTU5ZeVNqdGc?oc=5": "2026-10-13T14:55:08+00:00",
+    "https://news.google.com/rss/articles/CBMiVkFVX3lxTE83X1FlNXVlUGx0X1EwNnBhcEtJR28wYVhoZFUyRExOeUZBRTlNZ25MdXBMQWRONWlOX2xQRUxhWm1jWUZWYmZEaVRPOGtVVFpHOHZ3VnpR?oc=5": "2026-10-13T14:58:45+00:00"
   },
   "description_lookup_attempts": {
     "https://sana.sy/governorates/alqunaytrah/2605086/": "2026-10-12T19:01:14+00:00",
@@ -965,11 +972,12 @@
     "https://sana.sy/sport/syrian-sport/2605536/": "2026-10-13T14:40:34+00:00",
     "https://sana.sy/reports/2605676/": "2026-10-13T14:47:54+00:00",
     "https://sana.sy/sport/syrian-sport/2605513/": "2026-10-13T14:51:32+00:00",
-    "https://alwatan.sy/%d8%b3%d9%88%d8%b1%d9%8a%d8%a7-%d9%88%d8%a7%d9%84%d8%a8%d9%86%d9%83-%d8%a7%d9%84%d8%af%d9%88%d9%84%d9%8a-%d9%85%d8%aa%d8%a7%d8%a8%d8%b9%d8%a9-%d8%a7%d9%84%d8%aa%d9%85%d9%88%d9%8a%d9%84-%d9%88%d9%81/": "2026-10-13T14:55:08+00:00"
+    "https://alwatan.sy/%d8%b3%d9%88%d8%b1%d9%8a%d8%a7-%d9%88%d8%a7%d9%84%d8%a8%d9%86%d9%83-%d8%a7%d9%84%d8%af%d9%88%d9%84%d9%8a-%d9%85%d8%aa%d8%a7%d8%a8%d8%b9%d8%a9-%d8%a7%d9%84%d8%aa%d9%85%d9%88%d9%8a%d9%84-%d9%88%d9%81/": "2026-10-13T14:55:08+00:00",
+    "https://sana.sy/sport/syrian-sport/2605720/": "2026-10-13T14:58:45+00:00"
   },
   "image_storage_version": 2,
   "image_lookup_version": 5,
   "news_since": "2026-10-10T14:04:19+00:00",
-  "newest_seen_at": "2026-10-13T14:20:11+00:00",
+  "newest_seen_at": "2026-10-13T14:53:14+00:00",
   "feed_errors": []
 }
