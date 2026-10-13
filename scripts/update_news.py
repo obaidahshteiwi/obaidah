@@ -29,7 +29,7 @@ NEWS_FILE = DATA / "news.json"
 STATE_FILE = DATA / "state.json"
 WHATSAPP_SETTINGS_FILE = ROOT / "config" / "whatsapp.json"
 MAX_SITE_NEW_PER_CYCLE = 1
-MAX_WHATSAPP_NEW_PER_CYCLE = 3
+MAX_WHATSAPP_NEW_PER_CYCLE = 1
 MAX_PENDING_STATUS_CHECKS_PER_CYCLE = 5
 TITLE_SIMILARITY_THRESHOLD = 0.90
 # Pin delivery to the explicitly requested current WhatsApp group, ignoring stale secret/config targets.
