@@ -115,7 +115,7 @@ jobs:
           )
           merged_news["items"] = sorted(
               by_url.values(), key=lambda item: stamp(item.get("published_at")), reverse=True
-          )[:100]
+          )[:1000]
           Path("data/news.json").write_text(
               json.dumps(merged_news, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
           )
